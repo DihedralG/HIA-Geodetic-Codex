@@ -6,7 +6,7 @@ if not os.path.exists("data"):
     os.makedirs("data")
 
 # Now proceed with saving the results
-output_path = "/data/mc_simulation_results.csv"
+output_path = "./HIA-Geodetic-Codex/data/mc_simulation_results.csv"
 results_df.to_csv(output_path, index=False)
 
 print(f"Monte Carlo simulation results saved to {output_path}")
@@ -15,7 +15,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Load site coordinate data
-site_data = pd.read_csv("/data/site_coordinates.csv")
+site_data = pd.read_csv("./HIA-Geodetic-Codex/data/site_coordinates.csv")
 
 # Define Monte Carlo parameters
 num_simulations = 1000  # Number of randomized site distributions
@@ -42,6 +42,13 @@ for _ in range(num_simulations):
 
 # Convert results to DataFrame
 results_df = pd.DataFrame(alignment_counts, columns=["Number_of_Alignments"])
+results_df.to_csv(output_path, index=False)
+
+# Verify the file was created
+if os.path.exists(output_path):
+    print(f"Monte Carlo simulation results successfully saved to {output_path}")
+else:
+    print("Error: File was not created.")
 
 # Save results as CSV inside the repository
 output_path = "./HIA-Geodetic-Codex/data/mc_simulation_results.csv"
