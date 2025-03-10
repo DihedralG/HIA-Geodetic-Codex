@@ -71,6 +71,15 @@ if not alignment_counts or sum(alignment_counts) == 0:
 # Convert results to DataFrame
 results_df = pd.DataFrame(alignment_counts, columns=["Number_of_Alignments"])
 
+# Check if DataFrame has data before saving
+if results_df.empty:
+    print("❌ Error: DataFrame is empty, nothing to save.")
+else:
+    results_df.to_csv(output_path, index=False)
+    print(f"✅ Monte Carlo simulation results saved to {output_path}")
+
+
+
 # Save results to CSV inside the repository
 results_df.to_csv(output_path, index=False)
 print(f"✅ Monte Carlo simulation results saved to {output_path}")
