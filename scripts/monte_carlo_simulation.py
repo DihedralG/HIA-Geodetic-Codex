@@ -7,7 +7,7 @@ print("Monte Carlo Simulation Running")
 
 # Define paths
 repo_root = os.getcwd()  # Get working directory
-data_dir = os.path.join(repo_root, "HIA-Geodetic-Codex/data")
+data_dir = os.path.join(repo_root, "./HIA-Geodetic-Codex/data")
 output_path = os.path.join(data_dir, "mc_simulation_results.csv")
 
 # Ensure data directory exists
