@@ -66,3 +66,4 @@ plt.show()
 # Compute significance
 p_value = np.sum(np.array(alignment_counts) >= len(site_data)) / num_simulations
 print(f"P-value of observed alignment: {p_value:.5f}")
+print("Monte Carlo simulation completed successfully.")
