@@ -38,7 +38,7 @@ for _ in range(num_simulations):
     distances = np.sqrt((site_data["Latitude"] - random_sites["Latitude"])**2 +
                         (site_data["Longitude"] - random_sites["Longitude"])**2)
 
-    aligned_sites = np.sum(distances < 1.0)  # Example threshold of 1 degree
+    aligned_sites = np.sum(distances < 2.0)  # Example threshold of 1 degree
     alignment_counts.append(aligned_sites)
 
 # Debugging Step: Check if alignment_counts has values
