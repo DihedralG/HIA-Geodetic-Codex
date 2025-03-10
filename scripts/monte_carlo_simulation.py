@@ -91,11 +91,25 @@ else:
 results_df.to_csv(output_path, index=False)
 print(f"✅ Monte Carlo simulation results saved to {output_path}")
 
+
+
+
+
+
 # Verify the file was created
 if os.path.exists(output_path):
     print("Monte Carlo simulation results successfully saved.")
 else:
     print("Error: File was not created.")
+
+
+df_check = pd.read_csv(output_path)
+if df_check.empty:
+    print("❌ Error: The saved CSV file is empty!")
+else:
+    print("✅ Saved CSV file contains data!")
+
+
 
 # Plot histogram
 plt.hist(alignment_counts, bins=50, color="blue", alpha=0.6, label="Monte Carlo Alignments")
