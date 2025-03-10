@@ -67,6 +67,13 @@ if os.path.exists(output_path):
 else:
     print("Error: File was not created.")
 
+try:
+    results_df.to_csv(output_path, index=False)
+    print(f"Monte Carlo simulation results saved to {output_path}")
+except Exception as e:
+    print(f"Error saving CSV file: {e}")
+
+
 # Plot histogram
 plt.hist(alignment_counts, bins=50, color="blue", alpha=0.6, label="Monte Carlo Alignments")
 plt.axvline(len(site_data), color="red", linestyle="dashed", label="Observed Alignments")
