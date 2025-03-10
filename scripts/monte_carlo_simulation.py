@@ -48,6 +48,19 @@ results_df = pd.DataFrame(alignment_counts, columns=["Number_of_Alignments"])
 results_df.to_csv(output_path, index=False)
 print(f"Monte Carlo simulation results saved to {output_path}")
 
+
+# Convert results to DataFrame
+results_df = pd.DataFrame(alignment_counts, columns=["Number_of_Alignments"])
+print("Monte Carlo Results DataFrame preview:")
+print(results_df.head())  # Show first few rows to verify data exists
+
+# Ensure DataFrame is not empty
+if results_df.empty:
+    print("Error: DataFrame is empty, nothing to save.")
+else:
+    print("DataFrame is populated, proceeding to save.")
+
+
 # Verify the file was created
 if os.path.exists(output_path):
     print(f"Monte Carlo simulation results successfully saved to {output_path}")
