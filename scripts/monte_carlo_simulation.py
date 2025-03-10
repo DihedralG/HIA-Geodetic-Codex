@@ -28,6 +28,8 @@ lon_min, lon_max = site_data["Longitude"].min(), site_data["Longitude"].max()
 # Store results
 alignment_counts = []
 
+
+
 # Monte Carlo Simulation
 for _ in range(num_simulations):
     random_sites = pd.DataFrame({
