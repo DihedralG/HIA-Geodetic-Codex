@@ -63,13 +63,6 @@ for i in range(num_simulations):
 # Debugging: Print sample alignment counts
 print("Alignment counts sample:", alignment_counts[:10])
 
-
-# Debugging: Show DataFrame before saving
-print("Monte Carlo results DataFrame preview:")
-print(results_df.head())
-
-
-
 # Check if alignment_counts is populated
 if not alignment_counts or sum(alignment_counts) == 0:
     print("❌ Error: No alignments detected. Check input data.")
@@ -78,6 +71,10 @@ if not alignment_counts or sum(alignment_counts) == 0:
 # Convert results to DataFrame
 results_df = pd.DataFrame(alignment_counts, columns=["Number_of_Alignments"])
 
+# Debugging: Show DataFrame before saving
+print("Monte Carlo results DataFrame preview:")
+print(results_df.head())
+
 # Check if DataFrame has data before saving
 if results_df.empty:
     print("❌ Error: DataFrame is empty, nothing to save.")
@@ -85,37 +82,15 @@ else:
     results_df.to_csv(output_path, index=False)
     print(f"✅ Monte Carlo simulation results saved to {output_path}")
 
-
-
-# Save results to CSV inside the repository
-results_df.to_csv(output_path, index=False)
-print(f"✅ Monte Carlo simulation results saved to {output_path}")
-
-
-
-
-
-
-# Verify the file was created
+# Verify the file was created and contains data
 if os.path.exists(output_path):
-    print("Monte Carlo simulation results successfully saved.")
+    df_check = pd.read_csv(output_path)
+    if df_check.empty:
+        print("❌ Error: The saved CSV file is empty!")
+    else:
+        print("✅ Saved CSV file contains data!")
 else:
-    print("Error: File was not created.")
-
-import time
-time.sleep(2)  # Pause for 2 seconds before reading
-
-df_check = pd.read_csv(output_path)
-
-
-
-df_check = pd.read_csv(output_path)
-if df_check.empty:
-    print("❌ Error: The saved CSV file is empty!")
-else:
-    print("✅ Saved CSV file contains data!")
-
-
+    print("❌ Error: The file was not created.")
 
 # Plot histogram
 plt.hist(alignment_counts, bins=50, color="blue", alpha=0.6, label="Monte Carlo Alignments")
