@@ -46,7 +46,7 @@ results_df = pd.DataFrame(alignment_counts, columns=["Number_of_Alignments"])
 # Save results as CSV inside the repository
 output_path = "./HIA-Geodetic-Codex/data/mc_simulation_results.csv"
 results_df.to_csv(output_path, index=False)
-
+print("Attempting to save Monte Carlo simulation results...")
 # Plot histogram
 plt.hist(alignment_counts, bins=50, color="blue", alpha=0.6, label="Monte Carlo Alignments")
 plt.axvline(len(site_data), color="red", linestyle="dashed", label="Observed Alignments")
