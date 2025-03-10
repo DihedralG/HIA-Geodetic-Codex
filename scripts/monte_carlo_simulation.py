@@ -102,6 +102,12 @@ if os.path.exists(output_path):
 else:
     print("Error: File was not created.")
 
+import time
+time.sleep(2)  # Pause for 2 seconds before reading
+
+df_check = pd.read_csv(output_path)
+
+
 
 df_check = pd.read_csv(output_path)
 if df_check.empty:
