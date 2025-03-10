@@ -16,7 +16,7 @@ else:
     print(f"Directory already exists: {data_dir}")
 
 # Define full path to the output file
-output_path = os.path.join(data_dir, "mc_simulation_results.csv")
+output_path = os.path.join(data_dir, "HIA-Geodetic-Codex/data/mc_simulation_results.csv")
 print(f"Output path set to: {output_path}")
 import os
 
