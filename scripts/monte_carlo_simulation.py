@@ -1,4 +1,23 @@
 vprint('Monte Carlo Simulation Running')
+
+import os
+
+# Get the working directory where the repo is cloned
+repo_root = os.getcwd()  # This gives you the absolute path
+
+# Define full path for data storage
+data_dir = os.path.join(repo_root, "./HIA-Geodetic-Codex/data")
+
+# Ensure the directory exists
+if not os.path.exists(data_dir):
+    print(f"Creating directory: {data_dir}")
+    os.makedirs(data_dir)
+else:
+    print(f"Directory already exists: {data_dir}")
+
+# Define full path to the output file
+output_path = os.path.join(data_dir, "mc_simulation_results.csv")
+print(f"Output path set to: {output_path}")
 import os
 
 # Ensure 'data' directory exists before writing
