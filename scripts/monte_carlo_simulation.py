@@ -52,7 +52,7 @@ for i in range(num_simulations):
     )
 
     # Count alignments within 1-degree threshold
-    aligned_sites = np.sum(distances < 1.0)  # Adjust threshold if needed
+    aligned_sites = np.sum(distances < 2.0)  # Adjust threshold if needed
 
     # Debugging: Print distance sample and aligned count
     if i % 100 == 0:
