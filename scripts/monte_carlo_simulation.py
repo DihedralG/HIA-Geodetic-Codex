@@ -2,6 +2,7 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import time
 
 print("Monte Carlo Simulation Running")
 
@@ -26,7 +27,7 @@ if not os.path.exists(site_data_path):
 site_data = pd.read_csv(site_data_path)
 
 # Define Monte Carlo parameters
-num_simulations = 10000  # Reduced from 10,000 for testing
+num_simulations = 10000  # Ensuring it is set to 10,000
 lat_min, lat_max = site_data["Latitude"].min(), site_data["Latitude"].max()
 lon_min, lon_max = site_data["Longitude"].min(), site_data["Longitude"].max()
 
@@ -40,7 +41,7 @@ for i in range(num_simulations):
         "Longitude": np.random.uniform(lon_min, lon_max, len(site_data))
     })
 
-    # Debugging: Print random sites sample
+    # Debugging: Print random sites sample for first iteration
     if i == 0:
         print("Random sites sample:")
         print(random_sites.head())
@@ -54,19 +55,11 @@ for i in range(num_simulations):
     # Count alignments within 1-degree threshold
     aligned_sites = np.sum(distances < 1.0)  # Adjust threshold if needed
 
-    # Debugging: Print distance sample and aligned count
+    # Debugging: Print progress every 100 iterations
     if i % 100 == 0:
         print(f"Simulation {i}: {aligned_sites} alignments found")
 
     alignment_counts.append(aligned_sites)
-
-# Debugging: Print sample alignment counts
-print("Alignment counts sample:", alignment_counts[:10])
-
-# Check if alignment_counts is populated
-if not alignment_counts or sum(alignment_counts) == 0:
-    print("❌ Error: No alignments detected. Check input data.")
-    exit()
 
 # Convert results to DataFrame
 results_df = pd.DataFrame(alignment_counts, columns=["Number_of_Alignments"])
@@ -75,7 +68,7 @@ results_df = pd.DataFrame(alignment_counts, columns=["Number_of_Alignments"])
 print("Monte Carlo results DataFrame preview:")
 print(results_df.head())
 
-# Check if DataFrame has data before saving
+# Ensure data is not empty before saving
 if results_df.empty:
     print("❌ Error: DataFrame is empty, nothing to save.")
 else:
@@ -83,6 +76,8 @@ else:
     print(f"✅ Monte Carlo simulation results saved to {output_path}")
 
 # Verify the file was created and contains data
+time.sleep(2)  # Pause before checking file
+
 if os.path.exists(output_path):
     df_check = pd.read_csv(output_path)
     if df_check.empty:
@@ -90,7 +85,7 @@ if os.path.exists(output_path):
     else:
         print("✅ Saved CSV file contains data!")
 else:
-    print("❌ Error: The file was not created.")
+    print("❌ Error: CSV file was not created!")
 
 # Plot histogram
 plt.hist(alignment_counts, bins=50, color="blue", alpha=0.6, label="Monte Carlo Alignments")
