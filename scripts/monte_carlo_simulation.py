@@ -21,13 +21,16 @@ else:
 # Load site coordinate data
 site_data_path = os.path.join(data_dir, "site_coordinates.csv")
 if not os.path.exists(site_data_path):
-    print(f"Error: site_coordinates.csv not found at {site_data_path}")
+    print(f"❌ Error: site_coordinates.csv not found at {site_data_path}")
     exit()
 
 site_data = pd.read_csv(site_data_path)
+print(f"✅ Loaded site data with {len(site_data)} records.")
 
 # Define Monte Carlo parameters
-num_simulations = 10000  # Ensuring it is set to 10,000
+num_simulations = 10000  # Force to 10,000
+print(f"✅ Running {num_simulations} simulations...")
+
 lat_min, lat_max = site_data["Latitude"].min(), site_data["Latitude"].max()
 lon_min, lon_max = site_data["Longitude"].min(), site_data["Longitude"].max()
 
@@ -43,7 +46,7 @@ for i in range(num_simulations):
 
     # Debugging: Print random sites sample for first iteration
     if i == 0:
-        print("Random sites sample:")
+        print("🟢 Random sites sample:")
         print(random_sites.head())
 
     # Calculate distances
@@ -55,22 +58,26 @@ for i in range(num_simulations):
     # Count alignments within 1-degree threshold
     aligned_sites = np.sum(distances < 1.0)  # Adjust threshold if needed
 
-    # Debugging: Print progress every 100 iterations
-    if i % 100 == 0:
-        print(f"Simulation {i}: {aligned_sites} alignments found")
+    # Debugging: Print progress every 1000 iterations
+    if i % 1000 == 0:
+        print(f"🟡 Simulation {i}: {aligned_sites} alignments found")
 
     alignment_counts.append(aligned_sites)
+
+# Confirm number of iterations actually stored
+print(f"✅ Stored {len(alignment_counts)} alignment counts (should be 10,000)")
 
 # Convert results to DataFrame
 results_df = pd.DataFrame(alignment_counts, columns=["Number_of_Alignments"])
 
-# Debugging: Show DataFrame before saving
-print("Monte Carlo results DataFrame preview:")
+# Debugging: Show DataFrame preview
+print("🟢 Monte Carlo results DataFrame preview:")
 print(results_df.head())
 
 # Ensure data is not empty before saving
 if results_df.empty:
     print("❌ Error: DataFrame is empty, nothing to save.")
+    exit()
 else:
     results_df.to_csv(output_path, index=False)
     print(f"✅ Monte Carlo simulation results saved to {output_path}")
@@ -83,7 +90,7 @@ if os.path.exists(output_path):
     if df_check.empty:
         print("❌ Error: The saved CSV file is empty!")
     else:
-        print("✅ Saved CSV file contains data!")
+        print(f"✅ Saved CSV file contains {len(df_check)} records.")
 else:
     print("❌ Error: CSV file was not created!")
 
@@ -98,6 +105,6 @@ plt.show()
 
 # Compute statistical significance
 p_value = np.sum(np.array(alignment_counts) >= len(site_data)) / num_simulations
-print(f"p-value of observed alignment: {p_value:.5f}")
+print(f"✅ p-value of observed alignment: {p_value:.5f}")
 
-print("Monte Carlo simulation completed successfully.")
+print("✅ Monte Carlo simulation completed successfully.")
