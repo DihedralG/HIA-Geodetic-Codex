@@ -63,6 +63,13 @@ for i in range(num_simulations):
 # Debugging: Print sample alignment counts
 print("Alignment counts sample:", alignment_counts[:10])
 
+
+# Debugging: Show DataFrame before saving
+print("Monte Carlo results DataFrame preview:")
+print(results_df.head())
+
+
+
 # Check if alignment_counts is populated
 if not alignment_counts or sum(alignment_counts) == 0:
     print("❌ Error: No alignments detected. Check input data.")
