@@ -29,6 +29,15 @@ for _ in range(num_simulations):
     aligned_sites = np.sum(distances < 1.0)  # Example threshold of 1 degree
     alignment_counts.append(aligned_sites)
 
+
+
+
+# Save results as CSV inside the repository
+output_path = "data/mc_simulation_results.csv"
+results_df.to_csv(output_path, index=False)
+
+print(f"Monte Carlo simulation results saved to {output_path}")
+
 # Plot results
 plt.hist(alignment_counts, bins=50, color="blue", alpha=0.7)
 plt.axvline(len(site_data), color="red", linestyle="dashed", label="Actual Site Count")
@@ -41,11 +50,3 @@ plt.show()
 # Compute significance
 p_value = np.sum(np.array(alignment_counts) >= len(site_data)) / num_simulations
 print(f"P-value of observed alignment: {p_value:.5f}")
-
-
-# Save results as CSV inside the repository
-output_path = "data/mc_simulation_results.csv"
-results_df.to_csv(output_path, index=False)
-
-print(f"Monte Carlo simulation results saved to {output_path}")
-
