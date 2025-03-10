@@ -1,4 +1,4 @@
-print('Monte Carlo Simulation Running')
+print("Monte Carlo Simulation Running")
 
 import os
 import numpy as np
@@ -34,25 +34,22 @@ for _ in range(num_simulations):
         "Latitude": np.random.uniform(lat_min, lat_max, len(site_data)),
         "Longitude": np.random.uniform(lon_min, lon_max, len(site_data))
     })
-    distances = np.sqrt(
-        (site_data["Latitude"] - random_sites["Latitude"])**2 +
-        (site_data["Longitude"] - random_sites["Longitude"])**2
-    )
+
+    distances = np.sqrt((site_data["Latitude"] - random_sites["Latitude"])**2 +
+                        (site_data["Longitude"] - random_sites["Longitude"])**2)
+
     aligned_sites = np.sum(distances < 1.0)  # Example threshold of 1 degree
     alignment_counts.append(aligned_sites)
 
-# Convert results to DataFrame
-results_df = pd.DataFrame(alignment_counts, columns=["Number_of_Alignments"])
-
-# Save results as CSV inside the repository
-results_df.to_csv(output_path, index=False)
-print(f"Monte Carlo simulation results saved to {output_path}")
-
+# Debugging Step: Check if alignment_counts has values
+print("First 10 alignment counts:", alignment_counts[:10])
 
 # Convert results to DataFrame
 results_df = pd.DataFrame(alignment_counts, columns=["Number_of_Alignments"])
+
+# Debugging Step: Print results_df preview
 print("Monte Carlo Results DataFrame preview:")
-print(results_df.head())  # Show first few rows to verify data exists
+print(results_df.head())
 
 # Ensure DataFrame is not empty
 if results_df.empty:
@@ -60,19 +57,28 @@ if results_df.empty:
 else:
     print("DataFrame is populated, proceeding to save.")
 
-
-# Verify the file was created
-if os.path.exists(output_path):
-    print(f"Monte Carlo simulation results successfully saved to {output_path}")
-else:
-    print("Error: File was not created.")
-
+# Save results as CSV
 try:
     results_df.to_csv(output_path, index=False)
-    print(f"Monte Carlo simulation results saved to {output_path}")
+    print(f"Monte Carlo simulation results successfully saved to {output_path}")
 except Exception as e:
     print(f"Error saving CSV file: {e}")
 
+# Verify the file was created
+if os.path.exists(output_path):
+    print(f"Monte Carlo simulation results file confirmed at: {output_path}")
+else:
+    print("Error: File was not created.")
+
+# Load and display saved CSV contents
+try:
+    df = pd.read_csv(output_path)
+    print("Monte Carlo results successfully loaded from CSV:")
+    print(df.head())
+except FileNotFoundError:
+    print("Error: CSV file not found after saving attempt.")
+except Exception as e:
+    print(f"Error reading CSV file: {e}")
 
 # Plot histogram
 plt.hist(alignment_counts, bins=50, color="blue", alpha=0.6, label="Monte Carlo Alignments")
@@ -85,5 +91,6 @@ plt.show()
 
 # Compute significance
 p_value = np.sum(np.array(alignment_counts) >= len(site_data)) / num_simulations
-print(f"P-value of observed alignment: {p_value:.5f}")
+print(f"p-value of observed alignment: {p_value:.5f}")
+
 print("Monte Carlo simulation completed successfully.")
