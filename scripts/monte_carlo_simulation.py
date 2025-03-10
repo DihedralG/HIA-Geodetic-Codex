@@ -41,3 +41,19 @@ plt.show()
 # Compute significance
 p_value = np.sum(np.array(alignment_counts) >= len(site_data)) / num_simulations
 print(f"P-value of observed alignment: {p_value:.5f}")
+
+
+# Save results as CSV inside the repository
+output_path = "data/mc_simulation_results.csv"
+results_df.to_csv(output_path, index=False)
+
+print(f"Monte Carlo simulation results saved to {output_path}")
+
+# Plot histogram
+plt.hist(alignment_counts, bins=50, color="blue", alpha=0.6, label="Monte Carlo Alignments")
+plt.axvline(len(site_data), color="red", linestyle="dashed", label="Observed Alignments")
+plt.xlabel("Number of Alignments")
+plt.ylabel("Frequency")
+plt.title("Monte Carlo Simulation of Site Alignments")
+plt.legend()
+plt.show()
