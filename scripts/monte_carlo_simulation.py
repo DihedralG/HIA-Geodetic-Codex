@@ -1,9 +1,9 @@
-print("Monte Carlo Simulation Running")
-
 import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+
+print("Monte Carlo Simulation Running")
 
 # Define paths
 repo_root = os.getcwd()  # Get working directory
@@ -18,69 +18,60 @@ else:
     print(f"Directory already exists: {data_dir}")
 
 # Load site coordinate data
-site_data = pd.read_csv(os.path.join(data_dir, "site_coordinates.csv"))
+site_data_path = os.path.join(data_dir, "site_coordinates.csv")
+if not os.path.exists(site_data_path):
+    print(f"Error: site_coordinates.csv not found at {site_data_path}")
+    exit()
+
+site_data = pd.read_csv(site_data_path)
 
 # Define Monte Carlo parameters
-num_simulations = 1000  # Lowered from 10,000 for testing
+num_simulations = 1000  # Reduced from 10,000 for testing
 lat_min, lat_max = site_data["Latitude"].min(), site_data["Latitude"].max()
 lon_min, lon_max = site_data["Longitude"].min(), site_data["Longitude"].max()
 
 # Store results
 alignment_counts = []
 
-
-
-# Monte Carlo Simulation
-for _ in range(num_simulations):
+# Monte Carlo Simulation Loop
+for i in range(num_simulations):
     random_sites = pd.DataFrame({
         "Latitude": np.random.uniform(lat_min, lat_max, len(site_data)),
         "Longitude": np.random.uniform(lon_min, lon_max, len(site_data))
     })
 
-    distances = np.sqrt((site_data["Latitude"] - random_sites["Latitude"])**2 +
-                        (site_data["Longitude"] - random_sites["Longitude"])**2)
+    # Calculate distances
+    distances = np.sqrt(
+        (site_data["Latitude"] - random_sites["Latitude"])**2 +
+        (site_data["Longitude"] - random_sites["Longitude"])**2
+    )
 
-    aligned_sites = np.sum(distances < 2.0)  # Example threshold of 1 degree
-    alignment_counts.append(aligned_sites)
+    # Count alignments within 1-degree threshold
+    aligned_sites = np.sum(distances < 1.0)  # Adjust this threshold if needed
 
-# Debugging Step: Check if alignment_counts has values
-print("First 10 alignment counts:", alignment_counts[:10])
+    # Debugging: Print alignment counts per iteration
+    if i % 100 == 0:  # Print every 100 iterations
+        print(f"Simulation {i}: {aligned_sites} alignments")
+
+    alignment_counts.append(aligned_sites)  # Append to list
+
+# Check if alignment_counts is populated
+if not alignment_counts:
+    print("Error: No alignment counts were generated.")
+    exit()
 
 # Convert results to DataFrame
 results_df = pd.DataFrame(alignment_counts, columns=["Number_of_Alignments"])
 
-# Debugging Step: Print results_df preview
-print("Monte Carlo Results DataFrame preview:")
-print(results_df.head())
-
-# Ensure DataFrame is not empty
-if results_df.empty:
-    print("Error: DataFrame is empty, nothing to save.")
-else:
-    print("DataFrame is populated, proceeding to save.")
-
-# Save results as CSV
-try:
-    results_df.to_csv(output_path, index=False)
-    print(f"Monte Carlo simulation results successfully saved to {output_path}")
-except Exception as e:
-    print(f"Error saving CSV file: {e}")
+# Save results to CSV inside the repository
+results_df.to_csv(output_path, index=False)
+print(f"Monte Carlo simulation results saved to {output_path}")
 
 # Verify the file was created
 if os.path.exists(output_path):
-    print(f"Monte Carlo simulation results file confirmed at: {output_path}")
+    print("Monte Carlo simulation results successfully saved.")
 else:
     print("Error: File was not created.")
-
-# Load and display saved CSV contents
-try:
-    df = pd.read_csv(output_path)
-    print("Monte Carlo results successfully loaded from CSV:")
-    print(df.head())
-except FileNotFoundError:
-    print("Error: CSV file not found after saving attempt.")
-except Exception as e:
-    print(f"Error reading CSV file: {e}")
 
 # Plot histogram
 plt.hist(alignment_counts, bins=50, color="blue", alpha=0.6, label="Monte Carlo Alignments")
@@ -91,7 +82,7 @@ plt.title("Monte Carlo Simulation of Site Alignments")
 plt.legend()
 plt.show()
 
-# Compute significance
+# Compute statistical significance
 p_value = np.sum(np.array(alignment_counts) >= len(site_data)) / num_simulations
 print(f"p-value of observed alignment: {p_value:.5f}")
 
