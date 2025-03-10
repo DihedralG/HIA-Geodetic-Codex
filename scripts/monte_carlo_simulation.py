@@ -26,7 +26,7 @@ if not os.path.exists(site_data_path):
 site_data = pd.read_csv(site_data_path)
 
 # Define Monte Carlo parameters
-num_simulations = 1000  # Reduced from 10,000 for testing
+num_simulations = 10000  # Reduced from 10,000 for testing
 lat_min, lat_max = site_data["Latitude"].min(), site_data["Latitude"].max()
 lon_min, lon_max = site_data["Longitude"].min(), site_data["Longitude"].max()
 
@@ -52,7 +52,7 @@ for i in range(num_simulations):
     )
 
     # Count alignments within 1-degree threshold
-    aligned_sites = np.sum(distances < 2.0)  # Adjust threshold if needed
+    aligned_sites = np.sum(distances < 1.0)  # Adjust threshold if needed
 
     # Debugging: Print distance sample and aligned count
     if i % 100 == 0:
