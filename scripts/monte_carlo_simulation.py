@@ -1,5 +1,15 @@
 vprint('Monte Carlo Simulation Running')
+import os
 
+# Ensure 'data' directory exists before writing
+if not os.path.exists("data"):
+    os.makedirs("data")
+
+# Now proceed with saving the results
+output_path = "data/mc_simulation_results.csv"
+results_df.to_csv(output_path, index=False)
+
+print(f"Monte Carlo simulation results saved to {output_path}")
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -51,15 +61,6 @@ p_value = np.sum(np.array(alignment_counts) >= len(site_data)) / num_simulations
 print(f"P-value of observed alignment: {p_value:.5f}")
 
 print(f"Monte Carlo simulation results saved to {output_path}")
-
-# Ensure 'data' directory exists
-import os
-if not os.path.exists("data"):
-    os.makedirs("data")
-
-# Save to CSV
-df.to_csv("data/mc_simulation_results.csv", index=False)
-print("Monte Carlo simulation results saved to data/mc_simulation_results.csv")
 
 
 
