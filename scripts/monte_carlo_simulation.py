@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 site_data = pd.read_csv("data/site_coordinates.csv")
 
 # Define Monte Carlo parameters
-num_simulations = 10000  # Number of randomized site distributions
+num_simulations = 1000  # Number of randomized site distributions
 lat_min, lat_max = site_data["Latitude"].min(), site_data["Latitude"].max()
 lon_min, lon_max = site_data["Longitude"].min(), site_data["Longitude"].max()
 
