@@ -40,24 +40,32 @@ for i in range(num_simulations):
         "Longitude": np.random.uniform(lon_min, lon_max, len(site_data))
     })
 
+    # Debugging: Print random sites sample
+    if i == 0:
+        print("Random sites sample:")
+        print(random_sites.head())
+
     # Calculate distances
     distances = np.sqrt(
-        (site_data["Latitude"] - random_sites["Latitude"])**2 +
-        (site_data["Longitude"] - random_sites["Longitude"])**2
+        (site_data["Latitude"].values - random_sites["Latitude"].values) ** 2 +
+        (site_data["Longitude"].values - random_sites["Longitude"].values) ** 2
     )
 
     # Count alignments within 1-degree threshold
-    aligned_sites = np.sum(distances < 1.0)  # Adjust this threshold if needed
+    aligned_sites = np.sum(distances < 1.0)  # Adjust threshold if needed
 
-    # Debugging: Print alignment counts per iteration
-    if i % 100 == 0:  # Print every 100 iterations
-        print(f"Simulation {i}: {aligned_sites} alignments")
+    # Debugging: Print distance sample and aligned count
+    if i % 100 == 0:
+        print(f"Simulation {i}: {aligned_sites} alignments found")
 
-    alignment_counts.append(aligned_sites)  # Append to list
+    alignment_counts.append(aligned_sites)
+
+# Debugging: Print sample alignment counts
+print("Alignment counts sample:", alignment_counts[:10])
 
 # Check if alignment_counts is populated
-if not alignment_counts:
-    print("Error: No alignment counts were generated.")
+if not alignment_counts or sum(alignment_counts) == 0:
+    print("❌ Error: No alignments detected. Check input data.")
     exit()
 
 # Convert results to DataFrame
@@ -65,7 +73,7 @@ results_df = pd.DataFrame(alignment_counts, columns=["Number_of_Alignments"])
 
 # Save results to CSV inside the repository
 results_df.to_csv(output_path, index=False)
-print(f"Monte Carlo simulation results saved to {output_path}")
+print(f"✅ Monte Carlo simulation results saved to {output_path}")
 
 # Verify the file was created
 if os.path.exists(output_path):
