@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 # Define paths
 repo_root = os.getcwd()
-data_dir = os.path.join(repo_root, "HIA-Geodetic-Codex/data")
+data_dir = os.path.join(repo_root, "data")
 
 # Load the Monte Carlo results dataset
 input_csv_path = os.path.join(data_dir, "mc_simulation_results.csv")
