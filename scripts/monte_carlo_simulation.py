@@ -26,7 +26,7 @@ if not os.path.exists(site_data_path):
 site_data = pd.read_csv(site_data_path)
 
 # Define Monte Carlo parameters
-num_simulations = 10000  # Make sure this is 10,000
+num_simulations = 100000  # Make sure this is 10,000
 print(f"✅ Number of simulations set to: {num_simulations}")
 
 lat_min, lat_max = site_data["Latitude"].min(), site_data["Latitude"].max()
