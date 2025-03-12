@@ -27,7 +27,7 @@ summary_stats = df.describe()
 
 # Compute additional statistics
 median_alignments = np.median(df["Number_of_Alignments"])
-mode_alignments = stats.mode(df["Number_of_Alignments"])[0][0]
+mode_alignments = stats.mode(df["Number_of_Alignments"], keepdims=True)[0][0]
 variance = np.var(df["Number_of_Alignments"])
 skewness = stats.skew(df["Number_of_Alignments"])
 kurtosis = stats.kurtosis(df["Number_of_Alignments"])
