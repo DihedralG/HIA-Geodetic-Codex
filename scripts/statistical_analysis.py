@@ -54,7 +54,8 @@ extended_stats.to_csv(output_csv_path, index=False)
 print("Statistical DataFrame Preview:")
 print(extended_stats.head())  # Check first few rows
 
-
+df.to_csv("/content/HIA-Geodetic-Codex/data/statistical_results.csv", index=False)
+print("✅ Data written successfully.")
 print(f"✅ Statistical analysis results saved to {output_csv_path}")
 
 # Generate histogram for visualization
