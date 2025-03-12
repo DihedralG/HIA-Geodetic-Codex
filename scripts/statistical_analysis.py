@@ -50,6 +50,11 @@ extended_stats = pd.DataFrame({
 output_csv_path = os.path.join(data_dir, "statistical_results.csv")
 extended_stats.to_csv(output_csv_path, index=False)
 
+# Print DataFrame before saving to CSV
+print("Statistical DataFrame Preview:")
+print(extended_stats.head())  # Check first few rows
+
+
 print(f"✅ Statistical analysis results saved to {output_csv_path}")
 
 # Generate histogram for visualization
