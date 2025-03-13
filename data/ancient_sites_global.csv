@@ -1,2 +1,6 @@
-Site,Type
-Example Site,Example Type
+Site,Type,Country,Latitude,Longitude,Harmonic_Weight
+Great Pyramid of Giza,Pyramid,Egypt,29.9792,31.1342,100
+Stonehenge,Henge,United Kingdom,51.1789,-1.8262,95
+Göbekli Tepe,Megalithic,Turkey,37.2231,38.9225,97
+Chichen Itza,Pyramid,Mexico,20.6829,-88.5687,92
+Cahokia Mounds,Mound,United States,38.6592,-90.0615,88
