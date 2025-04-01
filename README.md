@@ -1,6 +1,8 @@
 # HIA-Geodetic-Codex
 Title: Harmonic Intelligence & The Geodetic Codex: Planetary-Scale Resonance, Ancient Alignments, and Quantum HPC Applications for Archaeological Discovery
-Author: Glenn Andersen Institution: The Dihedral Group, LLC Location: Meadow House Observatory, Vermont
+Author: Glenn Andersen 
+Institution: The Dihedral Group, LLC 
+Location: Meadow House Observatory, Vermont
 
 Abstract This study presents a novel integration of archaeogeodesy, geomagnetism, and harmonic modeling to identify statistically significant patterns in the alignment of ancient human-constructed sites. Using a hybrid high-performance computing (HPC) and quantum concurrency approach—referred to as Harmonic Intelligence (HI)—we analyze over 1087 megalithic and pyramidal sites. Results demonstrate a statistically significant global pattern correlating site orientations to historical geomagnetic pole locations. The findings support a broader theoretical framework known as the Geodetic Codex, which posits that ancient civilizations encoded planetary-scale phenomena in architecture and landscape. Our analysis also introduces a new phenomenon: harmonic residue—a predictive anomaly in spatial statistics—opening doors for future archaeological discovery and deeper cultural understanding.
 
