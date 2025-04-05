@@ -1,7 +1,7 @@
 # HIA-Geodetic-Codex
 Title: Harmonic Intelligence & The Geodetic Codex: Planetary-Scale Resonance, Ancient Alignments, and Quantum HPC Applications for Archaeological Discovery <br>
 Author: Glenn Andersen <br>
-Institution: The Dihedral Group | Chir Labs<br>
+Institution: The Dihedral Group | ChiR Labs<br>
 Location: Meadow House Observatory, Vermont<br>
 
 <b>Abstract</b> <br>
@@ -85,5 +85,5 @@ All geospatial site data, Monte Carlo code samples, and harmonic modeling script
 * Appendix A: Full site dataset (1087 entries, with GPS coordinates and pole alignment vectors)<br>
 * Appendix B: Monte Carlo simulation framework<br>
 * Appendix C: Harmonic Residue Index (HRI) derivation and formula<br>
-* Appendix D: Extended visual maps with GCCG-tagged figures<br>
+* Appendix D: Extended visual maps with GCCG-tagged figures (see <br>
 
