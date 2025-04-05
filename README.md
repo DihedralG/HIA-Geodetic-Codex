@@ -8,6 +8,7 @@ Location: Meadow House Observatory, Vermont<br>
 This study presents a novel integration of archaeogeodesy, geomagnetism, and harmonic modeling to identify statistically significant patterns in the alignment of ancient human-constructed sites. Using a hybrid high-performance computing (HPC) and quantum concurrency approach—referred to as <b>Harmonic Intelligence (HI)</b>—we analyze over 1087 megalithic and pyramidal sites. Results demonstrate a statistically significant global pattern correlating site orientations to historical geomagnetic pole locations. The findings support a broader theoretical framework known as the Geodetic Codex, which posits that ancient civilizations encoded planetary-scale phenomena in architecture and landscape. Our analysis also introduces a new phenomenon: harmonic residue—a predictive anomaly in spatial statistics—opening doors for future archaeological discovery and deeper cultural understanding.<br>
 
 <b>1. Introduction</b><br>
+
 <b>1.1 The Puzzle of Ancient Alignments </b><br>
 Global patterns of alignment among megalithic sites have long intrigued scholars. Structures such as the Great Pyramid of Giza, Stonehenge, and Teotihuacan exhibit orientations that defy randomness. Prior hypotheses range from solar/lunar tracking to stellar alignments, but few integrate geomagnetic pole data or harmonic residue modeling.<br>
 
@@ -15,6 +16,7 @@ Global patterns of alignment among megalithic sites have long intrigued scholars
 We propose that these ancient alignments are not isolated architectural coincidences but part of a Geodetic Codex—a planetary-scale encoding of natural resonance and pole memory. When modeled against reconstructed geomagnetic data over the last 40,000 years, significant clustering emerges.<br>
 
 <b>2. Literature Review & Theoretical Context</b><br>
+
 <b>2.1 Global Alignments and Sacred Geometry </b><br>
 Works by Michell (1969), Thom (1971), and Hancock (2015) revived interest in ancient alignments. These studies, though often dismissed as speculative, emphasized the recurring use of geometry, astronomy, and land-based patterning.<br>
 
@@ -25,6 +27,7 @@ Carl Munck and Charles Hapgood proposed early models tying site geometry to Eart
 We define harmonic residue as a spatial echo—a statistically measurable bias in orientation or placement that persists beyond random distribution. HI uses Monte Carlo simulations and probabilistic modeling to locate and verify these signatures.<br>
 
 <b>3. Methodology</b><br>
+
 <b>3.1 Dataset: 1087 Ancient Sites</b><br>
 The dataset includes pyramids, megaliths, observatories, and mounds from all inhabited continents. Each site is coded with latitude, longitude, elevation, cultural context, and estimated construction date.<br>
 
