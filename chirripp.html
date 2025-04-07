@@ -1,75 +1,74 @@
-<!DOCTYPE html>
+ght="100"<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ChiRIPP – Identity Provenance Protocol</title>
+  <meta charset="UTF-8">
+  <title>ChiR Labs & Meadow House Observatory</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    /* Basic reset and styling */
     body {
-      font-family: system-ui, sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f8f9fa;
-      color: #222;
+      background: #f4f4f4;
     }
     header {
-      background-color: #003366;
+      background: #003366;
       color: #fff;
       padding: 20px;
       text-align: center;
     }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.2em;
+    }
     nav {
-      background: #0055a5;
-      text-align: center;
+      background: #0055aa;
+      display: flex;
+      justify-content: center;
       padding: 10px 0;
     }
     nav a {
       color: #fff;
-      margin: 0 15px;
       text-decoration: none;
-      font-weight: 500;
+      padding: 10px 15px;
+      margin: 0 5px;
+      font-size: 1em;
     }
     nav a:hover {
-      text-decoration: underline;
+      background: #004488;
     }
     .container {
-      max-width: 900px;
-      margin: 40px auto;
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto;
+      background: #fff;
       padding: 20px;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    h1, h2 {
-      color: #003366;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-    }
-    table th, table td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: left;
-    }
-    blockquote {
-      font-style: italic;
-      border-left: 4px solid #ccc;
-      margin: 20px 0;
-      padding-left: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     footer {
       background: #333;
       color: #fff;
       text-align: center;
-      padding: 15px;
+      padding: 15px 0;
       margin-top: 40px;
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+      }
+      nav a {
+        margin: 5px 0;
+      }
     }
   </style>
 </head>
-
 <body>
-    <header>
+  <header>
     <h1>ChiR Labs & Meadow House Observatory</h1>
     <p>Where Ancient Wisdom Meets Modern Geodesy & HPC</p>
   </header>
