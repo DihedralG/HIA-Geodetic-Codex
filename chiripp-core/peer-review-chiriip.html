@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ChiRIPP Peer Review Submission</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    .container { max-width: 600px; margin: auto; }
+    label { display: block; margin-top: 15px; }
+    input, select, textarea { width: 100%; padding: 8px; margin-top: 5px; }
+    button { margin-top: 20px; padding: 10px 15px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>ChiRIPP Peer Review Submission</h1>
+    <form id="uploadForm" action="https://hook.integromat.com/YOUR_WEBHOOK_URL" method="post" enctype="multipart/form-data">
+      <label for="file">Select File (Image, Paper, or Quote):</label>
+      <input type="file" id="file" name="file" required>
+
+      <label for="type">Content Type:</label>
+      <select id="type" name="type" required>
+        <option value="photo">Photo</option>
+        <option value="paper">Paper</option>
+        <option value="quote">Quote</option>
+      </select>
+
+      <label for="instructions">Additional Instructions (optional):</label>
+      <textarea id="instructions" name="instructions" rows="4" placeholder="Enter any specific instructions..."></textarea>
+
+      <button type="submit">Submit for Processing</button>
+    </form>
+  </div>
+</body>
+</html>
