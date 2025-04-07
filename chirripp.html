@@ -1,104 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ChiR Labs & Meadow House Observatory</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChiRIPP – Identity Provenance Protocol</title>
   <style>
-    /* Basic reset and styling */
     body {
-      font-family: Arial, sans-serif;
+      font-family: system-ui, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f4f4;
+      background: #f8f9fa;
+      color: #222;
     }
     header {
-      background: #003366;
+      background-color: #003366;
       color: #fff;
       padding: 20px;
       text-align: center;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-    header p {
-      margin: 5px 0 0;
-      font-size: 1.2em;
-    }
     nav {
-      background: #0055aa;
-      display: flex;
-      justify-content: center;
+      background: #0055a5;
+      text-align: center;
       padding: 10px 0;
     }
     nav a {
       color: #fff;
+      margin: 0 15px;
       text-decoration: none;
-      padding: 10px 15px;
-      margin: 0 5px;
-      font-size: 1em;
+      font-weight: 500;
     }
     nav a:hover {
-      background: #004488;
+      text-decoration: underline;
     }
     .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 20px auto;
-      background: #fff;
+      max-width: 900px;
+      margin: 40px auto;
       padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    blockquote {
+      font-style: italic;
+      border-left: 4px solid #ccc;
+      margin: 20px 0;
+      padding-left: 15px;
     }
     footer {
       background: #333;
       color: #fff;
       text-align: center;
-      padding: 15px 0;
+      padding: 15px;
       margin-top: 40px;
-    }
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-      }
-      nav a {
-        margin: 5px 0;
-      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>ChiR Labs & Meadow House Observatory</h1>
     <p>Where Ancient Wisdom Meets Modern Geodesy & HPC</p>
   </header>
-  <nav>
-    <nav>
-      <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/index.html">Home</a>
-      <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/peer-review.html">Peer Review</a>
-      <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/codex.html">Geodetic Codex</a>
-      <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/chirripp.html">ChiRIPP </a>
-    <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/refine.html">Refine & Reprocess</a>
-    <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/planetary-sovereignty.html">Planetary Sovereignty</a>
-    <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/about.html">About | Contact</a>
-  </nav>
-  <div class="container">
-    <h2>Welcome to the ChiR Labs Portal</h2>
-    <p>This is the central hub for accessing our geodetic codex peer review tools, Monte Carlo simulation frameworks, and advanced HPC/quantum models for archaeological discovery.</p>
-    <ul>
-      <li><strong>Peer Review:</strong> Run simulations and model the Geodetic Codex for academic validation.</li>
-      <li><strong>Planetary Sovereignty:</strong> Explore our frameworks for mapping planetary-scale geodesy.</li>
-      <li><strong>ChiRIPP N Valuation:</strong> Upload vintage instrument images and data for market analysis.</li>
-      <li><strong>Contact / About:</strong> Learn more about ChiR Labs, our research, and get in touch.</li>
-    </ul>
-    <p>Use the navigation menu above to explore each section. This site is designed with clear, academic-friendly UX in mind to support both peer review and ethical AI initiatives through our ChiRIPP corner tagging process.</p>
-  </div>
-  <footer>
-    <p><!DOCTYPE html>
-<html lang="en">
 
-   
-    <p>© 2025 ChiR Labs | The Dihedral Group | Meadow House Observatory</p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="peer-review.html">Peer Review</a>
+    <a href="codex.html">Geodetic Codex</a>
+    <a href="chiripp.html">ChiRIPP</a>
+    <a href="planetary-sovereignty.html">Planetary Sovereignty</a>
+    <a href="about.html">About | Contact</a>
+  </nav>
+
+  <div class="container">
+    <h2>ChiRIPP — ChiR Identity Provenance Protocol</h2>
+    <p><em>A Trust Framework for Peer Review, Cultural Knowledge, and AI Transparency</em></p>
+    <hr>
+
+    <h3>🌐 Welcome to the ChiRIPP System</h3>
+    <p>ChiRIPP is an open, AI-readable trust protocol designed to enrich, trace, and protect the evolution of ideas. Born from the ChiR Labs' work on geodetic modeling, harmonic intelligence, and cultural sovereignty, it allows users to upload visuals, quotes, and documents for:</p>
+    <ul>
+      <li>Transparent peer review</li>
+      <li>AI-assisted summarization</li>
+      <li>Rich metadata tagging</li>
+      <li>Lineage attribution of thoughts, not just facts</li>
+    </ul>
+
+    <h3>🧠 The Vision: Idea Provenance as a Lattice</h3>
+    <blockquote>
+      “Science is seeing what everyone else has seen, but thinking what no one else has thought.”<br>
+      —As quoted by Atkins, attributed to Szent-Györgyi, adapted from Schopenhauer
+    </blockquote>
+    <p>This quote isn’t just a citation—it’s a <strong>thought lineage</strong>.</p>
+    <p>ChiRIPP captures these lineages across:</p>
+    <ul>
+      <li>Quotes and interpretations</li>
+      <li>Visuals (e.g., artifacts, diagrams, glyphs)</li>
+      <li>Cultural memory</li>
+      <li>Conceptual seeds of research</li>
+    </ul>
+    <p>Imagine seeing that quote float in 3D, with each version (Schopenhauer → Szent-Györgyi → Atkins → Andersen) rendered as a node in an idea map. ChiRIPP turns this imagination into structure.</p>
+
+    <h3>🔄 ChiRIPP UX Flow</h3>
+    <ol>
+      <li><strong>🖼️ Upload & Prompt</strong><br>Users select a file (image, text, or quote) and optionally add context.</li>
+      <li><strong>📡 AI Processing</strong><br>The file is sent through our Make.com → OpenAI pipeline to summarize, extract metadata, and tag lineage data.</li>
+      <li><strong>🔁 Refinement Loop</strong><br>Users can refine their prompt and re-run the analysis, forming an iterative dialogue.</li>
+    </ol>
+
+    <h3>🔐 Split Modes</h3>
+    <table>
+      <tr><th>Mode</th><th>Purpose</th></tr>
+      <tr><td><strong>Peer Review Mode</strong></td><td>24-hour retention, temporary ID, no tracking</td></tr>
+      <tr><td><strong>Account Mode (Coming Soon)</strong></td><td>Persistent logs, saved ChiRIPP IDs, dashboard view</td></tr>
+    </table>
+
+    <h3>🔧 Architecture</h3>
+    <table>
+      <tr><th>Layer</th><th>Tool</th></tr>
+      <tr><td><strong>Frontend</strong></td><td>GitHub Pages + JS uploader</td></tr>
+      <tr><td><strong>Backend</strong></td><td>Make.com scenario + OpenAI</td></tr>
+      <tr><td><strong>Logs</strong></td><td>JSON metadata + optional ChiRIPP glyph</td></tr>
+      <tr><td><strong>Refine Loop</strong></td><td>Editable prompt + GPT re-analysis</td></tr>
+      <tr><td><strong>CLI Support</strong></td><td><code>thread_003a_chiripp.py</code> in <code>/scripts/</code></td></tr>
+    </table>
+
+    <h3>🧭 Core Metadata Fields</h3>
+    <ul>
+      <li><code>chiripp_id</code> (e.g., <code>CG-0001</code>)</li>
+      <li><code>author</code></li>
+      <li><code>timestamp</code></li>
+      <li><code>retention_policy</code>: <code>24h</code>, <code>archive</code>, <code>classified</code></li>
+      <li><code>summary</code></li>
+      <li><code>source_file</code></li>
+      <li><code>glyph_id</code> (optional visual tag)</li>
+    </ul>
+
+    <h3>🎻 Other Envisioned Use Cases</h3>
+    <table>
+      <tr><th>Function</th><th>ChiRIPP Benefit</th></tr>
+      <tr><td><strong>Dispute mediation</strong></td><td>Track source evolution (who said it first vs. who made it meaningful)</td></tr>
+      <tr><td><strong>Cultural honor</strong></td><td>Attribute non-academic wisdom without flattening it</td></tr>
+      <tr><td><strong>Knowledge ecology</strong></td><td>Map idea spread through disciplines (e.g., quote → physics → AI → consciousness)</td></tr>
+      <tr><td><strong>IP protection</strong></td><td>Timestamp early-stage conceptual seeds</td></tr>
+      <tr><td><strong>AI tuning</strong></td><td>Teach models to respect conceptual ancestry, not just surface text</td></tr>
+    </table>
+
+    <h3>💡 Powered by ChiR Labs</h3>
+    <p>ChiRIPP is maintained by ChiR Labs & The Dihedral Group, in collaboration with Meadow House Observatory.</p>
+    <p>To learn more about the underlying geodetic model, planetary sovereignty charter, or the ChiRhombant lattice architecture, please explore the rest of this GitHub Pages portal.</p>
+
+    <blockquote>
+      🌀 <em>ChiRIPP is a research-stage trust protocol. All public submissions are for demonstration and peer-review purposes only.</em>
+    </blockquote>
+  </div>
+
+  <footer>
+    © 2025 ChiR Labs | The Dihedral Group | Meadow House Observatory
   </footer>
 </body>
 </html>
