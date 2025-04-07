@@ -80,16 +80,44 @@
     <a href="/planetary-sovereignty.html">Planetary Sovereignty</a>
     <a href="/about.html">About | Contact</a>
   </nav>
-  <div class="container">
-    <h2>Welcome to the ChiR Labs Portal</h2>
-    <p>This is the central hub for accessing our geodetic codex peer review tools, Monte Carlo simulation frameworks, and advanced HPC/quantum models for archaeological discovery.</p>
-    <ul>
-      <li><strong>Peer Review:</strong> Run simulations and model the Geodetic Codex for academic validation.</li>
-      <li><strong>Planetary Sovereignty:</strong> Explore our frameworks for mapping planetary-scale geodesy.</li>
-      <li><strong>ChiRIPP N Valuation:</strong> Upload vintage instrument images and data for market analysis.</li>
-      <li><strong>Contact / About:</strong> Learn more about ChiR Labs, our research, and get in touch.</li>
-    </ul>
-    <p>Use the navigation menu above to explore each section. This site is designed with clear, academic-friendly UX in mind to support both peer review and ethical AI initiatives through our ChiRIPP corner tagging process.</p>
+  <div>
+  <h1>🔁 Refine & Reprocess</h1>
+  <p>This tool allows you to update your prompt or context and reprocess a previously submitted file using the ChiRIPP system.</p>
+
+  <label for="chiripp_id">ChiRIPP ID:</label>
+  <input id="chiripp_id" type="text" placeholder="e.g. CG-0004" />
+
+  <label for="refined_prompt">Updated Prompt or Context:</label>
+  <textarea id="refined_prompt" rows="6" placeholder="Add context, clarification, or additional instructions here..."></textarea>
+
+  <button onclick="submitRefinement()">Submit Refinement</button>
+
+  <div id="response" style="margin-top:2rem;"></div>
+
+  <script>
+    function submitRefinement() {
+      const id = document.getElementById("chiripp_id").value;
+      const prompt = document.getElementById("refined_prompt").value;
+
+      fetch('https://hook.us2.make.com/your-webhook-url', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          chiripp_id: id,
+          refined_prompt: prompt
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('response').innerText =
+          "✅ Submitted. Your refinement will be reprocessed shortly.";
+      })
+      .catch(err => {
+        document.getElementById('response').innerText =
+          "❌ Error submitting refinement. Please try again.";
+      });
+    }
+  </script>
   </div>
   <footer>
     <p><!DOCTYPE html>
