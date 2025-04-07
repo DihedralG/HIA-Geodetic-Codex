@@ -80,45 +80,24 @@
     <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/planetary-sovereignty.html">Planetary Sovereignty</a>
     <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/about.html">About | Contact</a>
   </nav>
-  <div>
-  <h1>🔁 Refine & Reprocess</h1>
+  <div class="container">
+  <h2>🔁 Refine & Reprocess</h2>
   <p>This tool allows you to update your prompt or context and reprocess a previously submitted file using the ChiRIPP system.</p>
 
-  <label for="chiripp_id">ChiRIPP ID:</label>
-  <input id="chiripp_id" type="text" placeholder="e.g. CG-0004" />
+  <form id="refineForm">
+    <label for="chirippId">ChiRIPP ID:</label>
+    <input type="text" id="chirippId" placeholder="e.g. CG-0004" required>
 
-  <label for="refined_prompt">Updated Prompt or Context:</label>
-  <textarea id="refined_prompt" rows="6" placeholder="Add context, clarification, or additional instructions here..."></textarea>
+    <label for="updatedContext">Updated Prompt or Context:</label>
+    <textarea id="updatedContext" rows="3" placeholder="Add context, clarification, or new instructions..."></textarea><br><br>
 
-  <button onclick="submitRefinement()">Submit Refinement</button>
+    <button type="submit">Submit Refinement</button>
+  </form>
 
-  <div id="response" style="margin-top:2rem;"></div>
+  <div id="refineStatus"></div>
+</div>
 
-  <script>
-    function submitRefinement() {
-      const id = document.getElementById("chiripp_id").value;
-      const prompt = document.getElementById("refined_prompt").value;
-
-      fetch('https://hook.us2.make.com/your-webhook-url', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          chiripp_id: id,
-          refined_prompt: prompt
-        })
-      })
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('response').innerText =
-          "✅ Submitted. Your refinement will be reprocessed shortly.";
-      })
-      .catch(err => {
-        document.getElementById('response').innerText =
-          "❌ Error submitting refinement. Please try again.";
-      });
-    }
-  </script>
-  </div>
+<script src="scripts/refine.js"></script>
   <footer>
     <p><!DOCTYPE html>
 <html lang="en">
