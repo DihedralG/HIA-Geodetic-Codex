@@ -1,3 +1,23 @@
+/* ==========================
+   ChiR Labs Main Stylesheet (Stable)
+   ========================== */
+
+/* Header Banner */
+header {
+  background: #003366;
+  color: white;
+  padding: 40px 20px 20px 20px;
+  text-align: center;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+header p {
+  font-size: 1em;
+  margin-top: 8px;
+  color: #d9e6f2;
+}
+
 /* Navigation Bar */
 nav {
   background-color: white;
@@ -20,22 +40,85 @@ nav a {
 
 /* Hover Effect */
 nav a:hover {
-  outline: 2px solid #3399ff; /* Light blue border */
+  outline: 2px solid #3399ff;
   outline-offset: 4px;
   background-color: #f0f8ff;
   border-radius: 12px;
 }
 
-/* Active State (you can toggle this manually or with JS later) */
 nav a.active {
   background-color: #e6f0ff;
   outline: 2px solid #003366;
 }
 
-/* Icon Size Only */
+/* Icon Size */
 .nav-icon {
   height: 60px;
   width: 60px;
   display: block;
   margin: auto;
+}
+
+/* General Body */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Container Styling */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Forms */
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="file"],
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #004488;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #002f66;
+}
+
+/* Footer */
+footer {
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  color: #666;
+  border-top: 1px solid #ddd;
+  margin-top: 60px;
 }
