@@ -1,3 +1,7 @@
+/* ==========================
+   ChiR Labs Main Stylesheet
+   ========================== */
+
 /* General Body */
 body {
   font-family: Arial, sans-serif;
@@ -12,6 +16,7 @@ header {
   padding: 20px;
   text-align: center;
   font-size: 1.2em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 /* Navigation */
@@ -19,9 +24,12 @@ nav {
   background-color: white;
   padding: 10px 15px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  gap: 10px;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 nav a {
@@ -31,25 +39,83 @@ nav a {
   padding: 8px 12px;
   display: flex;
   align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
 }
 
 nav a:hover {
   background-color: #e6f0ff;
-  border-radius: 6px;
+  border-radius: 4px;
+}
+
+nav a.active {
+  border-bottom: 2px solid #004488;
 }
 
 .nav-icon {
   height: 20px;
   width: 20px;
-  margin-right: 6px;
   vertical-align: middle;
 }
 
-/* Containers */
+/* Container Styling */
 .container {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 40px auto;
   padding: 20px;
   background: #fff;
+  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
+
+/* Forms */
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="file"],
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #004488;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #002f66;
+}
+
+/* Footer */
+footer {
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  color: #666;
+  border-top: 1px solid #ddd;
+  margin-top: 60px;
+}
+
+
+
+
+
+
