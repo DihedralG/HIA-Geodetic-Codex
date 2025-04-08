@@ -145,17 +145,6 @@ async function submitPeerReview() {
         <form onsubmit="event.preventDefault(); submitPeerReview();">
   <label>Select File (Image, Paper, or Quote):</label>
   <input type="file" id="uploadFile" required /><br><br>
-
-  <label>Content Type:</label>
-  <select id="contentType">
-    <option value="Photo">Photo</option>
-    <option value="Text">Text</option>
-    <option value="Quote">Quote</option>
-  </select><br><br>
-
-  <label>Additional Instructions:</label><br>
-  <textarea id="instructions" placeholder="Any context or specific goals..."></textarea><br><br>
-
   <label>Access Code:</label>
   <input type="password" id="accessCode" required /><br><br>
 
