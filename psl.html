@@ -1,7 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  {% include 'base.html' %}
-  <div class="container">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChiR Labs – {{ PAGE_TITLE }}</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <header>
+    <h1>ChiR Labs & Meadow House Observatory</h1>
+  </header>
+
+  <nav>
+    <a href="index.html">
+      <img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="Home"> Home
+    </a>
+    <a href="chiripp.html">
+      <img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="ChiRIPP"> ChiRIPP
+    </a>
+    <a href="peer-review.html">
+      <img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="Peer Review"> Peer Review
+    </a>
+    <a href="refine.html">
+      <img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="Refine"> Refine
+    </a>
+    <a href="codex.html">
+      <img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="Geodetic Codex"> Codex
+    </a>
+    <a href="psl.html">
+      <img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="Planetary Sovereignty"> PSL
+    </a>
+    <a href="about.html">
+      <img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="About"> About
+    </a>
+  </nav>
+<div class="container">
     <h2>🌍 Planetary Sovereignty Layer (PSL) Charter – Template v3.0</h2>
     <p><em>For Use by ChiR Lab, IARPA, Arctic Council, Indigenous Assemblies, and Trusted Observatories</em></p>
 
@@ -55,4 +89,13 @@
       “Reciprocity is not just an ethic—it’s a structure of peace.”
     </blockquote>
   </div>
+  <main class="container">
+    {{ PAGE_CONTENT }}
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ChiR Labs. Powered by OpenAI, Kinship Systems & the Dihedral Group.</p>
+  </footer>
+
+</body>
 </html>
