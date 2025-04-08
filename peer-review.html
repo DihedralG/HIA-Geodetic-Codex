@@ -1,167 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ChiRIPP Peer Review</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <script defer>
+    async function submitPeerReview(event) {
+      event.preventDefault();
 
-<script>
-async function submitPeerReview() {
-  const fileInput = document.getElementById('uploadFile');
-  const contentType = document.getElementById('contentType').value;
-  const instructions = document.getElementById('instructions').value;
-  const accessCode = document.getElementById('accessCode').value;
+      const fileInput = document.getElementById('uploadFile');
+      const contentType = document.getElementById('contentType').value;
+      const instructions = document.getElementById('instructions').value;
+      const accessCode = document.getElementById('accessCode').value;
+      const email = document.getElementById('email').value;
 
-  if (accessCode !== "GEO2025") {
-    alert("Invalid access code. Please request one via the Contact page.");
-    return;
-  }
-
-  const formData = new FormData();
-  formData.append("file", fileInput.files[0]);
-  formData.append("content_type", contentType);
-  formData.append("instructions", instructions);
-
-  try {
-    const response = await fetch("https://hook.us2.make.com/your-peer-review-hook", {
-      method: "POST",
-      body: formData
-    });
-
-    if (!response.ok) throw new Error("Upload failed.");
-    alert("File submitted for peer review! Check GitHub or contact ChiR Labs for results.");
-  } catch (err) {
-    alert("Error: " + err.message);
-  }
-}
-</script>
-  <head>
-
-  <link rel="stylesheet" href="styles/main.css">
-  <meta charset="UTF-8">
-  <title>ChiR Labs & Meadow House Observatory</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    /* Basic reset and styling */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-    }
-    header {
-      background: #003366;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-    header p {
-      margin: 5px 0 0;
-      font-size: 1.2em;
-    }
-    nav {
-      background: #0055aa;
-      display: flex;
-      justify-content: center;
-      padding: 10px 0;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 15px;
-      margin: 0 5px;
-      font-size: 1em;
-    }
-    nav a:hover {
-      background: #004488;
-    }
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 20px auto;
-      background: #fff;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 15px 0;
-      margin-top: 40px;
-    }
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
+      // Access control: require email or valid code
+      if (!email && accessCode !== "GEO2025") {
+        alert("Please provide a valid access code or an email address.");
+        return;
       }
-      nav a {
-        margin: 5px 0;
+
+      const formData = new FormData();
+      formData.append("file", fileInput.files[0]);
+      formData.append("content_type", contentType);
+      formData.append("instructions", instructions);
+      formData.append("email", email || "anonymous@chirlabs.org");
+
+      try {
+        const response = await fetch("https://hook.us2.make.com/REPLACE_WITH_YOUR_WEBHOOK", {
+          method: "POST",
+          body: formData
+        });
+
+        if (!response.ok) throw new Error("Upload failed.");
+        alert("File submitted for peer review! Check back or follow up via email for status.");
+        document.getElementById("uploadForm").reset();
+      } catch (err) {
+        alert("Error: " + err.message);
       }
     }
-  </style>
+  </script>
 </head>
+
 <body>
+
   <header>
     <h1>ChiR Labs & Meadow House Observatory</h1>
     <p>Where Ancient Wisdom Meets Modern Geodesy & HPC</p>
   </header>
-  <nav>
-    <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/index.html">Home</a>
-    <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/peer-review.html">Peer Review</a>
-    <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/codex.html">Geodetic Codex</a>
-    <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/chiripp.html">ChiRIPP </a>
-    <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/planetary-sovereignty.html">Planetary Sovereignty</a>
-    <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/about.html">About | Contact</a>
-  </nav>
-  <div class="container">
-    <h2>Welcome to the ChiR Labs Portal</h2>
-    <p>This is the central hub for accessing our geodetic codex peer review tools, Monte Carlo simulation frameworks, and advanced HPC/quantum models for archaeological discovery.</p>
-    <ul>
-      <li><strong>Peer Review:</strong> Run simulations and model the Geodetic Codex for academic validation.</li>
-      <li><strong>Planetary Sovereignty:</strong> Explore our frameworks for mapping planetary-scale geodesy.</li>
-      <li><strong>ChiRIPP N Valuation:</strong> Upload vintage instrument images and data for market analysis.</li>
-      <li><strong>Contact / About:</strong> Learn more about ChiR Labs, our research, and get in touch.</li>
-    </ul>
-    <p>Use the navigation menu above to explore each section. This site is designed with clear, academic-friendly UX in mind to support both peer review and ethical AI initiatives through our ChiRIPP corner tagging process.</p>
-  
-    
-      <div class="container">
-        <h1>ChiRIPP Peer Review Submission</h1>
-        <form id="uploadForm" action="https://https://hook.us2.make.com/7smugsxhu83ft4d6uy7eyu1mkmyc6x45" method="post" enctype="multipart/form-data">
-          <label for="file">Select File (Image, Paper, or Quote):</label>
-          <input type="file" id="file" name="file" required>
-    
-          <label for="type">Content Type:</label>
-          <select id="type" name="type" required>
-            <option value="photo">Photo</option>
-            <option value="paper">Paper</option>
-            <option value="quote">Quote</option>
-          </select>
-    
-          <label for="instructions">Additional Instructions (optional):</label>
-          <textarea id="instructions" name="instructions" rows="4" placeholder="Enter any specific instructions..."></textarea>
-    
-          <button type="submit">Submit for Processing</button>
-       
-        <form onsubmit="event.preventDefault(); submitPeerReview();">
-  <label>Select File (Image, Paper, or Quote):</label>
-  <input type="file" id="uploadFile" required /><br><br>
-  <label>Access Code:</label>
-  <input type="password" id="accessCode" required /><br><br>
 
-  <button type="submit">Submit for Processing</button>
-</form>
-        </form>
-      </div>
-  
-  </div>
+  <nav>
+    <a href="index.html"><img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="Home"> Home</a>
+    <a href="peer-review.html"><img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="Peer Review"> Peer Review</a>
+    <a href="codex.html"><img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="Codex"> Codex</a>
+    <a href="chiripp.html"><img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="ChiRIPP"> ChiRIPP</a>
+    <a href="refine.html"><img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="Refine"> Refine</a>
+    <a href="psl.html"><img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="PSL"> PSL</a>
+    <a href="about.html"><img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="About"> About</a>
+  </nav>
+
+  <main class="container">
+    <h2>🧪 ChiRIPP Peer Review Submission</h2>
+    <p>Submit a file for analysis and review. Accepted types include:</p>
+    <ul>
+      <li>📷 Images (artifact photos, glyphs)</li>
+      <li>📜 Text-based research quotes</li>
+      <li>📄 PDF or paper excerpts</li>
+    </ul>
+
+    <form id="uploadForm" onsubmit="submitPeerReview(event)">
+      <label for="uploadFile">Select File:</label><br>
+      <input type="file" id="uploadFile" required /><br><br>
+
+      <label for="contentType">Content Type:</label><br>
+      <select id="contentType" required>
+        <option value="photo">Photo</option>
+        <option value="paper">Paper</option>
+        <option value="quote">Quote</option>
+      </select><br><br>
+
+      <label for="instructions">Instructions (optional):</label><br>
+      <textarea id="instructions" rows="4" placeholder="Any special notes for reviewers or the AI..."></textarea><br><br>
+
+      <label for="email">Email (optional):</label><br>
+      <input type="email" id="email" placeholder="you@example.com" /><br><br>
+
+      <label for="accessCode">Access Code:</label><br>
+      <input type="password" id="accessCode" placeholder="GEO2025" /><br><br>
+
+      <button type="submit">🚀 Submit for Processing</button>
+    </form>
+  </main>
 
   <footer>
-    <p><!DOCTYPE html>
-<html lang="en">
-
-   
     <p>© 2025 ChiR Labs | The Dihedral Group | Meadow House Observatory</p>
   </footer>
+
 </body>
 </html>
