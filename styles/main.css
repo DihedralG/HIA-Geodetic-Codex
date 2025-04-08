@@ -1,7 +1,6 @@
 /* ==========================
    ChiR Labs Main Stylesheet (Stable)
    ========================== */
-
 /* Header Banner */
 header {
   background: #003366;
@@ -36,6 +35,33 @@ nav a {
   display: block;
   border-radius: 8px;
   transition: all 0.2s ease-in-out;
+}
+
+
+nav a {
+  position: relative;
+}
+
+nav a::after {
+  content: attr(title);
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #003366;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 0.75em;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+nav a:hover::after {
+  opacity: 1;
 }
 
 /* Hover Effect */
