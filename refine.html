@@ -1,109 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ChiR Labs & Meadow House Observatory</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/main.css">
-  <style>
-    /* Basic reset and styling */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-    }
-    header {
-      background: #003366;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-    header p {
-      margin: 5px 0 0;
-      font-size: 1.2em;
-    }
-    nav {
-      background: #0055aa;
-      display: flex;
-      justify-content: center;
-      padding: 10px 0;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 15px;
-      margin: 0 5px;
-      font-size: 1em;
-    }
-    nav a:hover {
-      background: #004488;
-    }
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 20px auto;
-      background: #fff;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 15px 0;
-      margin-top: 40px;
-    }
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-      }
-      nav a {
-        margin: 5px 0;
-      }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <title>Refine & Reprocess | ChiRIPP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <script defer src="scripts/refine.js"></script>
 </head>
+
 <body>
   <header>
     <h1>ChiR Labs & Meadow House Observatory</h1>
     <p>Where Ancient Wisdom Meets Modern Geodesy & HPC</p>
   </header>
+
   <nav>
-    <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/index.html">Home</a>
-    <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/peer-review.html">Peer Review</a>
-    <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/codex.html">Geodetic Codex</a>
-    <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/chiripp.html">ChiRIPP </a>
-    <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/planetary-sovereignty.html">Planetary Sovereignty</a>
-    <a href="https://dihedralg.github.io/HIA-Geodetic-Codex/about.html">About | Contact</a>
+    <a href="index.html"><img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="Home"> Home</a>
+    <a href="peer-review.html"><img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="Peer Review"> Peer Review</a>
+    <a href="codex.html"><img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="Codex"> Codex</a>
+    <a href="chiripp.html"><img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="ChiRIPP"> ChiRIPP</a>
+    <a href="refine.html"><img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="Refine"> Refine</a>
+    <a href="psl.html"><img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="PSL"> PSL</a>
+    <a href="about.html"><img src="chiripp-core/glyphs/default_glyph.png" class="nav-icon" alt="About"> About</a>
   </nav>
-  <div class="container">
-  <h2>🔁 Refine & Reprocess</h2>
-  <p>This tool allows you to update your prompt or context and reprocess a previously submitted file using the ChiRIPP system.</p>
 
-  <form id="refineForm">
-    <label for="chirippId">ChiRIPP ID:</label>
-    <input type="text" id="chirippId" placeholder="e.g. CG-0004" required>
+  <main class="container">
+    <h2>🔁 Refine & Reprocess a Submission</h2>
+    <p>Update your context or prompt for a previously uploaded file using your ChiRIPP ID.</p>
 
-    <label for="updatedContext">Updated Prompt or Context:</label>
-    <textarea id="updatedContext" rows="3" placeholder="Add context, clarification, or new instructions..."></textarea><br><br>
+    <form id="refineForm">
+      <label for="chirippId">ChiRIPP ID:</label><br>
+      <input type="text" id="chirippId" name="chirippId" placeholder="e.g. CG-0004" required /><br><br>
 
-    <button type="submit">Submit Refinement</button>
-  </form>
+      <label for="updatedContext">Updated Prompt / Context:</label><br>
+      <textarea id="updatedContext" name="updatedContext" rows="4" placeholder="Clarify your request, correct tags, or refine instructions..." required></textarea><br><br>
 
-  <div id="refineStatus"></div>
-</div>
+      <label for="email">Email (optional):</label><br>
+      <input type="email" id="email" name="email" placeholder="your@email.com" /><br><br>
 
-<script src="scripts/refine.js"></script>
+      <button type="submit">🚀 Submit for Reprocessing</button>
+    </form>
+
+    <div id="refineStatus"></div>
+  </main>
+
   <footer>
-    <p><!DOCTYPE html>
-<html lang="en">
-
-   
     <p>© 2025 ChiR Labs | The Dihedral Group | Meadow House Observatory</p>
   </footer>
 </body>
