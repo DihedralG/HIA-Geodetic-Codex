@@ -1,134 +1,41 @@
-/* ==========================
-   ChiR Labs Main Stylesheet (Updated)
-   ========================== */
-
-
-/* Header Banner */
-header {
-  background: #003366; /* Dark navy */
-  color: white;
-  padding: 40px 20px 20px 20px; /* 100px tall-ish */
-  text-align: center;
-  font-size: 1.8em;
-  font-weight: bold;
-}
-
-/* Subheader text */
-header p {
-  font-size: 1em;
-  margin-top: 8px;
-  color: #d9e6f2;
-}
-
 /* Navigation Bar */
 nav {
   background-color: white;
-  padding: 10px 15px;
+  padding: 12px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 20px;
   border-bottom: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 nav a {
-  color: #3399ff; /* Light blue text */
-  text-decoration: none;
-  font-weight: 600;
-  padding: 8px 12px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.2s ease;
+  padding: 8px;
+  display: block;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
 }
 
+/* Hover Effect */
 nav a:hover {
-  color: #003366; /* Dark blue on hover */
+  outline: 2px solid #3399ff; /* Light blue border */
+  outline-offset: 4px;
   background-color: #f0f8ff;
-  border-radius: 4px;
+  border-radius: 12px;
 }
 
+/* Active State (you can toggle this manually or with JS later) */
 nav a.active {
-  border-bottom: 2px solid #003366;
+  background-color: #e6f0ff;
+  outline: 2px solid #003366;
 }
 
-/* Icon Sizing */
+/* Icon Size Only */
 .nav-icon {
   height: 60px;
   width: 60px;
-  vertical-align: middle;
-}
-
-
-
-
-
-
-
-/* General Body */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
-
-
-
-/* Container Styling */
-.container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-/* Forms */
-form label {
   display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-input[type="file"],
-input[type="text"],
-input[type="email"],
-input[type="password"],
-select,
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1em;
-}
-
-button {
-  padding: 10px 15px;
-  background-color: #004488;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1em;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #002f66;
-}
-
-/* Footer */
-footer {
-  background-color: #f9f9f9;
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9em;
-  color: #666;
-  border-top: 1px solid #ddd;
-  margin-top: 60px;
+  margin: auto;
 }
