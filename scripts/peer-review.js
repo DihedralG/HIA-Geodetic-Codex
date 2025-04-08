@@ -19,7 +19,7 @@ document.getElementById("peerReviewForm").addEventListener("submit", async funct
   formData.append("context", context);
 
   try {
-    const webhookUrl = "https://hook.us2.make.com/YOUR_PEER_REVIEW_WEBHOOK"; // 🔁 Replace with your actual Make.com URL
+    const webhookUrl = "https://hook.us2.make.com/7smugsxhu83ft4d6uy7eyu1mkmyc6x45";
     const response = await fetch(webhookUrl, {
       method: "POST",
       body: formData
