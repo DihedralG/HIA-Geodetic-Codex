@@ -13,10 +13,14 @@ document.getElementById("peerReviewForm").addEventListener("submit", async funct
   formData.append("content_type", type);
   formData.append("context", context);
 
-  const response = await fetch("https://hook.us2.make.com/7smugsxhu83tf4d6uy7eyu1mkmyc6x45", {
-    method: "POST",
-    body: formData
-  });
+  const response = await fetch("https://hook.us2.make.com/YOUR_REFINE_WEBHOOK_URL", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    chiripp_id: chirippId,
+    updated_context: updatedContext
+  })
+});
 
   const result = await response.text();
   document.getElementById("submissionStatus").innerText = result;
