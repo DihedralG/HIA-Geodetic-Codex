@@ -2,38 +2,39 @@
    ChiR Labs Main Stylesheet (Updated)
    ========================== */
 
-/* General Body */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
 
-/* Header */
+/* Header Banner */
 header {
-  background: #003366; /* Dark blue */
+  background: #003366; /* Dark navy */
   color: white;
-  padding: 20px;
+  padding: 40px 20px 20px 20px; /* 100px tall-ish */
   text-align: center;
-  font-size: 1.2em;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  font-size: 1.8em;
+  font-weight: bold;
 }
 
-/* Navigation */
+/* Subheader text */
+header p {
+  font-size: 1em;
+  margin-top: 8px;
+  color: #d9e6f2;
+}
+
+/* Navigation Bar */
 nav {
-  background-color: #003366; /* Match dark header */
+  background-color: white;
   padding: 10px 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
+  border-bottom: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 nav a {
-  color: white; /* White nav links */
+  color: #3399ff; /* Light blue text */
   text-decoration: none;
   font-weight: 600;
   padding: 8px 12px;
@@ -44,19 +45,37 @@ nav a {
 }
 
 nav a:hover {
-  background-color: #005599;
+  color: #003366; /* Dark blue on hover */
+  background-color: #f0f8ff;
   border-radius: 4px;
 }
 
 nav a.active {
-  border-bottom: 2px solid #66aaff;
+  border-bottom: 2px solid #003366;
 }
 
+/* Icon Sizing */
 .nav-icon {
   height: 20px;
   width: 20px;
   vertical-align: middle;
 }
+
+
+
+
+
+
+
+/* General Body */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+
 
 /* Container Styling */
 .container {
