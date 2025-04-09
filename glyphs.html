@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glyphs Dashboard | ChiRIPP</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script defer src="/glyphs.js"></script>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+  <header class="p-4 bg-blue-100 flex justify-between items-center shadow">
+    <h1 class="text-xl font-bold">💠 ChiRIPP | Glyph Collection</h1>
+    <nav>
+      <a href="/index.html" class="text-blue-800 hover:underline">Home</a>
+    </nav>
+  </header>
+
+  <main class="p-6 max-w-5xl mx-auto">
+    <section class="mb-8">
+      <h2 class="text-lg font-semibold mb-2">🔍 Filter & Search</h2>
+      <div class="flex flex-wrap gap-4 items-end">
+        <div>
+          <label for="content-type" class="block text-sm font-medium">Content Type</label>
+          <select id="content-type" class="border p-2 rounded">
+            <option value="">All</option>
+            <option value="photo">Photo</option>
+            <option value="article">Article</option>
+            <option value="site">Site</option>
+          </select>
+        </div>
+        <div>
+          <label for="access-code" class="block text-sm font-medium">Access Code</label>
+          <input id="access-code" type="text" placeholder="e.g. GE02025" class="border p-2 rounded" />
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium">Email</label>
+          <input id="email" type="text" placeholder="e.g. user@domain.com" class="border p-2 rounded" />
+        </div>
+        <button id="search-btn" class="bg-blue-600 text-white px-4 py-2 rounded">Search</button>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-lg font-semibold mb-4">🧾 Matched Glyphs</h2>
+      <div id="glyph-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cards will be dynamically injected here -->
+      </div>
+    </section>
+  </main>
+
+  <template id="glyph-card-template">
+    <div class="border rounded shadow p-4 bg-gray-50">
+      <img src="" alt="Glyph Preview" class="mb-2 w-full rounded" />
+      <p class="text-sm text-gray-700"><strong>Type:</strong> <span class="type"></span></p>
+      <p class="text-sm text-gray-700"><strong>Email:</strong> <span class="email"></span></p>
+      <p class="text-sm text-gray-700"><strong>Access Code:</strong> <span class="code"></span></p>
+      <details class="mt-2">
+        <summary class="text-blue-600 cursor-pointer">View Summary</summary>
+        <p class="text-sm text-gray-800 mt-1 summary"></p>
+      </details>
+    </div>
+  </template>
+</body>
+</html>
