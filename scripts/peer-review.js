@@ -2,10 +2,11 @@
 document.getElementById("peerReviewForm").addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  const accessCode = document.getElementById("accessCode").value.trim();
-  const file = document.getElementById("fileUpload").files[0];
-  const context = document.getElementById("contextInput").value.trim();
-  const type = document.getElementById("contentType").value;
+ const accessCode = document.getElementById("accessCode").value.trim();
+const file = document.getElementById("fileUpload").files[0];
+const context = document.getElementById("contextInput").value.trim();
+const type = document.getElementById("contentType").value;
+const email = document.getElementById("emailInput").value.trim(); 
 
   if (!file || !accessCode) {
     document.getElementById("submissionStatus").innerText = "❗ Please upload a file and enter an access code.";
