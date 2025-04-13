@@ -1,2 +1,50 @@
-<!-- Placeholder content for refine.html -->
-<html><body><h1>refine.html</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Refine & Reprocess | ChiRIPP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <script defer src="scripts/refine.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>ChiR Labs & Meadow House Observatory</h1>
+    <p>Where Ancient Wisdom Meets Modern Geodesy & HPC</p>
+  </header>
+
+<nav>
+    <a href="index.html"title="Home"><img src="./assets/glyphs/glyph_6.png" alt="Home" class="nav-icon" />  </a>
+    <a href="peer-review.html"title="Peer Review"><img src="./assets/glyphs/glyph_1.png" alt="Peer Review" class="nav-icon" /> </a>
+    <a href="codex.html"title="Codex"><img src="./assets/glyphs/glyph_2.png" alt="Codex" class="nav-icon" /> </a>
+    <a href="chiripp.html"title="ChiRIPP"><img src="./assets/glyphs/glyph_3.png" alt="ChiRIPP" class="nav-icon" /> </a>
+    <a href="psl.html"title="PSL"><img src="./assets/glyphs/glyph_4.png" alt="PSL" class="nav-icon" /> </a>
+    <a href="about.html"title="About"><img src="./assets/glyphs/glyph_5.png" alt="About" class="nav-icon" /> </a>
+  </nav>
+  
+  <main class="container">
+    <h2>🔁 Refine & Reprocess a Submission</h2>
+    <p>Update your context or prompt for a previously uploaded file using your ChiRIPP ID.</p>
+
+    <form id="refineForm">
+      <label for="chirippId">ChiRIPP ID:</label><br>
+      <input type="text" id="chirippId" name="chirippId" placeholder="e.g. CG-0004" required /><br><br>
+
+      <label for="updatedContext">Updated Prompt / Context:</label><br>
+      <textarea id="updatedContext" name="updatedContext" rows="4" placeholder="Clarify your request, correct tags, or refine instructions..." required></textarea><br><br>
+
+      <label for="email">Email (optional):</label><br>
+      <input type="email" id="email" name="email" placeholder="your@email.com" /><br><br>
+
+      <button type="submit">🚀 Submit for Reprocessing</button>
+    </form>
+
+    <div id="refineStatus"></div>
+  </main>
+
+  <footer>
+    <p>© 2025 ChiR Labs | The Dihedral Group | Meadow House Observatory</p>
+  </footer>
+</body>
+</html>
