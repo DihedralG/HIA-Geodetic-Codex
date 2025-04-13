@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ChiRIPP Peer Review</title>
+  <title>ChiR-AI Assisted Analysis</title>
   <link rel="stylesheet" href="styles/main.css" />
   <script defer>
-    async function submitPeerReview(event) {
+    async function submitChiRIPPAnalysis(event) {
       event.preventDefault();
 
       const fileInput = document.getElementById('uploadFile');
       const contentType = document.getElementById('contentType').value;
+      const framework = document.getElementById('framework').value;
+      const mode = document.getElementById('mode').value;
       const instructions = document.getElementById('instructions').value;
       const accessCode = document.getElementById('accessCode').value;
       const email = document.getElementById('email').value;
 
-      // Access control: require email or valid code
       if (!email && accessCode !== "GEO2025") {
         alert("Please provide a valid access code or an email address.");
         return;
@@ -24,18 +25,20 @@
       const formData = new FormData();
       formData.append("file", fileInput.files[0]);
       formData.append("content_type", contentType);
+      formData.append("framework", framework);
+      formData.append("mode", mode);
       formData.append("instructions", instructions);
       formData.append("email", email || "anonymous@chirlabs.org");
 
       try {
-        const response = await fetch("https://hook.us2.make.com/REPLACE_WITH_YOUR_WEBHOOK", {
+        const response = await fetch("https://hook.us2.make.com/7smugsxhu83ft4d6uy7eyu1mkmyc6x45", {
           method: "POST",
           body: formData
         });
 
         if (!response.ok) throw new Error("Upload failed.");
-        alert("File submitted for peer review! Check back or follow up via email for status.");
-        document.getElementById("uploadForm").reset();
+        alert("File submitted for review! Check back or follow up via email for status.");
+        document.getElementById("chirippAnalysisForm").reset();
       } catch (err) {
         alert("Error: " + err.message);
       }
@@ -44,34 +47,32 @@
 </head>
 
 <body>
-
   <header>
     <h1>ChiR Labs & Meadow House Observatory</h1>
     <p>Where Ancient Wisdom Meets Modern Geodesy & HPC</p>
   </header>
 
-<nav>
-    <a href="index.html"title="Home"><img src="./assets/glyphs/glyph_6.png" alt="Home" class="nav-icon" />  </a>
-    <a href="peer-review.html"title="Peer Review"><img src="./assets/glyphs/glyph_1.png" alt="Peer Review" class="nav-icon" /> </a>
-    <a href="codex.html"title="Codex"><img src="./assets/glyphs/glyph_2.png" alt="Codex" class="nav-icon" /> </a>
-    <a href="chiripp.html"title="ChiRIPP"><img src="./assets/glyphs/glyph_3.png" alt="ChiRIPP" class="nav-icon" /> </a>
-    <a href="psl.html"title="PSL"><img src="./assets/glyphs/glyph_4.png" alt="PSL" class="nav-icon" /> </a>
-    <a href="about.html"title="About"><img src="./assets/glyphs/glyph_5.png" alt="About" class="nav-icon" /> </a>
+  <nav>
+    <a href="index.html" title="Home"><img src="./assets/glyphs/glyph_6.png" alt="Home" class="nav-icon" /></a>
+    <a href="chir-ai.html" title="ChiR-AI"><img src="./assets/glyphs/glyph_1.png" alt="ChiR-AI" class="nav-icon" /></a>
+    <a href="codex.html" title="Codex"><img src="./assets/glyphs/glyph_2.png" alt="Codex" class="nav-icon" /></a>
+    <a href="chiripp.html" title="ChiR-IPP"><img src="./assets/glyphs/glyph_3.png" alt="ChiR-IPP" class="nav-icon" /></a>
+    <a href="psl.html" title="PSL"><img src="./assets/glyphs/glyph_4.png" alt="PSL" class="nav-icon" /></a>
+    <a href="about.html" title="About"><img src="./assets/glyphs/glyph_5.png" alt="About" class="nav-icon" /></a>
   </nav>
-  
+
   <main class="container">
-    <h2>🧪 ChiRIPP Peer Review Submission</h2>
+    <h2>🧪 ChiR-IPP Powered AI Analysis</h2>
     <p>Submit a file for analysis and review. Accepted types include:</p>
 
-
-    <p> <a href="refine.html"title="Refine Glyphs"><img src="./assets/glyphs/glyph_7.png" alt="About" class="nav-icon" /> Looking to refresh and refine an existing Corner Glyph? </a></p>
+    <p><a href="refine.html" title="Refine Glyphs"><img src="./assets/glyphs/glyph_7.png" alt="Refine" class="nav-icon" /> Looking to refresh and refine an existing Corner Glyph?</a></p>
     <ul>
       <li>📷 Images (artifact photos, glyphs)</li>
       <li>📜 Text-based research quotes</li>
       <li>📄 PDF or paper excerpts</li>
     </ul>
 
-   <form id="peerReviewForm" onsubmit="submitPeerReview(event)" enctype="multipart/form-data">
+    <form id="chirippAnalysisForm" onsubmit="submitChiRIPPAnalysis(event)" enctype="multipart/form-data">
       <label for="uploadFile">Select File:</label><br>
       <input type="file" id="uploadFile" required /><br><br>
 
@@ -80,6 +81,23 @@
         <option value="photo">Photo</option>
         <option value="paper">Paper</option>
         <option value="quote">Quote</option>
+      </select><br><br>
+
+      <label for="framework">Thinking Framework (optional):</label><br>
+      <select id="framework">
+        <option value="">None</option>
+        <option value="fishbone">Fishbone Diagram</option>
+        <option value="swot">SWOT Analysis</option>
+        <option value="mece">MECE Principle</option>
+        <option value="forcefield">Force Field Analysis</option>
+        <option value="sixhats">Six Thinking Hats</option>
+      </select><br><br>
+
+      <label for="mode">Mode:</label><br>
+      <select id="mode">
+        <option value="create">Create Glyph</option>
+        <option value="analyze">Analyze Glyph</option>
+        <option value="both" selected>Both</option>
       </select><br><br>
 
       <label for="instructions">Instructions (optional):</label><br>
@@ -98,6 +116,5 @@
   <footer>
     <p>© 2025 ChiR Labs | The Dihedral Group | Meadow House Observatory</p>
   </footer>
-
 </body>
 </html>

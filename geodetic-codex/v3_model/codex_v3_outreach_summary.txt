@@ -1,0 +1,3 @@
+Codex V3 Outreach Summary
+--------------------------
+Public release of geodetic modeling. Sensitive nodes (Z, A38, A40) redacted pending review.
