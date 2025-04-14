@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ChiR-AI Assisted Analysis</title>
+  <title>ChiR-IPP Assisted Analysis</title>
   <link rel="stylesheet" href="styles/main.css" />
   <script defer>
     async function submitChiRIPPAnalysis(event) {
@@ -11,8 +11,8 @@
 
       const fileInput = document.getElementById('uploadFile');
       const contentType = document.getElementById('contentType').value;
-      const framework = document.getElementById('framework').value;
-      const mode = document.getElementById('mode').value;
+      const framework = document.getElementById('thinkingFramework').value;
+      const glyphStatus = document.getElementById('glyphStatus').value;
       const instructions = document.getElementById('instructions').value;
       const accessCode = document.getElementById('accessCode').value;
       const email = document.getElementById('email').value;
@@ -26,7 +26,7 @@
       formData.append("file", fileInput.files[0]);
       formData.append("content_type", contentType);
       formData.append("framework", framework);
-      formData.append("mode", mode);
+      formData.append("glyph_status", glyphStatus);
       formData.append("instructions", instructions);
       formData.append("email", email || "anonymous@chirlabs.org");
 
@@ -45,7 +45,6 @@
     }
   </script>
 </head>
-
 <body>
   <header>
     <h1>ChiR Labs & Meadow House Observatory</h1>
@@ -54,7 +53,7 @@
 
   <nav>
     <a href="index.html" title="Home"><img src="./assets/glyphs/glyph_6.png" alt="Home" class="nav-icon" /></a>
-    <a href="chir-ai.html" title="ChiR-AI"><img src="./assets/glyphs/glyph_1.png" alt="ChiR-AI" class="nav-icon" /></a>
+    <a href="submit-cg.html" title="ChiR-AI"><img src="./assets/glyphs/glyph_1.png" alt="ChiR-AI" class="nav-icon" /></a>
     <a href="codex.html" title="Codex"><img src="./assets/glyphs/glyph_2.png" alt="Codex" class="nav-icon" /></a>
     <a href="chiripp.html" title="ChiR-IPP"><img src="./assets/glyphs/glyph_3.png" alt="ChiR-IPP" class="nav-icon" /></a>
     <a href="psl.html" title="PSL"><img src="./assets/glyphs/glyph_4.png" alt="PSL" class="nav-icon" /></a>
@@ -64,7 +63,6 @@
   <main class="container">
     <h2>🧪 ChiR-IPP Powered AI Analysis</h2>
     <p>Submit a file for analysis and review. Accepted types include:</p>
-
     <p><a href="refine.html" title="Refine Glyphs"><img src="./assets/glyphs/glyph_7.png" alt="Refine" class="nav-icon" /> Looking to refresh and refine an existing Corner Glyph?</a></p>
     <ul>
       <li>📷 Images (artifact photos, glyphs)</li>
@@ -83,21 +81,36 @@
         <option value="quote">Quote</option>
       </select><br><br>
 
-      <label for="framework">Thinking Framework (optional):</label><br>
-      <select id="framework">
+      <label for="thinkingFramework">Thinking Framework (optional):</label><br>
+      <select id="thinkingFramework">
         <option value="">None</option>
-        <option value="fishbone">Fishbone Diagram</option>
-        <option value="swot">SWOT Analysis</option>
-        <option value="mece">MECE Principle</option>
-        <option value="forcefield">Force Field Analysis</option>
-        <option value="sixhats">Six Thinking Hats</option>
+        <option value="SWOT Analysis">SWOT Analysis</option>
+        <option value="Fishbone Diagram">Fishbone Diagram</option>
+        <option value="MECE Principle">MECE Principle</option>
+        <option value="Force Field Analysis">Force Field Analysis</option>
+        <option value="Decision Matrix">Decision Matrix</option>
+        <option value="First Principles Thinking">First Principles Thinking</option>
+        <option value="Analogous Reasoning">Analogous Reasoning</option>
+        <option value="Inversion Technique">Inversion Technique</option>
+        <option value="SCAMPER Method">SCAMPER Method</option>
+        <option value="Cost-Benefit Analysis">Cost-Benefit Analysis</option>
+        <option value="Hypothesis Testing">Hypothesis Testing</option>
+        <option value="Pre-Mortem Analysis">Pre-Mortem Analysis</option>
+        <option value="Lateral Thinking">Lateral Thinking</option>
+        <option value="TRIZ Method">TRIZ Method</option>
+        <option value="OODA Loop">OODA Loop</option>
+        <option value="Prototyping">Prototyping</option>
+        <option value="Blue Ocean Strategy">Blue Ocean Strategy</option>
+        <option value="Root Cause Analysis">Root Cause Analysis</option>
+        <option value="Counterfactual Reasoning">Counterfactual Reasoning</option>
+        <option value="Six Thinking Hats">Six Thinking Hats</option>
       </select><br><br>
 
-      <label for="mode">Mode:</label><br>
-      <select id="mode">
+      <label for="glyphStatus">Corner Glyph Status:</label><br>
+      <select id="glyphStatus">
         <option value="create">Create Glyph</option>
         <option value="analyze">Analyze Glyph</option>
-        <option value="both" selected>Both</option>
+        <option value="both">Both</option>
       </select><br><br>
 
       <label for="instructions">Instructions (optional):</label><br>
