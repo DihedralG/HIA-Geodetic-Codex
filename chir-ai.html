@@ -73,73 +73,68 @@
   </nav>
 
   <main class="container">
-    <h2>🧪 ChiR-IPP Powered AI Analysis</h2>
-    <p>Submit a file for analysis and review. Accepted types include:</p>
-    
-    <ul>
-      <li>📷 Images (artifact photos, glyphs)</li>
-      <li>📜 Text-based research quotes</li>
-      <li>📄 PDF or paper excerpts</li>
-    </ul>
+    <aside class="context-blurb">
+      <p>“Codex access is granted on a case-by-case basis to researchers, Indigenous stewards, OpenAI and IARPA/DARPA partners, and aligned contributors.”</p>
+    </aside>
 
-    <form id="chirippAnalysisForm" onsubmit="submitChiRIPPAnalysis(event)" enctype="multipart/form-data">
-      <label for="uploadFile">Select File:</label><br>
-      <input type="file" id="uploadFile" required /><br><br>
+    <form class="access-form" id="vaultAccessForm">
+      <label for="email">Your Email</label>
+      <input type="email" id="email" required placeholder="you@example.com"/>
 
-      <label for="contentType">Content Type:</label><br>
-      <select id="contentType" required>
-        <option value="photo">Photo</option>
-        <option value="paper">Paper</option>
-        <option value="quote">Quote</option>
-      </select><br><br>
+      <label for="purpose">Purpose of Request</label>
+      <select id="purpose" required>
+        <option value="">-- Select Purpose --</option>
+        <option value="openai-review">OpenAI Review / Partner</option>
+        <option value="iarpa-proposal">IARPA/DARPA Proposal Support</option>
+        <option value="classified-peer">Peer Access (Sensitive Node Match)</option>
+        <option value="indigenous-rights">Indigenous Stewardship / Cultural Return</option>
+        <option value="media-review">Media or Journalist Access</option>
+      </select>
 
-      <label for="thinkingFramework">Thinking Framework (optional):</label><br>
-      <select id="thinkingFramework">
-        <option value="">None</option>
-        <option value="SWOT Analysis">SWOT Analysis</option>
-        <option value="Fishbone Diagram">Fishbone Diagram</option>
-        <option value="MECE Principle">MECE Principle</option>
-        <option value="Force Field Analysis">Force Field Analysis</option>
-        <option value="Decision Matrix">Decision Matrix</option>
-        <option value="First Principles Thinking">First Principles Thinking</option>
-        <option value="Analogous Reasoning">Analogous Reasoning</option>
-        <option value="Inversion Technique">Inversion Technique</option>
-        <option value="SCAMPER Method">SCAMPER Method</option>
-        <option value="Cost-Benefit Analysis">Cost-Benefit Analysis</option>
-        <option value="Hypothesis Testing">Hypothesis Testing</option>
-        <option value="Pre-Mortem Analysis">Pre-Mortem Analysis</option>
-        <option value="Lateral Thinking">Lateral Thinking</option>
-        <option value="TRIZ Method">TRIZ Method</option>
-        <option value="OODA Loop">OODA Loop</option>
-        <option value="Prototyping">Prototyping</option>
-        <option value="Blue Ocean Strategy">Blue Ocean Strategy</option>
-        <option value="Root Cause Analysis">Root Cause Analysis</option>
-        <option value="Counterfactual Reasoning">Counterfactual Reasoning</option>
-        <option value="Six Thinking Hats">Six Thinking Hats</option>
-      </select><br><br>
+      <label for="notes">Additional Notes (Optional)</label>
+      <textarea id="notes" rows="4" placeholder="Anything you'd like to add…"></textarea>
 
-      <label for="glyphStatus">Corner Glyph Status:</label><br>
-      <select id="glyphStatus">
-        <option value="create">Create Glyph</option>
-        <option value="analyze">Analyze Glyph</option>
-        <option value="both">Both</option>
-      </select><br><br>
-
-      <label for="instructions">Instructions (optional):</label><br>
-      <textarea id="instructions" rows="4" placeholder="Any special notes for reviewers or the AI..."></textarea><br><br>
-
-      <label for="email">Email (optional):</label><br>
-      <input type="email" id="email" placeholder="you@example.com" /><br><br>
-
-      <label for="accessCode">Access Code:</label><br>
-      <input type="password" id="accessCode" placeholder="GEO2025" /><br><br>
-
-      <button type="submit">🚀 Submit for Processing</button>
+      <button type="submit">🔓 Request Access</button>
     </form>
+
+    <div id="confirmation" style="text-align:center; margin-top:1rem;"></div>
   </main>
 
   <footer>
     <p>© 2025 ChiR Labs | The Dihedral Group | Meadow House Observatory</p>
   </footer>
+
+  <script>
+    document.getElementById("vaultAccessForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const purpose = document.getElementById("purpose").value;
+      const notes = document.getElementById("notes").value;
+
+      const data = {
+        email,
+        purpose,
+        notes,
+        timestamp: new Date().toISOString(),
+        form: "codex-access"
+      };
+
+      try {
+        await fetch("https://hook.us2.make.com/4ujvl1yvo4359b8enm7vabv1ho3lq6no", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+      } catch (err) {
+        console.error("Webhook error:", err);
+      }
+
+      document.getElementById("confirmation").innerHTML = `
+        <p style="color:green; font-weight:bold;">✅ Request received. We'll be in touch shortly.</p>
+      `;
+      document.getElementById("vaultAccessForm").reset();
+    });
+  </script>
 </body>
 </html>
