@@ -1,0 +1,14 @@
+Node,Label,Latitude,Longitude,Edges,Correction,Role
+A1,Sayacmarca Observatory,-13.24,-72.55,6,None,Face Center
+A2,Meadow House Observatory,44.37,-72.66,6,Yes,Face Center
+A3,TBD,,,6,Unknown,Face Center
+A4,TBD,,,6,Unknown,Face Center
+A8,Africa Face Node,,,6,Yes,Face Center
+A10,TBD,,,6,Unknown,Face Center
+A12,Pacific Node,,,6,Yes,Face Center
+A16,South Atlantic Node,,,6,Possibly,Face Center
+A30,TBD,,,6,Unknown,Face Center
+A34,TBD,,,6,Unknown,Face Center
+A39,Antarctic Adjacency,,,6,Likely,Face Center
+A40,Submerged Node,,,6,Yes,Subsurface Face
+Z,Phase Convergence Node,,,7,Yes,Terminus / Closure
