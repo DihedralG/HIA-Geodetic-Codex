@@ -5,7 +5,7 @@ Institution: The Dihedral Group | ChiR Labs<br>
 Location: Meadow House Observatory, Vermont<br>
 
 <b>Abstract</b> <br>
-This study presents a novel integration of archaeogeodesy, geomagnetism, and harmonic modeling to identify statistically significant patterns in the alignment of ancient human-constructed sites. Using a hybrid high-performance computing (HPC) and quantum concurrency approach—referred to as <b>Harmonic Intelligence (HI)</b>—we analyze over 1087 megalithic and pyramidal sites. Results demonstrate a statistically significant global pattern correlating site orientations to historical geomagnetic pole locations. The findings support a broader theoretical framework known as the Geodetic Codex, which posits that ancient civilizations encoded planetary-scale phenomena in architecture and landscape. Our analysis also introduces a new phenomenon: harmonic residue—a predictive anomaly in spatial statistics—opening doors for future archaeological discovery and deeper cultural understanding.<br>
+This article presents an interdisciplinary study integrating high-performance computing (HPC), advanced geodesy, and harmonic resonance theory to uncover statistically significant global architectural alignments. Leveraging Monte Carlo simulations and wave-phase concurrency frameworks, we demonstrate empirical clustering of megalithic and pyramidal sites along ancient pole vectors and harmonic geodetic axes. Central to this model is the identification of a 72.66°W longitudinal corridor, which links northern and southern hemisphere observatories in Vermont and Peru through a statistically improbable alignment pattern. We introduce the Geodetic Stability Equation G = v · h² , a nod to Einstein in our work constructing a quantifying harmonic resilience across stable polyhedral faces. This model suggests ancient awareness of planetary-scale cycles and structural resonances, potentially enabling predictive archaeology. All computational methods and findings are made openly available for replication, promoting a new standard of transparency and interdisciplinary inquiry in archaeoscience.<br>
 
 <b>1. Introduction</b><br>
 
@@ -66,6 +66,7 @@ The proposed Greenland Observatory and cultural basecamp would unify Arctic rese
 
 <b>Declarations </b><br>
 This paper utilizes a proprietary visual provenance framework—ChiR Image Provenance Protocol (ChiRIPP)—which applies symbolic corner glyphs to transparently tag images generated, modified, or analyzed via AI. The consumer-facing implementation of this system is the Geodetic Codex Corner Glyph (GCCG). All glyph-tagged images submitted in this research adhere to this ethical disclosure and will be maintained in a public metadata manifest. Commercial licensing proceeds from the ChiRIPP/GCCG framework will support open cultural research.<br>
+
 <b>Data Availability</b> <br>
 All geospatial site data, Monte Carlo code samples, and harmonic modeling scripts will be available via GitHub at the time of publication.<br>
 
@@ -85,5 +86,5 @@ All geospatial site data, Monte Carlo code samples, and harmonic modeling script
 * Appendix A: Full site dataset (1087 entries, with GPS coordinates and pole alignment vectors)<br>
 * Appendix B: Monte Carlo simulation framework<br>
 * Appendix C: Harmonic Residue Index (HRI) derivation and formula<br>
-* Appendix D: Extended visual maps with GCCG-tagged figures (see <br>
+* Appendix D: <a href="visuals.html" target="new">Extended visual maps with GCCG-tagged figures</a> <br>
 
