@@ -86,5 +86,5 @@ All geospatial site data, Monte Carlo code samples, and harmonic modeling script
 * Appendix A: Full site dataset (1087 entries, with GPS coordinates and pole alignment vectors)<br>
 * Appendix B: Monte Carlo simulation framework<br>
 * Appendix C: Harmonic Residue Index (HRI) derivation and formula<br>
-* Appendix D: <a href="visuals.html" target="new">Extended visual maps with GCCG-tagged figures</a> <br>
+* Appendix D: <a href="https://github.com/DihedralG/HIA-Geodetic-Codex/visuals.html" target="new">Extended visual maps with GCCG-tagged figures</a> <br>
 
