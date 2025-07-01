@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChiRhombant Calculator</title>
+  <style>
+    body { font-family: sans-serif; margin: 2rem; background: #f4f4f4; }
+    .container { max-width: 700px; margin: auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+    h1 { font-size: 2rem; text-align: center; }
+    input, select { width: 100%; padding: 0.6rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 6px; }
+    button { padding: 0.7rem 1.5rem; background: #0047ab; color: white; border: none; border-radius: 6px; cursor: pointer; }
+    .result { margin-top: 2rem; background: #eef; padding: 1rem; border-radius: 6px; }
+    .disclaimer { font-size: 0.9rem; color: #666; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>ChiRhombant Calculator</h1>
+    <label>Latitude:</label>
+    <input type="number" id="lat" step="any" placeholder="e.g. -12.456" />
+
+    <label>Longitude:</label>
+    <input type="number" id="lon" step="any" placeholder="e.g. -72.660" />
+
+    <label>Elevation (meters):</label>
+    <input type="number" id="elevation" step="any" placeholder="Optional (default = 500m)" />
+
+    <label>Azimuth (degrees):</label>
+    <input type="number" id="azimuth" step="any" placeholder="Optional" />
+
+    <label>Reference Node:</label>
+    <select id="reference">
+      <option value="MHO">Meadow House Observatory (MHO)</option>
+      <option value="SO">Sayacmarca Observatory (SO)</option>
+      <option value="MVO">Monte Verde Observatory (MVO)</option>
+      <option value="CLO">Citadelle Laferrière Observatory (CLO)</option>
+    </select>
+
+    <button onclick="calculateG()">Calculate Stability Score</button>
+
+    <div class="result" id="output"></div>
+
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> This tool provides a simplified version of the ChiRhombant Constant equation: <code>G = v · h²</code>, where <code>v</code> is a geodetic vector (default 732 miles) and <code>h</code> is elevation in km. Proprietary crustal and resonance variables used in full Codex modeling are not included in this calculator.
+    </div>
+  </div>
+
+  <script>
+    function calculateG() {
+      const lat = parseFloat(document.getElementById("lat").value);
+      const lon = parseFloat(document.getElementById("lon").value);
+      let h = parseFloat(document.getElementById("elevation").value);
+      const ref = document.getElementById("reference").value;
+      if (isNaN(h)) h = 500; // default elevation
+      const h_km = h / 1000.0;
+      const v = 732; // fixed vector distance in miles
+      const G = v * h_km * h_km;
+      document.getElementById("output").innerHTML = `
+        <strong>ChiRhombant Constant (G):</strong> ${G.toFixed(4)}<br />
+        <strong>Location:</strong> (${lat}, ${lon})<br />
+        <strong>Elevation Used:</strong> ${h} meters<br />
+        <strong>Reference Node:</strong> ${ref}<br />
+        <em>Note: This simplified G-score assumes baseline harmonic coherence and does not include pressure or geomagnetic feedback coefficients.</em>
+      `;
+    }
+  </script>
+</body>
+</html>
