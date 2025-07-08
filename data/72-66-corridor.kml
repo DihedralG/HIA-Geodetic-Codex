@@ -41227,5 +41227,23 @@ Arica, Arica y Parinacota</name>
 			</coordinates>
 		</LineString>
 	</Placemark>
+	<Placemark id="06332B7966391CEC84C9">
+		<name>Fort Wellington Grand Pre</name>
+		<LookAt>
+			<longitude>-64.3</longitude>
+			<latitude>45.11</latitude>
+			<altitude>0</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>719.3489901219976</range>
+			<altitudeMode>relativeToGround</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_12460A6F4263907B1DF0C</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>-64.30042733040597,45.10997828322523,0</coordinates>
+		</Point>
+	</Placemark>
 </Document>
 </kml>
