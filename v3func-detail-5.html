@@ -1,0 +1,235 @@
+<!-- v3-5.html — Geodetic Codex V3.5 Functional Specification -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChiR Labs — V3.5 Functional Spec (Mineralogical Reservoirs)</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <meta name="description" content="Geodetic Codex V3.5 functional specification — Mineralogical Reservoirs, piezoelectric & acoustic resonance, and harmonic coupling to Codex nodes." />
+</head>
+<body>
+  <header>
+    <h1>🌀 ChiR Labs</h1>
+    <p>Mapping trust, resonance, and planetary intelligence.</p>
+  </header>
+
+  <nav>
+    <a href="index.html"> 🌀 <span>Root</span></a>
+    <a href="chir-ai.html"> 🧠 <span>ChiR-AI</span></a>
+    <a href="chiripp.html"> 💠 <span>ChiR-IPP</span></a>
+    <a href="codex.html"> 🌐 <span>Codex</span></a>
+    <a href="psl.html"> 🕊 <span>PSL</span></a>
+    <a href="about.html"> 🧭 <span>About</span></a>
+    <a href="support.html"> 🌱 <span>Growth</span></a>
+  </nav>
+
+  <main class="container">
+    <aside class="context-blurb">
+      <p><b>V3.5 Functional Specification:</b> <i>Mineralogical Reservoirs — Composition, Distribution, and Harmonic Coupling.</i> This page formalizes how planetary mineral systems act as geodynamic stabilizers, hydrological membranes, and resonance media within the Codex.</p>
+    </aside>
+
+    <section>
+      <h2>Overview</h2>
+      <p>V3.5 extends the V3.3–V3.4 hinge into mineral systems. We model how <b>reservoir-scale mineralogy</b> (crystalline lattices, dense roots, porous sediments) underpins three operating functions: (1) geodynamic stabilization, (2) hydrological filtration & storage, and (3) harmonic resonance. We connect these to Codex nodes (pyramids, star forts, megalithic observatories) along the corridor and in global polyhedra.</p>
+    </section>
+
+    <section>
+      <h2>Objectives</h2>
+      <ul>
+        <li>Map planetary mineral belts (crystalline, volcanic, sedimentary, metamorphic) to Codex nodes and corridors.</li>
+        <li>Explain <b>piezoelectricity & acoustic resonance</b> in accessible terms; specify minerals with lattice properties that matter (quartz, tourmaline, feldspar, magnetite-bearing units).</li>
+        <li>Add <b>isotopic/dating ranges</b> per reservoir type to tie mineral history into V3.3’s memory matrix.</li>
+        <li>Quantify <b>THA coupling</b> (Tectonic–Hydrological–Atmospheric) for mineralogical layers; output node- and corridor-level indices.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>What is Piezoelectricity? (Plain Language)</h2>
+      <p>Some crystals lack a center of symmetry in their atomic lattice. When you squeeze or bend them, the centers of positive and negative charge shift slightly, creating a voltage. That’s the <b>direct piezoelectric effect</b>. Apply a voltage, and the crystal deforms — the <b>converse effect</b>. In equations often used by materials scientists:</p>
+      <pre class="code-block">Direct:   D = d·T + ε·E      (electric displacement from stress)
+Converse: X = s·T + d·E      (strain from electric field)</pre>
+      <p>Quartz, tourmaline, and some feldspars exhibit these effects. Architecturally, placing piezo-active minerals in load paths, floor plates, chamber linings, or jointed blocks can (a) convert ambient vibration into charge, and/or (b) tune acoustic modes. In Codex terms, such sites behave as <b>resonant couplers</b> inside the THA field.</p>
+      <details>
+        <summary><b>Acoustic context</b> — where sound and strain meet</summary>
+        <p>Piezoelectric acoustic transducers convert between sound fields and electrical signals. In built stone, natural modes (standing waves) can amplify low-frequency inputs (drums, steps, wind, tremor). When piezo-active minerals are present at stress nodes, they can modulate those fields. This makes the material choice (quartz content, feldspar fabric, tourmaline veins) operational, not decorative.</p>
+      </details>
+    </section>
+
+    <section>
+      <h2>Data Inputs</h2>
+      <div class="scroll-x">
+        <table class="compact">
+          <thead><tr><th>Layer</th><th>Source Types</th><th>Use in Model</th></tr></thead>
+          <tbody>
+            <tr><td>Global lithology</td><td>GLiM; USGS global lithological & mineral maps</td><td>Crystalline belts, volcanic arcs, sedimentary basins</td></tr>
+            <tr><td>Mineral indices</td><td>Quartz %; feldspar classes; tourmaline boron indicators; magnetite/Fe-oxides</td><td>Resonance & conductivity proxies; density/porosity</td></tr>
+            <tr><td>Geochronology</td><td>U–Pb zircon; 40Ar/39Ar (feldspar, micas); Sm–Nd, Rb–Sr; tephra markers</td><td>Reservoir formation ages; uplift pulses (sync with V3.3)</td></tr>
+            <tr><td>Geodesy & tectonics</td><td>GNSS, GIA, plate kinematics, slab geometry</td><td>THA T-layer: strain & flexure context (sync with V3.4)</td></tr>
+            <tr><td>Hydrology</td><td>Aquifers, permeability/porosity, paleoshorelines</td><td>THA H-layer: filtration/storage; spillway thresholds</td></tr>
+            <tr><td>Atmosphere</td><td>ERA5 reanalysis, jet/trades climatologies</td><td>THA A-layer: wind corridors intersecting resonant nodes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Methods</h2>
+      <ol>
+        <li><b>Reservoir Extraction:</b> classify raster/vector lithology into <i>Crystalline</i> (quartz-vein density, tourmaline index), <i>Volcanic</i> (basalt/andesite), <i>Sedimentary</i> (silica-rich gravels/sandstones), <i>Metamorphic</i> (amphibolite, schist).</li>
+        <li><b>Resonance Potential:</b> compute mineralogical resonance score R<sub>m</sub> from quartz/tourmaline/feldspar content, fabric orientation, and joint density.</li>
+        <li><b>Temporal Locking:</b> attach isotopic ages (U–Pb zircon; 40Ar/39Ar feldspar/micas; Sm–Nd/Rb–Sr) to reservoir polygons; propagate ±1σ/±2σ into the V3.3 timeline.</li>
+        <li><b>THA Coupling:</b> combine R<sub>m</sub> with T-layer (strain/flexure), H-layer (aquifer/shoreline), and A-layer (wind corridors) to produce a mineral–THA index per node.</li>
+        <li><b>Node Scoring:</b> integrate mineral–THA with ChiRhombant v·h² terms (coefficients withheld) to derive stability/resonance maps for corridors.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Reservoir Types — Isotopic Context & Function</h2>
+      <div class="scroll-x">
+        <table class="compact">
+          <thead>
+            <tr>
+              <th>Reservoir Type</th><th>Representative Minerals</th><th>Typical Isotopic/Dating Windows</th><th>Primary Functions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Crystalline Vein Systems</td>
+              <td>Quartz ± tourmaline</td>
+              <td>U–Pb (zircon in host): 10⁶–10⁹ yr; 40Ar/39Ar (micas): 10⁶–10⁸ yr</td>
+              <td>Harmonic resonance (piezoelectric); fracture sealing; guided flow along veining</td>
+            </tr>
+            <tr>
+              <td>Volcanic Arcs & Plateaus</td>
+              <td>Andesite, basalt; feldspar, pyroxene</td>
+              <td>U–Pb zircon & baddeleyite; 40Ar/39Ar feldspar: 10⁴–10⁸ yr</td>
+              <td>Geodynamic roots (load/anchor); permeability contrasts; thermal fluids</td>
+            </tr>
+            <tr>
+              <td>Sedimentary Silica Systems</td>
+              <td>Quartz-rich gravels, sandstones</td>
+              <td>Detrital zircon U–Pb: provenance 10⁶–10⁹ yr; depositional 10³–10⁷ yr via tephra/14C</td>
+              <td>Filtration & storage (aquifers); capillary retention; acoustic damping</td>
+            </tr>
+            <tr>
+              <td>Metamorphic Belts</td>
+              <td>Amphibolite, schist (quartz/feldspar bands)</td>
+              <td>Sm–Nd, Rb–Sr (metamorphic events): 10⁷–10⁹ yr; 40Ar/39Ar cooling</td>
+              <td>Structural stability; vein-hosted resonance; topographic highs</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Windows indicate common usage ranges; regional studies refine these per basin/terrane.</p>
+    </section>
+
+    <section>
+      <h2>Site-Specific Case Studies</h2>
+      <div class="callouts">
+        <details open>
+          <summary><b>Meadow House Observatory (Vermont, USA)</b> — Amphibolite with quartz veins</summary>
+          <p><b>Function:</b> structural stability + quartz-vein resonance; seasonal freeze–thaw cycles provide cyclic stress for piezoelectric activity.</p>
+          <p><b>Dating:</b> Regional U–Pb zircon (host terranes), 40Ar/39Ar micas for metamorphic cooling; aligns with V3.4 rebound vectors.</p>
+        </details>
+        <details>
+          <summary><b>Sayacmarca (Peru)</b> — Andesitic volcanic substrate (feldspar-rich)</summary>
+          <p><b>Function:</b> feldspar fabric acts as hydrological membrane guiding engineered channels; potential solstitial azimuth alignment through mineral fabric.</p>
+          <p><b>Dating:</b> U–Pb zircon in andesite; tephrochronology where present; ties to V3.3 monsoon/speleothem signals.</p>
+        </details>
+        <details>
+          <summary><b>Semisopochnoi Island (Aleutians)</b> — Basaltic core with pumice fields</summary>
+          <p><b>Function:</b> basaltic mass anchors crust; pumice regulates runoff during melt events; polar “drumhead” resonance node in Codex polar arc.</p>
+          <p><b>Dating:</b> 40Ar/39Ar basalts; U–Th/He where applicable; tephra layers to ice-core tie points.</p>
+        </details>
+        <details>
+          <summary><b>Monte Verde (Chile)</b> — Silica gravels overlain by volcanic ash</summary>
+          <p><b>Function:</b> layered silica behaves as a natural quartz array; ash acts as hydrological filter; potential low-frequency acoustic coupling.</p>
+          <p><b>Dating:</b> Tephra correlation + 14C organics; detrital zircon U–Pb for provenance constraints.</p>
+        </details>
+      </div>
+    </section>
+
+    <section>
+      <h2>Cross-Link Table (V3.3 & V3.4 Integration)</h2>
+      <div class="scroll-x">
+        <table class="compact">
+          <thead>
+            <tr><th>Reservoir Type</th><th>Key Minerals</th><th>THA Layer (V3.4)</th><th>Dating/Proxy (V3.3)</th><th>Codex Role</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Quartz Vein Networks</td>
+              <td>Quartz, tourmaline</td>
+              <td>A3 (Resonant media) + T2 (strain nodes)</td>
+              <td>U–Pb zircon (host), 40Ar/39Ar micas; speleothem & ice-core cross-ties</td>
+              <td>Resonant couplers; stability “buffers” along corridors</td>
+            </tr>
+            <tr>
+              <td>Volcanic Andesite/Basalt</td>
+              <td>Feldspar, pyroxene, olivine</td>
+              <td>T2 (tectonic roots) + H2 (thermal fluids)</td>
+              <td>U–Pb zircon, 40Ar/39Ar feldspar; tephrochronology</td>
+              <td>Load anchors; spillway thresholds for tiering</td>
+            </tr>
+            <tr>
+              <td>Silica-Rich Sediments</td>
+              <td>Quartz gravels/sandstones</td>
+              <td>H1 (filtration/storage) + A1 (damping)</td>
+              <td>Detrital zircon U–Pb; varves; 14C; tephra</td>
+              <td>Aquifer membranes; event recorders</td>
+            </tr>
+            <tr>
+              <td>Metamorphic Belts</td>
+              <td>Amphibolite, schist</td>
+              <td>T2/T3 (flexure/rebound) + A2 (lee effects)</td>
+              <td>Sm–Nd, Rb–Sr; 40Ar/39Ar cooling</td>
+              <td>Long-wavelength stability & sightlines</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Outputs</h2>
+      <ul>
+        <li><b>Mineral–THA Index Grids:</b> resonance potential combined with strain, aquifer pathways, and wind corridors.</li>
+        <li><b>Node Reports:</b> per-site mineral content, resonance score R<sub>m</sub>, isotopic tie-ins, and recommended monitoring.</li>
+        <li><b>Isotopic Timelines:</b> reservoir ages with ±σ propagated into the Codex temporal–spatial map (V3.3).</li>
+        <li><b>Stability & Resonance Surfaces:</b> ChiRhombant-weighted v·h² maps for corridor planning.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Validation & Reproducibility</h2>
+      <ul>
+        <li><b>Blind Regions:</b> train mineral–THA model in Region A, predict Region B; compare against known aquifer behavior and node placements.</li>
+        <li><b>Monte Carlo:</b> randomize node positions; verify overunity for resonance/strain/flexure associations.</li>
+        <li><b>Temporal Cross-Checks:</b> align reservoir ages with proxy spikes (tephra, speleothem δ<sup>18</sup>O, ice-core sulfates) affecting hydrology or winds.</li>
+        <li><b>Sensitivity:</b> perturb mineral thresholds, fabric orientation weights, and isotopic priors; report tier/timeline flips.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>References (Open Access – for readers new to piezoelectricity)</h2>
+      <ul>
+        <li>Sezer, N., & Koç, M. <i>A comprehensive review on the state-of-the-art of piezoelectric energy harvesting</i>. <b>Nano Energy</b> 80 (2021) 105567. CC BY.</li>
+        <li>Zhu, J. <i>Research progress on piezoelectric acoustic transducers: principles, materials, performance, and applications</i>. <b>J. Phys.: Conf. Ser.</b> 2786 (2024) 012016. CC BY.</li>
+      </ul>
+      <p class="note">These reviews provide accessible explanations of direct/converse piezoelectric effects, device modes (31/33), and materials from quartz to advanced ceramics.</p>
+    </section>
+
+    <section>
+      <h2>Forward Bridge</h2>
+      <p>V3.5 makes mineral systems operational inside the Codex: as resonant media, hydrological membranes, and tectonic anchors. This primes V3.6 (Aquifers & Hydrological Systems) to leverage mineral porosity/permeability and V3.7 (Atmospheric Coupling) to exploit resonant corridors — keeping the planetary OS arc intact.</p>
+    </section>
+
+    <p style="font-size:0.9rem;color:#666;">Last updated: <!-- inject build date --></p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ChiR Labs | Meadow House Observatory | The Dihedral Group</p>
+  </footer>
+</body>
+</html>

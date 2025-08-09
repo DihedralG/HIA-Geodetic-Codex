@@ -1,0 +1,149 @@
+<!-- v3-4.html — Geodetic Codex V3.4 Functional Specification -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChiR Labs — V3.4 Functional Spec (Crustal Tectonics)</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <meta name="description" content="Geodetic Codex V3.4 functional specification — Crustal Tectonics & harmonic coupling to the node network." />
+</head>
+<body>
+  <header>
+    <h1>🌀 ChiR Labs</h1>
+    <p>Mapping trust, resonance, and planetary intelligence.</p>
+  </header>
+
+  <nav>
+    <a href="index.html"> 🌀 <span>Root</span></a>
+    <a href="chir-ai.html"> 🧠 <span>ChiR-AI</span></a>
+    <a href="chiripp.html"> 💠 <span>ChiR-IPP</span></a>
+    <a href="codex.html"> 🌐 <span>Codex</span></a>
+    <a href="psl.html"> 🕊 <span>PSL</span></a>
+    <a href="about.html"> 🧭 <span>About</span></a>
+    <a href="support.html"> 🌱 <span>Growth</span></a>
+  </nav>
+
+  <main class="container">
+    <aside class="context-blurb">
+      <p><b>V3.4 Functional Specification:</b> <i>Crustal Tectonics</i> — formalizing how plate boundaries, uplift/orogeny, and lithospheric flexure couple to Codex nodes and the V3.3 climatology/meltwater layer.</p>
+    </aside>
+
+    <section>
+      <h2>Overview</h2>
+      <p>V3.4 extends the V3.3 hinge into geodynamics. We formalize the way <b>tectonic regime</b> (divergent, convergent, transform, intraplate) and <b>vertical motions</b> (uplift, subsidence, flexure, isostatic rebound) shape hydrological routing and atmospheric boundaries. Architectural nodes (pyramids, star forts, megalithic observatories) are evaluated as <b>strain-aware placements</b> within this field.</p>
+    </section>
+
+    <section>
+      <h2>Objectives</h2>
+      <ul>
+        <li>Map Codex nodes against global and regional tectonic fabrics (boundaries, slabs, hotspots, fault systems).</li>
+        <li>Time-lock uplift/collision events with <b>radiogenic systems</b> (Rb–Sr, Sm–Nd, U–Pb) and Quaternary proxies to integrate with V3.3 timelines.</li>
+        <li>Quantify <b>lithospheric flexure & rebound</b> impacts on paleolake shorelines and spillways relevant to star-fort tiering.</li>
+        <li>Derive a <b>Tectonic–Hydro–Atmospheric (THA) coupling index</b> per node and corridor.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Data Inputs</h2>
+      <div class="scroll-x">
+        <table class="compact">
+          <thead><tr><th>Layer</th><th>Source Types</th><th>Use in Model</th></tr></thead>
+          <tbody>
+            <tr><td>Plate boundaries & kinematics</td><td>Global PB2002/updated PB datasets; MORVEL/NUVEL rates</td><td>Strain regime; relative motion vectors</td></tr>
+            <tr><td>Faults & seismicity</td><td>USGS/GCMT catalogs; regional fault shapefiles</td><td>Stress orientation; clustering; recurrence</td></tr>
+            <tr><td>Slab geometry</td><td>Slab2.0/Slab2.1</td><td>Subduction dip/strike; dehydration fronts; uplift corridors</td></tr>
+            <tr><td>Vertical rates</td><td>GNSS vertical velocities; GIA models</td><td>Uplift/subsidence fields; rebound timing</td></tr>
+            <tr><td>Topography/bathymetry</td><td>DEM (SRTM/ASTER/ALOS), GEBCO/ETOPO</td><td>Flexure signatures; spillway thresholds</td></tr>
+            <tr><td>Thermochronology & isotopes</td><td>U–Pb zircon; (U–Th)/He; fission tracks; Rb–Sr, Sm–Nd</td><td>Orogenic pulse timing; exhumation rates</td></tr>
+            <tr><td>Heat flow / volcanism</td><td>Global heat flow maps; volcano catalogs</td><td>Weak lithosphere zones; hydrothermal routing</td></tr>
+            <tr><td>Hydrology</td><td>River networks; watershed divides; aquifer maps</td><td>Node–basin coupling; tier classification support</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Methods</h2>
+      <ol>
+        <li><b>Strain Field Modeling:</b> derive 2D principal stress/strain tensors from plate kinematics + seismic moment tensors; interpolate to continuous fields.</li>
+        <li><b>Vertical Motion Integration:</b> fuse GNSS verticals with GIA and flexural models; compute Δelev(t) for paleoshoreline migration.</li>
+        <li><b>Orogenic Timing:</b> compile thermochronology/isotope ages; build regional <i>uplift pulses</i>; propagate uncertainties (±1σ/±2σ) into timelines shared with V3.3.</li>
+        <li><b>Node Coupling Metrics:</b>
+          <ul>
+            <li><b>σ-Proximity:</b> distance to strain maxima/minima and major faults.</li>
+            <li><b>Flexure Index:</b> curvature/elastic plate response around node (r<sub>flex</sub>, w<sub>0</sub>).</li>
+            <li><b>Rebound Coupling:</b> overlap of node with modeled isostatic rebound vectors.</li>
+            <li><b>THA Index:</b> normalized composite of tectonic (T), hydrological (H), atmospheric (A) sensitivities.</li>
+          </ul>
+        </li>
+        <li><b>Tier Feedback:</b> update star-fort <i>High/Mid/Low</i> classification if Δelev(t) crosses paleoshore thresholds through time.</li>
+        <li><b>Stability Scoring:</b> integrate THA with ChiRhombant terms (v·h²) to produce node/corridor stability surfaces.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Tectonic Regime → Codex Expectations</h2>
+      <div class="scroll-x">
+        <table class="compact">
+          <thead><tr><th>Regime</th><th>Signals</th><th>Codex Node Behavior (Hypothesis)</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Convergent / Orogenic</td>
+              <td>High uplift; seismic clusters; slab-edge volcanism</td>
+              <td>Nodes placed on flexural highs & stable spurs to gate paleolake spillways; strong High-tier presence</td>
+            </tr>
+            <tr>
+              <td>Divergent / Rift</td>
+              <td>Thinned lithosphere; heat flow highs</td>
+              <td>Mid-tier preference near river captures & nascent basins; moisture routing leverage</td>
+            </tr>
+            <tr>
+              <td>Transform</td>
+              <td>Shear corridors; step-over basins</td>
+              <td>Nodes at releasing bends to manage drainage reorganization; hybrid Mid/Low dynamics</td>
+            </tr>
+            <tr>
+              <td>Intraplate / Forebulge</td>
+              <td>Long-wavelength flexure; subtle rebound</td>
+              <td>Observatory nodes on gentle highs for long-range sightlines; stability buffering</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Outputs</h2>
+      <ul>
+        <li><b>THA Index Grids:</b> geotiffs per region + corridor rollup.</li>
+        <li><b>Node Reports:</b> per-site σ-Proximity, Flexure, Rebound, THA; recommended tier (with confidence).</li>
+        <li><b>Uplift Pulse Timelines:</b> region charts aligned to proxy/isotope ages (for V3.3 sync).</li>
+        <li><b>Stability Surfaces:</b> ChiRhombant-weighted v·h² maps for decision support.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Validation & Reproducibility</h2>
+      <ul>
+        <li><b>Hold-out Regions:</b> train THA on Region A, predict Region B; evaluate vs observed drainage reorganizations & known paleolake overspills.</li>
+        <li><b>Monte Carlo Controls:</b> randomize node positions within regional masks; verify overunity of Codex node–strain/flexure associations.</li>
+        <li><b>Temporal Cross-checks:</b> compare uplift pulses with dated varves/tephras/ice-core anomalies affecting hydrology or winds.</li>
+        <li><b>Sensitivity:</b> perturb plate rates, elastic thickness (T<sub>e</sub>), and rebound parameters; report ΔTHA and tier flips.</li>
+      </ul>
+      <p class="note">Scripts, configs, and data manifests will mirror the V3.3 bundle structure for one-click replication.</p>
+    </section>
+
+    <section>
+      <h2>Forward Bridge</h2>
+      <p>V3.4 establishes that Codex nodes behave as <b>strain-aware hydrological gates</b>: placed to exploit flexure highs, rebound vectors, and orogenic spurs. This sets up V3.5–V3.7 to integrate <b>mineralogical reservoirs</b>, <b>oceanic memory + topography</b>, and <b>orbital mechanics</b> within the same harmonic kernel, keeping the planetary OS arc intact.</p>
+    </section>
+
+    <p style="font-size:0.9rem;color:#666;">Last updated: <!-- inject build date --></p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ChiR Labs | Meadow House Observatory | The Dihedral Group</p>
+  </footer>
+</body>
+</html>
