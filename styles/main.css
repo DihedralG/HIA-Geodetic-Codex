@@ -148,6 +148,24 @@ button:hover {
   background-color: #002f66;
 }
 
+<style>
+  /* Scoped styles for the version nav */
+  .version-nav{margin:2.5rem 0 1rem;border-top:1px solid #e6e6e6;padding-top:1rem}
+  .version-nav__row{display:flex;gap:.75rem;justify-content:space-between;align-items:center;flex-wrap:wrap}
+  .version-nav__index{margin-top:.75rem;font-size:.95rem;opacity:.9}
+  .version-nav__index a{margin-left:.35rem}
+  .vbtn{display:inline-block;padding:.6rem .9rem;border-radius:.6rem;text-decoration:none;line-height:1;transition:transform .06s ease}
+  .vbtn:active{transform:translateY(1px)}
+  .vbtn--primary{background:#0a65cc;color:#fff}
+  .vbtn--ghost{background:#f7f7f9;color:#222;border:1px solid #e2e2e7}
+  @media (prefers-color-scheme: dark){
+    .version-nav{border-top:1px solid #2b2b2b}
+    .vbtn--ghost{background:#1a1a1d;color:#e9e9ee;border:1px solid #2f2f35}
+    .vbtn--primary{background:#2e7bdc}
+  }
+</style>
+
+
 /* Footer */
 footer {
   background-color: #f9f9f9;
