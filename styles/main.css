@@ -176,3 +176,12 @@ footer {
   border-top: 1px solid #ddd;
   margin-top: 60px;
 }
+
+
+/* Global Symbology */
+.xscript { font-family: "Noto Sans Hebrew","Segoe UI Symbol","Noto Sans Runic",system-ui,sans-serif; font-weight: 600; letter-spacing: 0.02em; }
+.legend { margin: 1rem 0; padding: 0.75rem 1rem; border: 1px dashed var(--muted); border-radius: 12px; }
+.legend--mini { font-size: 0.9rem; background: var(--surface-1, #fafafa); }
+.legend--full ul { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 0.5rem 1rem; padding-left: 1rem; }
+.badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.2rem 0.5rem; margin-right: 0.4rem; border-radius: 999px; border: 1px solid var(--muted); background: var(--surface-0, #fff); }
+.eq { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; padding: 0.75rem 1rem; background: var(--surface-1, #fafafa); border-radius: 10px; overflow-x: auto; }

@@ -1,11 +1,12 @@
+<!-- v4-4.html — Geodetic Codex V4.4 Functional Specification -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
   <title>ChiR Labs — V4.4 Functional Spec (Submerged Vectors & Torsional Release)</title>
-  <link rel="stylesheet" href="styles/main.css"/>
-  <meta name="description" content="Geodetic Codex V4.4 — Submerged release vectors, torsional decompression, bathymetric signatures, and hazard-class prediction for Codex corridors."/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Codex V4.4 — Modeling torsional release, submarine drainage echoes, and explosive decompression zones with reproducible indices." />
+  <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
 <header>
@@ -25,22 +26,61 @@
 
 <main class="container">
   <aside class="context-blurb">
-    <h1>V4.4 Functional Specification:</h1>
-    <i>Submerged Vectors & Torsional Release.</i> Identifying submarine zones where trapped fluids, torsional stress, and lithologic contrasts trigger rapid decompression—leaving terrace fans, amphitheaters, pockmarks, and canyon heads aligned to Codex vectors.
+    <h1>V4.4 Functional Specification</h1>
+    <i>Submerged Vectors & Torsional Release.</i> We formalize indices and workflows to detect submarine/covered drainage, torsional relief pathways, and explosive decompression zones that can initiate canyons, terraces, or tsunami trains.
+    <p class="note">Notation: see <a href="gc-notation-charter.html">Notation Charter</a> for Codex symbols and ARIA semantics.</p>
   </aside>
 
   <section>
     <h2>Overview</h2>
-    <p>We formalize a detection-and-modeling workflow for <b>undersea release vectors</b> where torsional strain, pore-pressure buildup, and structural weakness coalesce. These events can be <i>slow-leak</i> (chronic seepage, gas vents) or <i>pulse-driven</i> (outburst floods, slope failure, canyon initiation). Outputs support both <b>hazard classing</b> and <b>terraforma-forensics</b> (V4.8 / V4.9).</p>
+    <p>
+      Submerged vectors occur where trapped fluids, elastic strain, and geometry align to “unlock” stored energy.
+      V4.4 integrates bathymetric inversion (V4.8), mineral resonance (V3.5), and hydrologic memory (V4.3) to isolate likely past and present release corridors.
+    </p>
   </section>
 
   <section>
-    <h2>Geomorphic Signatures</h2>
+    <h2>Key Indices (Codex Notation)</h2>
+    <div class="scroll-x">
+      <table class="compact">
+        <thead><tr><th>Concept</th><th>Symbol</th><th>Plain Term (ARIA)</th><th>Brief Definition</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Torsional Release Index</td>
+            <td><span role="math" aria-label="torsional release index">τ<sub>(he: ת | ru: ᚱ)</sub></span></td>
+            <td><code>torsional release index</code></td>
+            <td>Joint metric of shear/rotation readiness given stress, anisotropy, and fluid overpressure.</td>
+          </tr>
+          <tr>
+            <td>Subglacial Upwell Propensity</td>
+            <td><span role="math" aria-label="subglacial upwell propensity">𝒰<sub>(he: ע | ru: ᚢ)</sub></span></td>
+            <td><code>subglacial upwell propensity</code></td>
+            <td>Likelihood that basal waters erupt upwards (contra‑gradient) under unique pressure/thermal states.</td>
+          </tr>
+          <tr>
+            <td>Hazard Index</td>
+            <td><span role="math" aria-label="hazard index">ℋ<sub>(he: ח | ru: ᚼ)</sub></span></td>
+            <td><code>hazard index</code></td>
+            <td>Composite risk of rapid release, canyon initiation, or shelf failure.</td>
+          </tr>
+          <tr>
+            <td>Provenance Index</td>
+            <td><span role="math" aria-label="provenance index">ℙ<sub>(he: פ | ru: ᚦ)</sub></span></td>
+            <td><code>provenance index</code></td>
+            <td>Consistency of deposits with hypothesized release source and flow direction.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Objectives</h2>
     <ul>
-      <li><b>Radial terrace sets</b> and amphitheater heads at shelf breaks</li>
-      <li><b>Pockmark fields</b> and aligned vent strings cross-cutting bedding</li>
-      <li><b>Flat-bottomed valleys</b> with abrupt knickpoints / headwall scars</li>
-      <li><b>Fan–lobe stacks</b> with coherent azimuthal alignment to corridor vectors</li>
+      <li>Predict zones of high <span role="math" aria-label="torsional release index">τ<sub>(he: ת | ru: ᚱ)</sub></span> along shelves, plateaus, and folded terrains.</li>
+      <li>Map <span role="math" aria-label="subglacial upwell propensity">𝒰<sub>(he: ע | ru: ᚢ)</sub></span> in ice‑covered or formerly glaciated basins (tie to V3.7 orbital pacing).</li>
+      <li>Quantify <span role="math" aria-label="hazard index">ℋ<sub>(he: ח | ru: ᚼ)</sub></span> for monitoring and corridor planning.</li>
+      <li>Use <span role="math" aria-label="provenance index">ℙ<sub>(he: פ | ru: ᚦ)</sub></span> to validate flow pathways against deposits/terraces/pockmarks.</li>
     </ul>
   </section>
 
@@ -50,71 +90,51 @@
       <table class="compact">
         <thead><tr><th>Layer</th><th>Examples</th><th>Use</th></tr></thead>
         <tbody>
-          <tr><td>Bathymetry</td><td>Multibeam DEMs; slope/curvature; backscatter</td><td>Landform extraction; sediment texture inferences</td></tr>
-          <tr><td>Seismic Stratigraphy</td><td>2D/3D lines; reflectors; gas front indicators</td><td>Buried channels; overpressure traps; failure planes</td></tr>
-          <tr><td>Stress & Tectonics</td><td>Plate boundaries; intraplate strain; transform steps</td><td>Torsional domains, σ orientation</td></tr>
-          <tr><td>Fluid Indicators</td><td>Vent/plume catalogs; CH₄ concentrations</td><td>Active seepage; gas hydrate stability</td></tr>
-          <tr><td>Paleo Ties</td><td>Terrace ages; tephra; forams/δ¹⁸O; shelf low-stand maps</td><td>Timing constraints; event recurrence</td></tr>
-          <tr><td>Mineralogy (V3.5)</td><td>Silica/cementation; clay content</td><td>Weak/strong layers; resonance-sensitive media</td></tr>
+          <tr><td>Bathymetry</td><td>Multibeam, shelf terraces, canyon heads, pockmark fields</td><td>Inversion & vector extraction</td></tr>
+          <tr><td>Stress/Strain</td><td>GNSS, focal mechanisms, flexure, GIA</td><td>Shear/rotation fields for τ</td></tr>
+          <tr><td>Hydro‑Memory</td><td>ℳ, 𝒞, σ layers from V4.3</td><td>Fluid availability & pathway readiness</td></tr>
+          <tr><td>Mineral Fabric</td><td>Quartz/feldspar, anisotropy (V3.5)</td><td>Resonance & fracture orientation</td></tr>
+          <tr><td>EM/Solar</td><td>Ground EM flux, solar cycles (V4.5)</td><td>Trigger correlation (optional)</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section>
-    <h2>Methods (Detection → Modeling)</h2>
+    <h2>Methods</h2>
     <ol>
-      <li><b>Feature Extraction:</b> From bathymetry/backscatter, detect amphitheaters, pockmarks, and terrace sets (morphometry: relief, planform curvature, spacing).</li>
-      <li><b>Subsurface Context:</b> Tie seismic reflectors to potential overpressure horizons and buried channel belts; map gas fronts and BSR (bottom simulating reflector) where available.</li>
-      <li><b>Torsional Domain Map:</b> Combine plate motion residuals + local transform/step-over geometry to identify zones of shear twist and stress rotation.</li>
-      <li><b>Release Vector Field:</b> For each candidate patch, compute principal curvature axes and align with σ orientation to estimate preferred failure/release azimuths.</li>
-      <li><b>Pulse vs Leak Classifier:</b> Train a simple classifier on feature metrics (headwall height, lobe stacking periodicity, pockmark density, gas indicators) to assign <i>Leak</i>/<i>Pulse</i>/<i>Hybrid</i>.</li>
-      <li><b>G-Coupling:</b> Evaluate <b>G = V × H²</b> with <i>V</i>=torsional rate + hydraulic head gradient; <i>H</i>=local hydrologic memory (sediment permeability stack, trapped fluids).</li>
+      <li><b>Bathymetric Inversion:</b> derive pre‑submergence drainage from shelves; detect amphitheaters/ramps suggesting prior altitude (ref. V4.8).</li>
+      <li><b>Torsion Field:</b> combine shear strain, curvature, and anisotropy to compute
+        <span role="math" aria-label="torsional release index">τ<sub>(he: ת | ru: ᚱ)</sub></span>.</li>
+      <li><b>Upwell Mapping:</b> evaluate pressure/thermal edge cases under/within ice or permafrost to score
+        <span role="math" aria-label="subglacial upwell propensity">𝒰<sub>(he: ע | ru: ᚢ)</sub></span>.</li>
+      <li><b>Hazard Fusion:</b> fuse τ, 𝒰, slope breaks, pockmarks, and σ to produce
+        <span role="math" aria-label="hazard index">ℋ<sub>(he: ח | ru: ᚼ)</sub></span>.</li>
+      <li><b>Provenance Check:</b> cross‑validate deposits & terrace sequences ⇒
+        <span role="math" aria-label="provenance index">ℙ<sub>(he: פ | ru: ᚦ)</sub></span>.</li>
     </ol>
-    <p class="note">Context link: rare “upward” fluid eruptions through ice or sediment caps demonstrate that overpressure can breach vertically under unique conditions—useful analog for pulse classification in capped marine settings.</p>
   </section>
 
   <section>
-    <h2>Hazard & Provenance Indices</h2>
-    <div class="scroll-x">
-      <table class="compact">
-        <thead><tr><th>Index</th><th>Symbol</th><th>Definition (0–1)</th></tr></thead>
-        <tbody>
-          <tr><td>Release Likelihood</td><td>Λ</td><td>Composite of torsion, slope, overpressure indicators</td></tr>
-          <tr><td>Pulse Character</td><td>Π</td><td>Probability of pulse-type vs leak-type release</td></tr>
-          <tr><td>Vector Coherence</td><td>Ξ</td><td>Azimuthal fit of landforms to computed release vectors</td></tr>
-          <tr><td>Coupled G</td><td>G</td><td>Event-ready G in the marine cap (see Methods)</td></tr>
-          <tr><td>Provenance Fit</td><td>Φ</td><td>Seismic tie to source pathways (buried channels, aquifer tops)</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <h2>Schematic Relations</h2>
+    <p><b>Torsional Readiness:</b>
+      <span role="math" aria-label="torsional release index equals function of shear, curvature, void stability, aquifer memory, karst connectivity">
+        τ<sub>(he: ת | ru: ᚱ)</sub> = g( Shear, Curv, 1/σ<sub>(he: ס | ru: ᚨ)</sub>, ℳ<sub>(he: מ | ru: ᛃ)</sub>, 𝒞<sub>(he: מ | ru: ᚾ)</sub> )
+      </span>
+    </p>
+    <p><b>Hazard (schematic):</b>
+      <span role="math" aria-label="hazard index equals weighted sum of torsional index, upwell propensity, slope and triggers">
+        ℋ<sub>(he: ח | ru: ᚼ)</sub> = a·τ<sub>(he: ת | ru: ᚱ)</sub> + b·𝒰<sub>(he: ע | ru: ᚢ)</sub> + c·Slope + d·Triggers
+      </span>
+    </p>
   </section>
 
   <section>
-    <h2>Validation</h2>
+    <h2>Implementation (Repo Hooks)</h2>
     <ul>
-      <li><b>Hold-out margins:</b> train on Margin A, test on Margin B; evaluate Λ/Π/Ξ skill vs known vent/canyon datasets.</li>
-      <li><b>Seafloor change:</b> where repeated bathy exists, test predicted headwall retreat and lobe accretion directions against observed change.</li>
-      <li><b>Chronology:</b> compare terrace/lobe ages to paleosea-level and melt-pulse chronologies; require coherent phase relationships.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Outputs</h2>
-    <ul>
-      <li><b>Release Vector Atlas</b> with Λ/Π/Ξ/G/Φ layers per corridor</li>
-      <li><b>Risk classes</b> (Informational / Advisory / Watch) for active margins</li>
-      <li><b>Candidate terraforming echoes</b> (anomalous amphitheaters, engineered-looking berms) for V4.8/V4.9 inspection</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Cross-Links</h2>
-    <ul>
-      <li>V4.1 Melt pulses (forcing for overpressure episodes)</li>
-      <li>V4.8 Bathymetric inversion (recovering lost altitude logic)</li>
-      <li>V4.9 Phase-state reservoirs (multi-phase basins feeding/receiving releases)</li>
-      <li>V4.10 Quartz Logic (substrate-dependent resonance at canyon heads)</li>
+      <li><code>scripts/HydroMemory.py</code> — provides ℳ, 𝒞, σ layers consumed by V4.4 scoring.</li>
+      <li><code>scripts/SubmergedVectors.py</code> — computes τ, 𝒰, and ℋ using bathymetry + stress + HydroMemory outputs.</li>
+      <li>Outputs: <code>out/v44_vectors/{tau,U,H}_*.tif</code>, <code>out/v44_vectors/node_vectors.csv</code>.</li>
     </ul>
   </section>
 
@@ -128,9 +148,7 @@
   </nav>
 
   <div align="center">
-    <footer>
-      <p>&copy; 2025 ChiR Labs | Geodetic Codex</p>
-    </footer>
+    <footer><p>&copy; 2025 ChiR Labs | Geodetic Codex</p></footer>
   </div>
 </main>
 </body>

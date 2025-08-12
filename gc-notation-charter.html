@@ -1,0 +1,225 @@
+<!-- gc-notation-charter.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Geodetic Codex — Notation Charter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Codex Notation Charter: a cross-disciplinary, accessible symbol system for hydrology, geodesy, and harmonic modeling." />
+  <style>
+    :root{
+      --bg:#0b0e12; --fg:#e9f1ff; --muted:#9fb3c8; --card:#11161d; --accent:#7bd4ff;
+      --grid:#1b2430; --code:#0e141b; --badge:#1a3646; --ok:#7affc9;
+    }
+    html,body{background:var(--bg);color:var(--fg);font:16px/1.6 Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0}
+    header,main,footer{max-width:1024px;margin:auto;padding:24px}
+    header{padding-top:32px}
+    h1{font-size:2rem;letter-spacing:.2px;margin:.2rem 0 .25rem}
+    h2{font-size:1.25rem;margin:1.75rem 0 .5rem}
+    p.lead{color:var(--muted);max-width:70ch}
+    .card{background:var(--card);border:1px solid var(--grid);border-radius:14px;padding:18px}
+    .grid{display:grid;gap:14px}
+    @media(min-width:900px){.grid.cols-2{grid-template-columns:1fr 1fr}}
+    .note{font-size:.95rem;color:var(--muted)}
+    .kbd{background:#0d1822;border:1px solid #0e2431;border-radius:6px;padding:.15rem .4rem;font-family:ui-monospace,Menlo,Consolas,monospace}
+    code,pre{font-family:ui-monospace,Menlo,Consolas,monospace}
+    pre{background:var(--code);border:1px solid var(--grid);border-radius:12px;padding:14px;overflow:auto}
+    table{width:100%;border-collapse:collapse}
+    th,td{border-bottom:1px solid var(--grid);padding:10px 8px;vertical-align:top}
+    th{color:#cfe6ff;text-align:left}
+    .badge{display:inline-block;background:var(--badge);color:#cfe6ff;border:1px solid #254355;border-radius:999px;padding:.15rem .5rem;font-size:.8rem;margin-left:.4rem}
+    .pill{display:inline-flex;align-items:center;gap:.4rem;background:#0f1a22;border:1px solid #15222c;border-radius:999px;padding:.25rem .6rem;font-size:.85rem}
+    .ctrls{display:flex;gap:8px;flex-wrap:wrap;margin:.25rem 0 1rem}
+    button, .btn{background:#0e1a24;border:1px solid #183040;color:#d6ecff;border-radius:10px;padding:.5rem .75rem;font-weight:600;cursor:pointer}
+    button:hover,.btn:hover{border-color:#24526b}
+    .sym{font-size:1.25rem;letter-spacing:.5px}
+    .sym[role="math"]{cursor:help;border-bottom:1px dashed #294b60}
+    .sym kbd{font-family:inherit}
+    .sym sub{font-size:.75em;vertical-align:sub}
+    .sym .dual{display:inline-flex;gap:.15rem;align-items:baseline}
+    .rtl{direction:rtl;unicode-bidi:embed}
+    .muted{color:var(--muted)}
+    .ok{color:var(--ok)}
+    footer{color:var(--muted);font-size:.9rem}
+  </style>
+</head>
+<body>
+<header>
+  <h1>Geodetic Codex — Notation Charter</h1>
+  <p class="lead">A cross‑disciplinary, accessible symbol system for modeling hydrology, geodesy, and harmonic coupling — designed for both humans and machines.</p>
+</header>
+
+<main>
+  <section class="card">
+    <h2>Purpose</h2>
+    <p>
+      The Codex Notation System is a <b>communication protocol</b> for Earth‑system intelligence. It introduces
+      <i>Codex‑defined indices</i> using <b>dual‑script subscripts</b> (Hebrew + Runic) with accessible <code>aria-label</code>s,
+      while preserving universal math symbols (e.g., π, ∇, ∂). Symbols remain UTF‑8/Unicode for seamless use in code,
+      GIS, LaTeX, and web.
+    </p>
+    <div class="ctrls">
+      <button id="toggleOrder" title="Flip the default dual-script order for all symbols on this page">
+        Toggle script order: <span id="orderState">Hebrew → Runic</span>
+      </button>
+      <span class="pill">Accessible by design <span class="ok">●</span></span>
+      <span class="pill">UTF‑8 / Unicode safe</span>
+      <span class="pill">No external JS</span>
+    </div>
+    <p class="note">
+      <b>About order:</b> by default we render <i>Hebrew first</i> then <i>Runic</i> inside subscripts. This is a
+      <b>typographic, bidi‑safety default</b>: placing the RTL script first inside a compact subscript avoids edge‑case
+      reordering in some browsers/PDF engines. It carries <b>no cultural precedence</b>. You can flip site‑wide (button above)
+      or per symbol via <code>data-order</code> (see examples).
+    </p>
+  </section>
+
+  <section class="grid cols-2">
+    <div class="card">
+      <h2>Symbol Categories</h2>
+      <table>
+        <thead><tr><th>Category</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>Universal Mathematical</td><td>Fixed, established symbols preserved as‑is (π, ∇, ∂, ×).</td></tr>
+          <tr><td>Codex‑Defined (Dual Script)</td><td>New indices with paired subscript (Hebrew+Runic) and <code>aria-label</code>.</td></tr>
+          <tr><td>Hybrid Physics‑Codex</td><td>Universal operator/variable with Codex dual‑script subscript (e.g., <span class="sym">σ<sub>סᚨ</sub></span>).</td></tr>
+          <tr><td>Cultural‑Semantic</td><td>Optional heritage glyph layers (e.g., cuneiform) mapped to the same ARIA term.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Core Codex Symbols</h2>
+      <table>
+        <thead><tr><th>Concept</th><th>Symbol</th><th>ARIA Label</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Karst Connectivity</td>
+            <td><span class="sym codex-sym" role="math" aria-label="karst connectivity" data-he="מ" data-ru="ᚾ">𝒞<sub class="dual"><span class="he rtl">מ</span><span class="ru">ᚾ</span></sub></span></td>
+            <td><code>"karst connectivity"</code></td>
+          </tr>
+          <tr>
+            <td>Void Stability</td>
+            <td><span class="sym codex-sym" role="math" aria-label="void stability" data-he="ס" data-ru="ᚨ">σ<sub class="dual"><span class="he rtl">ס</span><span class="ru">ᚨ</span></sub></span></td>
+            <td><code>"void stability"</code></td>
+          </tr>
+          <tr>
+            <td>Aquifer Memory Score</td>
+            <td><span class="sym codex-sym" role="math" aria-label="aquifer memory score" data-he="מ" data-ru="ᛃ">ℳ<sub class="dual"><span class="he rtl">מ</span><span class="ru">ᛃ</span></sub></span></td>
+            <td><code>"aquifer memory score"</code></td>
+          </tr>
+          <tr>
+            <td>Hazard Index</td>
+            <td><span class="sym codex-sym" role="math" aria-label="hazard index" data-he="ח" data-ru="ᚼ">ℋ<sub class="dual"><span class="he rtl">ח</span><span class="ru">ᚼ</span></sub></span></td>
+            <td><code>"hazard index"</code></td>
+          </tr>
+          <tr>
+            <td>Provenance Index</td>
+            <td><span class="sym codex-sym" role="math" aria-label="provenance index" data-he="פ" data-ru="ᚦ">ℙ<sub class="dual"><span class="he rtl">פ</span><span class="ru">ᚦ</span></sub></span></td>
+            <td><code>"provenance index"</code></td>
+          </tr>
+          <tr>
+            <td>Torsional Release Index</td>
+            <td><span class="sym codex-sym" role="math" aria-label="torsional release index" data-he="ת" data-ru="ᚱ">τ<sub class="dual"><span class="he rtl">ת</span><span class="ru">ᚱ</span></sub></span></td>
+            <td><code>"torsional release index"</code></td>
+          </tr>
+          <tr>
+            <td>Subglacial Upwell Propensity</td>
+            <td><span class="sym codex-sym" role="math" aria-label="subglacial upwell propensity" data-he="ע" data-ru="ᚢ">𝒰<sub class="dual"><span class="he rtl">ע</span><span class="ru">ᚢ</span></sub></span></td>
+            <td><code>"subglacial upwell propensity"</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">Hover symbols for tooltips; screen readers get the ARIA term (no glyph literacy required).</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Rules of Usage</h2>
+    <ol>
+      <li><b>Dual‑Script Order:</b> default is Hebrew→Runic for bidi safety; flip globally or per symbol without implying precedence.</li>
+      <li><b>ARIA‑First:</b> every Codex symbol must include an <code>aria-label</code> with the plain‑language term.</li>
+      <li><b>Do Not Redefine</b> universal math symbols (π, ∇, ∂, etc.).</li>
+      <li><b>Heritage Layers:</b> cultural glyphs may be shown alongside Codex symbols but must map to the same ARIA term.</li>
+      <li><b>UTF‑8 Everywhere:</b> store as Unicode and tag with semantics for GIS/LaTeX/ML pipelines.</li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>Examples</h2>
+
+    <h3>Hydrological Resilience Function</h3>
+    <p>Plain‑language: <i>R equals f of karst connectivity, aquifer memory score, and void stability.</i></p>
+    <p class="sym" role="math" aria-label="R equals f of karst connectivity, aquifer memory score, and void stability">
+      R = f( 𝒞<sub class="dual"><span class="he rtl">מ</span><span class="ru">ᚾ</span></sub>, ℳ<sub class="dual"><span class="he rtl">מ</span><span class="ru">ᛃ</span></sub>, σ<sub class="dual"><span class="he rtl">ס</span><span class="ru">ᚨ</span></sub> )
+    </p>
+
+    <h3>HTML Snippet (with ARIA)</h3>
+    <pre>&lt;span role="math" aria-label="karst connectivity"&gt;𝒞&lt;sub class="dual"&gt;&lt;span class="he rtl"&gt;מ&lt;/span&gt;&lt;span class="ru"&gt;ᚾ&lt;/span&gt;&lt;/sub&gt;&lt;/span&gt;</pre>
+
+    <h3>Per‑Symbol Order Override</h3>
+    <p class="note">Flip just this symbol to Runic→Hebrew:</p>
+    <p class="sym codex-sym" role="math" aria-label="karst connectivity (flipped order)" data-he="מ" data-ru="ᚾ" data-order="runic-hebrew">
+      𝒞<sub class="dual"><span class="he rtl">מ</span><span class="ru">ᚾ</span></sub>
+    </p>
+    <pre>&lt;span class="codex-sym" role="math" aria-label="karst connectivity"
+      data-he="מ" data-ru="ᚾ" data-order="runic-hebrew"&gt;𝒞&lt;sub class="dual"&gt;...&lt;/sub&gt;&lt;/span&gt;</pre>
+
+    <h3>LaTeX (print‑perfect)</h3>
+    <pre>% In LaTeX, we recommend textual subscripts for portability:
+R = f\!\left(\mathcal{C}_{\text{(he: מ\,|\,ru: ᚾ)}},\ \mathcal{M}_{\text{(he: מ\,|\,ru: ᛃ)}},\ \sigma_{\text{(he: ס\,|\,ru: ᚨ)}}\right)</pre>
+  </section>
+
+  <section class="card">
+    <h2>FAQ: Script Order & Neutrality</h2>
+    <p><b>Why Hebrew first?</b> It’s a typographic, right‑to‑left safety default inside tight subscripts (avoids bidi glitches in some renderers).
+    It carries <b>no cultural or conceptual precedence</b>. Teams may set Runic→Hebrew globally or per symbol without changing semantics, because the
+    <code>aria-label</code> is the canonical meaning.</p>
+    <p><b>Does this replace existing scientific symbols?</b> No. We only assign Codex dual‑script notation to concepts that lack a standardized symbol across
+    geology/hydrology/physics. Universal math symbols remain untouched.</p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 ChiR Labs | Geodetic Codex • This page is self‑contained. Link from any spec as <code>gc-notation-charter.html</code>.</p>
+</footer>
+
+<script>
+  // Simple renderer & global order toggle
+  (function(){
+    const state = { order: 'hebrew-runic' }; // default
+    const orderLabel = document.getElementById('orderState');
+    const btn = document.getElementById('toggleOrder');
+
+    function renderSymbol(el){
+      const he = el.getAttribute('data-he');
+      const ru = el.getAttribute('data-ru');
+      const local = el.getAttribute('data-order'); // optional per-symbol override
+      const order = local || state.order;
+
+      const sub = el.querySelector('sub.dual');
+      if(!sub) return;
+
+      const a = document.createElement('span');
+      const b = document.createElement('span');
+      a.className = 'he rtl';
+      b.className = 'ru';
+      a.textContent = he || '';
+      b.textContent = ru || '';
+
+      sub.innerHTML = '';
+      if(order === 'hebrew-runic'){ sub.append(a,b); }
+      else { sub.append(b,a); }
+    }
+
+    function renderAll(){
+      document.querySelectorAll('.codex-sym').forEach(renderSymbol);
+      orderLabel.textContent = (state.order==='hebrew-runic') ? 'Hebrew → Runic' : 'Runic → Hebrew';
+    }
+
+    btn?.addEventListener('click', () => {
+      state.order = (state.order==='hebrew-runic') ? 'runic-hebrew' : 'hebrew-runic';
+      renderAll();
+    });
+
+    // Initial pass

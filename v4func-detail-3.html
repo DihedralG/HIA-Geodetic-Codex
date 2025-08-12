@@ -1,11 +1,12 @@
+<!-- v4-3.html — Geodetic Codex V4.3 Functional Specification -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
   <title>ChiR Labs — V4.3 Functional Spec (Subterranean Water & Memory Encoding)</title>
-  <link rel="stylesheet" href="styles/main.css"/>
-  <meta name="description" content="Geodetic Codex V4.3 — Aquifers, karst systems, and engineered voids as geospatial memory layers; data inputs, methods, validation, and outputs for reproducible planetary modeling."/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Codex V4.3 — Aquifers, dolines, karst, and void systems as a geospatial memory layer with reproducible indices and node scoring." />
+  <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
 <header>
@@ -25,21 +26,68 @@
 
 <main class="container">
   <aside class="context-blurb">
-    <h1>V4.3 Functional Specification:</h1>
-    <i>Subterranean Water & Memory Encoding.</i> Aquifers, dolines, and engineered voids function as a “long-term memory bus” for the Codex—capturing seasonal to multi-millennial signals via chemistry, isotopes, pressure, and resonance coupling.
+    <h1>V4.3 Functional Specification</h1>
+    <i>Subterranean Water & Memory Encoding.</i> Aquifers, dolines, karst conduits, and engineered voids operate as a living geospatial memory fabric. V4.3 formalizes the indices, datasets, and methods used to quantify this “H² layer” and connect it to node behavior.
+    <p class="note">Notation: Codex symbols use dual‑script subscripts for new indices. See <a href="gc-notation-charter.html">Notation Charter</a> for semantics and accessibility.</p>
   </aside>
 
   <section>
     <h2>Overview</h2>
-    <p>V4.3 formalizes how <b>subsurface water systems</b> (confined/unconfined aquifers, karst conduits, phreatic caves) act as <b>storage-and-readout layers</b> for hydrologic, tectonic, and resonant states. We integrate core hydrogeology with the ChiRhombant constant <b>G = V × H²</b>, where <i>V</i> captures vector displacement (stress/strain, piezometric gradients) and <i>H</i> encodes hydrologic memory (geochemistry, isotopes, void geometry).</p>
+    <p>
+      Subsurface hydrology preserves long‑cycle signals (chemistry, isotopes, facies, pressure) that align with Codex nodes and corridors.
+      V4.3 specifies how to detect, score, and time‑anchor these signals and integrate them with V3.6 hydrology and V4.1–4.2 watershed harmonics.
+    </p>
   </section>
 
   <section>
-    <h2>Key Claims</h2>
+    <h2>Core Indices (Codex Notation)</h2>
+    <div class="scroll-x">
+      <table class="compact">
+        <thead><tr><th>Concept</th><th>Symbol</th><th>Plain Term (ARIA)</th><th>Brief Definition</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Karst Connectivity</td>
+            <td><span role="math" aria-label="karst connectivity">𝒞<sub>(he: מ | ru: ᚾ)</sub></span></td>
+            <td><code>karst connectivity</code></td>
+            <td>Graph‑based connectedness of conduits/voids (percolation & effective path length).</td>
+          </tr>
+          <tr>
+            <td>Aquifer Memory Score</td>
+            <td><span role="math" aria-label="aquifer memory score">ℳ<sub>(he: מ | ru: ᛃ)</sub></span></td>
+            <td><code>aquifer memory score</code></td>
+            <td>Multi‑proxy persistence of hydrologic signals (age spectrum, δD/δ18O, tracers).</td>
+          </tr>
+          <tr>
+            <td>Void Stability</td>
+            <td><span role="math" aria-label="void stability">σ<sub>(he: ס | ru: ᚨ)</sub></span></td>
+            <td><code>void stability</code></td>
+            <td>Collapse/roof‑span integrity as a function of stress, saturation, and lithology.</td>
+          </tr>
+          <tr>
+            <td>Hazard Index</td>
+            <td><span role="math" aria-label="hazard index">ℋ<sub>(he: ח | ru: ᚼ)</sub></span></td>
+            <td><code>hazard index</code></td>
+            <td>Composite probability of rapid discharge, sinkhole, blowout, or gas‑charged failure.</td>
+          </tr>
+          <tr>
+            <td>Provenance Index</td>
+            <td><span role="math" aria-label="provenance index">ℙ<sub>(he: פ | ru: ᚦ)</sub></span></td>
+            <td><code>provenance index</code></td>
+            <td>Source fingerprint agreement among chemistry, isotopes, and clast assemblages.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Dual‑script order is a typographic default; semantics are set by the ARIA term.</p>
+  </section>
+
+  <section>
+    <h2>Objectives</h2>
     <ul>
-      <li><b>Structural memory:</b> Aquifer geometry and void networks record state changes (e.g., recharge regime, pressure pulses, meltwater surges) as persistent chemical/isotopic patterns.</li>
-      <li><b>Bidirectional coupling:</b> Stress alters permeability; conversely, pulsed flow modifies effective stress and local resonance—especially in quartz/feldspar substrates (V3.5).</li>
-      <li><b>Designed voids:</b> Several Codex nodes overlay anomalous hollows/dolines suggestive of <i>engineered regulators</i> or intentional storage buffers.</li>
+      <li>Quantify <b><span role="math" aria-label="aquifer memory score">ℳ<sub>(he: מ | ru: ᛃ)</sub></span></b> per basin and corridor segment.</li>
+      <li>Map <b><span role="math" aria-label="karst connectivity">𝒞<sub>(he: מ | ru: ᚾ)</sub></span></b> with uncertainty; identify resonance‑relevant conduits.</li>
+      <li>Estimate <b><span role="math" aria-label="void stability">σ<sub>(he: ס | ru: ᚨ)</sub></span></b> and derive a reproducible <b><span role="math" aria-label="hazard index">ℋ<sub>(he: ח | ru: ᚼ)</sub></span></b> for monitoring and field safety.</li>
+      <li>Use <b><span role="math" aria-label="provenance index">ℙ<sub>(he: פ | ru: ᚦ)</sub></span></b> to trace corridors and validate Codex node relationships.</li>
     </ul>
   </section>
 
@@ -49,69 +97,47 @@
       <table class="compact">
         <thead><tr><th>Layer</th><th>Examples</th><th>Use</th></tr></thead>
         <tbody>
-          <tr><td>Aquifer Systems</td><td>Global/regional aquifer polygons; transmissivity; storativity</td><td>Storage capacity; connectivity; spill thresholds</td></tr>
-          <tr><td>Karst Inventories</td><td>Sinkholes/dolines; cave maps; tracer tests</td><td>Void topology; conduit speeds; ventilation</td></tr>
-          <tr><td>Geochemistry/Isotopes</td><td>δD–δ18O, ¹⁴C-DIC, ³H/³He, ³⁶Cl, ⁸⁵Kr, noble gases</td><td>Residence time; recharge elevation; mixing</td></tr>
-          <tr><td>Geodesy & Stress</td><td>GNSS uplift; GIA; strain-rate grids; faults</td><td>σ fields for dK/dσ and resonance shifts</td></tr>
-          <tr><td>Mineralogy (V3.5)</td><td>Quartz/tourmaline/feldspar; fabric orientation</td><td>Piezo/filtration media; resonance index</td></tr>
-          <tr><td>Paleoclimate</td><td>Speleothem δ¹⁸O/δ¹³C; lake varves; tephra tie-points</td><td>Temporal anchoring; regime shifts</td></tr>
+          <tr><td>Karst & Voids</td><td>Sinkholes/dolines, speleology maps, ground‑penetrating radar</td><td>Build conduit graph; compute 𝒞</td></tr>
+          <tr><td>Aquifers</td><td>Hydrostrat units, transmissivity, head time‑series</td><td>Age spectrum & storage for ℳ</td></tr>
+          <tr><td>Geochemistry</td><td>δD/δ18O, ³H/³He, ¹⁴C‑DIC, noble gases, ⁸⁵Kr</td><td>Residence time & provenance (ℳ, ℙ)</td></tr>
+          <tr><td>Stress Fields</td><td>GNSS strain, GIA, faults, seismicity</td><td>σ for void stability and ℋ</td></tr>
+          <tr><td>Mineralogy</td><td>Quartz/feldspar indices, fabric orientation (V3.5)</td><td>Resonance weighting; filter behavior</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section>
-    <h2>Methods (Reproducible)</h2>
+    <h2>Methods</h2>
     <ol>
-      <li><b>Void Graph Build:</b> Derive a conduit graph from karst/aquifer rasters; assign edge weights by transmissivity and slope; compute <i>κ</i> (connectivity) and <i>λ</i> (characteristic path length).</li>
-      <li><b>Stress–Permeability Coupling:</b> Overlay strain-rate/σ fields on aquifer cells; estimate <i>Ψ<sub>σK</sub>=dK/dσ</i> via empirical or lithology-class priors.</li>
-      <li><b>Hydrochem Time-Stack:</b> For each node, stack isotopic/solute series; apply Bayesian age models to return posterior residence-time distributions.</li>
-      <li><b>Resonance Join (from V3.5):</b> Merge <i>R<sub>m</sub></i> (mineral resonance) with void graph centrality; compute <i>R*</i> = <i>R<sub>m</sub></i> × (betweenness).</li>
-      <li><b>G-Lift:</b> Evaluate <b>G = V × H²</b> with <i>V</i>=|∇φ| + |σ̇| (piezometric + stress rates) and <i>H</i>=f(κ, residence-time entropy, geochem variance).</li>
+      <li><b>Conduit Graph:</b> extract nodes/edges from karst rasters & cave surveys; compute connectivity and path redundancy ⇒ <span role="math" aria-label="karst connectivity">𝒞<sub>(he: מ | ru: ᚾ)</sub></span>.</li>
+      <li><b>Aquifer Memory:</b> invert age distributions from tracers; combine with storage variability and seasonal coherence ⇒ <span role="math" aria-label="aquifer memory score">ℳ<sub>(he: מ | ru: ᛃ)</sub></span>.</li>
+      <li><b>Void Stability:</b> estimate effective stress with saturation and depth; adjust for lithology/roof span ⇒ <span role="math" aria-label="void stability">σ<sub>(he: ס | ru: ᚨ)</sub></span>.</li>
+      <li><b>Hazard Index:</b> fuse (pressure head excursions, σ, conduit slope, gas markers) ⇒ <span role="math" aria-label="hazard index">ℋ<sub>(he: ח | ru: ᚼ)</sub></span>.</li>
+      <li><b>Provenance:</b> clustering over tracers and mineral signatures ⇒ <span role="math" aria-label="provenance index">ℙ<sub>(he: פ | ru: ᚦ)</sub></span>.</li>
     </ol>
-    <p class="note">Coder tip: ship a minimal <code>voidgraph()</code> and <code>glift()</code> in ChiR-IPP for standardized scoring; expose parameters for corridor- vs node-scale runs.</p>
   </section>
 
   <section>
-    <h2>Indices</h2>
-    <div class="scroll-x">
-      <table class="compact">
-        <thead><tr><th>Index</th><th>Symbol</th><th>Definition (scaled 0–1)</th></tr></thead>
-        <tbody>
-          <tr><td>Void Connectivity</td><td>κ</td><td>Normalized conduit graph connectivity</td></tr>
-          <tr><td>Stress Sensitivity</td><td>Ψ<sub>σK</sub></td><td>dK/dσ mapped to lithology classes</td></tr>
-          <tr><td>Memory Entropy</td><td>H<sub>chem</sub></td><td>Shannon entropy across isotope/solute series</td></tr>
-          <tr><td>Resonant Conduit</td><td>R*</td><td>Mineral resonance × conduit centrality</td></tr>
-          <tr><td>Subsurface G</td><td>G</td><td>V × H², see Methods</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <h2>Example Formulations</h2>
+    <p><b>Hydro Memory Response:</b>
+      <span role="math" aria-label="R equals function of karst connectivity, aquifer memory score, and void stability">
+        R = f( 𝒞<sub>(he: מ | ru: ᚾ)</sub>, ℳ<sub>(he: מ | ru: ᛃ)</sub>, σ<sub>(he: ס | ru: ᚨ)</sub> )
+      </span>
+    </p>
+    <p><b>Hazard (schematic):</b>
+      <span role="math" aria-label="hazard index equals weighted sum of factors">
+        ℋ<sub>(he: ח | ru: ᚼ)</sub> = w₁·|∂h/∂t| + w₂·(1/σ<sub>(he: ס | ru: ᚨ)</sub>) + w₃·Slope + w₄·Gas
+      </span>
+    </p>
   </section>
 
   <section>
-    <h2>Validation</h2>
+    <h2>Implementation (Repo Hooks)</h2>
     <ul>
-      <li><b>Blind corridors:</b> fit parameters in Corridor A; predict B; compare to independent tracer/age data.</li>
-      <li><b>Monte Carlo nodes:</b> randomize node locations; verify over-unity associations (κ, Ψ<sub>σK</sub>, H<sub>chem</sub>) vs null.</li>
-      <li><b>Temporal cross-check:</b> force consistency between aquifer posterior ages and co-located speleothem/varve/tephra ages.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Outputs</h2>
-    <ul>
-      <li><b>Void graphs + scores</b> (κ, Ψ<sub>σK</sub>, H<sub>chem</sub>, R*, G)</li>
-      <li><b>Node memory timelines</b> with uncertainty envelopes</li>
-      <li><b>Intervention flags</b> for likely engineered voids/regulators</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Cross-Links</h2>
-    <ul>
-      <li>V3.6 Hydrology–Tectonics (surface ↔ subsurface threading)</li>
-      <li>V4.1 Melt pulses (pressure injection events into confined aquifers)</li>
-      <li>V4.10 Quartz Logic (piezo-active void surrounds)</li>
+      <li><code>scripts/HydroMemory.py</code> — computes ℳ, 𝒞, σ, ℋ, ℙ rasters and per‑node scores.</li>
+      <li>Expected inputs: <code>data/aquifer.geojson</code>, <code>data/karst.tif</code>, <code>data/stress.tif</code>, tracer CSVs.</li>
+      <li>Outputs: <code>out/v43_memory/{M,C,sigma,H,P}_*.tif</code>, <code>out/v43_memory/node_scores.csv</code>.</li>
     </ul>
   </section>
 
@@ -125,9 +151,7 @@
   </nav>
 
   <div align="center">
-    <footer>
-      <p>&copy; 2025 ChiR Labs | Geodetic Codex</p>
-    </footer>
+    <footer><p>&copy; 2025 ChiR Labs | Geodetic Codex</p></footer>
   </div>
 </main>
 </body>
