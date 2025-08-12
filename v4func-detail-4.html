@@ -1,91 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Codex Version 4 Functional Spec</title>
-  <link rel="stylesheet" href="styles/main.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ChiR Labs — V4.4 Functional Spec (Submerged Vectors & Torsional Release)</title>
+  <link rel="stylesheet" href="styles/main.css"/>
+  <meta name="description" content="Geodetic Codex V4.4 — Submerged release vectors, torsional decompression, bathymetric signatures, and hazard-class prediction for Codex corridors."/>
 </head>
-
 <body>
-  <header>
-    <h1>🌐 Geodetic Codex V4.4</h1>
-    <p>Submerged Vectors & Torsional Release</p>
-  </header>
+<header>
+  <h1>🌀 ChiR Labs</h1>
+  <p>Mapping trust, resonance, and planetary intelligence.</p>
+</header>
 
-  <nav>
-    <a href="index.html">🌀 <span>Root</span></a>
-    <a href="chir-ai.html">🧠 <span>ChiR-AI</span></a>
-    <a href="chiripp.html">💠 <span>ChiR-IPP</span></a>
-    <a href="codex.html">🌐 <span>Codex</span></a>
-    <a href="psl.html">🕊 <span>PSL</span></a>
-    <a href="about.html">🧭 <span>About</span></a>
-    <a href="support.html">🌱 <span>Growth</span></a>
+<nav>
+  <a href="index.html"> 🌀 <span>Root</span></a>
+  <a href="chir-ai.html"> 🧠 <span>ChiR-AI</span></a>
+  <a href="chiripp.html"> 💠 <span>ChiR-IPP</span></a>
+  <a href="codex.html"> 🌐 <span>Codex</span></a>
+  <a href="psl.html"> 🕊 <span>PSL</span></a>
+  <a href="about.html"> 🧭 <span>About</span></a>
+  <a href="support.html"> 🌱 <span>Growth</span></a>
+</nav>
+
+<main class="container">
+  <aside class="context-blurb">
+    <h1>V4.4 Functional Specification:</h1>
+    <i>Submerged Vectors & Torsional Release.</i> Identifying submarine zones where trapped fluids, torsional stress, and lithologic contrasts trigger rapid decompression—leaving terrace fans, amphitheaters, pockmarks, and canyon heads aligned to Codex vectors.
+  </aside>
+
+  <section>
+    <h2>Overview</h2>
+    <p>We formalize a detection-and-modeling workflow for <b>undersea release vectors</b> where torsional strain, pore-pressure buildup, and structural weakness coalesce. These events can be <i>slow-leak</i> (chronic seepage, gas vents) or <i>pulse-driven</i> (outburst floods, slope failure, canyon initiation). Outputs support both <b>hazard classing</b> and <b>terraforma-forensics</b> (V4.8 / V4.9).</p>
+  </section>
+
+  <section>
+    <h2>Geomorphic Signatures</h2>
+    <ul>
+      <li><b>Radial terrace sets</b> and amphitheater heads at shelf breaks</li>
+      <li><b>Pockmark fields</b> and aligned vent strings cross-cutting bedding</li>
+      <li><b>Flat-bottomed valleys</b> with abrupt knickpoints / headwall scars</li>
+      <li><b>Fan–lobe stacks</b> with coherent azimuthal alignment to corridor vectors</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Data Inputs</h2>
+    <div class="scroll-x">
+      <table class="compact">
+        <thead><tr><th>Layer</th><th>Examples</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td>Bathymetry</td><td>Multibeam DEMs; slope/curvature; backscatter</td><td>Landform extraction; sediment texture inferences</td></tr>
+          <tr><td>Seismic Stratigraphy</td><td>2D/3D lines; reflectors; gas front indicators</td><td>Buried channels; overpressure traps; failure planes</td></tr>
+          <tr><td>Stress & Tectonics</td><td>Plate boundaries; intraplate strain; transform steps</td><td>Torsional domains, σ orientation</td></tr>
+          <tr><td>Fluid Indicators</td><td>Vent/plume catalogs; CH₄ concentrations</td><td>Active seepage; gas hydrate stability</td></tr>
+          <tr><td>Paleo Ties</td><td>Terrace ages; tephra; forams/δ¹⁸O; shelf low-stand maps</td><td>Timing constraints; event recurrence</td></tr>
+          <tr><td>Mineralogy (V3.5)</td><td>Silica/cementation; clay content</td><td>Weak/strong layers; resonance-sensitive media</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Methods (Detection → Modeling)</h2>
+    <ol>
+      <li><b>Feature Extraction:</b> From bathymetry/backscatter, detect amphitheaters, pockmarks, and terrace sets (morphometry: relief, planform curvature, spacing).</li>
+      <li><b>Subsurface Context:</b> Tie seismic reflectors to potential overpressure horizons and buried channel belts; map gas fronts and BSR (bottom simulating reflector) where available.</li>
+      <li><b>Torsional Domain Map:</b> Combine plate motion residuals + local transform/step-over geometry to identify zones of shear twist and stress rotation.</li>
+      <li><b>Release Vector Field:</b> For each candidate patch, compute principal curvature axes and align with σ orientation to estimate preferred failure/release azimuths.</li>
+      <li><b>Pulse vs Leak Classifier:</b> Train a simple classifier on feature metrics (headwall height, lobe stacking periodicity, pockmark density, gas indicators) to assign <i>Leak</i>/<i>Pulse</i>/<i>Hybrid</i>.</li>
+      <li><b>G-Coupling:</b> Evaluate <b>G = V × H²</b> with <i>V</i>=torsional rate + hydraulic head gradient; <i>H</i>=local hydrologic memory (sediment permeability stack, trapped fluids).</li>
+    </ol>
+    <p class="note">Context link: rare “upward” fluid eruptions through ice or sediment caps demonstrate that overpressure can breach vertically under unique conditions—useful analog for pulse classification in capped marine settings.</p>
+  </section>
+
+  <section>
+    <h2>Hazard & Provenance Indices</h2>
+    <div class="scroll-x">
+      <table class="compact">
+        <thead><tr><th>Index</th><th>Symbol</th><th>Definition (0–1)</th></tr></thead>
+        <tbody>
+          <tr><td>Release Likelihood</td><td>Λ</td><td>Composite of torsion, slope, overpressure indicators</td></tr>
+          <tr><td>Pulse Character</td><td>Π</td><td>Probability of pulse-type vs leak-type release</td></tr>
+          <tr><td>Vector Coherence</td><td>Ξ</td><td>Azimuthal fit of landforms to computed release vectors</td></tr>
+          <tr><td>Coupled G</td><td>G</td><td>Event-ready G in the marine cap (see Methods)</td></tr>
+          <tr><td>Provenance Fit</td><td>Φ</td><td>Seismic tie to source pathways (buried channels, aquifer tops)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Validation</h2>
+    <ul>
+      <li><b>Hold-out margins:</b> train on Margin A, test on Margin B; evaluate Λ/Π/Ξ skill vs known vent/canyon datasets.</li>
+      <li><b>Seafloor change:</b> where repeated bathy exists, test predicted headwall retreat and lobe accretion directions against observed change.</li>
+      <li><b>Chronology:</b> compare terrace/lobe ages to paleosea-level and melt-pulse chronologies; require coherent phase relationships.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Outputs</h2>
+    <ul>
+      <li><b>Release Vector Atlas</b> with Λ/Π/Ξ/G/Φ layers per corridor</li>
+      <li><b>Risk classes</b> (Informational / Advisory / Watch) for active margins</li>
+      <li><b>Candidate terraforming echoes</b> (anomalous amphitheaters, engineered-looking berms) for V4.8/V4.9 inspection</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Cross-Links</h2>
+    <ul>
+      <li>V4.1 Melt pulses (forcing for overpressure episodes)</li>
+      <li>V4.8 Bathymetric inversion (recovering lost altitude logic)</li>
+      <li>V4.9 Phase-state reservoirs (multi-phase basins feeding/receiving releases)</li>
+      <li>V4.10 Quartz Logic (substrate-dependent resonance at canyon heads)</li>
+    </ul>
+  </section>
+
+  <nav class="version-nav" aria-label="Version navigation">
+    <div class="version-nav__row">
+      <a class="vbtn vbtn--ghost" href="v4-3.html" rel="prev" aria-label="Go to V4.3">← V4.3</a>
+      <a class="vbtn vbtn--primary" href="preview.html" aria-label="Peer Review Root">Peer Review Root</a>
+      <a class="vbtn vbtn--ghost" href="v4-5.html" rel="next" aria-label="Go to V4.5">V4.5 →</a>
+      <p>&nbsp;</p>
+    </div>
   </nav>
 
-  <main class="container">
-  
-
-    <section>
-    
-      
-    <h2>🌍 Geodetic Codex Version 4 – Hydrological Harmonics & Planetary Resonance Addendum</h2>
-    <p>Underwater ridges and basins (e.g., Caribbean, Indian Ocean) show signatures of torsional melt-out, decompression, and resonance discharge through submerged vectors.</p>
-    <p>
-    This release consists of 12 interlocking modules, each mapping a specific resonance layer through water, fire, quartz, memory, or engineering intelligence. The framework builds on the ChiRhombant constant (G = V × H²), integrating planetary survival design with geodetic observatory modeling.
-    </p>
-
-    <h2>🔷 V4.4 – Submerged Vectors & Torsional Release</h2>
-   <p>In Version 4.4, we model the potential for torsional release events triggered by deep lithospheric pressure or trapped aquifers beneath folded terrain. </p>
-
-
-    <p><strong>Summary:</strong></p>
-    <p>These may act as explosive decompression zones—particularly in submarine plateaus or transition basins such as the Caribbean and western Indian Ocean. Several Codex-aligned nodes show radial vectoring consistent with prior subsurface detonation or melt-out, producing marine terraces, flat-bottomed valleys, or gas-release pockmarks.
-    </p>
-
-    <p><strong>Key Findings: </strong></p>
-    <p>Aquifer distributions (e.g., Great Artesian Basin, Guarani Aquifer) follow ChiRhombant corridor logic.Hollow zones (e.g., under karst limestone formations) correlate with megalithic or mound sites, suggesting designed voids.Certain megaliths (e.g., Stonehenge, Nan Madol) sit above water-retention geometries, potentially using hydrology as a harmonic regulator.</p>
-  
-   <p> By reverse-mapping these formations with harmonic resonance tools (e.g., G = V × H²), Codex users can identify both active danger zones and historical terraforming candidates. Notably, the energetics of these submerged vectors may correlate to crustal thinning, magma discharge, or “unlocking events” in the form of tsunami or marine canyon initiation.</p>
-   
-   
-    <section>
-      <h2>🧱 Modular Expansion</h2>
-      <p>Version 4 modules are stackable and interoperable, supporting comparative synthesis with planetary models, marine echo structures, and cultural occupation layers.</p>
-    <div> <align="center"><a href="./v4funcspec.html">BACK TO OVERVIEW</a></align></div>
-    </section>
-
-    <section>
-      <h2>🔍 Version 4.1–4.12 Overview</h2>
-      <ul>
-        <li><a href="./v4func-detail-1.html"><strong>   V4.01 – Glacial Meltwater Pulse Dynamics</strong>:</a> </li>
-        <li><a href="./v4func-detail-2.html"><strong>   V4.02 – Harmonic Watershed Resonance</strong>:</a></li>
-        <li><a href="./v4func-detail-3.html"><strong>   V4.03 – Subterranean Water & Memory Encoding</strong>:</a> </li>
-        <li><a href="./v4func-detail-4.html"><strong>   V4.04 – Submerged Vectors & Torsional Release</strong>:</a></li>
-        <li><a href="./v4func-detail-5.html"><strong>   V4.05 – Solar Flare Coupling & Quartz Resonance</strong>:</a></li>
-        <li><a href="./v4func-detail-6.html"><strong>   V4.06 – Fire, Ice & Meltwater Ignition Systems</strong>:</a> </li>
-        <li><a href="./v4func-detail-7.html"><strong>   V4.07 – Subterranean Channels and Terraforming Logic</strong>:</a></li>
-        <li><a href="./v4func-detail-8.html"><strong>   V4.08 – Bathymetric Inversion & Lost Altitudes</strong>:</a> </li>
-        <li><a href="./v4func-detail-9.html"><strong>   V4.09 – Phase Transition Reservoirs & Terraforming Echoes</strong>:</a> </li>
-        <li><a href="./v4func-detail-10.html"><strong>  V4.10 – Quartz Logic & Georesonant Ignition</strong>:</a> </li>
-        <li><a href="./v4func-detail-11.html"><strong>  V4.11 – Kinetic Tools & Flow-Based Stoneworking</strong>:</a> </li>
-        <li><a href="./v4func-detail-12.html"><strong>  V4.12 – Crustal Memory & the Georesonant Archive</strong>:</a> </li>
-      </ul>
-    </section>
-
-    <nav class="version-nav" aria-label="Version navigation">
-      <div class="version-nav__row">
-        <a class="vbtn vbtn--ghost" href="v4func-detail-3.html" rel="prev" aria-label="Go to V4.3">← V4.3</a>
-        <a class="vbtn vbtn--primary" href="preview.html" aria-label="Peer Review Root">Peer Review Root</a>
-        <a class="vbtn vbtn--ghost" href="v4func-detail-5.html" rel="next" aria-label="Go to V4.5">V4.5 →</a>
-        <p>&nbsp;</p>
-      </div>
-    </nav>
-    <div align="center">
-      <footer>
-        <p>&copy; 2025 ChiR Labs | Geodetic Codex </p>
-      </footer>
-   </div>
-    </main>
-    </body>
-    </html>
+  <div align="center">
+    <footer>
+      <p>&copy; 2025 ChiR Labs | Geodetic Codex</p>
+    </footer>
+  </div>
+</main>
+</body>
+</html>
