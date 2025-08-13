@@ -1,92 +1,177 @@
+<!-- v4func-detail-5.html — Geodetic Codex V4.5 Functional Specification -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Codex Version 4 Functional Spec</title>
+  <title>ChiR Labs — V4.5 Functional Spec (Solar Coupling & Quartz Resonance)</title>
   <link rel="stylesheet" href="styles/main.css" />
+  <meta name="description" content="V4.5 models solar-cycle to crustal coupling through quartz-rich terrains, formalizing indices and methods for detecting resonance-driven hydrologic and mechanical responses." />
 </head>
-
 <body>
-  <header>
-    <h1>🌐 Geodetic Codex V4.5</h1>
-    <p>Solar Flare Coupling & Quartz Resonance</p>
-  </header>
+<header>
+  <h1>🌀 ChiR Labs</h1>
+  <p>Mapping trust, resonance, and planetary intelligence.</p>
+</header>
 
-  <nav>
-    <a href="index.html">🌀 <span>Root</span></a>
-    <a href="chir-ai.html">🧠 <span>ChiR-AI</span></a>
-    <a href="chiripp.html">💠 <span>ChiR-IPP</span></a>
-    <a href="codex.html">🌐 <span>Codex</span></a>
-    <a href="psl.html">🕊 <span>PSL</span></a>
-    <a href="about.html">🧭 <span>About</span></a>
-    <a href="support.html">🌱 <span>Growth</span></a>
+<nav>
+  <a href="index.html"> 🌀 <span>Root</span></a>
+  <a href="chir-ai.html"> 🧠 <span>ChiR-AI</span></a>
+  <a href="chiripp.html"> 💠 <span>ChiR-IPP</span></a>
+  <a href="codex.html"> 🌐 <span>Codex</span></a>
+  <a href="psl.html"> 🕊 <span>PSL</span></a>
+  <a href="about.html"> 🧭 <span>About</span></a>
+  <a href="support.html"> 🌱 <span>Growth</span></a>
+</nav>
+
+<main class="container">
+  <aside class="context-blurb">
+    <h1>V4.5 Functional Specification:</h1>
+    <i>Solar Flare Coupling & Quartz Resonance.</i>
+    This module formalizes how solar-cycle variability couples into quartz-rich crust, modulating stress, permeability, and hydrologic timing at Codex nodes.
+  </aside>
+
+  <section>
+    <h2>Overview</h2>
+    <p>
+      Quartz-bearing terrains (granite batholiths, high-silica volcanics, silica-cemented sands) exhibit
+      piezoelectric, pyroelectric, and dielectric behaviors that can align with solar-cycle forcing
+      (sunspot maxima, CME windows, Schwabe/Hale periods). V4.5 defines indices and workflows to detect
+      <b>electro-mechanical resonance</b> in these terrains and connect it to <b>hydrologic response</b>
+      (spring discharge, conduit opening/closing) and <b>microseismicity</b>.
+    </p>
+  </section>
+
+  <section>
+    <h2>Notation (Dual-Script Intro)</h2>
+    <p>
+      Codex symbols use dual-script subscripts once here for clarity (see
+      <a href="gc-notation-charter.html">Notation Charter</a>).
+    </p>
+    <div class="scroll-x">
+      <table class="compact">
+        <thead><tr><th>Concept</th><th>Symbol</th><th>Plain Term (ARIA)</th><th>Brief Definition</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Quartz Resonance Quality</td>
+            <td aria-label="quartz resonance quality">
+              𝑄<sub>𐤒ᚩ</sub>
+            </td>
+            <td>quartz resonance quality</td>
+            <td>Composite of quartz abundance, grain/fabric orientation, and piezo/pyro response potential.</td>
+          </tr>
+          <tr>
+            <td>Solar Forcing Index</td>
+            <td aria-label="solar forcing index">
+              𝑆<sub>𐤎ᚦ</sub>
+            </td>
+            <td>solar forcing index</td>
+            <td>Sunspot/CME activity windowed at node latitude/longitude; incorporates Kp/Ap and ionospheric TEC anomalies.</td>
+          </tr>
+          <tr>
+            <td>Electro‑Hydro Coupling</td>
+            <td aria-label="electro-hydrologic coupling">
+              𝜒<sub>𐤏ᚠ</sub>
+            </td>
+            <td>electro‑hydrologic coupling</td>
+            <td>Observed or modeled sensitivity of permeability/discharge to EM or thermal excitation in quartz media.</td>
+          </tr>
+          <tr>
+            <td>Resonant Event Likelihood</td>
+            <td aria-label="resonant event likelihood">
+              𝛬<sub>𐤋ᛟ</sub>
+            </td>
+            <td>resonant event likelihood</td>
+            <td>Probability of resonance-driven triggers (spring surges, conduit opening, microquakes) given 𝑄, 𝑆, and 𝜒.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">After this table we reference plain terms; symbol semantics live in the Charter.</p>
+  </section>
+
+  <section>
+    <h2>Objectives</h2>
+    <ul>
+      <li>Map quartz resonance quality across Codex corridors; prioritize high‑Q terrains.</li>
+      <li>Ingest solar activity feeds and compute site‑specific forcing windows.</li>
+      <li>Quantify electro‑hydrologic coupling using discharge, conductivity, and microseismic time‑series.</li>
+      <li>Issue reproducible <b>resonant event likelihood</b> scores for monitoring and planning.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Data Inputs</h2>
+    <div class="scroll-x">
+      <table class="compact">
+        <thead><tr><th>Layer</th><th>Examples</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Mineralogy</td>
+            <td>Quartz indices, granite/tuff maps, fabric orientation (V3.5)</td>
+            <td>Compute quartz resonance quality</td>
+          </tr>
+          <tr>
+            <td>Solar/E-M</td>
+            <td>Sunspots, CME lists, Kp/Ap, TEC, ground EM flux</td>
+            <td>Solar forcing index; trigger correlation</td>
+          </tr>
+          <tr>
+            <td>Hydrology</td>
+            <td>Spring discharge, head, EC/temperature time‑series</td>
+            <td>Electro‑hydro coupling estimation</td>
+          </tr>
+          <tr>
+            <td>Seismo/Strain</td>
+            <td>Microseismic catalogs, GNSS strain</td>
+            <td>Detect resonance‑timed microevents</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Methods</h2>
+    <ol>
+      <li><b>Quartz Map:</b> combine quartz abundance with fabric/joint orientation and porosity to derive a resonance quality raster.</li>
+      <li><b>Solar Windowing:</b> downscale solar indices to site lat/long; flag CME & high‑Kp windows.</li>
+      <li><b>Coupling Analysis:</b> correlate discharge/head/EC shifts and microseisms with solar windows using cross‑correlation and Granger causality; report effect sizes.</li>
+      <li><b>Likelihood Synthesis:</b> fuse quality, forcing, and coupling into a <i>resonant event likelihood</i> layer with uncertainty.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Indicative Form (for transparency)</h2>
+    <pre class="code">
+ResonantEventLikelihood ≈ σ( a·QuartzQuality + b·SolarForcing + c·ElectroHydroCoupling + d·Slope/Confinement ),
+where σ is a logistic squash and all components are scaled to [0,1].
+    </pre>
+  </section>
+
+  <section>
+    <h2>Implementation (Repo Hooks)</h2>
+    <ul>
+      <li><code>scripts/QuartzResonance.py</code> — builds quartz resonance quality and writes <code>out/v45_quartz_Q.tif</code>.</li>
+      <li><code>scripts/SolarCoupling.py</code> — ingests solar feeds, computes site windows, and writes <code>out/v45_solar_S.tif</code>.</li>
+      <li><code>scripts/ResonantEvents.py</code> — fuses inputs + hydrology/seismic time‑series to <code>out/v45_resonance_L.tif</code>.</li>
+    </ul>
+  </section>
+
+  <nav class="version-nav" aria-label="Version navigation">
+    <div class="version-nav__row">
+      <a class="vbtn vbtn--ghost" href="v4func-detail-4.html" rel="prev" aria-label="Go to V4.4">← V4.4</a>
+      <a class="vbtn vbtn--primary" href="preview.html" aria-label="Peer Review Root">Peer Review Root</a>
+      <a class="vbtn vbtn--ghost" href="v4func-detail-6.html" rel="next" aria-label="Go to V4.6">V4.6 →</a>
+      <p>&nbsp;</p>
+    </div>
   </nav>
 
-  <main class="container">
-  
-
-    <section>
-    
-      
-    <h2>🌍 Geodetic Codex Version 4 – Hydrological Harmonics & Planetary Resonance Addendum</h2>
-    <p>Codex V4 explores Earth's crust not just as a surface of land and sea, but as a living harmonic system — woven together through glacial melt, aquifers, sacred hydrology, and long-forgotten energy infrastructures.
-    </p>
-    <p>
-    This release consists of 12 interlocking modules, each mapping a specific resonance layer through water, fire, quartz, memory, or engineering intelligence. The framework builds on the ChiRhombant constant (G = V × H²), integrating planetary survival design with geodetic observatory modeling.
-    </p>
-
-    <h2>🔷 V4.5 – Solar Flare Coupling & Quartz Resonance</h2>
-   <p> Crystalline-rich sites (e.g., Andes, Appalachians) may have coupled solar excitation with hydrological tuning — forming reactive circuits tied to solar maximums and sunspot behavior.</p>
-
-
-    <p><strong>Summary:</strong></p>
-    <p>Expanding upon the electromagnetic modeling of earlier Codex versions, V4.5 investigates the role of crystalline resonance—particularly in high-quartz-content nodes such as the Andes, Ethiopia, Central Asia, and the Appalachian highlands. Many geodetic Codex nodes sit atop silicate-rich faultlines or within granite-heavy batholiths, offering potential energetic coupling with solar activity.</p>
-
-    
-    <p><strong>Key Findings: </strong></p>
-    <p>This section proposes a testable link between solar maximum events, quartz piezoelectric excitation, and discharge points along faulted terrain. Stoneworks and channeling systems at places like Gunung Padang or Meadow House may reflect not just hydrological tuning, but also solar-magneto-electric response systems.</p>
-
-      <p>If verified, such sites may encode harmonic safety protocols designed to protect aquifers or trigger controlled discharge through resonance-matched infrastructure. Codex tools can support real-time correlation of sunspot cycles, ground EM flux, and site behavior.</p>
-
-
-   
-    <section>
-      <h2>🧱 Modular Expansion</h2>
-      <p>Version 4 modules are stackable and interoperable, supporting comparative synthesis with planetary models, marine echo structures, and cultural occupation layers.</p>
-    <div> <align="center"><a href="./v4funcspec.html">BACK TO OVERVIEW</a></align></div>
-    </section>
-    <section>
-      <h2>🔍 Version 4.1–4.12 Overview</h2>
-      <ul>
-        <li><a href="./v4func-detail-1.html"><strong>   V4.01 – Glacial Meltwater Pulse Dynamics</strong>:</a> </li>
-        <li><a href="./v4func-detail-2.html"><strong>   V4.02 – Harmonic Watershed Resonance</strong>:</a></li>
-        <li><a href="./v4func-detail-3.html"><strong>   V4.03 – Subterranean Water & Memory Encoding</strong>:</a> </li>
-        <li><a href="./v4func-detail-4.html"><strong>   V4.04 – Submerged Vectors & Torsional Release</strong>:</a></li>
-        <li><a href="./v4func-detail-5.html"><strong>   V4.05 – Solar Flare Coupling & Quartz Resonance</strong>:</a></li>
-        <li><a href="./v4func-detail-6.html"><strong>   V4.06 – Fire, Ice & Meltwater Ignition Systems</strong>:</a> </li>
-        <li><a href="./v4func-detail-7.html"><strong>   V4.07 – Subterranean Channels and Terraforming Logic</strong>:</a></li>
-        <li><a href="./v4func-detail-8.html"><strong>   V4.08 – Bathymetric Inversion & Lost Altitudes</strong>:</a> </li>
-        <li><a href="./v4func-detail-9.html"><strong>   V4.09 – Phase Transition Reservoirs & Terraforming Echoes</strong>:</a> </li>
-        <li><a href="./v4func-detail-10.html"><strong>  V4.10 – Quartz Logic & Georesonant Ignition</strong>:</a> </li>
-        <li><a href="./v4func-detail-11.html"><strong>  V4.11 – Kinetic Tools & Flow-Based Stoneworking</strong>:</a> </li>
-        <li><a href="./v4func-detail-12.html"><strong>  V4.12 – Crustal Memory & the Georesonant Archive</strong>:</a> </li>
-      </ul>
-    </section>
-    
-    <nav class="version-nav" aria-label="Version navigation">
-      <div class="version-nav__row">
-        <a class="vbtn vbtn--ghost" href="v4func-detail-4.html" rel="prev" aria-label="Go to V4.4">← V4.4</a>
-        <a class="vbtn vbtn--primary" href="preview.html" aria-label="Peer Review Root">Peer Review Root</a>
-        <a class="vbtn vbtn--ghost" href="v4func-detail-6.html" rel="next" aria-label="Go to V4.6">V4.6 →</a>
-        <p>&nbsp;</p>
-      </div>
-    </nav>
-    <div align="center">
-      <footer>
-        <p>&copy; 2025 ChiR Labs | Geodetic Codex </p>
-      </footer>
-   </div>
-    </main>
-    </body>
-    </html>
+  <div align="center">
+    <footer>
+      <p>&copy; 2025 ChiR Labs | Geodetic Codex</p>
+    </footer>
+  </div>
+</main>
+</body>
+</html>
