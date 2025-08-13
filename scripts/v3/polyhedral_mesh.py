@@ -1,280 +1,252 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-V3 — Polyhedral Elastic-Harmonic Mesh for the Geodetic Codex
-Generates a geodesic (subdivided icosahedron) on the unit sphere, scales to Earth,
-and exports:
-  - nodes.csv (id, face_id, lat, lon)
-  - edges.geojson (great-circle links; densified for map rendering)
-  - faces.geojson (optional triangular faces)
+V3 polyhedral / geodesic mesh generator (GeoJSON / ASCII-safe)
 
-Target edge length: ~732 miles (~1180 km) along great-circles.
-You can override with --target_km or --freq.
+- Builds a unit icosahedron, subdivides triangle faces by frequency f, projects to sphere.
+- Exports:
+    out/v3_mesh_nodes.geojson   (Points)
+    out/v3_mesh_edges.geojson   (LineStrings; densified)
+    out/v3_mesh_faces.geojson   (Polygons; one ring per face)
 
-Usage
------
-python scripts/v3/polyhedral_mesh.py \
-  --out out/v3_mesh \
-  --target_km 1180
-
-# or specify frequency subdivision directly:
-python scripts/v3/polyhedral_mesh.py --out out/v3_mesh --freq 3
-
-Dependencies: numpy, shapely, pyproj (optional but recommended for robust geodesics)
-If pyproj is unavailable, we fall back to spherical linear interpolation (slerp).
+Use either:
+    python scripts/v3/polyhedral_mesh.py --out out/v3_mesh --f 6
+or:
+    python scripts/v3/polyhedral_mesh.py --out out/v3_mesh --target_km 732
 """
 
 from __future__ import annotations
-import os, json, math, argparse, csv
+import os, json, math, argparse
+from typing import Dict, Tuple, List
 import numpy as np
 
-try:
-    from shapely.geometry import LineString, Polygon, mapping
-    from shapely.ops import unary_union
-except Exception:
-    LineString = Polygon = None  # still export basic GeoJSON if shapely missing
+EARTH_R_KM = 6371.0088
 
-try:
-    from pyproj import Geod
-except Exception:
-    Geod = None
+# -------------------------- vector helpers -------------------------- #
 
-EARTH_RADIUS_KM = 6371.0088  # IUGG mean spherical equivalent
+def normalize(v: np.ndarray) -> np.ndarray:
+    n = np.linalg.norm(v)
+    if n == 0:
+        return v
+    return v / n
 
+def slerp(a: np.ndarray, b: np.ndarray, t: float) -> np.ndarray:
+    """Spherical linear interpolation on the unit sphere."""
+    a = normalize(a); b = normalize(b)
+    dot = np.clip(np.dot(a, b), -1.0, 1.0)
+    omega = math.acos(dot)
+    if omega < 1e-10:
+        return a  # nearly identical
+    so = math.sin(omega)
+    return (math.sin((1 - t) * omega) / so) * a + (math.sin(t * omega) / so) * b
 
-# ---------- basic icosahedron on unit sphere ---------- #
+def gc_distance_km(a: np.ndarray, b: np.ndarray) -> float:
+    """Great-circle distance between two unit vectors (km)."""
+    a = normalize(a); b = normalize(b)
+    ang = math.acos(np.clip(np.dot(a, b), -1.0, 1.0))
+    return EARTH_R_KM * ang
 
-def icosahedron_vertices_faces():
-    """Return (V, F) with V Nx3 unit vectors, F Mx3 int indices (triangles)."""
+def cart_to_latlon(v: np.ndarray) -> Tuple[float, float]:
+    """Return (lat, lon) in degrees from unit xyz."""
+    x, y, z = v
+    lat = math.degrees(math.asin(np.clip(z, -1.0, 1.0)))
+    lon = math.degrees(math.atan2(y, x))
+    return (lat, lon)
+
+# ----------------------- icosahedron + subdivision ------------------ #
+
+def icosahedron() -> Tuple[np.ndarray, List[Tuple[int,int,int]]]:
+    """Return vertices (Nx3) and 20 faces of a unit icosahedron."""
     phi = (1 + 5 ** 0.5) / 2
-    a, b = 1.0, 1.0 / phi
     verts = []
-    for x, y, z in [
-        (0, ±a, ±b) for ±a in (a, -a) for ±b in (b, -b)
-    ] + [
-        (±a, ±b, 0) for ±a in (a, -a) for ±b in (b, -b)
-    ] + [
-        (±b, 0, ±a) for ±a in (a, -a) for ±b in (b, -b)
-    ]:
-        verts.append((x, y, z))
-    # The above Python comprehension is tricky to inline; build explicitly:
-    verts = []
-    for A in (a, -a):
-        for B in (b, -b):
-            verts.append((0, A, B))
-    for A in (a, -a):
-        for B in (b, -b):
-            verts.append((A, B, 0))
-    for B in (b, -b):
-        for A in (a, -a):
-            verts.append((B, 0, A))
-
-    V = np.array(verts, dtype=float)
-    V = V / np.linalg.norm(V, axis=1, keepdims=True)
-
-    # Faces (indices into V) for a standard icosahedron layout:
-    F = np.array([
-        [0, 11, 5], [0, 5, 1], [0, 1, 7], [0, 7, 10], [0, 10, 11],
-        [1, 5, 9],  [5, 11, 4], [11, 10, 2],[10, 7, 6], [7, 1, 8],
-        [3, 9, 4],  [3, 4, 2],  [3, 2, 6],  [3, 6, 8],  [3, 8, 9],
-        [4, 9, 5],  [2, 4, 11], [6, 2, 10], [8, 6, 7],  [9, 8, 1],
-    ], dtype=int)
+    for s1 in (-1, 1):
+        for s2 in (-1, 1):
+            verts.append((0, s1, s2 * phi))
+            verts.append((s1, s2 * phi, 0))
+            verts.append((s1 * phi, 0, s2))
+    V = np.array([normalize(np.array(v, dtype=float)) for v in verts], dtype=float)
+    F = [
+        (0, 11, 5), (0, 5, 1), (0, 1, 7), (0, 7, 10), (0, 10, 11),
+        (1, 5, 9), (5, 11, 4), (11, 10, 2), (10, 7, 6), (7, 1, 8),
+        (3, 9, 4), (3, 4, 2), (3, 2, 6), (3, 6, 8), (3, 8, 9),
+        (4, 9, 5), (2, 4, 11), (6, 2, 10), (8, 6, 7), (9, 8, 1)
+    ]
     return V, F
 
+def subdivide_face(V: np.ndarray, tri: Tuple[int,int,int], f: int,
+                   cache: Dict[Tuple[int,int], int]) -> List[Tuple[int,int,int]]:
+    """
+    Subdivide a single triangular face with frequency f.
+    Returns list of new triangle indices; extends V and uses cache for mid-edges.
+    """
+    def midpoint(i: int, j: int) -> int:
+        key = (min(i, j), max(i, j))
+        if key in cache:
+            return cache[key]
+        m = normalize((V[i] + V[j]) * 0.5)
+        V_list.append(m)
+        idx = len(V_list) - 1
+        cache[key] = idx
+        return idx
 
-# ---------- geodesic subdivision (frequency f) ---------- #
+    a, b, c = tri
+    V_list = V.tolist()  # we’ll append and convert back later
 
-def subdivide_face(v0, v1, v2, f):
-    """Subdivide spherical triangle into f^2 smaller ones. Return list of vertices and triangular faces (local indices)."""
-    # Build a grid by linear combos then project to sphere.
-    pts = []
-    idx = lambda i, j: i*(f+1) + j
-    for i in range(f+1):
-        for j in range(f+1 - i):
-            k = f - i - j
-            p = (i*v0 + j*v1 + k*v2) / f
-            p = p / np.linalg.norm(p)
-            pts.append(p)
-    pts = np.array(pts)
+    # Build grid of points on the triangle via spherical interpolation
+    # Using barycentric steps along edges (a->b) and (a->c)
+    grid: List[List[int]] = []
+    for i in range(f + 1):
+        row = []
+        ab = slerp(V[a], V[b], i / f) if f > 0 else V[a]
+        ac = slerp(V[a], V[c], i / f) if f > 0 else V[a]
+        steps = f - i
+        for j in range(steps + 1):
+            p = slerp(ab, ac, 0 if steps == 0 else j / steps)
+            V_list.append(normalize(p))
+            row.append(len(V_list) - 1)
+        grid.append(row)
 
-    tri = []
+    # Triangulate the grid
+    tris: List[Tuple[int,int,int]] = []
     for i in range(f):
         for j in range(f - i):
-            a = idx(i, j)
-            b = idx(i+1, j)
-            c = idx(i, j+1)
-            tri.append([a, b, c])
+            v00 = grid[i][j]
+            v01 = grid[i][j + 1]
+            v10 = grid[i + 1][j]
+            v11 = grid[i + 1][j + 1]
+            tris.append((v00, v01, v11))
             if j < f - i - 1:
-                d = idx(i+1, j+1)
-                tri.append([b, d, c])
-    return pts, np.array(tri, dtype=int)
+                tris.append((v00, v11, v10))
 
+    # Update V from V_list
+    V_out = np.array(V_list, dtype=float)
+    return V_out, tris
 
-def geodesic_icosahedron(f):
-    """Return (V, F) of a frequency-f subdivided icosahedron on unit sphere."""
-    V0, F0 = icosahedron_vertices_faces()
-    verts = []
-    faces = []
-    offset = 0
-    for face_id, (i, j, k) in enumerate(F0):
-        p, t = subdivide_face(V0[i], V0[j], V0[k], f)
-        faces.append(t + offset)
-        verts.append(p)
-        offset += len(p)
-    V = np.vstack(verts)
-    F = np.vstack(faces)
-    # Deduplicate vertices (same 3D point shared by adjacent parent faces)
-    Vu, inv = np.unique(np.round(V, 8), axis=0, return_inverse=True)
-    F = inv[F]
-    return Vu, F
+def geodesic_icosahedron(f: int) -> Tuple[np.ndarray, List[Tuple[int,int]], List[Tuple[int,int,int]]]:
+    """Subdivide each face of the icosahedron by frequency f and return (V, E, F)."""
+    V, F0 = icosahedron()
+    if f <= 1:
+        F = F0[:]
+    else:
+        F: List[Tuple[int,int,int]] = []
+        cache: Dict[Tuple[int,int], int] = {}
+        for tri in F0:
+            V, tris = subdivide_face(V, tri, f, cache)
+            F.extend(tris)
 
+    # Build edge set
+    edges = set()
+    for a, b, c in F:
+        for i, j in ((a, b), (b, c), (c, a)):
+            if i != j:
+                edges.add((min(i, j), max(i, j)))
+    E = sorted(edges)
+    return V, E, F
 
-# ---------- geometry helpers ---------- #
+# ---------------------------- exporters ----------------------------- #
 
-def cart_to_latlon(v):
-    x, y, z = v
-    lat = math.degrees(math.asin(z))
-    lon = math.degrees(math.atan2(y, x))
-    return lat, lon
+def export_nodes_geojson(prefix: str, V: np.ndarray):
+    feats = []
+    for i, v in enumerate(V):
+        lat, lon = cart_to_latlon(v)
+        feats.append({"type": "Feature",
+                      "geometry": {"type": "Point", "coordinates": [lon, lat]},
+                      "properties": {"id": int(i)}})
+    fc = {"type": "FeatureCollection", "features": feats}
+    os.makedirs(os.path.dirname(prefix), exist_ok=True)
+    with open(f"{prefix}_nodes.geojson", "w") as f:
+        json.dump(fc, f)
 
-def edge_length_km(a, b):
-    """Great-circle distance (km) on sphere."""
-    # Haversine on unit sphere scaled by Earth radius:
-    lat1, lon1 = cart_to_latlon(a)
-    lat2, lon2 = cart_to_latlon(b)
-    φ1, λ1, φ2, λ2 = map(math.radians, (lat1, lon1, lat2, lon2))
-    dφ = φ2-φ1; dλ = λ2-λ1
-    h = math.sin(dφ/2)**2 + math.cos(φ1)*math.cos(φ2)*math.sin(dλ/2)**2
-    return 2*EARTH_RADIUS_KM*math.asin(min(1.0, math.sqrt(h)))
+def export_edges_geojson(prefix: str, V: np.ndarray, E: List[Tuple[int,int]], densify: int = 12):
+    feats = []
+    for u, v in E:
+        a = V[u]; b = V[v]
+        line = []
+        for t in np.linspace(0.0, 1.0, max(2, densify)):
+            p = normalize(slerp(a, b, float(t)))
+            lat, lon = cart_to_latlon(p)
+            line.append([lon, lat])
+        feats.append({"type": "Feature",
+                      "geometry": {"type": "LineString", "coordinates": line},
+                      "properties": {"u": int(u), "v": int(v)}})
+    fc = {"type": "FeatureCollection", "features": feats}
+    os.makedirs(os.path.dirname(prefix), exist_ok=True)
+    with open(f"{prefix}_edges.geojson", "w") as f:
+        json.dump(fc, f)
 
-def densify_gc(lat1, lon1, lat2, lon2, n=32):
-    """Points along great-circle; uses pyproj.Globe if available, else slerp."""
-    if Geod is not None:
-        g = Geod(a=EARTH_RADIUS_KM*1000, b=EARTH_RADIUS_KM*1000)
-        lats, lons = g.npts(lon1, lat1, lon2, lat2, n-2)
-        coords = [(lon1, lat1)] + [(lo, la) for lo, la in zip(lons, lats)] + [(lon2, lat2)]
-        return coords
-    # slerp on unit sphere
-    def to_xyz(lat, lon):
-        φ, λ = math.radians(lat), math.radians(lon)
-        return np.array([math.cos(φ)*math.cos(λ), math.cos(φ)*math.sin(λ), math.sin(φ)])
-    a = to_xyz(lat1, lon1); b = to_xyz(lat2, lon2)
-    dot = np.clip(np.dot(a, b), -1.0, 1.0)
-    θ = math.acos(dot)
-    if θ < 1e-9:
-        return [(lon1, lat1), (lon2, lat2)]
-    pts = []
-    for t in np.linspace(0, 1, n):
-        s1 = math.sin((1-t)*θ) / math.sin(θ)
-        s2 = math.sin(t*θ) / math.sin(θ)
-        v = s1*a + s2*b
-        v = v / np.linalg.norm(v)
-        la, lo = cart_to_latlon(v)
-        pts.append((lo, la))
-    return pts
+def export_faces_geojson(prefix: str, V: np.ndarray, F: List[Tuple[int,int,int]]):
+    feats = []
+    for fid, (a, b, c) in enumerate(F):
+        ring = []
+        for idx in (a, b, c, a):  # close ring
+            lat, lon = cart_to_latlon(V[idx])
+            ring.append([lon, lat])
+        feats.append({"type": "Feature",
+                      "geometry": {"type": "Polygon", "coordinates": [ring]},
+                      "properties": {"face_id": int(fid)}})
+    fc = {"type": "FeatureCollection", "features": feats}
+    os.makedirs(os.path.dirname(prefix), exist_ok=True)
+    with open(f"{prefix}_faces.geojson", "w") as f:
+        json.dump(fc, f)
 
-def face_edges(F):
-    """Set of undirected edges (i,j) with i<j from triangular faces."""
-    E = set()
-    for a,b,c in F:
-        for i,j in ((a,b),(b,c),(c,a)):
-            if i>j: i,j=j,i
-            E.add((i,j))
-    return sorted(list(E))
+# ------------------------ sizing & reporting ------------------------ #
 
+def edge_lengths_km(V: np.ndarray, E: List[Tuple[int,int]]) -> np.ndarray:
+    return np.array([gc_distance_km(V[i], V[j]) for i, j in E], dtype=float)
 
-# ---------- choosing frequency for target edge ---------- #
-
-def choose_frequency(target_km):
-    """
-    Find geodesic frequency f whose median edge length is closest to target_km.
-    Reasonable f for global meshes: 1..10 (keeps node count tractable).
-    """
-    best = (None, 1e9, None)
-    for f in range(1, 11):
-        V, F = geodesic_icosahedron(f)
-        E = face_edges(F)
-        dists = [edge_length_km(V[i], V[j]) for i,j in E]
-        med = float(np.median(dists))
+def choose_frequency(target_km: float, f_min: int = 1, f_max: int = 12) -> Tuple[int, float, float]:
+    """Pick f so that the median edge length is closest to target_km. Returns (f, err, median)."""
+    best = None
+    for f in range(f_min, f_max + 1):
+        V, E, _ = geodesic_icosahedron(f)
+        d = edge_lengths_km(V, E)
+        med = float(np.median(d))
         err = abs(med - target_km)
-        if err < best[1]:
+        if best is None or err < best[1]:
             best = (f, err, med)
-    return best  # (f, |Δ|, achieved_med)
+    return best  # type: ignore
 
+# ---------------------------- public API ---------------------------- #
 
-# ---------- export utilities ---------- #
+def generate_mesh(out: str, target_km: float | None = None, f: int | None = None, densify: int = 12):
+    """
+    Programmatic entry point (Kaggle/Colab safe).
+    Provide exactly one of (target_km, f).
+    """
+    if (f is None) == (target_km is None):
+        raise ValueError("Provide exactly one of f or target_km")
 
-def export_nodes_csv(path, V, face_of_node):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w", newline="") as f:
-        w = csv.writer(f)
-        w.writerow(["id","face_id","lat","lon"])
-        for i, v in enumerate(V):
-            lat, lon = cart_to_latlon(v)
-            w.writerow([i, face_of_node.get(i, -1), f"{lat:.6f}", f"{lon:.6f}"])
+    if f is None:
+        f, err, med = choose_frequency(float(target_km))
+        print(f"[chooser] f={f}  median={med:.1f} km  |Δ|={err:.1f} km  (target={float(target_km):.1f} km)")
+    else:
+        print(f"[fixed] using f={f}")
 
-def export_edges_geojson(path, V, E, densify=48):
-    feats = []
-    for i, j in E:
-        lat1, lon1 = cart_to_latlon(V[i])
-        lat2, lon2 = cart_to_latlon(V[j])
-        line = densify_gc(lat1, lon1, lat2, lon2, n=densify)
-        geom = {"type":"LineString","coordinates":[[lo, la] for lo, la in line]}
-        feats.append({"type":"Feature","geometry":geom,"properties":{"u":i,"v":j}})
-    fc = {"type":"FeatureCollection","features":feats}
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w") as f:
-        json.dump(fc, f)
+    V, E, F = geodesic_icosahedron(int(f))
+    d = edge_lengths_km(V, E)
+    print(f"[mesh] nodes={len(V)}  edges={len(E)}  faces={len(F)}")
+    print(f"[edges] median={np.median(d):.1f} km  min={np.min(d):.1f}  max={np.max(d):.1f}")
 
-def export_faces_geojson(path, V, F):
-    feats = []
-    for fid, (a,b,c) in enumerate(F):
-        latlon = [cart_to_latlon(V[k]) for k in (a,b,c,a)]
-        geom = {"type":"Polygon","coordinates":[[[lo,la] for lo,la in [(lon,lat) for lat,lon in latlon]]]}
-        feats.append({"type":"Feature","geometry":geom,"properties":{"face_id":fid}})
-    fc = {"type":"FeatureCollection","features":feats}
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w") as f:
-        json.dump(fc, f)
+    prefix = out.rstrip("/")
+    export_nodes_geojson(prefix, V)
+    export_edges_geojson(prefix, V, E, densify=max(2, int(densify)))
+    export_faces_geojson(prefix, V, F)
+    print(f"[write] {prefix}_nodes.geojson")
+    print(f"[write] {prefix}_edges.geojson")
+    print(f"[write] {prefix}_faces.geojson")
 
-
-# ---------- main ---------- #
+# ------------------------------ CLI -------------------------------- #
 
 def main():
-    ap = argparse.ArgumentParser(description="V3 polyhedral/geodesic mesh generator")
-    ap.add_argument("--out", required=True, help="output directory/prefix (e.g., out/v3_mesh)")
-    ap.add_argument("--target_km", type=float, default=1180.0, help="target edge length (km)")
-    ap.add_argument("--freq", type=int, default=None, help="override geodesic frequency (1..10)")
-    ap.add_argument("--write_faces", action="store_true", help="export faces.geojson")
+    ap = argparse.ArgumentParser(description="V3 geodesic mesh generator (GeoJSON)")
+    ap.add_argument("--out", required=True, help="output path prefix, e.g., out/v3_mesh")
+    group = ap.add_mutually_exclusive_group(required=True)
+    group.add_argument("--f", type=int, help="subdivision frequency (1..12)")
+    group.add_argument("--target_km", type=float, help="target median edge length (km)")
+    ap.add_argument("--densify", type=int, default=12, help="points per edge for LineString")
     args = ap.parse_args()
 
-    if args.freq is None:
-        f, err, med = choose_frequency(args.target_km)
-        print(f"Selected frequency f={f} (median edge ≈ {med:.1f} km; Δ={err:.1f} km)")
-    else:
-        f = args.freq
-        print(f"Using user-specified frequency f={f}")
-
-    V, F = geodesic_icosahedron(f)
-    E = face_edges(F)
-
-    # optional: a simple "face ownership" per node (first face that contains it)
-    face_of_node = {}
-    for fid, tri in enumerate(F):
-        for k in tri:
-            face_of_node.setdefault(int(k), fid)
-
-    prefix = args.out.rstrip("/")
-    export_nodes_csv(prefix + "_nodes.csv", V, face_of_node)
-    export_edges_geojson(prefix + "_edges.geojson", V, E, densify=48)
-    if args.write_faces:
-        export_faces_geojson(prefix + "_faces.geojson", V, F)
-
-    # quick stats
-    dists = [edge_length_km(V[i], V[j]) for i,j in E]
-    print(f"Edges: {len(E)} | median={np.median(dists):.1f} km | min={np.min(dists):.1f} | max={np.max(dists):.1f}")
-    print(f"Nodes: {len(V)} | Faces: {len(F)}")
-    print(f"✓ Wrote: {prefix}_nodes.csv, {prefix}_edges.geojson" + (", faces.geojson" if args.write_faces else ""))
+    generate_mesh(out=args.out, target_km=args.target_km, f=args.f, densify=args.densify)
 
 if __name__ == "__main__":
     main()
