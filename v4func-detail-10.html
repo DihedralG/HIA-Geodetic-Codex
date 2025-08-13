@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Codex Version 4 Functional Spec</title>
+  <title>Codex Version 4 Functional Spec — V4.10 Quartz Logic & Georesonant Ignition</title>
   <link rel="stylesheet" href="styles/main.css" />
+  <meta name="description" content="Geodetic Codex V4.10 — Quartz Logic & Georesonant Ignition: a reproducible framework for identifying quartz-rich resonance layers, ignition chambers, and phase-control nodes." />
 </head>
 
 <body>
   <header>
     <h1>🌐 Geodetic Codex V4.10</h1>
-    <p> V4.10 – Quartz Logic & Georesonant Ignition</p>
+    <p>Quartz Logic & Georesonant Ignition</p>
   </header>
 
   <nav>
@@ -24,59 +25,186 @@
   </nav>
 
   <main class="container">
-  
+
+    <aside class="context-blurb">
+      <h1>V4.10 Functional Specification</h1>
+      <i>Quartz Logic & Georesonant Ignition.</i>
+      This module formalizes the quartz resonance layer as an <b>active control surface</b> within the planetary OS—where silica‑rich substrates, hydrology, and solar‑EM conditions co‑produce <b>ignition windows</b> for phase transitions and discharge.
+    </aside>
 
     <section>
-    
-      
-    <h2>🌍 Geodetic Codex Version 4 – Hydrological Harmonics & Planetary Resonance Addendum</h2>
-    <p>Quartz is revealed as a planetary-scale conductor — used in ignition chambers, phase-control layers, and vibrational tuning zones across multiple Codex nodes. </p>
-    <p>
-    This release consists of 12 interlocking modules, each mapping a specific resonance layer through water, fire, quartz, memory, or engineering intelligence. The framework builds on the ChiRhombant constant (G = V × H²), integrating planetary survival design with geodetic observatory modeling.
-    </p>
+      <h2>Overview</h2>
+      <p>Across multiple polyhedral faces, quartz‑bearing granites, tuffs, and high‑silica sands co‑occur with engineered channels, chambers, and terraces. V4.10 provides a <b>reproducible index pair</b>—a <b>Quartz Ignition Index (QII)</b> and a <b>Resonant Trigger Likelihood (RTL)</b>—so teams can score sites with transparent inputs, then validate against observed events (spring surges, conduit opening, acoustic/EM anomalies).</p>
+      <p>This chapter bridges V4.5 (solar–quartz coupling), V4.6 (phase release), and V4.9 (reservoir state control), and is designed for both <b>public readability</b> and <b>coder‑level reproducibility</b>.</p>
+    </section>
 
-    <h2>🔷  V4.10 – Quartz Logic & Georesonant Ignition</h2>
-   <p>  In this release, we formalize one of the most powerful components of the Codex framework: the quartz resonance layer. </p>
-  
-    <p><strong>Summary:</strong></p>
-    <p>Our investigations across multiple polyhedral faces indicate that high-silica crystalline basins (including quartz-rich granite, sand, or volcanic tuff) frequently co-occur with ancient hydrological control systems.</p>
+    <section>
+      <h2>Objectives</h2>
+      <ul>
+        <li>Define a <b>Quartz Ignition Index (QII)</b> that integrates mineral quality, fabric, and hydrologic context.</li>
+        <li>Define a <b>Resonant Trigger Likelihood (RTL)</b> that couples QII with solar forcing and electro‑hydrologic sensitivity.</li>
+        <li>Specify <b>inputs</b> and <b>methods</b> that can be field‑audited and unit‑tested via scripts.</li>
+        <li>Publish <b>validation pathways</b> (blind tests, sensitivity, temporal cross‑checks) for peer review.</li>
+      </ul>
+    </section>
 
+    <section>
+      <h2>Notation (dual‑script appears once; see <a href="gc-notation-charter.html">Notation Charter</a>)</h2>
+      <div class="scroll-x">
+        <table class="compact">
+          <thead><tr><th>Concept</th><th>Symbol</th><th>ARIA (plain term)</th><th>Brief definition</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Quartz Resonance Quality</td>
+              <td><span aria-label="quartz resonance quality">Q𐤒ᚩ</span></td>
+              <td>quartz resonance quality</td>
+              <td>Composite of quartz abundance, grain/fabric orientation, and piezo/pyro response potential (0–1).</td>
+            </tr>
+            <tr>
+              <td>Solar Forcing Index</td>
+              <td><span aria-label="solar forcing index">S𐤎ᚦ</span></td>
+              <td>solar forcing index</td>
+              <td>Sunspot/CME windowing at site lat/long, includes Kp/Ap & ionospheric TEC anomalies (0–1).</td>
+            </tr>
+            <tr>
+              <td>Electro‑Hydro Coupling</td>
+              <td><span aria-label="electro‑hydrologic coupling">χ𐤏ᚠ</span></td>
+              <td>electro‑hydrologic coupling</td>
+              <td>Observed/modeled sensitivity of permeability/discharge to EM/thermal excitation in quartz media (0–1).</td>
+            </tr>
+            <tr>
+              <td>Ignition Chamber Integrity</td>
+              <td><span aria-label="ignition chamber integrity">Ι𐤉ᚱ</span></td>
+              <td>chamber integrity</td>
+              <td>Void stability & sealing (fracture density, dampers, lining) normalized to [0–1].</td>
+            </tr>
+            <tr>
+              <td>Hydraulic Head (local)</td>
+              <td><span aria-label="hydraulic head">H</span></td>
+              <td>hydraulic head</td>
+              <td>Pressure head available at the chamber (meters).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">After this table we reference plain terms in the prose; symbol semantics live in the Charter.</p>
+    </section>
 
-    <p><strong>Key Findings: </strong></p>
-    <p>From the stepped pyramids, platforms, and towers of Peru to the ringed formations in Central Asia, we find both geologic and architectural signatures that suggest ignition events — whether geothermal, solar-magnified, or chemically reactive — may have been used to trigger localized phase transitions.</p>
-   
-   <p><strong> This version identifies:</strong></p>
+    <section>
+      <h2>Data Inputs</h2>
+      <div class="scroll-x">
+        <table class="compact">
+          <thead><tr><th>Layer</th><th>Source Types</th><th>Use in Model</th></tr></thead>
+          <tbody>
+            <tr><td>Mineralogy</td><td>Quartz index maps; petrography; thin‑section fabric; magnetic lineation</td><td>Compute quartz quality & fabric alignment; identify piezo‑active bodies</td></tr>
+            <tr><td>Hydrology</td><td>Aquifer maps; head gradients; seepage; spring hydrographs</td><td>Hydraulic head; conduit continuity; dampers/valves</td></tr>
+            <tr><td>Structure</td><td>Faults & joints; fracture density; void surveys; LiDAR</td><td>Chamber integrity; resonance cavity geometry</td></tr>
+            <tr><td>EM / Solar</td><td>Kp/Ap; sunspots; TEC; ground magnetics</td><td>Solar forcing; EM anomalies; timing windows</td></tr>
+            <tr><td>Acoustics</td><td>Ambient infrasound; cavity Q; echo times</td><td>Resonance verification; damping behavior</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-    <p>The role of quartz as both transmitter and receiver in planetary-scale circuits.</p>
-    
-      <p>Ignition theory patterns where water, fire, and mineral content intersect with specific elevation thresholds.</p>
-    
-        <p>Correlation between hydraulic reservoir spacing and resonance chambers potentially designed for sound, light, or electromagnetic induction.</p>
-    
-          <p>Whether acting as a stabilizer, a tuning fork, or a catalytic chamber, quartz-rich zones reveal a possible harmonic infrastructure used not just for survival — but initiation of biospheric, spiritual, or architectural transformation.</p>
+    <section>
+      <h2>Methods (transparent, testable)</h2>
+      <ol>
+        <li><b>Mineral quality:</b> scale quartz quality to 0–1 from abundance + oriented fabric + piezo/pyro assays.</li>
+        <li><b>Chamber integrity:</b> normalize void stability, lining, and fracture sealing to 0–1.</li>
+        <li><b>Hydraulic head:</b> extract local head (m) from hydro maps and site surveys.</li>
+        <li><b>Forcing:</b> compute solar forcing and electro‑hydro coupling (0–1) using V4.5 inputs and local EM observations.</li>
+        <li><b>Indices:</b> calculate QII and RTL (below) and publish component scores per site for peer reproducibility.</li>
+      </ol>
+    </section>
 
-   
+    <section>
+      <h2>Quartz Ignition Index (QII)</h2>
+      <p>We define a geometry‑aware quartz ignition potential. In plain terms:</p>
+      <div class="scroll-x">
+        <table class="compact">
+          <thead><tr><th>Component</th><th>Plain name</th><th>Weight</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Q_he_ru</td><td>quartz resonance quality</td><td>w_q = 0.45</td><td>Abundance × fabric × piezo/pyro readiness</td></tr>
+            <tr><td>Ι_he_ru</td><td>chamber integrity</td><td>w_i = 0.30</td><td>Void stability & sealing</td></tr>
+            <tr><td>H*</td><td>scaled hydraulic head</td><td>w_h = 0.25</td><td>Head rescaled to [0–1] via logistic squashing</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>QII = w_q·Q + w_i·Integrity + w_h·H*</b> (bounded to [0,1]). Default weights are transparent and adjustable during calibration.</p>
+    </section>
+
+    <section>
+      <h2>Resonant Trigger Likelihood (RTL)</h2>
+      <p>We couple the ignition potential to ambient drivers:</p>
+      <div class="scroll-x">
+        <table class="compact">
+          <thead><tr><th>Driver</th><th>Plain name</th><th>Weight</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>S_he_ru</td><td>solar forcing index</td><td>v_s = 0.40</td><td>Sunspot/CME windowing, Kp/Ap, TEC</td></tr>
+            <tr><td>χ_he_ru</td><td>electro‑hydro coupling</td><td>v_x = 0.30</td><td>Permeability/discharge response to EM/thermal</td></tr>
+            <tr><td>QII</td><td>quartz ignition index</td><td>v_q = 0.30</td><td>From prior section</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>RTL = v_s·Solar + v_x·Coupling + v_q·QII</b> (bounded to [0,1]). Use <i>temporal windowing</i> (e.g., solar storms) to score episodic risk.</p>
+    </section>
+
+    <section>
+      <h2>Outputs</h2>
+      <ul>
+        <li><b>Per‑site QII, RTL</b> with component breakdowns (CSV + charts).</li>
+        <li><b>Ignition windows</b> (time‑stamped episodes where RTL exceeds threshold).</li>
+        <li><b>Maps</b> showing quartz corridors, chamber candidates, and head gradients.</li>
+        <li><b>Playbooks</b> for monitoring: EM sensors, acoustic mics, spring loggers.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Validation & Reproducibility</h2>
+      <ul>
+        <li><b>Blind corridors:</b> calibrate V4.10 in Region A, predict Region B; verify against independent hydrologic/EM events.</li>
+        <li><b>Event cross‑checks:</b> correlate high‑RTL windows with spring surges, conduit openings, microquakes.</li>
+        <li><b>Sensitivity:</b> vary weights ±0.1; report rank stability of sites and timing windows.</li>
+        <li><b>Temporal tests:</b> lag/lead analysis vs. Kp/Ap and TEC anomalies; publish significance.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Implementation Notes</h2>
+      <ul>
+        <li>Keep <b>inputs unit‑transparent</b>; publish scaling functions (e.g., logistic for head → H*).</li>
+        <li>Log <b>raw and normalized</b> values; never hide rescaling.</li>
+        <li>If any driver is missing (e.g., no EM data), <b>re‑normalize</b> RTL weights and flag in output notes.</li>
+        <li>Optional script hook: <code>scripts/quartz_ignition.py</code> (QII/RTL calculator) with <code>--csv</code> batch mode.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Position in V4</h2>
+      <p>V4.10 completes the mineral–hydro–solar triad for controlled release. It informs V4.11 (kinetic tools) and synthesizes with V4.9 (phase reservoirs), while remaining auditable and conservative in its defaults.</p>
+    </section>
+
     <section>
       <h2>🧱 Modular Expansion</h2>
       <p>Version 4 modules are stackable and interoperable, supporting comparative synthesis with planetary models, marine echo structures, and cultural occupation layers.</p>
-    <div> <align="center"><a href="./v4funcspec.html">BACK TO OVERVIEW</a></align></div>
+      <div><a href="./v4funcspec.html">BACK TO OVERVIEW</a></div>
     </section>
 
     <section>
       <h2>🔍 Version 4.1–4.12 Overview</h2>
       <ul>
-        <li><a href="./v4func-detail-1.html"><strong>   V4.01 – Glacial Meltwater Pulse Dynamics</strong>:</a> </li>
-        <li><a href="./v4func-detail-2.html"><strong>   V4.02 – Harmonic Watershed Resonance</strong>:</a></li>
-        <li><a href="./v4func-detail-3.html"><strong>   V4.03 – Subterranean Water & Memory Encoding</strong>:</a> </li>
-        <li><a href="./v4func-detail-4.html"><strong>   V4.04 – Submerged Vectors & Torsional Release</strong>:</a></li>
-        <li><a href="./v4func-detail-5.html"><strong>   V4.05 – Solar Flare Coupling & Quartz Resonance</strong>:</a></li>
-        <li><a href="./v4func-detail-6.html"><strong>   V4.06 – Fire, Ice & Meltwater Ignition Systems</strong>:</a> </li>
-        <li><a href="./v4func-detail-7.html"><strong>   V4.07 – Subterranean Channels and Terraforming Logic</strong>:</a></li>
-        <li><a href="./v4func-detail-8.html"><strong>   V4.08 – Bathymetric Inversion & Lost Altitudes</strong>:</a> </li>
-        <li><a href="./v4func-detail-9.html"><strong>   V4.09 – Phase Transition Reservoirs & Terraforming Echoes</strong>:</a> </li>
-        <li><a href="./v4func-detail-10.html"><strong>  V4.10 – Quartz Logic & Georesonant Ignition</strong>:</a> </li>
-        <li><a href="./v4func-detail-11.html"><strong>  V4.11 – Kinetic Tools & Flow-Based Stoneworking</strong>:</a> </li>
-        <li><a href="./v4func-detail-12.html"><strong>  V4.12 – Crustal Memory & the Georesonant Archive</strong>:</a> </li>
+        <li><a href="./v4func-detail-1.html"><strong>V4.01 – Glacial Meltwater Pulse Dynamics</strong></a></li>
+        <li><a href="./v4func-detail-2.html"><strong>V4.02 – Harmonic Watershed Resonance</strong></a></li>
+        <li><a href="./v4func-detail-3.html"><strong>V4.03 – Subterranean Water & Memory Encoding</strong></a></li>
+        <li><a href="./v4func-detail-4.html"><strong>V4.04 – Submerged Vectors & Torsional Release</strong></a></li>
+        <li><a href="./v4func-detail-5.html"><strong>V4.05 – Solar Flare Coupling & Quartz Resonance</strong></a></li>
+        <li><a href="./v4func-detail-6.html"><strong>V4.06 – Fire, Ice & Meltwater Ignition Systems</strong></a></li>
+        <li><a href="./v4func-detail-7.html"><strong>V4.07 – Lowland Hydrology & Sacred Drainage</strong></a></li>
+        <li><a href="./v4func-detail-8.html"><strong>V4.08 – Bathymetric Inversion & Lost Altitudes</strong></a></li>
+        <li><a href="./v4func-detail-9.html"><strong>V4.09 – Phase Transition Reservoirs & Terraforming Echoes</strong></a></li>
+        <li><a href="./v4func-detail-10.html"><strong>V4.10 – Quartz Logic & Georesonant Ignition</strong></a></li>
+        <li><a href="./v4func-detail-11.html"><strong>V4.11 – Kinetic Tools & Flow‑Based Stoneworking</strong></a></li>
+        <li><a href="./v4func-detail-12.html"><strong>V4.12 – Crustal Memory & the Georesonant Archive</strong></a></li>
       </ul>
     </section>
 
@@ -88,11 +216,12 @@
         <p>&nbsp;</p>
       </div>
     </nav>
+
     <div align="center">
       <footer>
-        <p>&copy; 2025 ChiR Labs | Geodetic Codex </p>
+        <p>&copy; 2025 ChiR Labs | Geodetic Codex</p>
       </footer>
-   </div>
-    </main>
-    </body>
-    </html>
+    </div>
+  </main>
+</body>
+</html>
