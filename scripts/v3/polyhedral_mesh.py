@@ -235,6 +235,33 @@ def generate_mesh(out: str, target_km: float | None = None, f: int | None = None
     print(f"[write] {prefix}_edges.geojson")
     print(f"[write] {prefix}_faces.geojson")
 
+
+
+# ---------------------------- faces helper ---------------------------- #
+def export_faces_geojson(prefix: str, V: np.ndarray, F: List[Tuple[int, int, int]]) -> None:
+    """
+    Save triangular faces as a GeoJSON FeatureCollection of Polygons.
+    Each triangle ring is closed (first point repeated at end).
+    Coordinates are [lon, lat] in WGS84.
+    """
+    feats = []
+    for fid, (a, b, c) in enumerate(F):
+        latA, lonA = cart_to_latlon(V[a])
+        latB, lonB = cart_to_latlon(V[b])
+        latC, lonC = cart_to_latlon(V[c])
+        ring = [[lonA, latA], [lonB, latB], [lonC, latC], [lonA, latA]]  # closed ring
+        feats.append({
+            "type": "Feature",
+            "geometry": {"type": "Polygon", "coordinates": [ring]},
+            "properties": {"id": fid}
+        })
+
+    fc = {"type": "FeatureCollection", "features": feats}
+    os.makedirs(os.path.dirname(prefix), exist_ok=True)
+    with open(f"{prefix}_faces.geojson", "w") as f:
+        json.dump(fc, f)
+
+
 # ------------------------------ CLI -------------------------------- #
 
 def main():
