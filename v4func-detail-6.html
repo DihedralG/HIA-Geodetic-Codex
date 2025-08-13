@@ -1,92 +1,180 @@
+<!-- v4func-detail-6.html — Geodetic Codex V4.6 Functional Specification -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Codex Version 4 Functional Spec</title>
+  <title>ChiR Labs — V4.6 Functional Spec (Fire, Ice & Meltwater Ignition)</title>
   <link rel="stylesheet" href="styles/main.css" />
+  <meta name="description" content="V4.6 formalizes multi-phase meltwater release systems: solar magnification, geothermal venting, chemical catalysts, and pressure ignition architectures." />
 </head>
-
 <body>
-  <header>
-    <h1>🌐 Geodetic Codex V4.6</h1>
-    <p>Fire, Ice & Meltwater Ignition Systems</p>
-  </header>
+<header>
+  <h1>🌀 ChiR Labs</h1>
+  <p>Mapping trust, resonance, and planetary intelligence.</p>
+</header>
 
-  <nav>
-    <a href="index.html">🌀 <span>Root</span></a>
-    <a href="chir-ai.html">🧠 <span>ChiR-AI</span></a>
-    <a href="chiripp.html">💠 <span>ChiR-IPP</span></a>
-    <a href="codex.html">🌐 <span>Codex</span></a>
-    <a href="psl.html">🕊 <span>PSL</span></a>
-    <a href="about.html">🧭 <span>About</span></a>
-    <a href="support.html">🌱 <span>Growth</span></a>
+<nav>
+  <a href="index.html"> 🌀 <span>Root</span></a>
+  <a href="chir-ai.html"> 🧠 <span>ChiR-AI</span></a>
+  <a href="chiripp.html"> 💠 <span>ChiR-IPP</span></a>
+  <a href="codex.html"> 🌐 <span>Codex</span></a>
+  <a href="psl.html"> 🕊 <span>PSL</span></a>
+  <a href="about.html"> 🧭 <span>About</span></a>
+  <a href="support.html"> 🌱 <span>Growth</span></a>
+</nav>
+
+<main class="container">
+  <aside class="context-blurb">
+    <h1>V4.6 Functional Specification:</h1>
+    <i>Fire, Ice & Meltwater Ignition Systems.</i>
+    This module defines testable signatures of engineered/seminal melt‑release architectures that regulate glacial reservoirs and phase‑state basins.
+  </aside>
+
+  <section>
+    <h2>Overview</h2>
+    <p>
+      Across multiple Codex faces, we observe structures consistent with <b>controlled meltwater release</b>:
+      reflective platforms, vent galleries, pressure‑head valves, and labyrinthine steam chambers.
+      V4.6 codifies a set of indices, datasets, and workflows to classify such systems and estimate
+      their <b>ignition readiness</b> and <b>release magnitude</b>.
+    </p>
+  </section>
+
+  <section>
+    <h2>Notation (Dual-Script Intro)</h2>
+    <p>One‑time dual‑script display; semantics live in the <a href="gc-notation-charter.html">Notation Charter</a>.</p>
+    <div class="scroll-x">
+      <table class="compact">
+        <thead><tr><th>Concept</th><th>Symbol</th><th>Plain Term (ARIA)</th><th>Brief Definition</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Ignition Readiness</td>
+            <td aria-label="ignition readiness">
+              𝜃<sub>𐤕ᚱ</sub>
+            </td>
+            <td>ignition readiness</td>
+            <td>Composite of solar focus, geothermal proximity, chemical potential, and head/pressure configuration.</td>
+          </tr>
+          <tr>
+            <td>Phase Engine Score</td>
+            <td aria-label="phase engine score">
+              𝛹<sub>𐤉ᛃ</sub>
+            </td>
+            <td>phase engine score</td>
+            <td>Capacity to store/convert between ice, liquid, and vapor (geometry, vents, containment).</td>
+          </tr>
+          <tr>
+            <td>Release Magnitude</td>
+            <td aria-label="release magnitude">
+              𝑅<sub>𐤓ᚦ</sub>
+            </td>
+            <td>release magnitude</td>
+            <td>Expected discharge volume/rate for a controlled release event at design head.</td>
+          </tr>
+          <tr>
+            <td>Control Integrity</td>
+            <td aria-label="control integrity">
+              𝐼<sub>𐤀ᛁ</sub>
+            </td>
+            <td>control integrity</td>
+            <td>Robustness of valves, overflow paths, and failsafes (redundancy, scour resistance, clog risk).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Symbols are mnemonic labels; the math is readable in plain terms for public/peer review.</p>
+  </section>
+
+  <section>
+    <h2>Objectives</h2>
+    <ul>
+      <li>Identify and classify melt‑release architectures in glaciated and high‑altitude basins.</li>
+      <li>Estimate ignition readiness and phase engine capacity from geometry and forcing layers.</li>
+      <li>Predict release magnitude and safe routing using hydraulic modeling and hazard fusion (V4.4).</li>
+      <li>Publish reproducible site cards with inputs, assumptions, and uncertainty.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Data Inputs</h2>
+    <div class="scroll-x">
+      <table class="compact">
+        <thead><tr><th>Layer</th><th>Examples</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Geometry</td>
+            <td>DEM/DTM, lidar, cavity volumes, vent galleries</td>
+            <td>Containment, head, routing</td>
+          </tr>
+          <tr>
+            <td>Thermal/EM</td>
+            <td>Geothermal gradients, fumaroles, solar flux (V4.5)</td>
+            <td>Ignition components (geothermal/solar)</td>
+          </tr>
+          <tr>
+            <td>Hydrology</td>
+            <td>Ice thickness, reservoir level, pressure‑head, conduits</td>
+            <td>Phase engine capacity & routing</td>
+          </tr>
+          <tr>
+            <td>Materials</td>
+            <td>Quartz indices, carbonate/cement chemistry, catalysts</td>
+            <td>Chemical/EM ignition potential</td>
+          </tr>
+          <tr>
+            <td>Hazards</td>
+            <td>Terrain slope, scour paths, downstream exposure</td>
+            <td>Control integrity & safe release</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Methods</h2>
+    <ol>
+      <li><b>Structure Detection:</b> extract reflective platforms, vent arrays, overflow basins; estimate cavity and head.</li>
+      <li><b>Ignition Readiness:</b> combine solar focus (from V4.5), geothermal proximity, and chemical potential with head configuration.</li>
+      <li><b>Phase Engine:</b> compute multi‑state storage (ice/liquid/vapor) and vent throughput to score capacity.</li>
+      <li><b>Magnitude & Routing:</b> model controlled release hydrographs; simulate scour and conduit wear; map safe/ritualized outflow.</li>
+      <li><b>Integrity:</b> evaluate redundancy and failsafe overflow under extreme cases; produce integrity score.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Indicative Forms</h2>
+    <pre class="code">
+IgnitionReadiness ≈ w1·SolarFocus + w2·GeothermalProximity + w3·ChemicalPotential + w4·HeadConfig
+
+ReleaseMagnitude ≈ k · PhaseEngineCapacity · Head · ValveCoefficient
+    </pre>
+  </section>
+
+  <section>
+    <h2>Implementation (Repo Hooks)</h2>
+    <ul>
+      <li><code>scripts/IgnitionReadiness.py</code> — computes readiness and writes <code>out/v46_ignition_theta.tif</code>.</li>
+      <li><code>scripts/PhaseEngine.py</code> — estimates multi‑phase capacity and <code>out/v46_phase_psi.tif</code>.</li>
+      <li><code>scripts/ControlledRelease.py</code> — simulates hydrographs + routing to <code>out/v46_release_R.tif</code> and site CSVs.</li>
+    </ul>
+  </section>
+
+  <nav class="version-nav" aria-label="Version navigation">
+    <div class="version-nav__row">
+      <a class="vbtn vbtn--ghost" href="v4func-detail-5.html" rel="prev" aria-label="Go to V4.5">← V4.5</a>
+      <a class="vbtn vbtn--primary" href="preview.html" aria-label="Peer Review Root">Peer Review Root</a>
+      <a class="vbtn vbtn--ghost" href="v4func-detail-7.html" rel="next" aria-label="Go to V4.7">V4.7 →</a>
+      <p>&nbsp;</p>
+    </div>
   </nav>
 
-  <main class="container">
-  
-
-    <section>
-    
-      
-    <h2>🌍 Geodetic Codex Version 4 – Hydrological Harmonics & Planetary Resonance Addendum</h2>
-    <p>Codex V4 explores Earth's crust not just as a surface of land and sea, but as a living harmonic system — woven together through glacial melt, aquifers, sacred hydrology, and long-forgotten energy infrastructures.
-    </p>
-    <p>
-    This release consists of 12 interlocking modules, each mapping a specific resonance layer through water, fire, quartz, memory, or engineering intelligence. The framework builds on the ChiRhombant constant (G = V × H²), integrating planetary survival design with geodetic observatory modeling.
-    </p>
-
-    <h2>🔷  V4.6 – Fire, Ice & Meltwater Ignition Systems</h2>
-   <p> Ancient water-release mechanisms may have used solar magnifiers, geothermal vents, or chemical catalysts to unlock glacial reservoirs with stunning precision.</p>
-
-    <p><strong>Summary:</strong></p>
-    <p>Version 4.6 presents a unified hypothesis that ancient civilizations leveraged combined ignition systems—solar magnification, geothermal venting, chemical combustion, and water-pressure ignition—to strategically release glacial water. These “melting temples” or basin-liberators appear across the Codex in forms as varied as pyramid capstones, bowl-shaped reflective platforms, or labyrinthine steam chambers.
-    </p>
-    
-    <p><strong>Key Findings: </strong></p>
-    <p>Sites from Central Asia to the Yucatán, from Cappadocia to the Andes, all exhibit traits consistent with multi-phase ignition planning. This section posits that meltwater reserves were seen not only as climate buffers but also sacred survival caches, ritually unlocked at key astronomical or geomagnetic alignments.
-    </p>
-      <p>By comparing bathymetric inversion zones, fire-temple relics, and crater-ringed aquifers, V4.6 offers a predictive logic for identifying and classifying melt-release sites across epochs. These are among the most potent Codex signatures, potentially encoding phase transition control mechanisms across the planet.</p>
-      
-
-   
-    <section>
-      <h2>🧱 Modular Expansion</h2>
-      <p>Version 4 modules are stackable and interoperable, supporting comparative synthesis with planetary models, marine echo structures, and cultural occupation layers.</p>
-    <div> <align="center"><a href="./v4funcspec.html">BACK TO OVERVIEW</a></align></div>
-    </section>
-    <section>
-      <h2>🔍 Version 4.1–4.12 Overview</h2>
-      <ul>
-        <li><a href="./v4func-detail-1.html"><strong>   V4.01 – Glacial Meltwater Pulse Dynamics</strong>:</a> </li>
-        <li><a href="./v4func-detail-2.html"><strong>   V4.02 – Harmonic Watershed Resonance</strong>:</a></li>
-        <li><a href="./v4func-detail-3.html"><strong>   V4.03 – Subterranean Water & Memory Encoding</strong>:</a> </li>
-        <li><a href="./v4func-detail-4.html"><strong>   V4.04 – Submerged Vectors & Torsional Release</strong>:</a></li>
-        <li><a href="./v4func-detail-5.html"><strong>   V4.05 – Solar Flare Coupling & Quartz Resonance</strong>:</a></li>
-        <li><a href="./v4func-detail-6.html"><strong>   V4.06 – Fire, Ice & Meltwater Ignition Systems</strong>:</a> </li>
-        <li><a href="./v4func-detail-7.html"><strong>   V4.07 – Subterranean Channels and Terraforming Logic</strong>:</a></li>
-        <li><a href="./v4func-detail-8.html"><strong>   V4.08 – Bathymetric Inversion & Lost Altitudes</strong>:</a> </li>
-        <li><a href="./v4func-detail-9.html"><strong>   V4.09 – Phase Transition Reservoirs & Terraforming Echoes</strong>:</a> </li>
-        <li><a href="./v4func-detail-10.html"><strong>  V4.10 – Quartz Logic & Georesonant Ignition</strong>:</a> </li>
-        <li><a href="./v4func-detail-11.html"><strong>  V4.11 – Kinetic Tools & Flow-Based Stoneworking</strong>:</a> </li>
-        <li><a href="./v4func-detail-12.html"><strong>  V4.12 – Crustal Memory & the Georesonant Archive</strong>:</a> </li>
-      </ul>
-    </section>
-
-    <nav class="version-nav" aria-label="Version navigation">
-      <div class="version-nav__row">
-        <a class="vbtn vbtn--ghost" href="v4func-detail-5.html" rel="prev" aria-label="Go to V4.5">← V4.5</a>
-        <a class="vbtn vbtn--primary" href="preview.html" aria-label="Peer Review Root">Peer Review Root</a>
-        <a class="vbtn vbtn--ghost" href="v4func-detail-7.html" rel="next" aria-label="Go to V4.7">V4.7 →</a>
-        <p>&nbsp;</p>
-      </div>
-    </nav>
-
-    <div align="center">
-      <footer>
-        <p>&copy; 2025 ChiR Labs | Geodetic Codex </p>
-      </footer>
-   </div>
-    </main>
-    </body>
-    </html>
+  <div align="center">
+    <footer>
+      <p>&copy; 2025 ChiR Labs | Geodetic Codex</p>
+    </footer>
+  </div>
+</main>
+</body>
+</html>
