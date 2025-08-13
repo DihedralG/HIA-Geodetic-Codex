@@ -1,73 +1,190 @@
+<!-- v4func-detail-8.html — Geodetic Codex V4.8 Functional Specification -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Codex Version 4 Functional Spec</title>
+  <title>ChiR Labs — V4.8 Functional Spec (Bathymetric Inversion & Lost Altitudes)</title>
   <link rel="stylesheet" href="styles/main.css" />
+  <meta name="description" content="Geodetic Codex V4.8 — Bathymetric inversion methods to reconstruct lost altitudes, paleoshorelines, and hydraulic memory from seafloor geometry and flexural isostasy." />
 </head>
 
 <body>
   <header>
     <h1>🌐 Geodetic Codex V4.8</h1>
-    <p> V4.8 – Bathymetric Inversion & Lost Altitudes</p>
+    <p>Bathymetric Inversion & Lost Altitudes</p>
   </header>
 
   <nav>
-    <a href="index.html">🌀 <span>Root</span></a>
-    <a href="chir-ai.html">🧠 <span>ChiR-AI</span></a>
-    <a href="chiripp.html">💠 <span>ChiR-IPP</span></a>
-    <a href="codex.html">🌐 <span>Codex</span></a>
-    <a href="psl.html">🕊 <span>PSL</span></a>
-    <a href="about.html">🧭 <span>About</span></a>
-    <a href="support.html">🌱 <span>Growth</span></a>
+    <a href="index.html"> 🌀 <span>Root</span></a>
+    <a href="chir-ai.html"> 🧠 <span>ChiR-AI</span></a>
+    <a href="chiripp.html"> 💠 <span>ChiR-IPP</span></a>
+    <a href="codex.html"> 🌐 <span>Codex</span></a>
+    <a href="psl.html"> 🕊 <span>PSL</span></a>
+    <a href="about.html"> 🧭 <span>About</span></a>
+    <a href="support.html"> 🌱 <span>Growth</span></a>
   </nav>
 
   <main class="container">
-  
+    <aside class="context-blurb">
+      <h1>V4.8 Functional Specification</h1>
+      <i>Bathymetric inversion treats the ocean floor as a negative relief map of vanished lands.</i>
+      This chapter provides a two‑tier structure: an accessible narrative for readers and a technical appendix for implementers. It bridges V3.6/V3.7’s oceanic memory and orbital pacing to V4’s resonance logic, then sets up V4.9’s phase‑state reservoirs.
+    </aside>
 
+    <!-- Tier 1 — Narrative Layer -->
     <section>
-    
-      
-    <h2>🌍 Geodetic Codex Version 4 – Hydrological Harmonics & Planetary Resonance Addendum</h2>
-    <p>Codex V4 explores Earth's crust not just as a surface of land and sea, but as a living harmonic system — woven together through glacial melt, aquifers, sacred hydrology, and long-forgotten energy infrastructures.
-    </p>
-    <p>
-    This release consists of 12 interlocking modules, each mapping a specific resonance layer through water, fire, quartz, memory, or engineering intelligence. The framework builds on the ChiRhombant constant (G = V × H²), integrating planetary survival design with geodetic observatory modeling.
-    </p>
+      <h2>Tier 1 — What Bathymetric Inversion Tells Us</h2>
+      <p>
+        If you flip the seafloor in your mind—treating basins as valleys filled with air instead of water—a second Earth appears. Ridges become watersheds, terraces become strandlines, and drowned valleys trace rivers that once braided across shelves. V4.8 formalizes this mental inversion so it can be measured, compared, and reproduced.
+      </p>
+      <p>
+        In practice, we “un-flood” continental margins with realistic sea‑level scenarios, then correct for post‑glacial flexure and long‑term subsidence. The result is a family of plausible paleotopographies and paleoshorelines. When these reconstructions line up with Codex corridors and node symmetries, they often reveal <b>forgotten hydrologic architectures</b>—delta fans, amphitheaters, and channel belts—whose spacing and orientation match the same harmonic rules we see on land.
+      </p>
+      <p>
+        The payoffs are twofold. First, we recover the <b>hydraulic memory</b> of former land—where water used to gather, spill, or resonate—clarifying why certain modern sites still feel like “outflow temples” or “safe bays.” Second, inversion exposes <b>migration scaffolds</b> for plants, animals, and people that once stitched continents to their shelves. Those corridors help explain why cultural memory, sacred geometry, and mineralogical resonance recur along particular lines that today lie underwater.
+      </p>
+      <p class="note">
+        Continuity: V3.6 (Oceanic Memory) showed that buried channels persist as resonant skeletons. V3.7 (Orbital Mechanics) explained the pacing of lowstands/highstands that create terrace ladders. V4.8 unifies these into a reproducible reconstruction layer.
+      </p>
+    </section>
 
-    <h2>🔷  V4.8 – Bathymetric Inversion & Lost Altitudes</h2>
-   <p> Ocean floors tell a mirrored story of vanished lands — showing echoes of former topography, elevated terraces, and lost drainage networks recoverable through inversion logic.</p>
+    <!-- Tier 2 — Technical Appendix -->
+    <section>
+      <h2>Tier 2 — Technical Appendix (Methods, Indices, and Checks)</h2>
 
-    <p><strong>Summary:</strong></p>
-    <p> Bathymetric inversion is the Codex’s methodology for treating the ocean floor as a record of former land-based topology—especially in areas with submerged ridges, amphitheaters, or deltaic fans that defy modern tectonic models.</p>
-    
-    <p><strong>Key Findings: </strong></p>
-    <p>In V4.8, we analyze undersea shapes for signs of prior elevation and engineering, including ramp-like berms, hexagonal terraces, and channel-laced basins near the Azores, Sunda Shelf, and Caribbean plate boundaries. Through Codex vector analysis, several now-submerged nodes reveal terrestrial symmetry and drainage echoes consistent with lost highlands. Paired with Version 4.7’s lowland logic, V4.8 proposes that inversion analysis can recover the hydraulic memory of former civilizations—or glacial basins—lost to isostatic rebound or crustal displacement. This approach allows Codex to not just locate present-day harmonic nodes but reconstruct forgotten ones, restoring altitude and water table data from subsurface elevation fingerprints. </p>
-     
+      <h3>Data Inputs</h3>
+      <div class="scroll-x">
+        <table class="compact">
+          <thead><tr><th>Layer</th><th>Examples</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Bathymetry & Topobathy</td>
+              <td>Global/Regional grids; multibeam; shelf DEMs</td>
+              <td>Base surface for inversion; terrace/valley detection</td>
+            </tr>
+            <tr>
+              <td>Sea‑Level Histories</td>
+              <td>eustatic SL curves; regional RSL from cores/reefs</td>
+              <td>Lowstand scenarios; stillstand windows</td>
+            </tr>
+            <tr>
+              <td>Isostasy & Flexure</td>
+              <td>Te maps; GIA fields; subsidence/uplift rates</td>
+              <td>Backstripping flood/subsidence components</td>
+            </tr>
+            <tr>
+              <td>Stratigraphy & Proxies</td>
+              <td>seismic lines; reef caps; tephra; δ18O stacks</td>
+              <td>Chrono‑constraints; terrace validation</td>
+            </tr>
+            <tr>
+              <td>Hydraulic Echo Layers</td>
+              <td>paleochannels; fan geometries; amphitheaters</td>
+              <td>Cross‑correlation with inverted drainage</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-   
+      <h3>Core Reconstruction</h3>
+      <p>Let <em>z<sub>b</sub>(x,y)</em> be present bathymetry (negative below MSL), <em>ΔSL</em> a sea‑level offset (lowstand), and <em>U(x,y)</em> the flexural/isostatic correction (positive up). We reconstruct paleotopography:</p>
+      <p class="code">z* (x,y; ΔSL) = −( z<sub>b</sub>(x,y) + U(x,y) ) − ΔSL + C</p>
+      <ul>
+        <li><b>U(x,y)</b>: from Airy + flexural backstripping using effective elastic thickness <em>T<sub>e</sub></em> and GIA fields.</li>
+        <li><b>ΔSL</b>: sampled from eustatic/RSL ranges tied to dated stillstands.</li>
+        <li><b>C</b>: datum adjustment (regional MSL bias removal).</li>
+      </ul>
+
+      <h3>Terrace Ladder Detection</h3>
+      <p>We detect shelf “steps” (stillstand terraces) by curvature and slope plateaus. A simple spacing diagnostic is:</p>
+      <p class="code">TSR = median( Δz<sub>i,i+1</sub> ) / IQR( Δz<sub>i,i+1</sub> )</p>
+      <p class="note">High TSR implies coherent terrace ladders consistent with stepped stillstands.</p>
+
+      <h3>Drainage Inversion & Echo Matching</h3>
+      <ol>
+        <li>Compute flow on <em>z*</em> with multi‑flow accumulation and carve/breach corrections.</li>
+        <li>Extract channels and fans; generate a binary mask <em>D*</em>.</li>
+        <li>Cross‑correlate with observed echo‑features (pockmarks, fans, amphitheaters) → mask <em>E</em>.</li>
+      </ol>
+      <p class="code">HE = corr( D*, E ) ∈ [0,1]  <!-- Hydraulic Echo Index --></p>
+
+      <h3>Paleoshore Continuity</h3>
+      <p>For a candidate shoreline contour <em>z*≈0</em>, continuity is:</p>
+      <p class="code">PC = (connected length of low‑curvature contour) / (total contour length)</p>
+
+      <h3>Tectono‑Isostatic Offset</h3>
+      <p>Misfit between predicted rebound and observed markers (raised reefs, beachrock):</p>
+      <p class="code">TIO = RMSE( U<sub>pred</sub>(x,y) , U<sub>obs</sub>(x,y) )</p>
+
+      <h3>Inversion Confidence (composite)</h3>
+      <div class="scroll-x">
+        <table class="compact">
+          <thead><tr><th>Component</th><th>Symbol</th><th>Default Weight</th><th>Note</th></tr></thead>
+          <tbody>
+            <tr><td>Terrace Coherence</td><td>TC</td><td>w<sub>TC</sub>=0.25</td><td>from TSR & step consistency</td></tr>
+            <tr><td>Paleoshore Continuity</td><td>PC</td><td>w<sub>PC</sub>=0.20</td><td>contour connectivity/curvature</td></tr>
+            <tr><td>Hydraulic Echo Match</td><td>HE</td><td>w<sub>HE</sub>=0.25</td><td>corr(D*,E)</td></tr>
+            <tr><td>Chronologic Fit</td><td>CF</td><td>w<sub>CF</sub>=0.15</td><td>reef/tephra/cores alignment</td></tr>
+            <tr><td>Isostatic Misfit (penalty)</td><td>ϕ(TIO)</td><td>w<sub>TIO</sub>=0.15</td><td>ϕ decreasing with TIO</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="code">IC = Σ wᵢ · Cᵢ , with ϕ(TIO) = exp(−TIO/σ)</p>
+      <p class="note">Weights are calibrated per margin; report sensitivity ±0.10 per weight.</p>
+
+      <h3>Quality Gates & Uncertainty</h3>
+      <ul>
+        <li><b>Resolution gate:</b> discard cells where grid spacing &gt; terrace width/3.</li>
+        <li><b>Chronology gate:</b> require ≥2 independent time markers per 100 km shelf.</li>
+        <li><b>ΔSL ensemble:</b> run a fan of lowstand scenarios; report IC median and IQR.</li>
+      </ul>
+
+      <h3>Outputs</h3>
+      <ul>
+        <li><b>z*</b> raster stacks per ΔSL scenario</li>
+        <li><b>Terrace/fan vector sets</b> with confidence</li>
+        <li><b>IC, HE, PC grids</b> (0–1) and a shelf‑segment scorecard</li>
+        <li><b>Candidate “lost nodes”</b> where IC ≥ 0.7 and HE ≥ 0.6</li>
+      </ul>
+
+      <h3>Implementation Hooks</h3>
+      <p>For codebase parity with <code>scripts/submerged-vectors.py</code>, expose:</p>
+      <ul>
+        <li><code>invert_bathy(zb, U, dSL, opts) → z*</code></li>
+        <li><code>detect_terraces(zb|z*) → {steps, TSR}</code></li>
+        <li><code>extract_inverted_drainage(z*) → D*</code></li>
+        <li><code>echo_match(D*, E) → HE</code></li>
+        <li><code>score_IC(TSR, PC, HE, CF, TIO) → IC</code></li>
+      </ul>
+      <p class="note">Notation: where symbols appear, full semantics live in the <a href="gc-notation-charter.html">Notation Charter</a>. Pages use plain terms in prose; symbols are for formulas and code comments.</p>
+    </section>
+
     <section>
       <h2>🧱 Modular Expansion</h2>
-      <p>Version 4 modules are stackable and interoperable, supporting comparative synthesis with planetary models, marine echo structures, and cultural occupation layers.</p>
-    <div> <align="center"><a href="./v4funcspec.html">BACK TO OVERVIEW</a></align></div>
+      <p>
+        V4.8 interoperates with V4.7 (lowland sacred drainage) by testing whether inverted shelf “exhale points”
+        reconnect to present floodplains. It seeds V4.9 by flagging high‑altitude basins and calderas whose phase‑state
+        behavior is sensitive to reconstructed drainage history.
+      </p>
+      <div><a href="./v4funcspec.html">BACK TO OVERVIEW</a></div>
     </section>
 
     <section>
       <h2>🔍 Version 4.1–4.12 Overview</h2>
       <ul>
-        <li><a href="./v4func-detail-1.html"><strong>   V4.01 – Glacial Meltwater Pulse Dynamics</strong>:</a> </li>
-        <li><a href="./v4func-detail-2.html"><strong>   V4.02 – Harmonic Watershed Resonance</strong>:</a></li>
-        <li><a href="./v4func-detail-3.html"><strong>   V4.03 – Subterranean Water & Memory Encoding</strong>:</a> </li>
-        <li><a href="./v4func-detail-4.html"><strong>   V4.04 – Submerged Vectors & Torsional Release</strong>:</a></li>
-        <li><a href="./v4func-detail-5.html"><strong>   V4.05 – Solar Flare Coupling & Quartz Resonance</strong>:</a></li>
-        <li><a href="./v4func-detail-6.html"><strong>   V4.06 – Fire, Ice & Meltwater Ignition Systems</strong>:</a> </li>
-        <li><a href="./v4func-detail-7.html"><strong>   V4.07 – Subterranean Channels and Terraforming Logic</strong>:</a></li>
-        <li><a href="./v4func-detail-8.html"><strong>   V4.08 – Bathymetric Inversion & Lost Altitudes</strong>:</a> </li>
-        <li><a href="./v4func-detail-9.html"><strong>   V4.09 – Phase Transition Reservoirs & Terraforming Echoes</strong>:</a> </li>
-        <li><a href="./v4func-detail-10.html"><strong>  V4.10 – Quartz Logic & Georesonant Ignition</strong>:</a> </li>
-        <li><a href="./v4func-detail-11.html"><strong>  V4.11 – Kinetic Tools & Flow-Based Stoneworking</strong>:</a> </li>
-        <li><a href="./v4func-detail-12.html"><strong>  V4.12 – Crustal Memory & the Georesonant Archive</strong>:</a> </li>
+        <li><a href="./v4func-detail-1.html"><strong>V4.01 – Glacial Meltwater Pulse Dynamics</strong></a></li>
+        <li><a href="./v4func-detail-2.html"><strong>V4.02 – Harmonic Watershed Resonance</strong></a></li>
+        <li><a href="./v4func-detail-3.html"><strong>V4.03 – Subterranean Water & Memory Encoding</strong></a></li>
+        <li><a href="./v4func-detail-4.html"><strong>V4.04 – Submerged Vectors & Torsional Release</strong></a></li>
+        <li><a href="./v4func-detail-5.html"><strong>V4.05 – Solar Flare Coupling & Quartz Resonance</strong></a></li>
+        <li><a href="./v4func-detail-6.html"><strong>V4.06 – Fire, Ice & Meltwater Ignition Systems</strong></a></li>
+        <li><a href="./v4func-detail-7.html"><strong>V4.07 – Lowland Hydrology & Sacred Drainage</strong></a></li>
+        <li><a href="./v4func-detail-8.html"><strong>V4.08 – Bathymetric Inversion & Lost Altitudes</strong></a></li>
+        <li><a href="./v4func-detail-9.html"><strong>V4.09 – Phase Transition Reservoirs & Terraforming Echoes</strong></a></li>
+        <li><a href="./v4func-detail-10.html"><strong>V4.10 – Quartz Logic & Georesonant Ignition</strong></a></li>
+        <li><a href="./v4func-detail-11.html"><strong>V4.11 – Kinetic Tools & Flow-Based Stoneworking</strong></a></li>
+        <li><a href="./v4func-detail-12.html"><strong>V4.12 – Crustal Memory & the Georesonant Archive</strong></a></li>
       </ul>
     </section>
 
@@ -82,9 +199,9 @@
 
     <div align="center">
       <footer>
-        <p>&copy; 2025 ChiR Labs | Geodetic Codex </p>
+        <p>&copy; 2025 ChiR Labs | Geodetic Codex</p>
       </footer>
-   </div>
-    </main>
-    </body>
-    </html>
+    </div>
+  </main>
+</body>
+</html>
