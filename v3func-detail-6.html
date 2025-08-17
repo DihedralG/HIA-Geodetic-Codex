@@ -1,179 +1,224 @@
-<!-- v4func-detail-6.html — Geodetic Codex V4.6 Functional Specification -->
+<!-- v3-6.html — Geodetic Codex V3.6 Functional Specification -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ChiR Labs — V4.6 Functional Spec (Fire, Ice & Meltwater Ignition)</title>
+  <title>ChiR Labs — V3.6 Functional Spec (Hydrology–Tectonic Coupling)</title>
   <link rel="stylesheet" href="styles/main.css" />
-  <meta name="description" content="V4.6 formalizes multi-phase meltwater release systems: solar magnification, geothermal venting, chemical catalysts, and pressure ignition architectures." />
+  <meta name="description" content="Geodetic Codex V3.6 functional specification — Hydrology–Tectonic Coupling, aquifer dynamics, paleo-waterways, and forensic dating toolkit aligned to the planetary OS." />
 </head>
 <body>
-<header>
-  <h1>🌀 ChiR Labs</h1>
-  <p>Mapping trust, resonance, and planetary intelligence.</p>
-</header>
+  <header>
+    <h1>🌀 ChiR Labs</h1>
+    <p>Mapping trust, resonance, and planetary intelligence.</p>
+  </header>
 
-<nav>
-  <a href="index.html"> 🌀 <span>Root</span></a>
-  <a href="chir-ai.html"> 🧠 <span>ChiR-AI</span></a>
-  <a href="chiripp.html"> 💠 <span>ChiR-IPP</span></a>
-  <a href="codex.html"> 🌐 <span>Codex</span></a>
-  <a href="psl.html"> 🕊 <span>PSL</span></a>
-  <a href="about.html"> 🧭 <span>About</span></a>
-  <a href="support.html"> 🌱 <span>Growth</span></a>
-</nav>
-
-<main class="container">
-  <aside class="context-blurb">
-    <h1>V4.6 Functional Specification: <i>Fire, Ice & Meltwater Ignition Systems.</i></h1>
-    This module defines testable signatures of engineered/seminal melt‑release architectures that regulate glacial reservoirs and phase‑state basins.
-  </aside>
-
-  <section>
-    <h2>Overview</h2>
-    <p>
-      Across multiple Codex faces, we observe structures consistent with <b>controlled meltwater release</b>:
-      reflective platforms, vent galleries, pressure‑head valves, and labyrinthine steam chambers.
-      V4.6 codifies a set of indices, datasets, and workflows to classify such systems and estimate
-      their <b>ignition readiness</b> and <b>release magnitude</b>.
-    </p>
-  </section>
-
-  <section>
-    <h2>Notation (Dual-Script Intro)</h2>
-    <p>One‑time dual‑script display; semantics live in the <a href="gc-notation-charter.html">Notation Charter</a>.</p>
-    <div class="scroll-x">
-      <table class="compact">
-        <thead><tr><th>Concept</th><th>Symbol</th><th>Plain Term (ARIA)</th><th>Brief Definition</th></tr></thead>
-        <tbody>
-          <tr>
-            <td>Ignition Readiness</td>
-            <td aria-label="ignition readiness">
-              𝜃<sub>𐤕ᚱ</sub>
-            </td>
-            <td>ignition readiness</td>
-            <td>Composite of solar focus, geothermal proximity, chemical potential, and head/pressure configuration.</td>
-          </tr>
-          <tr>
-            <td>Phase Engine Score</td>
-            <td aria-label="phase engine score">
-              𝛹<sub>𐤉ᛃ</sub>
-            </td>
-            <td>phase engine score</td>
-            <td>Capacity to store/convert between ice, liquid, and vapor (geometry, vents, containment).</td>
-          </tr>
-          <tr>
-            <td>Release Magnitude</td>
-            <td aria-label="release magnitude">
-              𝑅<sub>𐤓ᚦ</sub>
-            </td>
-            <td>release magnitude</td>
-            <td>Expected discharge volume/rate for a controlled release event at design head.</td>
-          </tr>
-          <tr>
-            <td>Control Integrity</td>
-            <td aria-label="control integrity">
-              𝐼<sub>𐤀ᛁ</sub>
-            </td>
-            <td>control integrity</td>
-            <td>Robustness of valves, overflow paths, and failsafes (redundancy, scour resistance, clog risk).</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="note">Symbols are mnemonic labels; the math is readable in plain terms for public/peer review.</p>
-  </section>
-
-  <section>
-    <h2>Objectives</h2>
-    <ul>
-      <li>Identify and classify melt‑release architectures in glaciated and high‑altitude basins.</li>
-      <li>Estimate ignition readiness and phase engine capacity from geometry and forcing layers.</li>
-      <li>Predict release magnitude and safe routing using hydraulic modeling and hazard fusion (V4.4).</li>
-      <li>Publish reproducible site cards with inputs, assumptions, and uncertainty.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Data Inputs</h2>
-    <div class="scroll-x">
-      <table class="compact">
-        <thead><tr><th>Layer</th><th>Examples</th><th>Use</th></tr></thead>
-        <tbody>
-          <tr>
-            <td>Geometry</td>
-            <td>DEM/DTM, lidar, cavity volumes, vent galleries</td>
-            <td>Containment, head, routing</td>
-          </tr>
-          <tr>
-            <td>Thermal/EM</td>
-            <td>Geothermal gradients, fumaroles, solar flux (V4.5)</td>
-            <td>Ignition components (geothermal/solar)</td>
-          </tr>
-          <tr>
-            <td>Hydrology</td>
-            <td>Ice thickness, reservoir level, pressure‑head, conduits</td>
-            <td>Phase engine capacity & routing</td>
-          </tr>
-          <tr>
-            <td>Materials</td>
-            <td>Quartz indices, carbonate/cement chemistry, catalysts</td>
-            <td>Chemical/EM ignition potential</td>
-          </tr>
-          <tr>
-            <td>Hazards</td>
-            <td>Terrain slope, scour paths, downstream exposure</td>
-            <td>Control integrity & safe release</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section>
-    <h2>Methods</h2>
-    <ol>
-      <li><b>Structure Detection:</b> extract reflective platforms, vent arrays, overflow basins; estimate cavity and head.</li>
-      <li><b>Ignition Readiness:</b> combine solar focus (from V4.5), geothermal proximity, and chemical potential with head configuration.</li>
-      <li><b>Phase Engine:</b> compute multi‑state storage (ice/liquid/vapor) and vent throughput to score capacity.</li>
-      <li><b>Magnitude & Routing:</b> model controlled release hydrographs; simulate scour and conduit wear; map safe/ritualized outflow.</li>
-      <li><b>Integrity:</b> evaluate redundancy and failsafe overflow under extreme cases; produce integrity score.</li>
-    </ol>
-  </section>
-
-  <section>
-    <h2>Indicative Forms</h2>
-    <pre class="code">
-IgnitionReadiness ≈ w1·SolarFocus + w2·GeothermalProximity + w3·ChemicalPotential + w4·HeadConfig
-
-ReleaseMagnitude ≈ k · PhaseEngineCapacity · Head · ValveCoefficient
-    </pre>
-  </section>
-
-  <section>
-    <h2>Implementation (Repo Hooks)</h2>
-    <ul>
-      <li><code>scripts/IgnitionReadiness.py</code> — computes readiness and writes <code>out/v46_ignition_theta.tif</code>.</li>
-      <li><code>scripts/PhaseEngine.py</code> — estimates multi‑phase capacity and <code>out/v46_phase_psi.tif</code>.</li>
-      <li><code>scripts/ControlledRelease.py</code> — simulates hydrographs + routing to <code>out/v46_release_R.tif</code> and site CSVs.</li>
-    </ul>
-  </section>
-
-  <nav class="version-nav" aria-label="Version navigation">
-    <div class="version-nav__row">
-      <a class="vbtn vbtn--ghost" href="v4func-detail-5.html" rel="prev" aria-label="Go to V4.5">← V4.5</a>
-      <a class="vbtn vbtn--primary" href="preview.html" aria-label="Peer Review Root">Peer Review Root</a>
-      <a class="vbtn vbtn--ghost" href="v4func-detail-7.html" rel="next" aria-label="Go to V4.7">V4.7 →</a>
-      <p>&nbsp;</p>
-    </div>
+  <nav>
+    <a href="index.html"> 🌀 <span>Root</span></a>
+    <a href="chir-ai.html"> 🧠 <span>ChiR-AI</span></a>
+    <a href="chiripp.html"> 💠 <span>ChiR-IPP</span></a>
+    <a href="codex.html"> 🌐 <span>Codex</span></a>
+    <a href="psl.html"> 🕊 <span>PSL</span></a>
+    <a href="about.html"> 🧭 <span>About</span></a>
+    <a href="support.html"> 🌱 <span>Growth</span></a>
   </nav>
 
-  <div align="center">
-    <footer>
-      <p>&copy; 2025 ChiR Labs | Geodetic Codex</p>
-    </footer>
-  </div>
-</main>
+  <main class="container">
+    <aside class="context-blurb">
+      <h1>V3.6 Functional Specification:</b> <i>Hydrology–Tectonic Coupling & Aquifer Memory.</i> This chapter formalizes how surface and subsurface water systems interact with crustal stress fields and mineral resonance (V3.5), forming the hydrological spine of the Codex operating system.</h1>
+    </aside>
+
+    <section>
+      <h2>Overview</h2>
+      <p>V3.6 bridges V3.5’s mineralogical resonance to dynamic water systems. We model how <b>aquifers, paleo-channels, karst networks, and meltwater corridors</b> couple to <b>strain, flexure, and rebound</b>, and how those couplings are expressed (and recorded) at Codex nodes. The outcome is a defensible, testable framework that makes hydrology an active component of the planetary OS rather than a passive backdrop.</p>
+    </section>
+
+    <section>
+      <h2>Objectives</h2>
+      <ul>
+        <li>Map <b>aquifer geometry</b> and <b>paleo-waterways</b> against crustal stress and mineral resonance fields.</li>
+        <li>Define a <b>Hydro–Tectonic Coupling Index (HTCI)</b> that quantifies water–stress–resonance interaction at nodes and corridors.</li>
+        <li>Establish a <b>forensic dating toolkit</b> for water–rock systems (cores, isotopes, speleothems, tephra ties) aligned with V3.3 temporal logic.</li>
+        <li>Deliver <b>site-specific exemplars</b> (corridor and global nodes) with reproducible methods and inputs.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Operating Hypotheses</h2>
+      <ol>
+        <li><b>Hydrological memory is structural.</b> Aquifers, confined layers, and buried channels store long-cycle signals (chemistry, isotopes, sediments) that align with Codex nodes.</li>
+        <li><b>Coupling is bidirectional.</b> Stress changes alter permeability and discharge; conversely, pulsed flow modulates effective stress and resonance, especially in piezo-active substrates (V3.5).</li>
+        <li><b>Tiered water architectures</b> (high/mid/low) track paleoshorelines and rebound, offering predictive power for submerged and desert-buried nodes.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Data Inputs</h2>
+      <div class="scroll-x">
+        <table class="compact">
+          <thead><tr><th>Layer</th><th>Source Types</th><th>Use in Model</th></tr></thead>
+          <tbody>
+            <tr><td>Topography & Bathymetry</td><td>Global DEM/DTM; continental shelves; terrace maps</td><td>Watershed extraction; paleo-coastline & shelf inversions</td></tr>
+            <tr><td>Hydrogeology</td><td>Aquifer extents; karst/doline inventories; transmissivity maps</td><td>Subsurface storage, connectivity, spill thresholds</td></tr>
+            <tr><td>Fluvial Networks</td><td>Modern rivers; paleochannel rasters; alluvial fans</td><td>Corridor routing; event pathways; delta memory</td></tr>
+            <tr><td>Geodesy & Tectonics</td><td>GNSS uplift; GIA models; strain rate; faults</td><td>Stress fields for permeability & resonance shifts</td></tr>
+            <tr><td>Mineralogy (V3.5)</td><td>Quartz/tourmaline/feldspar indices; fabric orientation</td><td>Resonant media + filtration membranes</td></tr>
+            <tr><td>Paleoclimate</td><td>Speleothem δ18O/δ13C; lake varves; ice-core tie-points</td><td>Temporal anchors for flow regime shifts</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Methods</h2>
+      <ol>
+        <li><b>Watershed & Paleochannel Reconstruction:</b> run multi-threshold flow accumulation; invert shelf bathymetry for low-stand drainage maps; extract channel belts and fans.</li>
+        <li><b>Aquifer–Stress Overlay:</b> intersect aquifer polygons with present strain, flexure, and rebound fields; compute potential permeability modulation (dK/dσ).</li>
+        <li><b>Resonance Coupling (from V3.5):</b> join mineral resonance score <i>R<sub>m</sub></i> to hydrologic skeleton; weight by joint density and fabric orientation.</li>
+        <li><b>Temporal Anchoring:</b> attach isotope/tephra/varve chronologies to hydrologic features; propagate ±σ into node timelines (V3.3).</li>
+        <li><b>Indexing:</b> compute HTCI and sub-indices per node, per corridor segment, and per tier (high/mid/low).</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Hydro–Tectonic Coupling Index (HTCI)</h2>
+      <p>We define a composite index normalized to [0,1] for inter-site comparison. Coefficients are tunable during calibration; defaults shown for transparency.</p>
+      <div class="scroll-x">
+        <table class="compact">
+          <thead>
+            <tr><th>Component</th><th>Symbol</th><th>Description</th><th>Default Weight</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Resonant Mineral Media</td><td>R<sub>m</sub></td><td>Quartz/tourmaline/feldspar score + fabric orientation & joint density</td><td>w<sub>m</sub>=0.25</td></tr>
+            <tr><td>Stress–Permeability Sensitivity</td><td>Ψ<sub>σK</sub></td><td>Modeled dK/dσ (permeability change per stress unit)</td><td>w<sub>σ</sub>=0.25</td></tr>
+            <tr><td>Aquifer Geometry & Storage</td><td>A<sub>g</sub></td><td>Thickness, connectivity, confinement; spill thresholds</td><td>w<sub>a</sub>=0.20</td></tr>
+            <tr><td>Paleo-Flow Memory</td><td>M<sub>p</sub></td><td>Paleochannel presence, fan maturity, terrace completeness</td><td>w<sub>p</sub>=0.15</td></tr>
+            <tr><td>Event Tie-Ins</td><td>E<sub>t</sub></td><td>Tephra, speleothem, varve, ice-core alignment to flow shifts</td><td>w<sub>e</sub>=0.15</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><b>HTCI = Σ wᵢ · Cᵢ</b> with <i>Cᵢ</i> each component scaled to [0,1]. We report HTCI per site and per corridor segment; sensitivity runs vary {w} within ±0.1.</p>
+    </section>
+
+    <section>
+      <h2>Forensic Dating & Analysis Toolkit (Hydro–Litho Systems)</h2>
+      <div class="scroll-x">
+        <table class="compact">
+          <thead><tr><th>Material/Target</th><th>Method</th><th>Window</th><th>Outcome</th></tr></thead>
+          <tbody>
+            <tr><td>Speleothems (calcite/aragonite)</td><td>U–Th dating; δ18O/δ13C</td><td>10²–10⁵ yr</td><td>Moisture regime shifts; pluvial/dry phases</td></tr>
+            <tr><td>Lake/Delta Sediments</td><td>Varve counts; 14C; tephra markers; μXRF</td><td>10¹–10⁵ yr</td><td>Flood frequency; provenance; event layers</td></tr>
+            <tr><td>Alluvial Fans & Terraces</td><td>OSL/IRSL; cosmogenic nuclides</td><td>10³–10⁶ yr</td><td>Incision pulses; terrace chronology</td></tr>
+            <tr><td>Aquifer Waters</td><td>³H/³He; ¹⁴C-DIC; ³⁶Cl; ⁸⁵Kr; δD–δ18O</td><td>Years–10⁶ yr</td><td>Residence time; recharge source/altitude</td></tr>
+            <tr><td>Karst Conduits</td><td>Dye tracing; noble gases; radon</td><td>—</td><td>Connectivity; flow velocity; ventilation</td></tr>
+            <tr><td>Paleo-Channels (desert/shelf)</td><td>OSL; seismic strat; bathy inversion</td><td>10³–10⁶ yr</td><td>Buried rivers; low-stand drainage grids</td></tr>
+            <tr><td>Rock Units</td><td>U–Pb zircon; ⁴⁰Ar/³⁹Ar micas/feldspar</td><td>10⁶–10⁹ yr</td><td>Host timing; uplift/cooling constraints</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">These methods plug directly into V3.3’s temporal matrix. Where multiple methods overlap, we propagate uncertainty with Bayesian weighting in node timelines.</p>
+    </section>
+
+    <section>
+      <h2>Site-Specific Exemplars (Node & Corridor Fit)</h2>
+      <details open>
+        <summary><b>Meadow House Observatory (USA)</b> — amphibolite/quartz veins, glacial legacy</summary>
+        <p><b>Signal:</b> seasonal recharge on fractured schist; freeze–thaw stress cycling; piezo-coupled resonance (V3.5).</p>
+        <p><b>Toolkit:</b> ³H/³He young-water fraction; ¹⁴C-DIC for deeper storage; fracture mapping + strain overlays; spring hydrograph analysis.</p>
+        <p><b>HTCI drivers:</b> high Ψ<sub>σK</sub> in freeze–thaw window; moderate A<sub>g</sub>; strong R<sub>m</sub>.</p>
+      </details>
+      <details>
+        <summary><b>Sayacmarca (Peru)</b> — andesitic substrate, engineered flow</summary>
+        <p><b>Signal:</b> terraces and channels perched above steep catchments; feldspar fabrics guide seepage.</p>
+        <p><b>Toolkit:</b> OSL on terrace fills; U–Pb zircon in andesite; tephra ties; δ18O–δD of springs.</p>
+        <p><b>HTCI drivers:</b> strong A<sub>g</sub> confinement + E<sub>t</sub> event ties; moderate R<sub>m</sub>.</p>
+      </details>
+      <details>
+        <summary><b>Monte Verde (Chile)</b> — silica gravels + volcanic ash cap</summary>
+        <p><b>Signal:</b> layered filtration and aquifer memory; low-frequency acoustic damping.</p>
+        <p><b>Toolkit:</b> tephrochronology; 14C organics; detrital zircon U–Pb.</p>
+        <p><b>HTCI drivers:</b> strong M<sub>p</sub> + E<sub>t</sub>; moderate A<sub>g</sub>.</p>
+      </details>
+      <details>
+        <summary><b>Semisopochnoi (Aleutians)</b> — basaltic core, pumice fields</summary>
+        <p><b>Signal:</b> caldera hydrology with coastal discharge; load-anchored crust for resonance nodes.</p>
+        <p><b>Toolkit:</b> ⁴⁰Ar/³⁹Ar basalts; lake core varves; δ18O of precipitation vs lake water.</p>
+        <p><b>HTCI drivers:</b> high T-coupling; moderate A<sub>g</sub>; event-linked M<sub>p</sub>.</p>
+      </details>
+      <details>
+        <summary><b>Desert & Shelf Candidates (generic)</b> — buried paleo-rivers / tier-3 nodes</summary>
+        <p><b>Signal:</b> dune-masked channels; spring mounds; low-stand drainage on shelves.</p>
+        <p><b>Toolkit:</b> OSL dunes; bathymetric inversion; ¹⁴C shells; ⁸⁵Kr groundwater age.</p>
+        <p><b>HTCI drivers:</b> high M<sub>p</sub>; variable A<sub>g</sub>; coupling depends on mineral R<sub>m</sub>.</p>
+      </details>
+    </section>
+
+    <section>
+      <h2>Outputs</h2>
+      <ul>
+        <li><b>HTCI Grids & Node Scores:</b> per-site and per-corridor coupling values with component breakdowns.</li>
+        <li><b>Hydro Memory Timelines:</b> site-level chronological stacks (methods + uncertainties) aligned to V3.3.</li>
+        <li><b>Tier Maps (High/Mid/Low):</b> predicted hydrologic tiers for node triads and submerged candidates.</li>
+        <li><b>Monitoring Playbooks:</b> method-first plans (sampling, sensors, cadence) for each site class.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Validation & Reproducibility</h2>
+      <ul>
+        <li><b>Blind-region tests:</b> train HTCI in Corridor A; predict Corridor B; assess against independent hydro observations.</li>
+        <li><b>Monte Carlo:</b> randomize node locations; verify overunity in HTCI component associations vs null.</li>
+        <li><b>Sensitivity:</b> perturb {w} and component scalings; report stability of node ranks and tier assignments.</li>
+        <li><b>Temporal cross-checks:</b> enforce consistency between hydrologic timelines and external proxies (tephra/ice/speleothem).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Forward Bridge</h2>
+      <p>V3.6 locks in the hydrological spine of the planetary OS. It sets up <b>V3.7 (Fluid Dynamics & Event Pathways)</b> and connects cleanly to <b>V4’s</b> watershed resonance, submerged vectors, and global river mapping modules.</p>
+    </section>
+
+    <!-- Version Nav (place above <footer>) -->
+    <nav class="version-nav" aria-label="Version navigation">
+      <div class="version-nav__row">
+        <a class="vbtn vbtn--ghost" href="v3-5.html" rel="prev" aria-label="Go to V3.5">← V3.5</a>
+        <a class="vbtn vbtn--primary" href="preview.html" aria-label="Peer Review Root">Peer Review Root</a>
+        <a class="vbtn vbtn--ghost" href="v3-7.html" rel="next" aria-label="Go to V3.7">V3.7 →</a>
+      </div>
+      <div class="version-nav__index" aria-hidden="false">
+        <span>V3:</span>
+        <a href="v3-3.html">3.3</a>
+        <a href="v3-4.html">3.4</a>
+        <a href="v3-5.html">3.5</a>
+        <a href="v3-6.html">3.6</a>
+        <a href="v3-7.html">3.7</a>
+        <a href="v3-8.html">3.8</a>
+        <a href="v3-9.html">3.9</a>
+        <a href="v3-10.html">3.10</a>
+      </div>
+    </nav>
+
+    <style>
+      /* Scoped styles for this page's version nav (optional) */
+      .version-nav{margin:2.5rem 0 1rem;border-top:1px solid #e6e6e6;padding-top:1rem}
+      .version-nav__row{display:flex;gap:.75rem;justify-content:space-between;align-items:center;flex-wrap:wrap}
+      .version-nav__index{margin-top:.75rem;font-size:.95rem;opacity:.9}
+      .version-nav__index a{margin-left:.35rem}
+      .vbtn{display:inline-block;padding:.6rem .9rem;border-radius:.6rem;text-decoration:none;line-height:1;transition:transform .06s ease}
+      .vbtn:active{transform:translateY(1px)}
+      .vbtn--primary{background:#0a65cc;color:#fff}
+      .vbtn--ghost{background:#f7f7f9;color:#222;border:1px solid #e2e2e7}
+      @media (prefers-color-scheme: dark){
+        .version-nav{border-top:1px solid #2b2b2b}
+        .vbtn--ghost{background:#1a1a1d;color:#e9e9ee;border:1px solid #2f2f35}
+        .vbtn--primary{background:#2e7bdc}
+      }
+    </style>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ChiR Labs | Meadow House Observatory | The Dihedral Group</p>
+  </footer>
 </body>
 </html>
