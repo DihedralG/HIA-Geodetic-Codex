@@ -169,7 +169,7 @@ button:hover {
 /* Footer */
 footer {
   background-color: #f9f9f9;
-  text-align: center;
+  text-align: center;  
   padding: 20px;
   font-size: 0.9em;
   color: #666;
@@ -177,6 +177,14 @@ footer {
   margin-top: 60px;
 }
 
+
+/* Nav Row Centering */
+.version-nav__row {
+  display: flex;
+  justify-content: center; /* centers the buttons */
+  gap: 1rem;               /* spacing between buttons */
+  margin: 1.5rem 0;
+}
 
 /* Global Symbology */
 .xscript { font-family: "Noto Sans Hebrew","Segoe UI Symbol","Noto Sans Runic",system-ui,sans-serif; font-weight: 600; letter-spacing: 0.02em; }

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Codex V9.2 – Orbital Forcing & Cryosphere Feedbacks</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+  <header>
+    <h1>🌐 Geodetic Codex V9.2</h1>
+    <p>Orbital Forcing & Cryosphere Feedbacks</p>
+  </header>
+
+  <nav>
+    <a href="index.html">🌀 Root</a>
+    <a href="codex.html">🌐 Codex</a>
+    <a href="v9funcspec.html">⬅ V9 Overview</a>
+  </nav>
+
+  <main class="container">
+    <aside class="context-blurb">
+      <p>This module maps Milankovitch pacing (precession, obliquity, eccentricity) to cryosphere growth/retreat,
+      and sets up the analysis for meltwater pulses that prime rift activation and anomaly pairings.</p>
+    </aside>
+
+    <section>
+      <h2>🔍 Objectives</h2>
+      <ul>
+        <li>Quantify relationships between orbital cycles and ice-volume proxies.</li>
+        <li>Characterize lead–lag structures between orbital forcing and cryosphere response.</li>
+        <li>Identify pulse sequences that correlate with rift initiation and uplift counterweights.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🧠 Key Concepts</h2>
+      <ul>
+        <li><strong>Precession (≈19–23 kyr)</strong> – seasonal/hemispheric insolation swings; often drives monsoon–ice feedbacks.</li>
+        <li><strong>Obliquity (≈41 kyr)</strong> – high-latitude summer insolation; strong control on ice-sheet mass balance.</li>
+        <li><strong>Eccentricity (≈100/405 kyr)</strong> – amplitude modulator for precession; tied to late-Pleistocene pacing.</li>
+        <li><strong>Amplifiers</strong> – albedo, ocean heat transport, and freshwater routing that sharpen deglaciation pulses.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📦 Data Inputs (placeholders)</h2>
+      <ul>
+        <li><em>Orbital solutions</em>: Laskar La2004/La2010 (eccentricity, obliquity, precession indices).</li>
+        <li><em>Ice-volume / δ<sup>18</sup>O stacks</em>: LR04, benthic stacks; ice cores (EPICA, GISP2/NEEM) for high-res sections.</li>
+        <li><em>Deglacial events</em>: MWP-1A, MWP-1B, Younger Dryas termination markers.</li>
+        <li><em>Codex layer</em>: <a href="https://www.kaggle.com/datasets/dihedralg/earth-os-gravitational-riftcryosphere-timeline" target="_blank">Rift–Cryosphere Timeline</a> (epoch, cap dominance, anomaly pairings).</li>
+      </ul>
+      <p class="note">Replace with actual repository links/DOIs when you stage the analysis notebooks.</p>
+    </section>
+
+    <section>
+      <h2>🧪 Methods (analysis plan)</h2>
+      <ol>
+        <li><strong>Spectral diagnostics</strong>: multitaper/FFT on ice proxies; verify 23/41/100/405 kyr bands.</li>
+        <li><strong>Cross-correlation</strong>: orbital indices vs. ice proxies to estimate lead–lag (regional & global).</li>
+        <li><strong>Event alignment</strong>: align meltwater pulses to orbital phase; annotate cap dominance (N vs S).</li>
+        <li><strong>Coupling to rifts</strong>: join pulse windows to Codex rift entries; test for clustering near anomaly pairings.</li>
+        <li><strong>Robustness</strong>: bootstrap confidence intervals; shuffle tests against null (phase-scrambled indices).</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>🗺️ Figures (placeholders)</h2>
+      <ul>
+        <li>Phase wheels: orbital phase → meltwater pulse timing → rift activation markers.</li>
+        <li>Hemispheric pie/bar: cap dominance distribution per orbital band.</li>
+        <li>Global map: pulses layered on anomaly pairings (from V3/V8 geodesic products).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>✅ Outputs</h2>
+      <ul>
+        <li>Lead–lag table for (eccentricity/obliquity/precession) vs. cryosphere response with CIs.</li>
+        <li>Tagged pulse intervals usable as features for V9.3–V9.5 modeling.</li>
+        <li>Reproducible notebook linking orbital pacing to Codex rift entries.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📚 References (to stage)</h2>
+      <ul>
+        <li>Laskar et al., orbital solutions La2004/La2010 (obliquity/eccentricity/precession indices).</li>
+        <li>LR04 benthic stack; EPICA Dome C; GISP2/NEEM ice-core chronologies.</li>
+        <li>Deglacial pulse literature (MWP-1A/1B timing constraints).</li>
+      </ul>
+    </section>
+
+    <nav class="version-nav" aria-label="Version navigation">
+      <div class="version-nav__row">
+        <a class="vbtn vbtn--ghost" href="v9func-detail-1.html" rel="prev">← V9.1</a>
+        <a class="vbtn vbtn--primary" href="preview.html">Peer Review Root</a>
+        <a class="vbtn vbtn--ghost" href="v9func-detail-3.html" rel="next">V9.3 →</a>
+      </div>
+    </nav>
+
+    <footer class="footer" align="center">
+      <p>&copy; 2025 ChiR Labs | Geodetic Codex</p>
+    </footer>
+  </main>
+</body>
+</html>
