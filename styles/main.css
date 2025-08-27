@@ -185,6 +185,54 @@ footer {
   gap: 1rem;               /* spacing between buttons */
   margin: 1.5rem 0;
 }
+/* =========================================================
+   Accordion (details/summary) – Roadmap / Peer Review Root
+   ========================================================= */
+.accordion details {
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  background: #fafafa;
+  padding: .6rem .9rem;
+  margin: .7rem 0;
+}
+.accordion summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+/* hide default marker in WebKit */
+.accordion summary::-webkit-details-marker { display: none; }
+
+.accordion summary::before {
+  content: "▸";
+  display: inline-block;
+  margin-right: .5rem;
+  transition: transform .15s ease-in-out;
+  cursor: pointer;
+}
+/* rotate caret when open */
+.accordion details[open] summary::before { transform: rotate(90deg); }
+/* link styling inside panels */
+.accordion .sub-links { margin: .4rem 0 .1rem 1.2rem; }
+.accordion a { text-decoration: none; }
+.accordion a:hover { text-decoration: underline; }
+
+/* optional hint text style */
+.muted { color:#6b7280; font-size: .92em; }
+
+.accordion summary:focus-visible {
+  outline: 2px solid #2563eb; /* same hue as your primary */
+  border-radius: 6px;
+}
+
+/* =========================================
+   Link Lists (used on V5 hub page)
+   ========================================= */
+.link-list { list-style: none; padding-left: 0; }
+.link-list li { margin: .35rem 0; }
+
 
 /* Global Symbology */
 .xscript { font-family: "Noto Sans Hebrew","Segoe UI Symbol","Noto Sans Runic",system-ui,sans-serif; font-weight: 600; letter-spacing: 0.02em; }
