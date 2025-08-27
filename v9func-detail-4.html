@@ -9,7 +9,7 @@
 <body>
   <header>
     <h1>🌐 Geodetic Codex V9.4</h1>
-    <p>Resonance Nodes & Harmonic Multipliers</p>
+    <p>Resonance Nodes &amp; Harmonic Multipliers</p>
   </header>
 
   <nav>
@@ -20,64 +20,131 @@
 
   <main class="container">
     <aside class="context-blurb">
-      <p>Identifies tectonic locales where small orbital/solar forcings amplify into large geologic responses: rifts, subduction zones, plume-heads, craton edges, and previously inherited scars.</p>
+      <p>
+        Identifies tectonic locales where small orbital/solar forcings amplify into large geologic responses —
+        mapping “resonance nodes” and their multipliers at rifts, subduction systems, plume-heads, craton edges,
+        transforms, and inherited scars. Outputs feed forecast windows in <strong>V9.7</strong>.
+      </p>
     </aside>
 
     <section>
       <h2>🔍 Objectives</h2>
       <ul>
-        <li>Map “resonance nodes” where stress focusing is persistent.</li>
+        <li>Locate persistent stress-focusing nodes across scales (site → corridor → global).</li>
         <li>Quantify multipliers linking forcing amplitude → geologic release.</li>
-        <li>Feed node weights into catastrophe-window forecasts (V9.7).</li>
+        <li>Export node weights/uncertainties for catastrophe-window testing (V9.7).</li>
       </ul>
     </section>
 
     <section>
       <h2>🧠 Key Concepts</h2>
       <ul>
-        <li>Geometric focusing at plate corners, triple junctions, arc–rift intersections.</li>
-        <li>Inherited anisotropy (fault fabrics, sutures) as waveguides.</li>
-        <li>3-up/1-down chi-rhombant geometry as a node selector.</li>
+        <li><strong>Geometric focusing</strong> at plate corners, triple junctions, arc–rift intersections, transform step-overs.</li>
+        <li><strong>Inherited anisotropy</strong> (fault fabrics, sutures, failed rifts) acting as waveguides for stress and fluids.</li>
+        <li><strong>Chi-rhombant geometry</strong> (3-up/1-down) as a node selector within the V3 geodesic mesh.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🗂️ Node Taxonomy</h2>
+      <ul>
+        <li>Rift &amp; back-arc hinges (continental &amp; oceanic), triple-junction clusters.</li>
+        <li>Subduction fore-arc/outer-rise + slab-window margins; back-arc spreading centers.</li>
+        <li>Craton margins &amp; keel flanks; lithospheric step-changes; LIP/plume-head perimeters.</li>
+        <li>Transform corridors, restraining/releasing bends, step-overs.</li>
+        <li>Inherited sutures, orogens, failed rifts, dyke swarms; hydro-cryosphere couplers.</li>
       </ul>
     </section>
 
     <section>
       <h2>📦 Data Inputs</h2>
       <ul>
-        <li>Global plate boundaries, PGA/stress models, heat-flow maps.</li>
-        <li>Seismicity catalogs; GNSS strain; gravity anomalies.</li>
-        <li>Codex anomaly pairs; V3 geodesic mesh overlays.</li>
+        <li>Global plate boundaries (PB2002/updated), focal mechanisms, PGA/stress tensors, heat-flow maps.</li>
+        <li>Seismicity catalogs (mb/Mw, depth, time), GNSS strain, Bouguer/gravity anomalies, geoid.</li>
+        <li>Codex anomaly pairs (trough ↔ counterweight), V3 geodesic mesh, V9.1–9.3 orbital pacing fields.</li>
       </ul>
     </section>
 
     <section>
       <h2>🧪 Methods</h2>
       <ol>
-        <li>Kernel density of events; stress/strain co-location indices.</li>
-        <li>Node weighting: persistence × coupling × release magnitude.</li>
-        <li>Cross-validation against historical pulses and uplift rates.</li>
+        <li><strong>Event density &amp; persistence</strong>: multi-scale KDE of seismic/volcanic/uplift events with rolling windows.</li>
+        <li><strong>Co-location indices</strong>: overlap of stress, strain, gravity, and heat-flow extrema at mesh nodes.</li>
+        <li><strong>Harmonic alignment</strong>: cross-correlate node time series with orbital indices (precession/obliquity/eccentricity).</li>
+        <li><strong>Node scoring</strong>: composite weighting (see formula) with bootstrapped uncertainties.</li>
+        <li><strong>Back-testing</strong>: validate against historical pulses, isostatic rebound rates, LIP emplacement epochs.</li>
       </ol>
+    </section>
+
+    <section>
+      <h2>🧮 Scoring &amp; Multipliers</h2>
+      <p class="muted">All sub-scores on 0–3 ordinal scales unless noted; weights can be tuned during V9.7 calibration.</p>
+      <ul>
+        <li><strong>Persistence (P)</strong>: stability of node activity across epochs.</li>
+        <li><strong>Coupling (C)</strong>: co-occurrence of stress/strain/heat-flow/gravity anomalies.</li>
+        <li><strong>Release (R)</strong>: magnitude–frequency (Mw tail, uplift rates, eruption volume proxies).</li>
+        <li><strong>Geometry (G)</strong>: focusing efficiency (triple-junctions, step-overs, chi-rhombant conformity).</li>
+        <li><strong>Memory (M)</strong>: inherited fabrics &amp; scars (failed rifts, sutures, dyke swarms).</li>
+      </ul>
+      <pre><code>NodeScore = wP·P + wC·C + wR·R + wG·G + wM·M
+Multiplier  = f(NodeScore, local Q, crustal thickness, fluid availability)</code></pre>
     </section>
 
     <section>
       <h2>🗺️ Figures</h2>
       <ul>
-        <li>Global resonance node map (ranked).</li>
-        <li>Chord diagrams: troughs ↔ counterweights.</li>
+        <li>Global resonance node map (ranked), with uncertainty halos.</li>
+        <li>Chord diagrams: troughs ↔ counterweights along corridors.</li>
+        <li>Time-slice panels showing node activation vs. orbital pacing.</li>
       </ul>
     </section>
 
     <section>
       <h2>✅ Outputs</h2>
       <ul>
-        <li>Ranked node list with multiplier scores.</li>
-        <li>Shapefiles/GeoJSON for modeling in V9.7.</li>
+        <li><strong>ranked_nodes.geojson</strong> — properties: <code>score, multiplier, class, P,C,R,G,M, sigma</code>.</li>
+        <li><strong>node_timeseries.csv</strong> — activations vs. orbital indices for V9.7 ingestion.</li>
+        <li><strong>figures/</strong> — static svgs + JSON specs for re-render.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🧰 Minimal Schema (GeoJSON feature properties)</h2>
+      <pre><code>{
+  "id": "RJ-TRI-001",
+  "class": "triple_junction",
+  "layers": ["V3","V9"],
+  "score": 2.7,
+  "multiplier": 1.9,
+  "P": 3, "C": 2, "R": 2, "G": 3, "M": 2,
+  "sigma": 0.3,
+  "notes": "Arc–rift–transform; inherited dyke swarm; strong heat-flow ridge."
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>🧪 QA &amp; Validation</h2>
+      <ul>
+        <li>Spatial cross-validation (k-fold by corridor) to guard against leakage.</li>
+        <li>Permutation tests of orbital alignments vs. shuffled epochs.</li>
+        <li>Sensitivity runs on weights (<code>wP..wM</code>) and kernel bandwidths.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🔗 Integration</h2>
+      <ul>
+        <li><strong>V9.5</strong>: anomaly symmetry checks — throttle multipliers by counterweight health.</li>
+        <li><strong>V9.7</strong>: catastrophe windows — nodes provide location priors &amp; scaling.</li>
+        <li><strong>V9.8</strong>: analogue planets — export node classes for off-world mapping.</li>
       </ul>
     </section>
 
     <section>
       <h2>📚 References (to stage)</h2>
-      <ul><li>Global stress/strain models; gravity & heat-flow datasets.</li></ul>
+      <ul>
+        <li>Global stress/strain catalogs; gravity &amp; heat-flow datasets; plate boundary models.</li>
+      </ul>
     </section>
 
     <nav class="version-nav" aria-label="Version navigation">

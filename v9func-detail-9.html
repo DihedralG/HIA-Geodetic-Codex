@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Codex V9.9 – Future Modeling & HPC Integration</title>
+  <title>Codex V9.9 – Operations, Publishing & Ethics</title>
   <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
   <header>
     <h1>🌐 Geodetic Codex V9.9</h1>
-    <p>Future Modeling & HPC Integration</p>
+    <p>Operations, Publishing & Ethics</p>
   </header>
 
   <nav>
@@ -20,73 +20,105 @@
 
   <main class="container">
     <aside class="context-blurb">
-      <p>Consolidates datasets and methods from V9.1–V9.8 into scalable pipelines (HPC/accelerators), enabling reproducible forecasts of resonance intensity and window probabilities.</p>
+      <p>
+        Defines how V9 forecasts move from research to responsible release:
+        versioning, review gates, licensing, interfaces, auditability, and harm-reduction
+        protocols for communicating uncertainty under real-world constraints.
+      </p>
     </aside>
 
     <section>
       <h2>🔍 Objectives</h2>
       <ul>
-        <li>Build modular pipelines for orbital → cryosphere → tectonic coupling.</li>
-        <li>Publish open models with tests, containers, and data versioning.</li>
+        <li>Establish operational runbooks for generating, reviewing, and publishing V9 outputs.</li>
+        <li>Codify ethical guardrails: scope limits, uncertainty communication, and do-no-harm defaults.</li>
+        <li>Deliver open, auditable artifacts (data, code, docs) with clear licenses and governance.</li>
       </ul>
     </section>
 
     <section>
       <h2>🧠 Key Concepts</h2>
       <ul>
-        <li>Feature stores (orbital indices, window metrics, node weights).</li>
-        <li>Probabilistic forecasting, uncertainty quantification.</li>
-        <li>Reproducibility (containers, CI, DOIs/Zenodo when stable).</li>
+        <li><strong>Tiers of Release:</strong> internal → partner sandbox → public datasets → public APIs.</li>
+        <li><strong>Two-key rule:</strong> scientific + ethics approvals required for outward-facing releases.</li>
+        <li><strong>Traceability:</strong> every figure/table ties to a commit hash, dataset version, and config.</li>
+        <li><strong>Right-sized claims:</strong> calibrated language, explicit limits, and use-constraints.</li>
       </ul>
     </section>
 
     <section>
-      <h2>📦 Data & Pipelines</h2>
+      <h2>📦 Operational Inputs</h2>
       <ul>
-        <li>Codex Rift–Cryosphere Timeline (Kaggle) + orbital/solar inputs.</li>
-        <li>Versioned artifacts (DAGs, NetCDF/GeoTIFF outputs).</li>
+        <li>Validated windows and node scores from <a href="v9func-detail-8.html">V9.8</a>.</li>
+        <li>Provenance graph: datasets (Kaggle slugs), code commits, config files, seeds.</li>
+        <li>Risk register: known failure modes, model caveats, and red-team findings.</li>
       </ul>
     </section>
 
     <section>
-      <h2>🧪 Methods</h2>
+      <h2>🧪 Methods (Ops Pipeline)</h2>
       <ol>
-        <li>Hindcast validation across known events; spatial cross-validation.</li>
-        <li>Model ensembles blending statistical + physical constraints.</li>
-        <li>APIs/notebooks for external researchers.</li>
+        <li><strong>Versioning:</strong> semantic tags <code>v9.major.minor</code>; changelog with backward-compat notes.</li>
+        <li><strong>Review Gates:</strong> (a) scientific QA (metrics from V9.8), (b) ethics QA (use cases, comms plan).</li>
+        <li><strong>Release Bundles:</strong> data (CSV/GeoJSON), figures, notebook, <code>README</code>, dataset card, license, DOI metadata.</li>
+        <li><strong>Interfaces:</strong> static dataset + optional read-only API (rate-limited, no alerting functions).</li>
+        <li><strong>Monitoring:</strong> post-release telemetry: downloads, forks, issues; calibration drift watch.</li>
+        <li><strong>Rollback:</strong> deprecate via headers + banner; publish corrective note & replacement DOI.</li>
       </ol>
+
+      <!-- Circle Backlist (ops note):
+      - Add GitHub Action to auto-build dataset card & provenance manifest from repo state.
+      - Integrate OpenAlex/Crossref to mint DOIs and update citation metadata on release.
+      - Add red-team checklist template (misuse scenarios; comms guardrails).
+      -->
     </section>
 
     <section>
-      <h2>🗺️ Figures</h2>
+      <h2>📜 Licensing & Attribution</h2>
       <ul>
-        <li>System diagram of the V9 pipeline.</li>
-        <li>Forecast dashboards (region × time).</li>
+        <li><strong>Data:</strong> ODC-BY (attribution required; allows remix/reuse).</li>
+        <li><strong>Code:</strong> MIT or Apache-2.0 (pick one project-wide for clarity).</li>
+        <li><strong>Docs:</strong> CC BY 4.0. Provide canonical citation and suggested BibTeX.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🛡️ Ethics, Risk & Communications</h2>
+      <ul>
+        <li><strong>Intended Use:</strong> research & education; not for emergency alerts or site-specific hazard decisions.</li>
+        <li><strong>Misuse Mitigation:</strong> no high-granularity “alarm” endpoints; aggregate-first outputs.</li>
+        <li><strong>Uncertainty Disclosure:</strong> show calibrated probabilities, confidence bands, and data gaps.</li>
+        <li><strong>Stakeholder Briefs:</strong> one-page summaries for scientists, policymakers, and lay readers.</li>
+        <li><strong>Community Governance:</strong> code of conduct; contributor license agreement (if needed); review SLAs.</li>
       </ul>
     </section>
 
     <section>
       <h2>✅ Outputs</h2>
       <ul>
-        <li>Open, containerized modeling stack; documented benchmarks.</li>
-        <li>Roadmap handoff to V10–V13 layers.</li>
+        <li><strong>Release Kit:</strong> dataset + figures + notebook + dataset card + LICENSE + CITATION.cff + DOI.</li>
+        <li><strong>Provenance Manifest:</strong> inputs, hashes, configs, environment lockfile.</li>
+        <li><strong>Ops Runbook:</strong> reproducible steps for rebuilds and emergencies (rollback/deprecation).</li>
       </ul>
     </section>
 
     <section>
       <h2>📚 References (to stage)</h2>
-      <ul><li>Software & methods citations for pipelines/UQ.</li></ul>
+      <ul>
+        <li>Open data & software licenses (ODC-BY, CC BY, MIT/Apache-2.0).</li>
+        <li>Best practices in uncertainty communication and risk governance for geoscience.</li>
+      </ul>
     </section>
 
     <nav class="version-nav" aria-label="Version navigation">
       <div class="version-nav__row">
         <a class="vbtn vbtn--ghost" href="v9func-detail-8.html" rel="prev">← V9.8</a>
         <a class="vbtn vbtn--primary" href="preview.html">Peer Review Root</a>
-        <a class="vbtn vbtn--ghost" href="v10funcspec.html" rel="next">V10 →</a>
+        <a class="vbtn vbtn--ghost" href="v10funcspec.html" rel="next">V10 Spec →</a>
       </div>
     </nav>
 
-    <footer class="footer" align="center">
+    <footer class="footer">
       <p>&copy; 2025 ChiR Labs | Geodetic Codex</p>
     </footer>
   </main>

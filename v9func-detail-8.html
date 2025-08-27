@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Codex V9.8 – Human & Cultural Layers</title>
+  <title>Codex V9.8 – Validation, Skill & Uncertainty</title>
   <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
   <header>
     <h1>🌐 Geodetic Codex V9.8</h1>
-    <p>Human & Cultural Layers</p>
+    <p>Validation, Skill & Uncertainty</p>
   </header>
 
   <nav>
@@ -20,59 +20,80 @@
 
   <main class="container">
     <aside class="context-blurb">
-      <p>How cultures recorded or reacted to resonance: calendars, observatories, myth cycles, and infrastructure aligned to corridors/nodes.</p>
+      <p>
+        Establishes how well V9 forecasts perform, where they fail, and why. 
+        Defines transparent validation protocols, skill metrics, and uncertainty handling 
+        for node-level and global horizons.
+      </p>
     </aside>
 
     <section>
       <h2>🔍 Objectives</h2>
       <ul>
-        <li>Catalog architectural/astronomical alignments to resonance corridors.</li>
-        <li>Trace calendrical systems to orbital–geological pacing.</li>
+        <li>Quantify skill of V9.7 catastrophe windows across time/region/node class.</li>
+        <li>Decompose error sources (forcings, coupling, observation noise, model misspecification).</li>
+        <li>Publish reproducible validation reports and uncertainty-aware outputs.</li>
       </ul>
     </section>
 
     <section>
       <h2>🧠 Key Concepts</h2>
       <ul>
-        <li>Codex “clock face” as cultural memory scaffold.</li>
-        <li>Resonant architecture (observatories, star forts, megaliths).</li>
+        <li><strong>Proper scoring:</strong> Brier, log score, CRPS for probabilistic windows.</li>
+        <li><strong>Reliability vs. resolution:</strong> calibration curves; sharpness trade-offs.</li>
+        <li><strong>Aleatoric vs. epistemic:</strong> data noise vs. model structure uncertainty.</li>
+        <li><strong>Ensembles & perturbations:</strong> sensitivity to inputs (V9.2–V9.6).</li>
       </ul>
     </section>
 
     <section>
       <h2>📦 Data Inputs</h2>
       <ul>
-        <li>Archaeoastronomy datasets; UNESCO/ICOMOS site metadata.</li>
-        <li>Codex corridor maps; PSL node centers.</li>
+        <li>Hindcast windows from V9.7 (node_id, start/end, tier, prob).</li>
+        <li>Event catalogs: seismicity, uplift/subsidence, melt proxies, hydrologic pulses.</li>
+        <li>Truth masks per node/time (release/no release + magnitude class).</li>
       </ul>
     </section>
 
     <section>
       <h2>🧪 Methods</h2>
       <ol>
-        <li>Orientation statistics vs. geodesic corridors.</li>
-        <li>Temporal associations with resonance windows (V9.7).</li>
+        <li><strong>Truth alignment:</strong> define event windows & lead/lag tolerances by hazard type.</li>
+        <li><strong>Scoring suite:</strong> Brier, log-loss, ROC-AUC/PR-AUC; reliability & sharpness diagnostics.</li>
+        <li><strong>Uncertainty partition:</strong> bootstrap resampling; input-perturbation ensembles; ablation studies.</li>
+        <li><strong>Regionalization:</strong> stratified skill by node class (rift, subduction, craton edge) & climate mode.</li>
+        <li><strong>Drift checks:</strong> rolling-window monitoring for calibration drift; auto-recalibration triggers.</li>
       </ol>
+      <!-- Circle Backlist (methods note):
+      - Add per-hazard tolerance table (earthquakes vs. uplift vs. melt surges).
+      - Implement isotonic regression / Platt scaling for probability calibration.
+      - Include DeMorgan-style tier-merging logic for overlapping windows.
+      -->
     </section>
 
     <section>
       <h2>🗺️ Figures</h2>
       <ul>
-        <li>Global map of cultural alignments to nodes/corridors.</li>
-        <li>Timeline tying myths/calendars to resonance peaks.</li>
+        <li>Reliability diagrams (global & per-node-class) + sharpness histograms.</li>
+        <li>Skill maps: Brier skill score by node, with uncertainty whiskers.</li>
+        <li>Attribution bars: contribution of inputs (V9.2–V9.6) to forecast skill.</li>
       </ul>
     </section>
 
     <section>
       <h2>✅ Outputs</h2>
       <ul>
-        <li>Reference atlas of cultural–geodetic resonance.</li>
+        <li><strong>Validation Report:</strong> HTML/PDF with metrics, figures, and narrative summary.</li>
+        <li><strong>Calibrated Windows:</strong> updated probabilities with confidence intervals.</li>
+        <li><strong>Audit Artifacts:</strong> seeds, config, hashes for reproducibility; CSV of node-level scores.</li>
       </ul>
     </section>
 
     <section>
       <h2>📚 References (to stage)</h2>
-      <ul><li>Archaeoastronomy references; site catalogs.</li></ul>
+      <ul>
+        <li>Probability forecast verification literature; GNSS/seismic validation protocols; GRACE/altimetry QA docs.</li>
+      </ul>
     </section>
 
     <nav class="version-nav" aria-label="Version navigation">
@@ -83,7 +104,7 @@
       </div>
     </nav>
 
-    <footer class="footer" align="center">
+    <footer class="footer">
       <p>&copy; 2025 ChiR Labs | Geodetic Codex</p>
     </footer>
   </main>
