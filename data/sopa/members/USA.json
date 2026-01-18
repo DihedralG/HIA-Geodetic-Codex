@@ -1,0 +1,31 @@
+{
+  "code": "USA",
+  "name": "United States",
+  "primary_sop": "SOPA",
+  "group": "Core Anchor States",
+  "tier": "A",
+  "confidence": { "low": 80, "high": 92 },
+  "role": "Core Operator",
+  "summary": "Anchor node for hemispheric flow. Provides corridor security capacity, financing depth, and operational standards for tier upgrades.",
+  "kpi_scores": {
+    "security_stability": 88,
+    "economic_throughput": 90,
+    "infrastructure_resilience": 83,
+    "governance_compliance": 76,
+    "environment_climate": 62,
+    "data_participation": 92,
+    "social_impact": 70
+  },
+  "assets": [
+    "Capital markets depth + underwriting capacity",
+    "Maritime and aerospace surveillance infrastructure",
+    "Port, rail, and interstate logistics density",
+    "R&D ecosystem + compute capacity for modeling"
+  ],
+  "pain_points": [
+    "Border pressure and trafficking incentives",
+    "Infrastructure aging and grid modernization needs",
+    "Polar + Gulf + Pacific simultaneous defense load"
+  ],
+  "notes": "Baseline only. In production, users can adjust weights (e.g., climate risk severity, trade assumptions, enforcement intensity)."
+}

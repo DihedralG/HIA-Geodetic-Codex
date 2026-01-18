@@ -1,0 +1,54 @@
+{
+  "module": "SOPA",
+  "version": "0.1.0",
+  "items": [
+    {
+      "id": "GRL",
+      "name": "Greenland",
+      "target_tier": "B → A (optional pathway)",
+      "focus": ["Arctic security", "dual-use infrastructure", "tourism + research"],
+      "summary": "Arctic gateway with NATO adjacency. Test tier upgrade gates for basing, SAR, and corridor stewardship without sovereignty erosion.",
+      "next_actions": [
+        "Define Kennedy Channel / Lincoln Sea corridor monitoring KPIs",
+        "Model dual-use investment package: SAR + ports + research",
+        "Draft voluntary compact options (observer → integrated)"
+      ]
+    },
+    {
+      "id": "PAN",
+      "name": "Panama",
+      "target_tier": "A/B hybrid",
+      "focus": ["Canal throughput", "logistics integrity", "financial compliance"],
+      "summary": "Global chokepoint. Test throughput KPIs, port efficiency, and corruption-leakage reduction with measurable gains.",
+      "next_actions": [
+        "Baseline canal throughput stress test scenarios",
+        "Anti-trafficking + port integrity KPI gate design",
+        "Investor routing map for logistics modernization"
+      ]
+    },
+    {
+      "id": "HTI",
+      "name": "Haiti",
+      "target_tier": "D → C",
+      "focus": ["Stabilization", "ports", "human security"],
+      "summary": "Stabilization pilot. Test how tier gating can reduce violence and increase lawful throughput without permanent dependency.",
+      "next_actions": [
+        "Define minimum security floor metrics",
+        "Port + energy microgrid pilot architecture",
+        "Quality-of-life indicators tied to staged funding"
+      ]
+    },
+    {
+      "id": "VEN",
+      "name": "Venezuela",
+      "target_tier": "C → B (candidate)",
+      "focus": ["Energy", "governance gates", "migration pressure"],
+      "summary": "Energy leverage + regional stabilization. Test compliance and reintegration gates that convert volatility into measurable corridor capacity.",
+      "next_actions": [
+        "Define transparent revenue-routing KPIs (leakage controls)",
+        "Migration pressure + labor normalization metrics",
+        "Energy sector modernization vs. sanctions scenario analysis"
+      ]
+    }
+  ]
+}

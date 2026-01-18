@@ -1,0 +1,36 @@
+{
+  "module": "SOPA",
+  "version": "0.1.0",
+  "items": [
+    {
+      "code": "USA",
+      "name": "United States",
+      "primary_sop": "SOPA",
+      "group": "Core Anchor States",
+      "tier": "A",
+      "confidence": { "low": 80, "high": 92 },
+      "role": "Core Operator",
+      "tags": ["anchor", "corridor leader"]
+    },
+    {
+      "code": "CAN",
+      "name": "Canada",
+      "primary_sop": "SOPA",
+      "group": "Core Anchor States",
+      "tier": "A",
+      "confidence": { "low": 75, "high": 90 },
+      "role": "Core Operator",
+      "tags": ["arctic", "corridor leader"]
+    },
+    {
+      "code": "GRL",
+      "name": "Greenland",
+      "primary_sop": "SOPA",
+      "group": "Arctic Rim & North Atlantic Gate",
+      "tier": "B",
+      "confidence": { "low": 55, "high": 78 },
+      "role": "Strategic Partner",
+      "tags": ["arctic", "gateway"]
+    }
+  ]
+}

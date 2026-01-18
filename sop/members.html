@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SOPA Members | PatternSeek</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <style>
+    /* Light local styles that won’t fight your main.css */
+    .toolbar { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin: 12px 0 18px; }
+    .toolbar input, .toolbar select { padding: 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: rgba(0,0,0,0.15); color: inherit; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+    .card { border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 14px; background: rgba(0,0,0,0.10); }
+    .card h3 { margin: 0 0 8px; }
+    .pill { display:inline-block; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); margin-right: 6px; font-size: 12px; }
+    .muted { opacity: 0.8; }
+    .kv { display:grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+    .kv div { font-size: 13px; opacity: 0.9; }
+    .linkrow { margin-top: 12px; }
+    .linkrow a { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📇 SOPA Members</h1>
+    <p>Baseline tiers + KPI bands. Click a card to view the full member profile.</p>
+  </header>
+
+  <nav>
+    <a href="../index.html"><span>Root</span></a>
+    <a href="../codex.html"><span>Codex</span></a>
+    <a href="./sop.html"><span>SOP</span></a>
+    <a href="./sopa.html"><span>SOPA</span></a>
+    <a href="./members.html"><span>Members</span></a>
+    <a href="./pilots.html"><span>Pilots</span></a>
+  </nav>
+
+  <main class="container">
+    <section class="toolbar">
+      <input id="q" type="search" placeholder="Search (country, territory, group, code)..." />
+      <select id="tier">
+        <option value="">All tiers</option>
+        <option value="A">Tier A</option>
+        <option value="B">Tier B</option>
+        <option value="C">Tier C</option>
+        <option value="D">Tier D</option>
+      </select>
+      <select id="group">
+        <option value="">All groups</option>
+      </select>
+      <select id="sop">
+        <option value="SOPA">SOPA (Americas)</option>
+      </select>
+      <span class="muted" id="count"></span>
+    </section>
+
+    <section>
+      <div class="grid" id="grid"></div>
+    </section>
+  </main>
+
+  <script src="../scripts/sopa-members.js"></script>
+</body>
+</html>

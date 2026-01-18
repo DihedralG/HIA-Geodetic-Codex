@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SOPA Member | PatternSeek</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <style>
+    .panel { border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 16px; background: rgba(0,0,0,0.10); margin: 12px 0; }
+    .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    .pill { display:inline-block; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); margin-right: 6px; font-size: 12px; }
+    .kpi { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    .kpi .k { font-size: 12px; opacity: 0.8; }
+    .kpi .v { font-size: 18px; }
+    .list { margin: 8px 0 0; padding-left: 18px; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="title">Member</h1>
+    <p id="subtitle">Loading…</p>
+  </header>
+
+  <nav>
+    <a href="../index.html"><span>Root</span></a>
+    <a href="./sopa.html"><span>SOPA</span></a>
+    <a href="./members.html"><span>Members</span></a>
+    <a href="./pilots.html"><span>Pilots</span></a>
+  </nav>
+
+  <main class="container">
+    <div class="panel">
+      <div class="row" id="pills"></div>
+      <p class="muted" id="summary"></p>
+    </div>
+
+    <div class="panel">
+      <h2>Baseline KPI scores</h2>
+      <div class="kpi" id="kpi"></div>
+      <p class="muted">
+        Baseline values are a first-pass model. In production, users can override inputs and run simulations with deltas.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h2>Top assets</h2>
+      <ul class="list" id="assets"></ul>
+    </div>
+
+    <div class="panel">
+      <h2>Top pain points</h2>
+      <ul class="list" id="pains"></ul>
+    </div>
+
+    <div class="panel">
+      <h2>Notes</h2>
+      <p class="muted" id="notes"></p>
+      <p class="muted">Member ID: <code id="id"></code></p>
+    </div>
+  </main>
+
+  <script src="../scripts/sopa-member.js"></script>
+</body>
+</html>
