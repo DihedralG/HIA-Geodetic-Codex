@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chir-labs.com/sop/sopa/schemas/members.index.schema.json",
+  "title": "SOPA Members Index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "module", "generated_utc", "members"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "module": { "type": "string", "const": "SOPA" },
+    "generated_utc": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T.*Z$"
+    },
+    "members": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "tier", "group", "path"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[A-Z]{3}$" },
+          "name": { "type": "string" },
+          "tier": { "type": "string", "enum": ["A", "B", "C", "D"] },
+          "group": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" }, "default": [] },
+          "path": { "type": "string", "pattern": "^members\\/[A-Z]{3}\\.json$" },
+          "confidence": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["low", "high"],
+            "properties": {
+              "low": { "type": "integer", "minimum": 0, "maximum": 100 },
+              "high": { "type": "integer", "minimum": 0, "maximum": 100 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

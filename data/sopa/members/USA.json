@@ -1,31 +1,35 @@
 {
-  "code": "USA",
-  "name": "United States",
-  "primary_sop": "SOPA",
-  "group": "Core Anchor States",
-  "tier": "A",
-  "confidence": { "low": 80, "high": 92 },
-  "role": "Core Operator",
-  "summary": "Anchor node for hemispheric flow. Provides corridor security capacity, financing depth, and operational standards for tier upgrades.",
-  "kpi_scores": {
-    "security_stability": 88,
-    "economic_throughput": 90,
-    "infrastructure_resilience": 83,
-    "governance_compliance": 76,
-    "environment_climate": 62,
-    "data_participation": 92,
-    "social_impact": 70
-  },
-  "assets": [
-    "Capital markets depth + underwriting capacity",
-    "Maritime and aerospace surveillance infrastructure",
-    "Port, rail, and interstate logistics density",
-    "R&D ecosystem + compute capacity for modeling"
-  ],
-  "pain_points": [
-    "Border pressure and trafficking incentives",
-    "Infrastructure aging and grid modernization needs",
-    "Polar + Gulf + Pacific simultaneous defense load"
-  ],
-  "notes": "Baseline only. In production, users can adjust weights (e.g., climate risk severity, trade assumptions, enforcement intensity)."
-}
+    "schema_version": "sop.datacard.v1",
+    "module": "SOPA",
+    "member_id": "USA",
+    "display_name": "United States",
+    "type": "sovereign_state",
+    "sovereignty": {
+      "status": "sovereign",
+      "administering_state": null,
+      "notes": ""
+    },
+    "tiering": {
+      "tier": "A",
+      "role_label": "Core Operator",
+      "confidence_band": [80, 92],
+      "method": "heuristic_v0"
+    },
+    "kpis": {
+      "security_stability": { "score": 88, "confidence": 0.75 },
+      "economic_throughput": { "score": 90, "confidence": 0.75 },
+      "infrastructure_resilience": { "score": 83, "confidence": 0.70 },
+      "governance_compliance": { "score": 76, "confidence": 0.65 },
+      "environment_climate": { "score": 62, "confidence": 0.55 },
+      "data_participation": { "score": 92, "confidence": 0.80 },
+      "social_impact": { "score": 70, "confidence": 0.60 }
+    },
+    "top_assets": [],
+    "top_pain_points": [],
+    "notes": {
+      "baseline_only": true,
+      "user_overrides_allowed": true,
+      "override_guidance": "Adjust scores and weights; downstream simulations propagate deltas.",
+      "tags": []
+    }
+  }

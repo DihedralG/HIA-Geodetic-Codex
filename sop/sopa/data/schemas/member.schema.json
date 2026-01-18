@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chir-labs.com/sop/sopa/schemas/member.schema.json",
+  "title": "SOPA Member Data Card",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "module", "member"],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "module": { "type": "string", "const": "SOPA" },
+
+    "member": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "tier",
+        "confidence",
+        "role",
+        "group",
+        "baseline_kpis",
+        "top_assets",
+        "top_pain_points",
+        "notes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$",
+          "description": "ISO-3166 alpha-3 preferred"
+        },
+        "name": { "type": "string" },
+
+        "tier": { "type": "string", "enum": ["A", "B", "C", "D"] },
+
+        "confidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["low", "high"],
+          "properties": {
+            "low": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "high": { "type": "integer", "minimum": 0, "maximum": 100 }
+          }
+        },
+
+        "role": { "type": "string" },
+        "group": { "type": "string" },
+
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": []
+        },
+
+        "baseline_kpis": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "security_stability",
+            "economic_throughput",
+            "infrastructure_resilience",
+            "governance_compliance",
+            "environment_climate",
+            "data_participation",
+            "social_impact"
+          ],
+          "properties": {
+            "security_stability": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "economic_throughput": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "infrastructure_resilience": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "governance_compliance": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "environment_climate": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "data_participation": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "social_impact": { "type": "integer", "minimum": 0, "maximum": 100 }
+          }
+        },
+
+        "top_assets": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+
+        "top_pain_points": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+
+        "notes": { "type": "string" },
+
+        "data_sources": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": []
+        },
+
+        "last_generated_utc": {
+          "type": "string",
+          "description": "ISO timestamp",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T.*Z$"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chir-labs.com/sop/sopa/schemas/weights.schema.json",
+  "title": "SOPA Weights Config",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "kpiDomains", "weightsByTier"],
+  "properties": {
+    "version": { "type": "string" },
+    "kpiDomains": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "weightsByTier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["A", "B", "C", "D"],
+      "properties": {
+        "A": { "$ref": "#/$defs/weights" },
+        "B": { "$ref": "#/$defs/weights" },
+        "C": { "$ref": "#/$defs/weights" },
+        "D": { "$ref": "#/$defs/weights" }
+      }
+    },
+    "tierConfidenceBands": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "A": { "$ref": "#/$defs/band" },
+        "B": { "$ref": "#/$defs/band" },
+        "C": { "$ref": "#/$defs/band" },
+        "D": { "$ref": "#/$defs/band" }
+      }
+    }
+  },
+  "$defs": {
+    "weights": {
+      "type": "object",
+      "additionalProperties": { "type": "number", "minimum": 0, "maximum": 1 }
+    },
+    "band": {
+      "type": "array",
+      "items": { "type": "integer", "minimum": 0, "maximum": 100 },
+      "minItems": 2,
+      "maxItems": 2
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://chir-labs.com/sop/sopa/schemas/pilots.index.schema.json",
+    "title": "SOPA Pilots Index",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["schema_version", "module", "generated_utc", "pilots"],
+    "properties": {
+      "schema_version": { "type": "string" },
+      "module": { "type": "string", "const": "SOPA" },
+      "generated_utc": {
+        "type": "string",
+        "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T.*Z$"
+      },
+      "pilots": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "name", "countries", "focus", "kpi_targets"],
+          "properties": {
+            "id": { "type": "string" },
+            "name": { "type": "string" },
+            "countries": {
+              "type": "array",
+              "items": { "type": "string", "pattern": "^[A-Z]{3}$" }
+            },
+            "focus": { "type": "string" },
+            "kpi_targets": {
+              "type": "object",
+              "additionalProperties": { "type": "integer", "minimum": 0, "maximum": 100 }
+            },
+            "notes": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
