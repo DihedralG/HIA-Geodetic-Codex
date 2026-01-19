@@ -1,0 +1,59 @@
+{
+  "schema_version": "sop.datacard.v1",
+  "module": "SOPA",
+  "member_id": "VEN",
+  "display_name": "Venezuela",
+  "type": "sovereign_state",
+  "sovereignty": {
+    "status": "sovereign",
+    "administering_state": null,
+    "notes": ""
+  },
+  "tiering": {
+    "tier": "B",
+    "role_label": "Integrated",
+    "confidence_band": [
+      55,
+      78
+    ],
+    "method": "heuristic_v0"
+  },
+  "kpis": {
+    "security_stability": {
+      "score": 62,
+      "confidence": 0.55
+    },
+    "economic_throughput": {
+      "score": 64,
+      "confidence": 0.55
+    },
+    "infrastructure_resilience": {
+      "score": 58,
+      "confidence": 0.55
+    },
+    "governance_compliance": {
+      "score": 56,
+      "confidence": 0.55
+    },
+    "environment_climate": {
+      "score": 58,
+      "confidence": 0.55
+    },
+    "data_participation": {
+      "score": 58,
+      "confidence": 0.55
+    },
+    "social_impact": {
+      "score": 56,
+      "confidence": 0.55
+    }
+  },
+  "top_assets": [],
+  "top_pain_points": [],
+  "notes": {
+    "baseline_only": true,
+    "user_overrides_allowed": true,
+    "override_guidance": "Edit scores/weights; simulations propagate deltas.",
+    "tags": []
+  }
+}

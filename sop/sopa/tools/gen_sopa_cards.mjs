@@ -70,5 +70,12 @@ for (const [id, name, type, tier, band] of members) {
   fs.writeFileSync(path.join(OUT_DIR, `${id}.json`), JSON.stringify(c, null, 2));
 }
 
-fs.writeFileSync(path.resolve("sop/sopa/data/members.sopa.v0.json"), JSON.stringify(bundle, null, 2));
+const outDir = path.resolve("data/sopa/members");
+fs.mkdirSync(outDir, { recursive: true });
+
+for (const member of members) {
+  const code = member.code; // e.g., "USA"
+  const outPath = path.join(outDir, `${code}.json`);
+  fs.writeFileSync(outPath, JSON.stringify(member, null, 2));
+}
 console.log(`Wrote ${bundle.members.length} cards + bundle`);

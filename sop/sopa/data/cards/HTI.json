@@ -1,0 +1,59 @@
+{
+  "schema_version": "sop.datacard.v1",
+  "module": "SOPA",
+  "member_id": "HTI",
+  "display_name": "Haiti",
+  "type": "sovereign_state",
+  "sovereignty": {
+    "status": "sovereign",
+    "administering_state": null,
+    "notes": ""
+  },
+  "tiering": {
+    "tier": "D",
+    "role_label": "Observer / Limited",
+    "confidence_band": [
+      40,
+      60
+    ],
+    "method": "heuristic_v0"
+  },
+  "kpis": {
+    "security_stability": {
+      "score": 38,
+      "confidence": 0.55
+    },
+    "economic_throughput": {
+      "score": 34,
+      "confidence": 0.55
+    },
+    "infrastructure_resilience": {
+      "score": 32,
+      "confidence": 0.55
+    },
+    "governance_compliance": {
+      "score": 30,
+      "confidence": 0.55
+    },
+    "environment_climate": {
+      "score": 44,
+      "confidence": 0.55
+    },
+    "data_participation": {
+      "score": 34,
+      "confidence": 0.55
+    },
+    "social_impact": {
+      "score": 32,
+      "confidence": 0.55
+    }
+  },
+  "top_assets": [],
+  "top_pain_points": [],
+  "notes": {
+    "baseline_only": true,
+    "user_overrides_allowed": true,
+    "override_guidance": "Edit scores/weights; simulations propagate deltas.",
+    "tags": []
+  }
+}

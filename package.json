@@ -1,0 +1,24 @@
+{
+  "name": "hia-geodetic-codex",
+  "version": "1.0.0",
+  "description": "Title: Harmonic Intelligence & The Geodetic Codex: Planetary-Scale Resonance, Ancient Alignments, and Quantum HPC Applications for Archaeological Discovery <br> Author: Glenn Andersen <br> Institution: The Dihedral Group | ChiR Labs<br> Location: Meadow House Observatory, Vermont<br>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DihedralG/HIA-Geodetic-Codex.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/DihedralG/HIA-Geodetic-Codex/issues"
+  },
+  "homepage": "https://github.com/DihedralG/HIA-Geodetic-Codex#readme",
+  "dependencies": {
+    "ajv": "^8.17.1"
+  }
+}
