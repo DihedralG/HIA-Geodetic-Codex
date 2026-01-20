@@ -15,7 +15,7 @@
   }
 
   async function loadIndex() {
-    const res = await fetch("./data/members.sopa.json");
+    const res = await fetch("https://dihedralg.github.io/HIA-Geodetic-Codex/data/members.sopa.json");
     if (!res.ok) throw new Error(`Failed to load members.sopa.json (${res.status})`);
     return await res.json();
   }

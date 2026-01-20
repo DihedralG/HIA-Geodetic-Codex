@@ -22,7 +22,7 @@
   }
 
   async function loadMember(code) {
-    const res = await fetch("./data/members.sopa.json");
+    const res = await fetch("https://dihedralg.github.io/HIA-Geodetic-Codex/data/members.sopa.json");
     if (!res.ok) throw new Error(`Missing member file for ${code} (${res.status})`);
     return await res.json();
   }
