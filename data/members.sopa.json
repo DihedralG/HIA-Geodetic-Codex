@@ -1,0 +1,21 @@
+{
+  "module": "SOPA",
+  "generatedFrom": "seed",
+  "members": [
+    { "id": "USA", "name": "United States", "tier": "A", "group": "Core Operators", "tags": ["anchor", "capital", "security"] },
+    { "id": "CAN", "name": "Canada", "tier": "A", "group": "Core Operators", "tags": ["arctic", "resources", "stability"] },
+    { "id": "MEX", "name": "Mexico", "tier": "B", "group": "Integrated Corridors", "tags": ["manufacturing", "border", "trade"] },
+
+    { "id": "BRA", "name": "Brazil", "tier": "B", "group": "Integrated Corridors", "tags": ["agri", "throughput", "south-atlantic"] },
+    { "id": "ARG", "name": "Argentina", "tier": "C", "group": "Functional Partners", "tags": ["agri", "energy", "southern-cone"] },
+    { "id": "CHL", "name": "Chile", "tier": "B", "group": "Integrated Corridors", "tags": ["ports", "minerals", "pacific"] },
+
+    { "id": "COL", "name": "Colombia", "tier": "B", "group": "Integrated Corridors", "tags": ["gateway", "security", "logistics"] },
+    { "id": "PAN", "name": "Panama", "tier": "A", "group": "Core Operators", "tags": ["canal", "global-trade", "actuarial"] },
+    { "id": "HTI", "name": "Haiti", "tier": "D", "group": "Observer / Limited", "tags": ["stabilization", "aid", "migration-pressure"] },
+
+    { "id": "VEN", "name": "Venezuela", "tier": "B", "group": "Integrated Corridors", "tags": ["oil", "energy", "transition"] },
+
+    { "id": "RUS", "name": "Russia", "tier": "D", "group": "Adjacent / Observer", "tags": ["alaska-adjacent", "arctic", "future-corridor"] }
+  ]
+}
