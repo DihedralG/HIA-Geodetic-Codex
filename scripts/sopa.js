@@ -11,7 +11,7 @@
   }
 
   async function loadPilots() {
-    const res = await fetch("./sop/sopa/data/schemas/pilots.index.schema.json");
+    const res = await fetch("/sop/sopa/data/schemas/pilots.index.schema.json");
     if (!res.ok) throw new Error(`Failed to load pilots.index.schema.json (${res.status})`);
     return await res.json();
   }

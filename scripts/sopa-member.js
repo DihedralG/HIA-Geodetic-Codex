@@ -22,7 +22,7 @@
   }
 
   async function loadMember(code) {
-    const res = await fetch(`./sop/sopa/data/cards/${encodeURIComponent(code)}.json`);
+    const res = await fetch(`/sop/sopa/data/cards/${encodeURIComponent(code)}.json`);
     if (!res.ok) throw new Error(`Missing member file for ${code} (${res.status})`);
     return await res.json();
   }
