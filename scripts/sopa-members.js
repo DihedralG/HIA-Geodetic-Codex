@@ -15,8 +15,8 @@
   }
 
   async function loadIndex() {
-    const res = await fetch("../data/sopa/members.index.json");
-    if (!res.ok) throw new Error(`Failed to load members.index.json (${res.status})`);
+    const res = await fetch("../sop/sopa/data/members.sopa.json");
+    if (!res.ok) throw new Error(`Failed to load members.sopa.json (${res.status})`);
     return await res.json();
   }
 

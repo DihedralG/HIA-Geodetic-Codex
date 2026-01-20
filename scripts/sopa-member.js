@@ -22,7 +22,7 @@
   }
 
   async function loadMember(code) {
-    const res = await fetch(`../data/sopa/members/${encodeURIComponent(code)}.json`);
+    const res = await fetch(`../sop/sopa/data/cards/${encodeURIComponent(code)}.json`);
     if (!res.ok) throw new Error(`Missing member file for ${code} (${res.status})`);
     return await res.json();
   }
@@ -83,6 +83,6 @@
   } catch (err) {
     console.error(err);
     title.textContent = `Member not found (${id || "—"})`;
-    subtitle.textContent = "Check the ID code or ensure the JSON file exists in /data/sopa/members/";
+    subtitle.textContent = "Check the ID code or ensure the JSON file exists in /sop/sopa/data/cards/";
   }
 })();
