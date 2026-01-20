@@ -15,7 +15,7 @@
   }
 
   async function loadIndex() {
-    const res = await fetch("sop/sopa/data/members.sopa.json");
+    const res = await fetch("./data/members.sopa.json");
     if (!res.ok) throw new Error(`Failed to load members.sopa.json (${res.status})`);
     return await res.json();
   }
@@ -51,7 +51,7 @@
     countEl.textContent = `${filtered.length} shown / ${items.length} total`;
 
     grid.innerHTML = filtered.map(it => {
-      const href = `member.html?id=${encodeURIComponent(it.code)}`;
+      const href = "./member.html?id=${encodeURIComponent(it.code)}";
       const conf = it.confidence ? `${it.confidence.low}-${it.confidence.high}` : "—";
       return `
         <div class="card">
