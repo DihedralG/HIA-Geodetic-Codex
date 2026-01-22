@@ -111,7 +111,16 @@ body {
   margin: 0 auto;
 }
 
+.intro {
+  margin-bottom: 2.5rem;
+}
 
+.intro .tagline {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+}
 
 /* Forms */
 form label {
