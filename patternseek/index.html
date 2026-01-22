@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SOP | PatternSeek</title>
+  <title>PatternSeek</title>
   <link rel="stylesheet" href="../styles/main.css" />
 </head>
 <body>
   <header>
-    <h1>🧭 PatternSeek </h1>
+    <h1>🧭 PatternSeek</h1>
     <p>Strategic Operating Plan framework — modular theaters, tiered participation, pattern + consequence literacy.</p>
   </header>
 
-  <!-- Reuse your existing top nav style; update links as needed -->
   <nav>
     <a href="../index.html"><span>Root</span></a>
     <a href="../chir-ai.html"><span>ChiR-AI</span></a>
@@ -21,33 +20,64 @@
     <a href="../psl.html"><span>PSL</span></a>
     <a href="../about.html"><span>About</span></a>
     <a href="../support.html"><span>Growth</span></a>
-
-    <!-- New -->
     <a href="../sop/sop.html"><span>SOP</span></a>
     <a href="../sop/sopa.html"><span>SOPA</span></a>
   </nav>
 
   <main class="container">
-
     <section class="intro">
-      <h2>Where optimization meets constraint — ensuring what scales remains true. </h2>
-      <p><img src="../assets/patternseek/ps-color.png" alt="PatternSeek Logo" width="75%" /></p>
-        <p>A suite of calibration layers and simulation constraints for intelligent systems to grow.
-        It operates above models and tools, and below outcomes — auditing coherence,
-        fidelity, and narrative stability as systems scale.
+      <h2>Where optimization meets constraint — ensuring what scales remains true.</h2>
+
+      <!-- CTA row -->
+      <p class="cta-row">
+        <a class="btn primary" href="../sop/sop.html">Read the SOP</a>
+        <a class="btn" href="../assets/patternseek/PatternSeek.pdf" target="_blank" rel="noopener">Open the PDF</a>
       </p>
-      <p><img src="../assets/patternseek/ps-flow.png" alt="PatternSeek Flow" width="75%" /></p>
+
+      <!-- What it is (triad) -->
+      <ul class="triad">
+        <li><strong>Constraint-first calibration</strong> — keep outputs coherent under load.</li>
+        <li><strong>Corridor-based simulation</strong> — test scenarios across modular theaters.</li>
+        <li><strong>Coherence + provenance</strong> — audit fidelity and narrative stability as systems scale.</li>
+      </ul>
+
+      <figure class="hero">
+        <img src="../assets/patternseek/ps-color.png" alt="PatternSeek mark" width="75%" />
+      </figure>
+
       <p>
-        Built on the Geodetic Codex, SOP simulations, and ChiR topology, PatternSeek
-        provides architecture-aware feedback loops without replacing existing stacks.
+        PatternSeek is a suite of calibration layers and simulation constraints for intelligent systems to grow.
+        It operates above models and tools, and below outcomes — auditing coherence, fidelity, and narrative stability
+        as systems scale.
       </p>
-      <p><a href="../assets/patternseek/PatternSeek.pdf" alt="PatternSeek Flow" width="75%" /></p>
-      <p class="tagline">
-        <strong>Precision Lift for Intelligent Systems</strong>
+
+      <figure class="hero">
+        <img src="../assets/patternseek/ps-flow.png" alt="PatternSeek architecture flow diagram" width="75%" />
+      </figure>
+
+      <p>
+        Built on the Geodetic Codex, SOP simulations, and ChiR topology, PatternSeek provides
+        architecture-aware feedback loops without replacing existing stacks.
+      </p>
+
+      <p class="tagline"><strong>Precision Lift for Intelligent Systems</strong></p>
+
+      <!-- Small footer-ish note inside the card -->
+      <p class="note">
+        Public preview — production versions add secure accounts, scenario overrides, and API-driven updates through ChiR-AI.
       </p>
     </section>
-
-   
   </main>
+
+  <!-- Optional: minimal local styles if main.css doesn’t have these.
+       If you prefer, move into main.css. -->
+  <style>
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0 16px; }
+    .btn { display: inline-block; padding: 10px 14px; border: 1px solid #bbb; border-radius: 10px; text-decoration: none; }
+    .btn.primary { border-color: #333; font-weight: 700; }
+    .triad { margin: 10px 0 18px; padding-left: 18px; }
+    .hero { margin: 14px 0; }
+    .note { font-size: 0.95em; opacity: 0.8; margin-top: 14px; }
+  </style>
 </body>
 </html>
