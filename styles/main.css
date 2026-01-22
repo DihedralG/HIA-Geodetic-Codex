@@ -250,3 +250,77 @@ footer {
 .legend--full ul { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 0.5rem 1rem; padding-left: 1rem; }
 .badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.2rem 0.5rem; margin-right: 0.4rem; border-radius: 999px; border: 1px solid var(--muted); background: var(--surface-0, #fff); }
 .eq { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; padding: 0.75rem 1rem; background: var(--surface-1, #fafafa); border-radius: 10px; overflow-x: auto; }
+
+
+/* ==========================
+   PatternSeek Landing (scoped)
+   ========================== */
+
+   .ps-hero h2 {
+    margin-top: 0;
+    line-height: 1.2;
+  }
+  
+  .ps-cta-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 14px 0 18px;
+  }
+  
+  .ps-btn {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: 1px solid #c9d4e2;
+    background: #ffffff;
+    color: #003366;
+    font-weight: 700;
+    transition: transform 0.06s ease, background-color 0.2s ease, outline 0.2s ease;
+  }
+  
+  .ps-btn:hover {
+    background: #f0f8ff;
+    outline: 2px solid #3399ff;
+    outline-offset: 3px;
+  }
+  
+  .ps-btn:active { transform: translateY(1px); }
+  
+  .ps-btn--primary {
+    background: #003366;
+    border-color: #003366;
+    color: #ffffff;
+  }
+  
+  .ps-btn--primary:hover {
+    background: #002f66;
+  }
+  
+  .ps-triad {
+    margin: 10px auto 18px;
+    padding-left: 18px;
+    max-width: 760px;
+  }
+  
+  .ps-triad li { margin: 0.35rem 0; }
+  
+  .ps-figure {
+    margin: 16px 0;
+  }
+  
+  .ps-figure img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .ps-note {
+    font-size: 0.95em;
+    opacity: 0.85;
+    margin-top: 14px;
+    text-align: center;
+  }
