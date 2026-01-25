@@ -1,289 +1,127 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>PatternSeek — SOP + Calibration</title>
-  <style>
-    :root{
-      --navy:#0b2e4e;
-      --ink:#0f172a;
-      --muted:#475569;
-      --bg:#f5f7fb;
-      --card:#ffffff;
-      --line:#e5e7eb;
-      --chip:#eef2ff;
-      --link:#2563eb;
-      --shadow: 0 10px 30px rgba(2, 6, 23, .08);
-      --radius:16px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--ink);
-      background:var(--bg);
-    }
-    header{
-      background:var(--navy);
-      color:#fff;
-      padding:22px 16px 14px;
-    }
-    .wrap{max-width:1060px;margin:0 auto;padding:0 16px}
-    .brand{
-      display:flex;align-items:center;gap:10px;
-      font-weight:800;font-size:34px;letter-spacing:.2px;
-      margin:0;
-    }
-    .subtitle{
-      margin:10px 0 0;
-      font-size:18px;
-      opacity:.9;
-      font-weight:600;
-    }
-    nav{
-      background:#fff;
-      border-bottom:1px solid var(--line);
-    }
-    nav .wrap{
-      display:flex;
-      gap:18px;
-      align-items:center;
-      padding:10px 16px;
-      flex-wrap:wrap;
-    }
-    nav a{
-      color:#6b21a8;
-      text-decoration:underline;
-      font-size:14px;
-      font-weight:600;
-    }
-
-    main{padding:26px 0 40px}
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:22px;
-    }
-    .hero{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:18px;
-      align-items:center;
-    }
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-    }
-    h2{margin:0 0 10px;font-size:20px}
-    p{margin:0 0 10px;color:var(--muted);line-height:1.5}
-    .chips{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 6px}
-    .chip{
-      display:inline-flex;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:#fff;
-      font-size:13px;
-      font-weight:700;
-      color:#0f172a;
-    }
-    .chip.primary{background:var(--chip)}
-    .bullets{
-      margin:10px 0 0;
-      padding-left:18px;
-      color:var(--ink);
-    }
-    .bullets li{margin:6px 0;color:var(--ink)}
-    .bullets span{color:var(--muted);font-weight:600}
-
-    .media{
-      border:1px solid var(--line);
-      border-radius:14px;
-      overflow:hidden;
-      background:#fff;
-    }
-    .media img{
-      width:100%;
-      display:block;
-      height:auto;
-    }
-    .caption{
-      padding:10px 12px;
-      font-size:12.5px;
-      color:var(--muted);
-      border-top:1px solid var(--line);
-    }
-
-    .section{margin-top:18px}
-    .grid2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:16px;
-      margin-top:14px;
-    }
-    @media (max-width: 900px){
-      .grid2{grid-template-columns:1fr}
-    }
-    .mini{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:14px;
-    }
-    .mini h3{
-      margin:0 0 8px;
-      font-size:14px;
-      letter-spacing:.2px;
-      text-transform:uppercase;
-      color:#0f172a;
-    }
-    .mini p{font-size:14px}
-    .mini a{color:var(--link);font-weight:800;text-decoration:none}
-    .mini a:hover{text-decoration:underline}
-
-    .kicker{
-      margin-top:14px;
-      padding-top:14px;
-      border-top:1px solid var(--line);
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .kicker .left{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-    .btn{
-      display:inline-flex;
-      gap:8px;
-      align-items:center;
-      border-radius:999px;
-      padding:10px 14px;
-      font-size:13px;
-      font-weight:800;
-      border:1px solid var(--line);
-      background:#fff;
-      color:#0f172a;
-      text-decoration:none;
-    }
-    .btn.primary{
-      border-color:#c7d2fe;
-      background:#eef2ff;
-      color:#1e3a8a;
-    }
-    .btn small{opacity:.7;font-weight:900}
-    footer{
-      margin-top:22px;
-      color:#64748b;
-      font-size:12.5px;
-      text-align:center;
-    }
-    code{background:#0b2e4e10;padding:2px 6px;border-radius:6px}
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PatternSeek</title>
+  <link rel="stylesheet" href="../styles/main.css" />
 </head>
 
 <body>
   <header>
-    <div class="wrap">
-      <h1 class="brand">🧭 PatternSeek</h1>
-      <div class="subtitle">Strategic Operating Plan framework — modular theaters, tiered participation, pattern + consequence literacy.</div>
-    </div>
+    <h1>🧭 PatternSeek</h1>
+    <p>Strategic Operating Plan framework — modular theaters, tiered participation, pattern + consequence literacy.</p>
   </header>
 
   <nav>
-    <div class="wrap">
-      <a href="../index.html">Root</a>
-      <a href="../chir-ai/index.html">ChiR-AI</a>
-      <a href="../chir-ipp/index.html">ChiR-IPP</a>
-      <a href="../codex/index.html">Codex</a>
-      <a href="../psl/index.html">PSL</a>
-      <a href="../about.html">About</a>
-      <a href="../growth.html">Growth</a>
-      <a href="./index.html">SOP</a>
-      <a href="./sopa.html">SOPA</a>
-    </div>
+    <a href="../index.html"><span>Root</span></a>
+    <a href="../chir-ai.html"><span>ChiR-AI</span></a>
+    <a href="../chiripp.html"><span>ChiR-IPP</span></a>
+    <a href="../codex.html"><span>Codex</span></a>
+    <a href="../psl.html"><span>PSL</span></a>
+    <a href="../about.html"><span>About</span></a>
+    <a href="../support.html"><span>Growth</span></a>
+    <a href="../sop/sop.html"><span>SOP</span></a>
+    <a href="../sop/sopa.html"><span>SOPA</span></a>
   </nav>
 
-  <main>
-    <div class="wrap">
-      <div class="card">
-        <div class="hero">
-          <div>
-            <h2>Where optimization meets constraint — ensuring what scales remains true.</h2>
-            <p>
-              PatternSeek is a constraint-first calibration and simulation layer that helps teams compare outcomes
-              under consistent controls (geodesy, climate, infrastructure, latency, risk), and produce audit-ready
-              outputs with provenance.
+  <main class="container">
+    <section class="intro ps-hero">
+      <h2>Where optimization meets constraint — ensuring what scales remains true.</h2>
+
+      <p class="ps-cta-row">
+        <a class="ps-btn" href="../assets/patternseek/ps-sop-lr.pdf" target="_blank" rel="noopener">Systems (UX-UI Flow)</a>
+        <a class="ps-btn" href="../assets/patternseek/PatternSeek.pdf" target="_blank" rel="noopener">PatternSeek Spec</a>
+        <a class="ps-btn" href="../assets/patternseek/ChiRv4-visuals.pdf" target="_blank" rel="noopener">Cross-Domain</a>
+        <a class="ps-btn" href="../sop/sop.html">SOP Frame</a>
+        <a class="ps-btn" href="../assets/patternseek/ps-sopa-drama.pdf" target="_blank" rel="noopener">SOPA Brief</a>
+      </p>
+
+      <ul class="ps-triad">
+        <li><strong>Constraint-first calibration</strong> — keep outputs coherent under load.</li>
+        <li><strong>Corridor-based simulation</strong> — test scenarios across modular theaters.</li>
+        <li><strong>Coherence + provenance</strong> — audit fidelity and narrative stability as systems scale.</li>
+      </ul>
+
+      <figure class="ps-figure">
+        <img src="../assets/patternseek/ps-color.png" alt="PatternSeek mark" width="75%" />
+      </figure>
+
+      <p>
+        A suite of calibration layers and simulation constraints for intelligent systems to grow.
+        It operates above models and tools, and below outcomes — auditing coherence,
+        fidelity, and narrative stability as systems scale.
+      </p>
+
+      <figure class="ps-figure">
+        <img src="../assets/patternseek/ps-flow.png" alt="PatternSeek architecture flow diagram" width="75%" />
+      </figure>
+
+      <p>
+        Built on the Geodetic Codex, SOP simulations, and ChiR topology, PatternSeek
+        provides architecture-aware feedback loops without replacing existing stacks.
+      </p>
+
+      <p class="tagline"><strong>Precision Lift for Intelligent Systems</strong></p>
+
+      <p class="ps-note">
+        Public preview — production versions add secure accounts, scenario overrides, and API-driven updates through ChiR-AI.
+      </p>
+
+      <!-- Public Alpha / UX testing -->
+      <section style="margin-top: 2rem;">
+        <h2>Public Alpha Release Coming Soon...</h2>
+        <p>
+          <a href="./ps-sop-lr.pdf"><span>Current UX-UI Framework Flow can be seen here.</span></a>
+        </p>
+        <p style="margin-top: .5rem;">
+          If you want to support via pilot UX testing, email
+          <a href="mailto:info@dihedralgroup.com"><strong>info@dihedralgroup.com</strong></a>.
+        </p>
+      </section>
+
+      <!-- Medium image (calibration-bias) -->
+      <figure class="ps-figure" style="margin-top: 1.5rem;">
+        <img src="../assets/patternseek/calibration-bias.png" alt="Calibration Bias (CDI + SRA) dashboard concept" width="75%" />
+        <figcaption class="ps-note" style="text-align:center;">
+          Concept: <strong>Calibration Bias (CDI + SRA)</strong> — cross-model delta, semantic variance, and provenance ledger (ChiR-IPP).
+        </figcaption>
+      </figure>
+
+      <!-- Development log -->
+      <section style="margin-top: 2rem;">
+        <h2>Development log</h2>
+        <p>
+          Two recent build items from the federated calibration workstream. These pages are intentionally lightweight for now —
+          GitHub history acts as the public change record until a CMS is added.
+        </p>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem;">
+          <div style="border:1px solid rgba(0,0,0,.08); border-radius:12px; padding:1rem; background:#fff;">
+            <h3 style="margin-top:0;">New: Codified Definitions Index (CDI)</h3>
+            <p style="margin-bottom:.75rem;">
+              A live taxonomy for naming changes and definitional stability across versions and models —
+              with diffs, effective dates, linked assets, and adoption/deprecation status.
             </p>
-
-            <div class="chips">
-              <span class="chip primary">Systems (UX–UI Flow)</span>
-              <span class="chip">PatternSeek Spec</span>
-              <span class="chip">Cross-Domain</span>
-              <span class="chip">SOP Frame</span>
-              <span class="chip">SOPA Brief</span>
-            </div>
-
-            <ul class="bullets">
-              <li><b>Constraint-first calibration</b> <span>— keep outputs coherent under load.</span></li>
-              <li><b>Corridor-based simulation</b> <span>— test scenarios across modular theaters.</span></li>
-              <li><b>Coherence + provenance</b> <span>— audit fidelity and narrative stability as systems scale.</span></li>
-            </ul>
-
-            <div class="kicker">
-              <div class="left">
-                <a class="btn primary" href="./ps-sop-lr.pdf">Current UX–UI Framework (PDF)</a>
-                <a class="btn" href="mailto:info@dihedralgroup.com">Join pilot UX testing <small>→</small></a>
-              </div>
-              <div style="color:#64748b;font-size:12.5px;">
-                Public alpha release coming soon.
-              </div>
-            </div>
+            <p style="margin:0;">
+              <a href="./cdi.html"><strong>Open CDI page →</strong></a>
+            </p>
           </div>
 
-          <!-- Medium hero image: swap this src to whatever image you want on the index hero -->
-          <div class="media">
-            <img src="../assets/patternseek/calibration-bias.png" alt="PatternSeek calibration dashboard concept" />
-            <div class="caption">
-              Concept: CDI + SRA calibration dashboard — cross-model delta + provenance ledger (ChiR-IPP).
-            </div>
+          <div style="border:1px solid rgba(0,0,0,.08); border-radius:12px; padding:1rem; background:#fff;">
+            <h3 style="margin-top:0;">New: Calibration Bias (SRA) example</h3>
+            <p style="margin-bottom:.75rem;">
+              First public demonstration of a cross-model self-validation bias metric, with provenance and audit trail —
+              separating tone-driven reinforcement from evidence-driven agreement.
+            </p>
+            <p style="margin:0;">
+              <a href="./capability-bias.html"><strong>Open calibration bias page →</strong></a>
+            </p>
           </div>
         </div>
+      </section>
 
-        <div class="section">
-          <h2>Development log</h2>
-          <p>
-            Two recent build items from the federated calibration workstream. These pages are intentionally lightweight
-            for now — GitHub history acts as the public change record until a CMS is added.
-          </p>
-
-          <div class="grid2">
-            <div class="mini">
-              <h3>New: Codified Definitions Index (CDI)</h3>
-              <p>
-                A live taxonomy for naming changes and definitional stability across versions and models — including
-                diffs, effective dates, linked assets, and adoption/deprecation status.
-              </p>
-              <p><a href="./cdi.html">Open CDI page →</a></p>
-            </div>
-
-            <div class="mini">
-              <h3>New: Calibration Bias (SRA) example</h3>
-              <p>
-                First public demonstration of a cross-model self-validation bias metric, with provenance and audit trail.
-                Designed to separate tone-driven reinforcement from evidence-driven agreement.
-              </p>
-              <p><a href="./capability-bias.html">Open capability + bias page →</a></p>
-            </div>
-          </div>
-        </div>
-
-        <footer>
-          Built as an open, audit-friendly prototype. Provenance-first: <code>assets → diffs → calibration runs → outputs</code>.
-        </footer>
-      </div>
-    </div>
+    </section>
   </main>
 </body>
 </html>
