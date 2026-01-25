@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PatternSeek — Capability + Bias (SRA)</title>
+  <style>
+    :root{
+      --navy:#0b2e4e; --ink:#0f172a; --muted:#475569; --bg:#f5f7fb; --card:#fff;
+      --line:#e5e7eb; --link:#2563eb; --chip:#eef2ff; --shadow:0 10px 30px rgba(2,6,23,.08); --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;color:var(--ink);background:var(--bg)}
+    header{background:var(--navy);color:#fff;padding:22px 16px 14px}
+    .wrap{max-width:1060px;margin:0 auto;padding:0 16px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:30px;margin:0}
+    .subtitle{margin:10px 0 0;font-size:16px;opacity:.9;font-weight:600}
+    nav{background:#fff;border-bottom:1px solid var(--line)}
+    nav .wrap{display:flex;gap:18px;align-items:center;padding:10px 16px;flex-wrap:wrap}
+    nav a{color:#6b21a8;text-decoration:underline;font-size:14px;font-weight:600}
+    main{padding:26px 0 40px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:start}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}}
+    h2{margin:0 0 10px;font-size:20px}
+    p{margin:0 0 12px;color:var(--muted);line-height:1.6}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 6px}
+    .chip{display:inline-flex;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:13px;font-weight:800;color:#0f172a}
+    .chip.primary{background:var(--chip)}
+    .media{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+    .media img{width:100%;display:block;height:auto}
+    .caption{padding:10px 12px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line)}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    .box{border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px}
+    .box h3{margin:0 0 8px;font-size:14px;letter-spacing:.2px;text-transform:uppercase}
+    ul{margin:8px 0 0;padding-left:18px;color:var(--ink)}
+    li{margin:6px 0}
+    a{color:var(--link);font-weight:800;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .kicker{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+    .btn{display:inline-flex;gap:8px;align-items:center;border-radius:999px;padding:10px 14px;font-size:13px;font-weight:800;border:1px solid var(--line);background:#fff;color:#0f172a;text-decoration:none}
+    .btn.primary{border-color:#c7d2fe;background:#eef2ff;color:#1e3a8a}
+    code{background:#0b2e4e10;padding:2px 6px;border-radius:6px}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap">
+    <h1 class="brand">🧪 PatternSeek — Capability + Bias</h1>
+    <div class="subtitle">First open example of a federated calibration metric: CDI changes + cross-model delta + SRA bias gauge + provenance chain.</div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="./index.html">SOP</a>
+    <a href="./cdi.html">CDI</a>
+    <a href="./capability-bias.html">Capability + Bias</a>
+    <a href="./ps-sop-lr.pdf">UX–UI PDF</a>
+    <a href="mailto:info@dihedralgroup.com">Pilot / UX testing</a>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <div class="card">
+      <div class="hero">
+        <div>
+          <h2>Federated calibration, made visible</h2>
+          <p>
+            This page is a live example of how PatternSeek treats language as a measurable control surface:
+            naming variants are tested across multiple models, coherence shifts are quantified, and the full exchange is
+            recorded as an auditable provenance chain (ChiR-IPP).
+          </p>
+
+          <div class="chips">
+            <span class="chip primary">CDI: definitions & naming</span>
+            <span class="chip">Cross-model delta</span>
+            <span class="chip">SRA: reinforcement bias</span>
+            <span class="chip">Provenance ledger</span>
+          </div>
+
+          <p>
+            The key idea is simple: **LLMs can participate in peer-like review when given shared external controls**,
+            generating an <b>immutable, provenance-linked calibration ledger</b> across federated models — without requiring
+            centralized consensus.
+          </p>
+
+          <div class="grid">
+            <div class="box">
+              <h3>What it detects</h3>
+              <ul>
+                <li><b>Semantic drag:</b> when loaded terms produce inconsistent model behavior.</li>
+                <li><b>Tone-driven inflation:</b> when positive framing yields “agreement” without evidence.</li>
+                <li><b>Stability under change:</b> whether a renaming preserves the underlying math rigor.</li>
+              </ul>
+            </div>
+
+            <div class="box">
+              <h3>Why it matters</h3>
+              <ul>
+                <li><b>Peer review readiness:</b> reviewers can trace metric evolution and adoption status.</li>
+                <li><b>Cross-platform interoperability:</b> calibrated definitions travel better between stacks.</li>
+                <li><b>Auditability:</b> disputes become diffs + datasets + run IDs, not arguments.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="kicker">
+            <a class="btn primary" href="./cdi.html">View CDI page →</a>
+            <a class="btn" href="./index.html">Back to SOP →</a>
+          </div>
+        </div>
+
+        <div class="media">
+          <img src="../assets/patternseek/calibration-bias.png" alt="Calibration bias dashboard concept" />
+          <div class="caption">
+            Concept mock: Panels A–D (CDI ledger, cross-model delta, SRA gauge, ChiR-IPP provenance chain).
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;line-height:1.6;">
+        <b>Implementation note:</b> this “ledger” can begin as Git + signed hashes + run manifests (JSON),
+        then evolve into a dedicated store. The requirement is not the technology label — it’s the guarantee:
+        <code>traceable inputs → repeatable runs → verifiable outputs</code>.
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

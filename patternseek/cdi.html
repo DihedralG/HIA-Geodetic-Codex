@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PatternSeek — CDI</title>
+  <style>
+    :root{
+      --navy:#0b2e4e; --ink:#0f172a; --muted:#475569; --bg:#f5f7fb; --card:#fff;
+      --line:#e5e7eb; --link:#2563eb; --shadow:0 10px 30px rgba(2,6,23,.08); --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;color:var(--ink);background:var(--bg)}
+    header{background:var(--navy);color:#fff;padding:22px 16px 14px}
+    .wrap{max-width:1060px;margin:0 auto;padding:0 16px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:30px;margin:0}
+    .subtitle{margin:10px 0 0;font-size:16px;opacity:.9;font-weight:600}
+    nav{background:#fff;border-bottom:1px solid var(--line)}
+    nav .wrap{display:flex;gap:18px;align-items:center;padding:10px 16px;flex-wrap:wrap}
+    nav a{color:#6b21a8;text-decoration:underline;font-size:14px;font-weight:600}
+    main{padding:26px 0 40px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    h2{margin:0 0 10px;font-size:20px}
+    p{margin:0 0 12px;color:var(--muted);line-height:1.6}
+    .media{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;margin:14px 0}
+    .media img{width:100%;display:block;height:auto}
+    .caption{padding:10px 12px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line)}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    .box{border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px}
+    .box h3{margin:0 0 8px;font-size:14px;letter-spacing:.2px;text-transform:uppercase}
+    ul{margin:8px 0 0;padding-left:18px;color:var(--ink)}
+    li{margin:6px 0}
+    a{color:var(--link);font-weight:800;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .kicker{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+    .btn{display:inline-flex;gap:8px;align-items:center;border-radius:999px;padding:10px 14px;font-size:13px;font-weight:800;border:1px solid var(--line);background:#fff;color:#0f172a;text-decoration:none}
+    .btn.primary{border-color:#c7d2fe;background:#eef2ff;color:#1e3a8a}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap">
+    <h1 class="brand">🧾 PatternSeek — CDI</h1>
+    <div class="subtitle">Codified Definitions Index: naming stability, diffs, adoption status, and provenance links.</div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="./index.html">SOP</a>
+    <a href="./cdi.html">CDI</a>
+    <a href="./capability-bias.html">Capability + Bias</a>
+    <a href="./ps-sop-lr.pdf">UX–UI PDF</a>
+    <a href="mailto:info@dihedralgroup.com">Pilot / UX testing</a>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <div class="card">
+      <h2>What CDI is</h2>
+      <p>
+        CDI is a public, versioned index of definitions and naming variants used across the Geodetic Codex and PatternSeek.
+        It exists to keep language precise under scaling pressure: model drift, stakeholder interpretations, publication edits,
+        and cross-platform differences.
+      </p>
+      <p>
+        The goal is simple: **separate the math from the naming**, and make both auditable. CDI tracks what changed, when it changed,
+        why it changed, and what assets were affected — with a provenance chain that can be reviewed externally.
+      </p>
+
+      <div class="media">
+        <img src="./cdi.png" alt="CDI ledger concept" />
+        <div class="caption">
+          CDI concept mock: term changes, status (proposed/adopted/deprecated), effective dates, linked assets, and diffs.
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="box">
+          <h3>Core fields</h3>
+          <ul>
+            <li><b>CDI ID</b> (stable identifier)</li>
+            <li><b>Term</b> + <b>variant mapping</b> (e.g., legacy → neutral)</li>
+            <li><b>Status</b>: Proposed / Adopted / Deprecated</li>
+            <li><b>Reason</b>: why the change happened (semantic priors, ambiguity, scientific clarity)</li>
+            <li><b>Effective date</b> + version tags</li>
+            <li><b>Diff</b>: exact text changes (git-like red/green)</li>
+            <li><b>Linked assets</b>: papers, notebooks, KML/KMZ, figures</li>
+          </ul>
+        </div>
+
+        <div class="box">
+          <h3>Why this matters</h3>
+          <ul>
+            <li><b>Cross-model coherence:</b> reduces “semantic drag” when different LLMs parse loaded terms differently.</li>
+            <li><b>Peer review readiness:</b> reviewers can trace claims to definitions, not vibes.</li>
+            <li><b>Audit trail:</b> disputes become diffs + datasets + provenance — not arguments.</li>
+            <li><b>Interoperability:</b> supports deployment across multiple AI platforms and GIS stacks.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="kicker">
+        <a class="btn primary" href="./capability-bias.html">Next: the SRA bias example →</a>
+        <a class="btn" href="./index.html">Back to SOP →</a>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>
