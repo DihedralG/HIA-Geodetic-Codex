@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PatternSeek — Verified Metrics</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+
+<body>
+
+<header class="ps-header">
+  <h1>PatternSeek <span class="verified">Metrics</span></h1>
+  <p class="subtitle">
+    Calibration is measurement, not enforcement.
+    These metrics describe how meaning behaves under load — across models, time, and uncertainty.
+  </p>
+</header>
+
+<nav>
+  <a href="../index.html">Root</a>
+  <a href="../chir-ai.html">ChiR-AI</a>
+  <a href="../chiripp.html">ChiR-IPP</a>
+  <a href="../codex.html">Codex</a>
+  <a href="./verified-ps.html">Verified</a>
+  <a href="../sop/sop.html">SOP</a>
+</nav>
+
+<main class="container">
+
+  <section class="ps-section">
+    <h2>What these metrics are</h2>
+    <p class="ps-intro">
+      PatternSeek measures how semantic meaning shifts across different AI systems and contexts.
+      Nothing here is a “truth score.” These are signals for stability, drift, and interpretability.
+    </p>
+
+    <ul class="ps-triad">
+      <li><strong>Transparent</strong> — measurable, reviewable, replayable.</li>
+      <li><strong>Model-agnostic</strong> — no single system is treated as the baseline.</li>
+      <li><strong>Proportional</strong> — nuance is scaled, not collapsed into binary labels.</li>
+    </ul>
+  </section>
+
+  <section class="ps-section">
+    <h2>The 7 Core Measures</h2>
+
+    <div class="ps-grid">
+      <article class="ps-card">
+        <h3>1) Cross-Model Delta (CMD)</h3>
+        <p>
+          Measures semantic distance between model interpretations of the same input.
+          Highlights where outputs diverge meaningfully (not stylistically).
+        </p>
+        <p class="ps-note"><strong>Used for:</strong> detecting divergence clusters + harmonizing scale.</p>
+      </article>
+
+      <article class="ps-card">
+        <h3>2) Semantic Resolution Alignment (SRA)</h3>
+        <p>
+          Measures whether models are operating at comparable “semantic zoom.”
+          Prevents false disagreement caused by different levels of granularity.
+        </p>
+        <p class="ps-note"><strong>Used for:</strong> aligning coarse ↔ fine interpretations.</p>
+      </article>
+
+      <article class="ps-card">
+        <h3>3) Uncertainty Band Integrity (UBI)</h3>
+        <p>
+          Measures whether uncertainty is expressed as bounded, interpretable ranges
+          rather than collapsing into overconfidence or vague hedging.
+        </p>
+        <p class="ps-note"><strong>Used for:</strong> preserving honest uncertainty without weakening clarity.</p>
+      </article>
+
+      <article class="ps-card">
+        <h3>4) Boundary Stability (BST)</h3>
+        <p>
+          Measures whether conceptual boundaries remain consistent across prompts, time, and rephrasing.
+          Captures “semantic tearing” vs stable contours.
+        </p>
+        <p class="ps-note"><strong>Used for:</strong> detecting meaning drift and unstable definitions.</p>
+      </article>
+
+      <article class="ps-card">
+        <h3>5) Provenance Trace Strength (PTS)</h3>
+        <p>
+          Measures whether an output’s claims can be traced to explicit sources, CDI entries,
+          or registered ChiR-IPP artifacts — without laundering ambiguity as certainty.
+        </p>
+        <p class="ps-note"><strong>Used for:</strong> durable audit trails and reproducibility.</p>
+      </article>
+
+      <article class="ps-card">
+        <h3>6) Drift Over Time (DOT)</h3>
+        <p>
+          Measures definitional and interpretive change across time windows:
+          versions, updates, retraining cycles, and public web latency.
+        </p>
+        <p class="ps-note"><strong>Used for:</strong> monitoring continuity of meaning across time.</p>
+      </article>
+
+      <article class="ps-card">
+        <h3>7) Coherence Under Constraint (CUC)</h3>
+        <p>
+          Measures how meaning behaves under pressure:
+          shortened context, noisy inputs, conflicting prompts, or compressed output limits.
+        </p>
+        <p class="ps-note"><strong>Used for:</strong> stability testing and scenario simulation readiness.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="ps-section">
+    <h2>The 4 Extended Measures</h2>
+    <p class="ps-intro">
+      These measures expand the calibration stack beyond immediate comparison.
+      They focus on system integrity, contribution value, and operational readiness.
+    </p>
+
+    <div class="ps-grid">
+      <article class="ps-card">
+        <h3>8) Latency + Freshness Differential (LFD)</h3>
+        <p>
+          Measures how quickly models converge on newly published CDI entries and verified assets,
+          and how long stale interpretations persist in the wild.
+        </p>
+        <p class="ps-note"><strong>Used for:</strong> training latency tracking + rollout planning.</p>
+      </article>
+
+      <article class="ps-card">
+        <h3>9) Contribution Stability (CST)</h3>
+        <p>
+          Measures whether novel contributions remain stable across re-tests and rephrasings,
+          or whether they “evaporate” under minor perturbations.
+        </p>
+        <p class="ps-note"><strong>Used for:</strong> rewarding durable insight (not popularity).</p>
+      </article>
+
+      <article class="ps-card">
+        <h3>10) Evidence Weighting Index (EWI)</h3>
+        <p>
+          Measures how strongly outputs are anchored to defensible structure:
+          math, logic, empirical constraints, and domain-grounded references
+          (e.g., geodesy / physical systems when applicable).
+        </p>
+        <p class="ps-note"><strong>Used for:</strong> distinguishing “tone alignment” from real grounding.</p>
+      </article>
+
+      <article class="ps-card">
+        <h3>11) Scenario Robustness Score (SRS)</h3>
+        <p>
+          Measures performance across SOP theater simulations:
+          does meaning remain coherent when the environment changes?
+          (stakeholders, objectives, constraints, second-order effects)
+        </p>
+        <p class="ps-note"><strong>Used for:</strong> real-world deployability and planning integrity.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="ps-section">
+    <h2>How metrics connect to CDI</h2>
+    <p class="ps-intro">
+      CDI is the naming + definition layer.
+      Metrics quantify how those definitions behave across models and time.
+    </p>
+
+    <ul class="ps-triad">
+      <li><strong>CDI defines</strong> the term, scope, and version lineage.</li>
+      <li><strong>Metrics measure</strong> drift, variance, and stability relative to that definition.</li>
+      <li><strong>ChiR-IPP records</strong> provenance: who, when, what changed, and why.</li>
+    </ul>
+
+    <p class="ps-note">
+      PatternSeek Verified does not “rank” models.
+      It makes semantic behavior visible enough to compare responsibly.
+    </p>
+  </section>
+
+  <section class="ps-closing">
+    <p class="ps-core">
+      A stable record is how disagreement becomes useful.
+    </p>
+    <p class="ps-note">
+      If you’re building tools, products, research, or policy,
+      these metrics help you see where meaning holds — and where it needs refinement.
+    </p>
+  </section>
+
+</main>
+
+<footer class="ps-footer">
+  <p>
+    © ChiR Labs — PatternSeek / Geodetic Codex
+    <br/>
+    Precision lift for intelligent systems.
+  </p>
+</footer>
+
+</body>
+</html>
