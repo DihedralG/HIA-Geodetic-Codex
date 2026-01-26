@@ -561,3 +561,43 @@ footer {
   padding: 18px 18px 6px;
   margin: 18px 0 26px;
 }
+.ps-figure figcaption{
+  margin-top: 10px;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #2c2c2c;
+  opacity: 0.92;
+}
+.ps-figure figcaption strong{
+  font-weight: 700;
+}
+.ps-carousel{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 85%;
+  gap: 18px;
+  overflow-x: auto;
+  padding: 8px 2px 2px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ps-slide{
+  scroll-snap-align: start;
+  margin: 0;
+  background: #fff;
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.ps-slide img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+@media (min-width: 900px){
+  .ps-carousel{ grid-auto-columns: 55%; }
+}
