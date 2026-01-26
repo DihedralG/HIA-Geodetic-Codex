@@ -371,25 +371,28 @@ footer {
    PatternSeek Core Layout
    ========================= */
 
-.ps-header {
+/* PatternSeek header — isolated from global banner */
+.ps-header{
   max-width: 960px;
-  margin: 4rem auto 2.5rem auto;
+  margin: 4rem auto 2.5rem;
   padding: 0 1.5rem;
+  background: transparent;
+  color: inherit;
   text-align: center;
 }
 
-.ps-header h1 {
+.ps-header h1{
   font-size: clamp(2rem, 4vw, 2.6rem);
   font-weight: 600;
   letter-spacing: 0.02em;
   margin-bottom: 0.75rem;
 }
 
-.ps-header .verified {
+.ps-header .verified{
   opacity: 0.75;
 }
 
-.ps-header .subtitle {
+.ps-header .subtitle{
   font-size: 1.05rem;
   line-height: 1.6;
   max-width: 720px;
@@ -401,20 +404,20 @@ footer {
    Sections
    ========================= */
 
-.ps-section {
+.ps-section{
   max-width: 1100px;
   margin: 4rem auto;
   padding: 0 1.5rem;
 }
 
-.ps-section h2 {
+.ps-section h2{
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 1rem;
   letter-spacing: 0.01em;
 }
 
-.ps-intro {
+.ps-intro{
   max-width: 780px;
   font-size: 1.02rem;
   line-height: 1.65;
@@ -423,60 +426,48 @@ footer {
 }
 
 /* =========================
-   Grid + Cards
+   Cards
    ========================= */
 
-.ps-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.75rem;
+.ps-card{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  padding: 1.4rem 1.5rem 1.6rem;
+  margin: 2rem 0 2.5rem;
 }
 
-.ps-card {
-  border-radius: 12px;
-  padding: 1.5rem 1.6rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(4px);
-}
-
-.ps-card h3 {
+.ps-card h3{
   font-size: 1.05rem;
   font-weight: 600;
   margin-bottom: 0.6rem;
 }
 
-.ps-card p {
+.ps-card p{
   font-size: 0.95rem;
   line-height: 1.55;
   opacity: 0.9;
-}
-
-.ps-note {
-  margin-top: 0.6rem;
-  font-size: 0.85rem;
-  opacity: 0.7;
 }
 
 /* =========================
    Triads / Lists
    ========================= */
 
-.ps-triad {
+.ps-triad{
   list-style: none;
   padding-left: 0;
   max-width: 820px;
 }
 
-.ps-triad li {
+.ps-triad li{
   margin-bottom: 0.75rem;
   font-size: 0.95rem;
   line-height: 1.5;
-  position: relative;
   padding-left: 1.25rem;
+  position: relative;
 }
 
-.ps-triad li::before {
+.ps-triad li::before{
   content: "•";
   position: absolute;
   left: 0;
@@ -484,24 +475,62 @@ footer {
 }
 
 /* =========================
-   Closing Sections
+   Figures (museum-grade)
    ========================= */
 
-.ps-closing {
+.ps-figure{
+  margin: 18px 0 30px;
+}
+
+.ps-figure img{
+  width: 100%;
+  max-width: 980px;
+  max-height: 72vh;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+.ps-figure figcaption{
+  max-width: 980px;
+  margin: 10px auto 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #2c2c2c;
+  opacity: 0.92;
+  text-align: center;
+}
+
+.ps-figure figcaption strong{
+  font-weight: 700;
+}
+
+/* =========================
+   Closing
+   ========================= */
+
+.ps-closing{
   max-width: 820px;
-  margin: 5rem auto 4rem auto;
+  margin: 5rem auto 4rem;
   padding: 0 1.5rem;
   text-align: center;
 }
 
-.ps-core {
+.ps-core{
   font-size: 1.35rem;
   font-weight: 500;
   margin-bottom: 1rem;
 }
 
-.ps-footer {
-  margin: 5rem auto 2rem auto;
+.ps-note{
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.ps-footer{
+  margin: 5rem auto 2rem;
   padding: 0 1.5rem;
   text-align: center;
   font-size: 0.8rem;
@@ -512,124 +541,15 @@ footer {
    Responsive polish
    ========================= */
 
-@media (max-width: 640px) {
-  .ps-header {
-    margin-top: 3rem;
-  }
-
-  .ps-section {
-    margin: 3rem auto;
-  }
-
-  .ps-core {
-    font-size: 1.15rem;
+@media (max-width: 720px){
+  .ps-figure img{
+    max-height: 56vh;
+    border-radius: 12px;
   }
 }
-/* --- PatternSeek image hygiene --- */
-.ps-figure {
-  margin: 18px 0 28px;
-}
 
-.ps-figure img {
-  width: 100%;
-  max-width: 980px;     /* keeps it classy on desktop */
-  max-height: 72vh;     /* prevents “giant poster” effect */
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-}
-
-.ps-figure figcaption {
-  max-width: 980px;
-  margin: 10px auto 0;
-  font-size: 0.95rem;
-  opacity: 0.85;
-  line-height: 1.35;
-  text-align: center;
-}
-
-/* Optional: tighter on mobile */
-@media (max-width: 720px) {
-  .ps-figure img { max-height: 56vh; border-radius: 12px; }
-}
-.ps-card {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 16px;
-  padding: 18px 18px 6px;
-  margin: 18px 0 26px;
-}
-.ps-figure figcaption{
-  margin-top: 10px;
-  font-size: 0.95rem;
-  line-height: 1.45;
-  color: #2c2c2c;
-  opacity: 0.92;
-}
-.ps-figure figcaption strong{
-  font-weight: 700;
-}
-.ps-carousel{
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 85%;
-  gap: 18px;
-  overflow-x: auto;
-  padding: 8px 2px 2px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.ps-slide{
-  scroll-snap-align: start;
-  margin: 0;
-  background: #fff;
-  border-radius: 14px;
-  padding: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-
-.ps-slide img{
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-}
-
-@media (min-width: 900px){
-  .ps-carousel{ grid-auto-columns: 55%; }
-}
-.ps-slide figcaption{
-  max-width: 72ch;
-  margin: 12px auto 0;
-  opacity: 0.9;
-  line-height: 1.45;
-  font-size: 0.98rem;
-}
-.ps-slide figcaption strong{
-  letter-spacing: 0.2px;
-}
-.ps-slide figcaption{
-  opacity: 0.82;
-  border-top: 1px solid rgba(255,255,255,0.10);
-  padding-top: 10px;
-}
-.ps-carousel{
-  display: flex;
-  gap: 18px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 8px 4px 14px;
-}
-.ps-slide{
-  min-width: min(920px, 92vw);
-  scroll-snap-align: center;
-}
-.ps-slide img{
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  display: block;
+@media (max-width: 640px){
+  .ps-header{ margin-top: 3rem; }
+  .ps-section{ margin: 3rem auto; }
+  .ps-core{ font-size: 1.15rem; }
 }
