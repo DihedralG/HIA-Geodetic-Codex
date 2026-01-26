@@ -554,3 +554,10 @@ footer {
 @media (max-width: 720px) {
   .ps-figure img { max-height: 56vh; border-radius: 12px; }
 }
+.ps-card {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px;
+  padding: 18px 18px 6px;
+  margin: 18px 0 26px;
+}
