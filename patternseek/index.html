@@ -5,6 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PatternSeek</title>
   <link rel="stylesheet" href="../styles/main.css" />
+
+  <style>
+    /* Lightweight additions that won't fight main.css */
+    .ps-slab{
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:14px;
+      padding:1.15rem;
+      background:#fff;
+      box-shadow: 0 10px 30px rgba(2,6,23,.06);
+      margin-top: 1.25rem;
+    }
+    .ps-row{display:flex; gap:1rem; align-items:center; flex-wrap:wrap}
+    .ps-badge{
+      width:120px; max-width:28vw; height:auto;
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.08);
+      cursor:pointer;
+    }
+    .ps-mini{font-size:.92rem; opacity:.9}
+    .ps-actions{display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.75rem}
+    .ps-btn2{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:.55rem .85rem;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.12);
+      background:#fff;
+      text-decoration:none;
+      font-weight:700;
+      font-size:.92rem;
+    }
+    .ps-btn2.primary{
+      background:#eef2ff;
+      border-color:#c7d2fe;
+    }
+
+    /* Simple “click to zoom” modal (works without JS frameworks) */
+    .ps-modal{
+      position:fixed; inset:0; display:none;
+      background:rgba(2,6,23,.72);
+      align-items:center; justify-content:center;
+      padding:24px;
+      z-index:9999;
+    }
+    .ps-modal.open{display:flex}
+    .ps-modal img{
+      max-width:min(980px, 96vw);
+      max-height:92vh;
+      width:auto; height:auto;
+      border-radius:16px;
+      box-shadow:0 20px 70px rgba(0,0,0,.45);
+      background:#fff;
+    }
+    .ps-modal .hint{
+      position:absolute; bottom:16px; left:16px; right:16px;
+      color:#e2e8f0; font-size:12px; text-align:center; opacity:.9;
+    }
+  </style>
 </head>
 
 <body>
@@ -28,6 +85,33 @@
   <main class="container">
     <section class="intro ps-hero">
       <h2>Where optimization meets constraint — ensuring what scales remains true.</h2>
+
+      <!-- NEW: VerifiedPS on-ramp + Login -->
+      <div class="ps-slab">
+        <div class="ps-row">
+          <img
+            class="ps-badge"
+            src="../assets/patternseek/ps-vbadge.png"
+            alt="PatternSeek VERIFIED badge"
+            data-zoom="../assets/patternseek/ps-vbadge.png"
+            title="Click to enlarge"
+          />
+          <div style="flex:1; min-width: 240px;">
+            <h3 style="margin:.1rem 0 .4rem 0;">PatternSeek VERIFIED</h3>
+            <p class="ps-mini" style="margin:0;">
+              A consumer- and enterprise-friendly trust mark for registering artifacts (claims, publications, datasets)
+              into a calibration loop — anchored to CDI diffs, provenance (ChiR-IPP), and cross-model coherence checks.
+            </p>
+
+            <div class="ps-actions">
+              <a class="ps-btn2 primary" href="./verified-ps.html">Open VerifiedPS →</a>
+              <!-- Placeholder login: point wherever you want later -->
+              <a class="ps-btn2" href="./login.html">Login / Register</a>
+              <a class="ps-btn2" href="mailto:info@dihedralgroup.com">Pilot / Partnerships</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <p class="ps-cta-row">
         <a class="ps-btn" href="../assets/patternseek/ps-sop-lr.pdf" target="_blank" rel="noopener">Systems (UX-UI Flow)</a>
@@ -82,7 +166,14 @@
 
       <!-- Medium image (calibration-bias) -->
       <figure class="ps-figure" style="margin-top: 1.5rem;">
-        <img src="../assets/patternseek/calibration-bias.png" alt="Calibration Bias (CDI + SRA) dashboard concept" width="75%" />
+        <img
+          src="../assets/patternseek/calibration-bias.png"
+          alt="Calibration Bias (CDI + SRA) dashboard concept"
+          width="75%"
+          style="cursor:pointer"
+          data-zoom="../assets/patternseek/calibration-bias.png"
+          title="Click to enlarge"
+        />
         <figcaption class="ps-note" style="text-align:center;">
           Concept: <strong>Calibration Bias (CDI + SRA)</strong> — cross-model delta, semantic variance, and provenance ledger (ChiR-IPP).
         </figcaption>
@@ -123,5 +214,36 @@
 
     </section>
   </main>
+
+  <!-- Zoom modal -->
+  <div class="ps-modal" id="psModal" aria-hidden="true">
+    <img id="psModalImg" alt="Expanded preview" />
+    <div class="hint">Click anywhere to close • Tip: use this to keep pages lightweight while still allowing full-resolution review.</div>
+  </div>
+
+  <script>
+    (function(){
+      const modal = document.getElementById('psModal');
+      const modalImg = document.getElementById('psModalImg');
+
+      function open(src){
+        modalImg.src = src;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+      function close(){
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        modalImg.src = '';
+      }
+
+      document.querySelectorAll('[data-zoom]').forEach(el=>{
+        el.addEventListener('click', ()=> open(el.getAttribute('data-zoom')));
+      });
+
+      modal.addEventListener('click', close);
+      document.addEventListener('keydown', (e)=> { if(e.key === 'Escape') close(); });
+    })();
+  </script>
 </body>
 </html>

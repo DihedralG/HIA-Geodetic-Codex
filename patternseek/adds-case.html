@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PatternSeek — ADDS Origin Case Study</title>
+  <style>
+    :root{
+      --navy:#0b2e4e; --ink:#0f172a; --muted:#475569; --bg:#f5f7fb; --card:#fff;
+      --line:#e5e7eb; --link:#2563eb; --shadow:0 10px 30px rgba(2,6,23,.08); --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;color:var(--ink);background:var(--bg)}
+    header{background:var(--navy);color:#fff;padding:22px 16px 14px}
+    .wrap{max-width:1060px;margin:0 auto;padding:0 16px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:28px;margin:0;line-height:1.15}
+    .subtitle{margin:10px 0 0;font-size:15.5px;opacity:.92;font-weight:600;line-height:1.35}
+    nav{background:#fff;border-bottom:1px solid var(--line)}
+    nav .wrap{display:flex;gap:18px;align-items:center;padding:10px 16px;flex-wrap:wrap}
+    nav a{color:#6b21a8;text-decoration:underline;font-size:14px;font-weight:700}
+    main{padding:26px 0 40px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    h2{margin:0 0 10px;font-size:20px}
+    p{margin:0 0 12px;color:var(--muted);line-height:1.65}
+    .quote{
+      margin:14px 0 8px;
+      padding:12px 14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:#fff;
+      color:#0f172a;
+      font-weight:800;
+      line-height:1.45;
+    }
+    .quote small{display:block;margin-top:6px;color:var(--muted);font-weight:700}
+    .media{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;margin:14px 0}
+    .media img{width:100%;display:block;height:auto;cursor:zoom-in}
+    .caption{padding:10px 12px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line)}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    .box{border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px}
+    .box h3{margin:0 0 8px;font-size:14px;letter-spacing:.2px;text-transform:uppercase}
+    ul{margin:8px 0 0;padding-left:18px;color:var(--ink)}
+    li{margin:6px 0}
+    a{color:var(--link);font-weight:800;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .kicker{margin-top:14px;padding-top:14px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+    .btn{display:inline-flex;gap:8px;align-items:center;border-radius:999px;padding:10px 14px;font-size:13px;font-weight:900;border:1px solid var(--line);background:#fff;color:#0f172a;text-decoration:none}
+    .btn.primary{border-color:#c7d2fe;background:#eef2ff;color:#1e3a8a}
+    code{background:#0b2e4e10;padding:2px 6px;border-radius:6px}
+
+    /* Click-to-zoom modal */
+    .modal{
+      position:fixed; inset:0;
+      background:rgba(2,6,23,.72);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      z-index:9999;
+    }
+    .modal.open{display:flex}
+    .modal-content{
+      max-width:min(1200px, 96vw);
+      max-height:88vh;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.18);
+      background:#000;
+      box-shadow:0 30px 80px rgba(0,0,0,.45);
+    }
+    .modal-content img{
+      width:100%;
+      height:auto;
+      display:block;
+      cursor:zoom-out;
+    }
+    .modal-hint{
+      margin-top:10px;
+      color:rgba(255,255,255,.85);
+      font-size:12.5px;
+      font-weight:700;
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap">
+    <h1 class="brand">🧾 PatternSeek — ADDS origin case study</h1>
+    <div class="subtitle">
+      A first public example of how a single loaded term (“Overunity”) can introduce semantic drag across models — and how neutral naming can increase cross-model coherence without changing the underlying math.
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="./index.html">SOP</a>
+    <a href="./adds-case.html">ADDS case</a>
+    <a href="./calibration-bias.html">Calibration + Bias</a>
+    <a href="./cdi.html">CDI</a>
+    <a href="../assets/patternseek/ps-sop-lr.pdf">UX–UI PDF</a>
+    <a href="mailto:info@dihedralgroup.com">Pilot / UX testing</a>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <div class="card">
+
+      <h2>Why this case exists</h2>
+      <p>
+        We ran a cross-model review exercise on a statistically grounded technique that had been labeled “Statistical Overunity.”
+        Multiple models flagged the term as semantically loaded — not because the math was weak, but because the *name* carried
+        prior assumptions that can bias interpretation.
+      </p>
+
+      <div class="quote">
+        PatternSeek does not decide what is true — it measures how claims cohere under shared, transparent constraints.
+        <small>In practice: measure coherence lift when names change, while holding the math constant.</small>
+      </div>
+
+      <h2>The shift: Overunity → ADDS</h2>
+      <p>
+        We tested a naming variant designed to preserve the discovery intent while removing the loaded implication:
+        <b>ADDS</b> — <b>Anomaly-Driven Discovery Signal</b>.
+        The point is not branding. The point is calibration: does a more neutral term improve interpretability and reduce
+        tone-driven reinforcement across models?
+      </p>
+
+      <div class="grid">
+        <div class="box">
+          <h3>What stayed constant</h3>
+          <ul>
+            <li><b>Math / stats controls:</b> unchanged</li>
+            <li><b>Dataset anchors:</b> unchanged (geospatial + corroborated references)</li>
+            <li><b>Evaluation prompts:</b> equivalent structure across models</li>
+            <li><b>Goal:</b> assess rigor and uncertainty — not “win” a narrative</li>
+          </ul>
+        </div>
+
+        <div class="box">
+          <h3>What changed</h3>
+          <ul>
+            <li><b>Label / naming:</b> Overunity → ADDS</li>
+            <li><b>Semantic priors:</b> reduced</li>
+            <li><b>Interpretation drift:</b> measured via cross-model deltas</li>
+            <li><b>Bias signal:</b> tracked using SRA-style reinforcement checks</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="media">
+        <img src="../assets/patternseek/calibration-bias.png" alt="Calibration bias dashboard concept" data-zoomable />
+        <div class="caption">
+          Concept mock: Panels A–D (CDI ledger, cross-model delta, SRA gauge, ChiR-IPP provenance chain). Click image to view full size.
+        </div>
+      </div>
+
+      <h2>Controls: CDI + provenance</h2>
+      <p>
+        This case is tracked through the <b>Codified Definitions Index (CDI)</b> so naming changes remain auditable:
+        what changed, why it changed, when it took effect, and which assets and runs are linked.
+        In other words: disputes become <b>diffs + datasets + provenance</b> — not arguments.
+      </p>
+
+      <div class="media">
+        <img src="../assets/patternseek/cdi-schema.png" alt="CDI schema concept" data-zoomable />
+        <div class="caption">
+          CDI schema mock: stable identifiers, status, effective dates, diffs, and linked assets. Click image to view full size.
+        </div>
+      </div>
+
+      <h2>What this demonstrates</h2>
+      <div class="grid">
+        <div class="box">
+          <h3>For teams</h3>
+          <ul>
+            <li><b>Less semantic drag:</b> loaded names create interpretive noise that looks like “disagreement.”</li>
+            <li><b>Faster convergence:</b> neutral names reduce re-litigation of meaning.</li>
+            <li><b>Cleaner peer review:</b> reviewers can trace definitions to a public ledger.</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>For the ecosystem</h3>
+          <ul>
+            <li><b>Federated calibration:</b> multiple models, shared controls, auditable outcomes.</li>
+            <li><b>Bias visibility:</b> measure tone-driven reinforcement vs evidence-driven agreement.</li>
+            <li><b>Provenance-first:</b> ideas evolve transparently, without erasing lineage.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="kicker">
+        <a class="btn primary" href="./calibration-bias.html">Next: Calibration + Bias →</a>
+        <a class="btn" href="./cdi.html">Open CDI →</a>
+        <a class="btn" href="./index.html">Back to SOP →</a>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- Click-to-zoom modal -->
+<div class="modal" id="imgModal" aria-hidden="true">
+  <div>
+    <div class="modal-content">
+      <img id="modalImg" alt="Expanded image" />
+    </div>
+    <div class="modal-hint">Click image (or press Esc) to close</div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+
+    function openModal(src, alt){
+      modalImg.src = src;
+      modalImg.alt = alt || 'Expanded image';
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+    }
+    function closeModal(){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+      modalImg.src = '';
+    }
+
+    document.querySelectorAll('img[data-zoomable]').forEach(img => {
+      img.addEventListener('click', () => openModal(img.src, img.alt));
+    });
+
+    modal.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') closeModal();
+    });
+  })();
+</script>
+
+</body>
+</html>

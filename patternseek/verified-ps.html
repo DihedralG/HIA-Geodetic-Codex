@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PatternSeek — VerifiedPS</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+
+  <style>
+    .v-card{
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:14px;
+      background:#fff;
+      padding:1.25rem;
+      box-shadow: 0 10px 30px rgba(2,6,23,.06);
+      margin-top: 1.25rem;
+    }
+    .v-hero{display:flex; gap:1rem; align-items:center; flex-wrap:wrap}
+    .v-badge{
+      width:160px; max-width:34vw; height:auto;
+      border-radius:16px; border:1px solid rgba(0,0,0,.08);
+    }
+    .v-grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem;}
+    .v-box{border:1px solid rgba(0,0,0,.08); border-radius:12px; padding:1rem; background:#fff;}
+    .v-box h3{margin:.1rem 0 .5rem 0}
+    .v-actions{display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.85rem}
+    .v-btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:.55rem .85rem;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.12);
+      background:#fff;
+      text-decoration:none;
+      font-weight:800;
+      font-size:.92rem;
+    }
+    .v-btn.primary{background:#eef2ff; border-color:#c7d2fe;}
+    .v-note{opacity:.85; font-size:.95rem}
+    .v-form{margin-top:.75rem}
+    .v-form label{display:block; font-weight:700; margin:.6rem 0 .25rem 0}
+    .v-form input,.v-form select,.v-form textarea{
+      width:100%;
+      padding:.6rem .7rem;
+      border-radius:10px;
+      border:1px solid rgba(0,0,0,.18);
+      font: inherit;
+      background:#fff;
+    }
+    .v-form textarea{min-height:110px}
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>✅ PatternSeek — VerifiedPS</h1>
+    <p>Register artifacts into calibration. Translate meaning across models. Keep claims coherent under shared constraints.</p>
+  </header>
+
+  <nav>
+    <a href="./index.html"><span>PatternSeek</span></a>
+    <a href="./cdi.html"><span>CDI</span></a>
+    <a href="./calibration-bias.html"><span>Calibration + Bias</span></a>
+    <a href="../chiripp.html"><span>ChiR-IPP</span></a>
+    <a href="mailto:info@dihedralgroup.com"><span>Pilot</span></a>
+  </nav>
+
+  <main class="container">
+    <div class="v-card">
+      <div class="v-hero">
+        <img class="v-badge" src="../assets/patternseek/ps-vbadge.png" alt="PatternSeek VERIFIED badge" />
+        <div style="flex:1; min-width: 240px;">
+          <h2 style="margin:.1rem 0 .4rem 0;">A verification mark for the semantic economy ahead</h2>
+          <p class="v-note" style="margin:0;">
+            VerifiedPS is a lightweight interface layer that lets clients, vendors, partners, and individual participants
+            submit an artifact (claim, dataset, document, KPI definition, brand narrative, research note) and receive a
+            CDI-aligned record + provenance hooks that can be re-run across multiple model contexts.
+          </p>
+
+          <div class="v-actions">
+            <a class="v-btn primary" href="./cdi.html">View CDI →</a>
+            <a class="v-btn" href="./calibration-bias.html">See Bias Calibration →</a>
+            <a class="v-btn" href="./login.html">Login / Register</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="v-card">
+      <h2>How it works (v0 public preview)</h2>
+
+      <div class="v-grid">
+        <div class="v-box">
+          <h3>1) Register an artifact</h3>
+          <p class="v-note">
+            A publication, internal memo, dataset, product claim, survey instrument, KPI spec, or research thread.
+            You choose what’s public vs private; the public site can remain “metadata-only” until connected to the private repo.
+          </p>
+        </div>
+
+        <div class="v-box">
+          <h3>2) Bind to CDI terms</h3>
+          <p class="v-note">
+            Key terms map to the Codified Definitions Index so “meaning” is not vibes-based. Changes become diffs with
+            effective dates, status, linked assets, and provenance.
+          </p>
+        </div>
+
+        <div class="v-box">
+          <h3>3) Run calibration passes</h3>
+          <p class="v-note">
+            Cross-model checks for semantic drift, tone reinforcement, and evidence-weighted agreement (SRA).
+            Output: an auditable trail showing what changed, why, and under which constraints.
+          </p>
+        </div>
+
+        <div class="v-box">
+          <h3>4) Issue VerifiedPS record</h3>
+          <p class="v-note">
+            A stable reference handle you can re-run through studios/models later (or on a schedule),
+            without exposing private payloads — only the permissioned aggregate and trace.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="v-card">
+      <h2>Who uses it</h2>
+      <div class="v-grid">
+        <div class="v-box">
+          <h3>Individuals</h3>
+          <p class="v-note">
+            Contribute insights non-intrusively and earn tokenized participation credit (future), without being forced into
+            someone else’s platform preferences.
+          </p>
+        </div>
+        <div class="v-box">
+          <h3>Enterprises & institutions</h3>
+          <p class="v-note">
+            Register internal intelligence (research, KPIs, policies, product claims) into a calibration loop that improves coherence
+            across teams and AI deployments.
+          </p>
+        </div>
+        <div class="v-box">
+          <h3>Vendors & data partners</h3>
+          <p class="v-note">
+            Offer “VerifiedPS-ready” assets that preserve nuance, provenance, and definitional stability across the LLM ecosystem—
+            without disclosing proprietary methods.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="v-card">
+      <h2>Request a pilot (static form, v0)</h2>
+      <p class="v-note">
+        For now this can email intake. Later it becomes the participation app / dynamic form with permission gates.
+      </p>
+
+      <!-- Static form: posts to email via mailto (works as a placeholder) -->
+      <form class="v-form" action="mailto:info@dihedralgroup.com" method="post" enctype="text/plain">
+        <label for="org">Organization</label>
+        <input id="org" name="Organization" placeholder="Company / lab / studio" />
+
+        <label for="role">Role</label>
+        <input id="role" name="Role" placeholder="Marketing / Research / Product / Data Partner / Individual" />
+
+        <label for="artifact">Artifact type</label>
+        <select id="artifact" name="ArtifactType">
+          <option>Publication / paper</option>
+          <option>Dataset / report</option>
+          <option>Survey / market research instrument</option>
+          <option>KPI / definition spec</option>
+          <option>Brand / product claim</option>
+          <option>Other</option>
+        </select>
+
+        <label for="notes">What are you trying to calibrate?</label>
+        <textarea id="notes" name="Notes" placeholder="1–3 sentences. What outcome do you want, and what must remain private?"></textarea>
+
+        <div class="v-actions">
+          <button class="v-btn primary" type="submit">Send pilot request</button>
+          <a class="v-btn" href="./index.html">Back to PatternSeek</a>
+        </div>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
