@@ -525,3 +525,32 @@ footer {
     font-size: 1.15rem;
   }
 }
+/* --- PatternSeek image hygiene --- */
+.ps-figure {
+  margin: 18px 0 28px;
+}
+
+.ps-figure img {
+  width: 100%;
+  max-width: 980px;     /* keeps it classy on desktop */
+  max-height: 72vh;     /* prevents “giant poster” effect */
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+.ps-figure figcaption {
+  max-width: 980px;
+  margin: 10px auto 0;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  line-height: 1.35;
+  text-align: center;
+}
+
+/* Optional: tighter on mobile */
+@media (max-width: 720px) {
+  .ps-figure img { max-height: 56vh; border-radius: 12px; }
+}
