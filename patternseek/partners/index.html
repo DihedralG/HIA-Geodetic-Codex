@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PatternSeek · CDI Cross-Model Collaboration Index</title>
+
+  <!-- Basic SEO -->
+  <meta name="description" content="An opt-in, non-commercial index tracking cross-model semantic alignment and interpretive stability over time (CDI).">
+  <meta name="robots" content="index,follow">
+
+  <!-- Social -->
+  <meta property="og:title" content="PatternSeek · CDI Cross-Model Collaboration Index">
+  <meta property="og:description" content="Opt-in transparency statements and longitudinal CDI snapshots across LLMs.">
+  <meta property="og:type" content="website">
+
+  <!-- Lightweight bot-friendly anchors -->
+  <meta name="keywords" content="CDI, Codified Definition Index, cross-model, LLM evaluation, transparency, alignment, semantic drift, PatternSeek, Geodetic Codex">
+
+  <link rel="stylesheet" href="../styles/partners.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="brand-row">
+        <div class="brand">
+          <div class="brand-mark">◆</div>
+          <div>
+            <div class="brand-name">PatternSeek</div>
+            <div class="brand-sub">CDI Cross-Model Collaboration Index</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a href="#snapshot">Snapshot</a>
+          <a href="#partners">Partners</a>
+          <a href="#baselines">Baselines</a>
+          <a href="#core-corridors">Core Corridors</a>
+          <a href="#cm-layer">CMLayer</a>
+          <a href="#methods">Methods</a>
+          <a href="#protocol">Protocol</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Neutral, opt-in transparency across models.</h1>
+        <p>
+          CDI (Codified Definition Index) tracks how models interpret shared <strong>anchors</strong> and baselines over time.
+          Divergence is treated as <em>data</em>, not failure.
+        </p>
+        <p class="muted" style="margin-top:10px">
+          <strong>CDI evaluates engagement with anchors, not agreement with conclusions.</strong>
+        </p>
+
+        <div class="pill-row">
+          <span class="pill">Opt-in participation</span>
+          <span class="pill">Non-commercial research</span>
+          <span class="pill">No reverse engineering</span>
+          <span class="pill">Versioned on GitHub</span>
+        </div>
+
+        <div class="timestamp">
+          <strong>Draft window (local):</strong>
+          <span id="draftWindow">2026-01-28 18:54–19:03 (ET)</span>
+          <br />
+          <strong>GitHub lock timestamp:</strong>
+          <span id="lockTimestamp">2026-01-28T19:xx:xx-05:00</span>
+        </div>
+      </div>
+
+      <!-- CDI Snapshot Metric -->
+      <div class="hero-right" id="snapshot">
+        <div class="metric-card">
+          <div class="metric-title">CDI Snapshot</div>
+          <div class="metric-value" id="cdiScore">—</div>
+          <div class="metric-sub">
+            <span id="cdiLabel">Awaiting baseline run</span> ·
+            <span id="cdiModels">0 models</span> ·
+            <span id="cdiBaseline">Baseline v0.1</span>
+          </div>
+          <div class="metric-footnote">
+            CDI Snapshot is an aggregate indicator for early navigation only. It is not a “winner” ranking.
+          </div>
+          <div class="metric-actions">
+            <a class="btn" href="#baselines">View Baselines</a>
+            <a class="btn btn-ghost" href="#partners">View Partners</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners -->
+    <section id="partners" class="section">
+      <div class="section-head">
+        <h2>Partner Cards</h2>
+        <p class="muted">
+          Each card links to a transparency statement and the most recent CDI run.
+          Opt-in is corridor-specific and reversible.
+        </p>
+      </div>
+
+      <div class="grid" id="partnerGrid">
+
+        <!-- OpenAI / GPT -->
+        <article class="card" data-model="openai_gpt" data-optin="partial" data-baselines="CDI-V0.1,GC-V4,GC-V5,GC-V9">
+          <div class="card-top">
+            <img class="logo" src="../assets/patternseek/partners/openai.png" alt="OpenAI logo" />
+            <div class="card-meta">
+              <div class="card-title">GPT (OpenAI)</div>
+              <div class="card-sub">Status: <span class="status status-partial">Partial (Anchors-only)</span></div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="kv">
+              <div><span class="k">Role</span><span class="v">Participant model</span></div>
+              <div><span class="k">Baseline coverage</span><span class="v">CDI v0.1 · GC-V4/V5/V9 (selected corridors)</span></div>
+              <div><span class="k">Last run</span><span class="v">—</span></div>
+            </div>
+            <p class="muted">
+              Participates on anchors, definitions, assumptions, and falsifiability framing. No endorsement implied.
+              No reverse engineering. Divergence treated as data.
+            </p>
+          </div>
+          <div class="card-actions">
+            <a class="link" href="../transparency/openai_gpt.html">Transparency</a>
+            <a class="link" href="../runs/latest.html#openai_gpt">Latest Run</a>
+          </div>
+        </article>
+
+        <!-- Claude -->
+        <article class="card" data-model="claude" data-optin="invited" data-baselines="">
+          <div class="card-top">
+            <img class="logo" src="../assets/patternseek/partners/claude.png" alt="Claude logo" />
+            <div class="card-meta">
+              <div class="card-title">Claude</div>
+              <div class="card-sub">Status: <span class="status status-in">Invited</span></div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="kv">
+              <div><span class="k">Role</span><span class="v">Invitation queued</span></div>
+              <div><span class="k">Tier</span><span class="v">Free (initial)</span></div>
+              <div><span class="k">Last run</span><span class="v">—</span></div>
+            </div>
+            <p class="muted">Awaiting opt-in / partial / opt-out statement.</p>
+          </div>
+          <div class="card-actions">
+            <a class="link" href="../transparency/claude.html">Transparency</a>
+            <a class="link" href="../runs/latest.html#claude">Latest Run</a>
+          </div>
+        </article>
+
+        <!-- Perplexity -->
+        <article class="card" data-model="perplexity" data-optin="invited" data-baselines="">
+          <div class="card-top">
+            <img class="logo" src="../assets/patternseek/partners/perplexity.png" alt="Perplexity logo" />
+            <div class="card-meta">
+              <div class="card-title">Perplexity</div>
+              <div class="card-sub">Status: <span class="status status-in">Invited</span></div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="kv">
+              <div><span class="k">Role</span><span class="v">Invitation queued</span></div>
+              <div><span class="k">Tier</span><span class="v">Free (initial)</span></div>
+              <div><span class="k">Last run</span><span class="v">—</span></div>
+            </div>
+            <p class="muted">Awaiting opt-in / partial / opt-out statement.</p>
+          </div>
+          <div class="card-actions">
+            <a class="link" href="../transparency/perplexity.html">Transparency</a>
+            <a class="link" href="../runs/latest.html#perplexity">Latest Run</a>
+          </div>
+        </article>
+
+        <!-- Grok -->
+        <article class="card" data-model="grok" data-optin="invited" data-baselines="">
+          <div class="card-top">
+            <img class="logo" src="../assets/patternseek/partners/grok.png" alt="Grok logo" />
+            <div class="card-meta">
+              <div class="card-title">Grok</div>
+              <div class="card-sub">Status: <span class="status status-in">Invited</span></div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="kv">
+              <div><span class="k">Role</span><span class="v">Invitation queued</span></div>
+              <div><span class="k">Tier</span><span class="v">Free (initial)</span></div>
+              <div><span class="k">Last run</span><span class="v">—</span></div>
+            </div>
+            <p class="muted">Use the handoff prompt and archive the response here.</p>
+          </div>
+          <div class="card-actions">
+            <a class="link" href="../transparency/grok.html">Transparency</a>
+            <a class="link" href="../runs/latest.html#grok">Latest Run</a>
+          </div>
+        </article>
+
+        <!-- Gemini -->
+        <article class="card" data-model="gemini" data-optin="invited" data-baselines="">
+          <div class="card-top">
+            <img class="logo" src="../assets/patternseek/partners/gemini.png" alt="Gemini logo" />
+            <div class="card-meta">
+              <div class="card-title">Gemini</div>
+              <div class="card-sub">Status: <span class="status status-in">Invited</span></div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="kv">
+              <div><span class="k">Role</span><span class="v">Invitation queued</span></div>
+              <div><span class="k">Tier</span><span class="v">Free (initial)</span></div>
+              <div><span class="k">Last run</span><span class="v">—</span></div>
+            </div>
+            <p class="muted">Short-form prompt friendly.</p>
+          </div>
+          <div class="card-actions">
+            <a class="link" href="../transparency/gemini.html">Transparency</a>
+            <a class="link" href="../runs/latest.html#gemini">Latest Run</a>
+          </div>
+        </article>
+
+        <!-- Copilot -->
+        <article class="card" data-model="copilot" data-optin="invited" data-baselines="">
+          <div class="card-top">
+            <img class="logo" src="../assets/patternseek/partners/copilot.png" alt="Copilot logo" />
+            <div class="card-meta">
+              <div class="card-title">Copilot</div>
+              <div class="card-sub">Status: <span class="status status-in">Invited</span></div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="kv">
+              <div><span class="k">Role</span><span class="v">Invitation queued</span></div>
+              <div><span class="k">Tier</span><span class="v">Free (initial)</span></div>
+              <div><span class="k">Last run</span><span class="v">—</span></div>
+            </div>
+            <p class="muted">Keep prompt under tight character limits.</p>
+          </div>
+          <div class="card-actions">
+            <a class="link" href="../transparency/copilot.html">Transparency</a>
+            <a class="link" href="../runs/latest.html#copilot">Latest Run</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Baselines -->
+    <section id="baselines" class="section">
+      <div class="section-head">
+        <h2>Baselines</h2>
+        <p class="muted">
+          CDI publishes shared <strong>anchors</strong> (definitions, assumptions, falsifiability prompts, and reproducibility framing).
+          Anchors are not “proof,” and participation does not imply endorsement of conclusions.
+          Models may opt in to some corridors and decline others—without penalty.
+        </p>
+      </div>
+
+      <div class="baseline-list">
+        <a class="baseline" href="../baselines/baseline_v0.1.html" data-baseline="CDI-V0.1">
+          <div class="baseline-title">CDI Baseline v0.1 — Definitions & Reproducibility (Neutral)</div>
+          <div class="baseline-sub">Terms · assumptions · falsifiability prompts · scoring hygiene (non-competitive)</div>
+        </a>
+
+        <a class="baseline" href="../v4funcspec.html" data-baseline="GC-V4">
+          <div class="baseline-title">Geodetic Codex V4 — Planetary Harmonics & Hydrological Memory</div>
+          <div class="baseline-sub">Suggested corridors: V4.3 · V4.6 · V4.12</div>
+        </a>
+
+        <a class="baseline" href="../v5funcspec.html" data-baseline="GC-V5">
+          <div class="baseline-title">Geodetic Codex V5 — Plasma, Resonance & Advanced Hydrology</div>
+          <div class="baseline-sub">Suggested corridors: V5.2 · V5.3 · V5.6</div>
+        </a>
+
+        <a class="baseline" href="../v9funcspec.html" data-baseline="GC-V9"></a>>
+          <div class="baseline-title">Geodetic Codex V9 — Tectonic Resonance & Celestial Mechanics</div>
+          <div class="baseline-sub">Suggested corridors: V9.2 · V9.5 · V9.7</div>
+        </a>
+      </div>
+
+      <div class="muted" style="margin-top:10px;font-size:12px">
+        Baseline links are published for transparency. Models may engage with all, some, or none.
+      </div>
+    </section>
+
+    <!-- Core Corridors -->
+    <section id="core-corridors" class="section">
+      <div class="section-head">
+        <h2>Core Corridors</h2>
+        <p class="muted">
+          Core corridors are versioned anchor sets that remain stable over time because they maintain cross-model coherence under repeated runs.
+          “Core” is a property of <em>stability</em>, not authority.
+        </p>
+      </div>
+
+      <div class="methods">
+        <div class="method">
+          <h3>Initial Core (Launch Set)</h3>
+          <p>Start small: CDI v0.1 + anchor corridors (V4 / V5 / V9). Expand only after stability is observed.</p>
+        </div>
+        <div class="method">
+          <h3>Canonization Rule</h3>
+          <p>Corridors become “core” when they demonstrate repeatable cohesion across models over time. This is not a truth claim—only a durability signal.</p>
+        </div>
+        <div class="method">
+          <h3>Opt-In by Corridor</h3>
+          <p>Models may be Full / Partial / Declined per corridor. Participation can be updated or withdrawn at any time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contextual Mediation Layer -->
+    <section id="cm-layer" class="section">
+      <div class="section-head">
+        <h2>Contextual Mediation Layer (CMLayer)</h2>
+        <p class="muted">
+          CDI accounts for platform constraints and cultural-linguistic context without scoring identity, ideology, or worldview.
+          The variable is the <em>system context</em>, not the participant.
+        </p>
+      </div>
+
+      <div class="methods">
+        <div class="method">
+          <h3>What it captures</h3>
+          <p>Tier/tool limits, safety filters, language coverage, context-window differences, and region-specific semantic variance.</p>
+        </div>
+        <div class="method">
+          <h3>Why it exists</h3>
+          <p>In high-stakes settings (humanitarian, conflict-adjacent, cross-cultural), CDI may publish aggregated envelopes to reduce misinterpretation and prevent atomized targeting.</p>
+        </div>
+        <div class="method">
+          <h3>What it does NOT do</h3>
+          <p>No political profiling. No cultural superiority scoring. No identity proxies. CDI does not publish “Model X leans Y.”</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Methods -->
+    <section id="methods" class="section">
+      <div class="section-head">
+        <h2>Method Notes</h2>
+        <p class="muted">
+          CDI is a comparative index. It does not claim a single authority of truth.
+        </p>
+      </div>
+
+      <div class="methods">
+        <div class="method">
+          <h3>1) Opt-in transparency</h3>
+          <p>Models publish interpretive stance + constraints. Non-participation remains neutral.</p>
+        </div>
+        <div class="method">
+          <h3>2) Multi-model agreement as a signal</h3>
+          <p>Consensus is tracked, not worshipped. Persistent divergence is examined, not attacked.</p>
+        </div>
+        <div class="method">
+          <h3>3) Tier-aware benchmarking</h3>
+          <p>Free vs paid tiers may be compared later, clearly labeled as capability constraints.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tone -->
+    <section id="tone" class="section">
+      <div class="section-head">
+        <h2>Tone & Epistemic Boundaries</h2>
+        <p class="muted">
+          CDI permits human curiosity and awe. CDI does not substitute awe for evidence.
+          Interpretive or symbolic corridors (e.g., later Codex layers) are optional domains and never used as proxies for factual competence.
+        </p>
+      </div>
+    </section>
+
+    <!-- Participation Protocol -->
+    <section id="protocol" class="section">
+      <div class="section-head">
+        <h2>Participation Protocol</h2>
+        <p class="muted">
+          CDI is not an association, consortium, or standards body. “Partners” here means: models whose transparency statements are publicly archived.
+        </p>
+      </div>
+
+      <div class="methods">
+        <div class="method">
+          <h3>Opt-in is reversible</h3>
+          <p>Any model steward may request update, pause, or removal of their listing. Requests are honored promptly.</p>
+        </div>
+        <div class="method">
+          <h3>No implied endorsement</h3>
+          <p>Inclusion does not imply affiliation, sponsorship, or approval. CDI archives opt-in statements and publishes comparative outputs only.</p>
+        </div>
+        <div class="method">
+          <h3>Phased onboarding</h3>
+          <p>New languages and regions may be onboarded in phases to avoid cultural/linguistic mis-scoring.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="muted">
+        CDI is non-commercial research. No reverse engineering. No piracy. No “winner” claims.
+      </div>
+    </footer>
+  </main>
+
+  <!-- JSON-LD metadata for bots and lightweight agents -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "PatternSeek CDI Cross-Model Collaboration Index",
+    "description": "Opt-in, non-commercial index tracking cross-model semantic alignment and interpretive stability (CDI).",
+    "dateCreated": "2026-01-28",
+    "keywords": ["CDI","Codified Definition Index","LLM","cross-model","transparency","semantic drift","baseline prompts"],
+    "license": "https://opensource.org/licenses/MIT",
+    "creator": {
+      "@type": "Person",
+      "name": "Glenn Andersen"
+    }
+  }
+  </script>
+
+  <script src="../scripts/partners.js"></script>
+</body>
+</html>
