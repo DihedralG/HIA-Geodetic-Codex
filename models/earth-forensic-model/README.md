@@ -123,6 +123,21 @@ must remain outside the public repository.
 See [model boundaries](methodology/model-boundaries.md) and the
 [observation schema](schemas/observation.schema.json).
 
+## Interactive explorer
+
+Open [the synthetic MIS explorer](viewer/index.html) through a web server to inspect
+the six stages, change the focused test location, and vary both the local RSL anomaly
+and its uncertainty. The interface translates model outputs and the observation schema
+into human-readable evidence and support statements.
+
+```bash
+python -m http.server 8000
+# then open http://localhost:8000/viewer/
+```
+
+The explorer is a validation surface. It uses synthetic elevations and does not depict
+an Arctic or Antarctic paleoshoreline.
+
 ## Runnable baseline
 
 The first executable is a deliberately transparent shoreline kernel. It computes the
