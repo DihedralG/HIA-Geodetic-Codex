@@ -17,15 +17,29 @@ chronology, and uncertainty models have been evaluated.
 
 ## Evidence classes
 
-Every claim and observation must be labeled as one of:
+Every record has two independent labels.
+
+**Evidence class** describes what the record is:
 
 - **Observed** — a reported measurement with provenance and uncertainty.
 - **Derived** — calculated from observations using a documented transformation.
 - **Modeled** — produced by an explicit numerical or statistical model.
 - **Hypothesis** — a testable proposed explanation.
-- **Unsupported** — presently lacking sufficient evidence or violating a physical constraint.
 
-These labels describe epistemic status, not importance.
+**Support status** describes how testing currently bears on a claim or hypothesis:
+
+- **Untested**
+- **Provisionally supported**
+- **Mixed**
+- **Not supported**
+- **Falsified**
+- **Not applicable** — normally used for observations that are not themselves explanatory claims.
+
+This two-axis system prevents a modeled hypothesis from being mistaken for either evidence
+or confirmation. “Provisionally supported” means it has survived declared tests against the
+available evidence; it never means settled or proven. A minority or novel model may advance
+if it changes assumptions explicitly, remains physically and chronologically coherent,
+generates distinguishable predictions, and survives attempted falsification.
 
 ## Model state
 
@@ -88,6 +102,7 @@ atmospheric oxygen concentration.
 - Run ordinary-process baselines before adding impact, airburst, volcanic, or other
   impulse scenarios.
 - Register falsification conditions before interpreting outputs.
+- Treat consensus as weighted evidence, not an inviolable premise; document departures and test both the conventional and alternative formulations.
 - Keep archaeological and cultural interpretations in a separately dated evidence layer.
 
 ## Repository boundary
