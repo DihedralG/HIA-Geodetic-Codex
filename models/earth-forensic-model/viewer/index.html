@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Earth Forensic Model · Synthetic MIS Explorer</title>
+<style>
+:root{--ink:#10253f;--muted:#60758b;--paper:#f5f1e8;--card:#fffdf8;--line:#d9d4c9;--ocean:#156b91;--ocean2:#75c9df;--land:#bd9a61;--exposed:#16856d;--uncertain:#d99a2b;--submerged:#386cb0;--accent:#9b4d68}
+*{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.45 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{padding:28px clamp(18px,4vw,54px) 18px;background:linear-gradient(135deg,#0e243d,#164e68);color:white}
+header h1{margin:0;font:700 clamp(25px,4vw,42px)/1.05 Georgia,serif;letter-spacing:-.02em}
+header p{max-width:850px;margin:10px 0 0;color:#d9eef4}.chip{display:inline-block;margin-bottom:10px;padding:5px 10px;border:1px solid #83c7d8;border-radius:99px;color:#d9f5fa;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+main{max-width:1320px;margin:auto;padding:22px clamp(14px,3vw,36px) 50px}
+.notice{padding:13px 16px;border-left:5px solid var(--uncertain);background:#fff8e8;border-radius:8px;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:minmax(240px,330px) 1fr;gap:18px}.stack{display:grid;gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:17px;box-shadow:0 3px 14px #10253f0b}.card h2{font:700 21px/1.15 Georgia,serif;margin:0 0 12px}.card h3{font-size:14px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:0 0 9px}
+label{display:block;font-weight:650;margin:12px 0 5px} select,input[type=range]{width:100%} select{padding:10px;border:1px solid #b8c0c6;border-radius:9px;background:white;color:var(--ink)}
+.range-row{display:flex;align-items:center;gap:10px}.range-row output{min-width:72px;text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}.metric{padding:12px;background:#eef5f5;border-radius:11px}.metric b{display:block;font-size:20px;font-variant-numeric:tabular-nums}.metric span{font-size:12px;color:var(--muted)}
+svg{width:100%;height:auto;display:block;background:#eaf5f8;border-radius:12px;border:1px solid #c7dce2}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;color:var(--muted);font-size:12px}.dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:5px}
+table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;padding:9px 8px;border-bottom:1px solid #e5e1d9}th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em}td.num{font-variant-numeric:tabular-nums;text-align:right}.status{padding:4px 8px;border-radius:99px;font-weight:700;font-size:11px;white-space:nowrap}.likely_exposed{background:#d8f1e9;color:#0a664f}.indeterminate{background:#fff0cf;color:#8a5900}.likely_submerged{background:#dfe9f7;color:#27588f}
+.evidence{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.evidence div{padding:11px;background:#f4f0e7;border-radius:9px}.evidence b{display:block;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}.evidence span{font-weight:700}
+.bars{display:grid;gap:7px}.barrow{display:grid;grid-template-columns:58px 1fr 75px;align-items:center;gap:8px;font-size:12px}.track{height:14px;background:#e7e1d7;border-radius:10px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#78c8db,#176e94);border-radius:10px}.active .fill{background:linear-gradient(90deg,#d99a2b,#9b4d68)}.active{font-weight:800}
+.small{color:var(--muted);font-size:12px}.formula{padding:10px 12px;border-radius:9px;background:#10253f;color:#e9f6f8;font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;overflow:auto}
+details{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}summary{cursor:pointer;font-weight:700}
+footer{max-width:1320px;margin:auto;padding:0 36px 34px;color:var(--muted);font-size:12px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}.evidence{grid-template-columns:1fr}.table-wrap{overflow:auto}}
+</style>
+</head>
+<body>
+<header>
+  <span class="chip">Synthetic validation surface · v0.1</span>
+  <h1>Earth Forensic Model</h1>
+  <p>See how Marine Isotope Stage sea level, elevation uncertainty, and a local GIA/RSL anomaly combine to change the probability that terrain was exposed.</p>
+</header>
+<main>
+  <div class="notice"><strong>This is not yet a paleogeographic map.</strong> The locations below are synthetic test points. The interface exposes the working mathematics before real Arctic and Antarctic grids are introduced.</div>
+  <div class="grid">
+    <aside class="stack">
+      <section class="card">
+        <h2>Scenario controls</h2>
+        <label for="mis">Marine Isotope Stage</label>
+        <select id="mis"></select>
+        <label for="site">Focused test location</label>
+        <select id="site"></select>
+        <label for="gia">Local RSL anomaly</label>
+        <div class="range-row"><input id="gia" type="range" min="-100" max="150" step="1" value="0"><output id="giaOut">0 m</output></div>
+        <p class="small">Positive means local water level stood higher relative to the present bed than the eustatic value alone suggests.</p>
+        <label for="giaSigma">Local RSL uncertainty</label>
+        <div class="range-row"><input id="giaSigma" type="range" min="0" max="60" step="1" value="0"><output id="giaSigmaOut">±0 m</output></div>
+      </section>
+      <section class="card">
+        <h2>Six-stage comparison</h2>
+        <div id="bars" class="bars"></div>
+        <p class="small">Bar length represents the magnitude of sea-level lowering. It is not chronological duration.</p>
+      </section>
+      <section class="card">
+        <h2>Model equation</h2>
+        <div class="formula">local RSL = global mean sea level + local anomaly<br>margin = present elevation − local RSL<br>P(exposed) = P(margin &gt; 0)</div>
+        <details><summary>What the anomaly must eventually contain</summary><p class="small">GIA deformation, gravitational fingerprints, hydro-isostasy, tectonic correction, and vertical-datum transformation. Setting it to zero produces an eustatic-only control.</p></details>
+      </section>
+    </aside>
+    <div class="stack">
+      <section class="card">
+        <h2 id="viewTitle">MIS exposure cross-section</h2>
+        <div class="metrics">
+          <div class="metric"><b id="age">—</b><span>Representative age</span></div>
+          <div class="metric"><b id="gmsl">—</b><span>Global mean sea level</span></div>
+          <div class="metric"><b id="localRsl">—</b><span>Focused local RSL</span></div>
+          <div class="metric"><b id="probability">—</b><span>Focused exposure probability</span></div>
+        </div>
+        <svg id="chart" viewBox="0 0 900 480" role="img" aria-label="Synthetic elevation cross-section and modeled sea level"></svg>
+        <div class="legend">
+          <span><i class="dot" style="background:var(--exposed)"></i>Likely exposed</span>
+          <span><i class="dot" style="background:var(--uncertain)"></i>Indeterminate</span>
+          <span><i class="dot" style="background:var(--submerged)"></i>Likely submerged</span>
+          <span>Dashed line: present sea level</span>
+        </div>
+      </section>
+      <section class="card">
+        <h2>Human-readable results</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Test location</th><th>Present elevation</th><th>Local anomaly</th><th>Exposure margin</th><th>Probability</th><th>Interpretation</th></tr></thead>
+          <tbody id="results"></tbody>
+        </table></div>
+      </section>
+      <section class="card">
+        <h2>Evidence interpretation</h2>
+        <div class="evidence">
+          <div><b>Evidence class</b><span>Derived</span></div>
+          <div><b>Support status</b><span>Provisionally supported</span></div>
+          <div><b>Geographic status</b><span>Synthetic validation</span></div>
+        </div>
+        <p id="interpretation"></p>
+        <p class="small"><strong>Source:</strong> Spratt and Lisiecki, Late Pleistocene sea-level stack version 2, PANGAEA DOI 10.1594/PANGAEA.979830. Values are representative one-kyr samples and not local shorelines.</p>
+        <details><summary>How to read the observation schema</summary>
+          <p class="small"><strong>Observed</strong> records contain measurements. <strong>Derived</strong> records transform measurements through declared equations. <strong>Modeled</strong> records are simulation outputs. <strong>Hypotheses</strong> are proposed explanations. A separate support status records whether a claim is untested, provisionally supported, mixed, not supported, or falsified.</p>
+        </details>
+      </section>
+    </div>
+  </div>
+</main>
+<footer>HIA Geodetic Codex · Earth Forensic Model · Experimental scientific interface. Exposure does not imply ice-free terrain or human accessibility.</footer>
+<script>
+const scenarios=[
+{id:"MIS_2",age:24,sl:-130.00,sd:4.38,lo:-134.58,hi:-118.09},
+{id:"MIS_4",age:61,sl:-86.56,sd:8.68,lo:-100.68,hi:-63.69},
+{id:"MIS_6",age:136,sl:-123.95,sd:7.89,lo:-140.25,hi:-109.67},
+{id:"MIS_8",age:270,sl:-98.21,sd:7.59,lo:-106.96,hi:-76.66},
+{id:"MIS_10",age:345,sl:-109.04,sd:9.73,lo:-126.09,hi:-88.15},
+{id:"MIS_12",age:429,sl:-120.44,sd:13.74,lo:-150.20,hi:-96.76}
+];
+const sites=[
+{id:"synthetic_inner_shelf",name:"Inner shelf",z:-50,zsd:5,a:0,asd:0},
+{id:"synthetic_outer_shelf",name:"Outer shelf",z:-100,zsd:5,a:0,asd:0},
+{id:"synthetic_deep_ridge",name:"Deep ridge",z:-650,zsd:25,a:0,asd:0},
+{id:"synthetic_near_field_shelf",name:"Near-field shelf",z:-100,zsd:5,a:50,asd:20},
+{id:"synthetic_present_land",name:"Present land",z:10,zsd:2,a:0,asd:0}
+];
+const $=id=>document.getElementById(id), mis=$("mis"), site=$("site"), gia=$("gia"), giaSigma=$("giaSigma");
+scenarios.forEach(x=>mis.add(new Option(x.id.replace("_"," ")+" · "+x.age+" ka",x.id)));
+sites.forEach(x=>site.add(new Option(x.name,x.id)));
+site.value="synthetic_outer_shelf";
+function erf(x){const s=x<0?-1:1,a=Math.abs(x),t=1/(1+.3275911*a);const y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-.284496736)*t+.254829592)*t*Math.exp(-a*a);return s*y}
+function phi(x){return .5*(1+erf(x/Math.sqrt(2)))}
+function calc(sc,s,override=false){const a=override?+gia.value:s.a, asd=override?+giaSigma.value:s.asd, rsl=sc.sl+a, margin=s.z-rsl, sd=Math.sqrt(sc.sd**2+s.zsd**2+asd**2),p=sd===0?(margin>0?1:0):phi(margin/sd);return{a,asd,rsl,margin,sd,p,cls:p>=.95?"likely_exposed":p<=.05?"likely_submerged":"indeterminate"}}
+function color(c){return c==="likely_exposed"?"#16856d":c==="likely_submerged"?"#386cb0":"#d99a2b"}
+function render(){
+ const sc=scenarios.find(x=>x.id===mis.value)||scenarios[0], focused=sites.find(x=>x.id===site.value), fr=calc(sc,focused,true);
+ $("giaOut").value=(+gia.value>=0?"+":"")+gia.value+" m";$("giaSigmaOut").value="±"+giaSigma.value+" m";
+ $("age").textContent=sc.age+" ka BP";$("gmsl").textContent=sc.sl.toFixed(1)+" m";$("localRsl").textContent=fr.rsl.toFixed(1)+" m";$("probability").textContent=(fr.p*100).toFixed(1)+"%";
+ $("viewTitle").textContent=sc.id.replace("_"," ")+" synthetic exposure cross-section";
+ $("bars").innerHTML=scenarios.map(x=>'<div class="barrow '+(x.id===sc.id?'active':'')+'"><span>'+x.id.replace("_"," ")+'</span><div class="track"><div class="fill" style="width:'+Math.abs(x.sl)/1.3+'%"></div></div><span>'+x.sl.toFixed(1)+' m</span></div>').join("");
+ const y=z=>35+(30-z)*(405/700), seaY=y(fr.rsl), zeroY=y(0), xs=[110,280,450,620,790];
+ let svg='<defs><linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#75c9df" stop-opacity=".75"/><stop offset="1" stop-color="#156b91" stop-opacity=".9"/></linearGradient></defs>';
+ svg+='<rect x="0" y="'+seaY+'" width="900" height="'+(445-seaY)+'" fill="url(#water)"/>';
+ svg+='<line x1="45" y1="'+zeroY+'" x2="870" y2="'+zeroY+'" stroke="#536b78" stroke-dasharray="8 6"/><text x="55" y="'+(zeroY-7)+'" fill="#536b78" font-size="12">Present sea level · 0 m</text>';
+ svg+='<line x1="45" y1="'+seaY+'" x2="870" y2="'+seaY+'" stroke="#9b4d68" stroke-width="3"/><text x="55" y="'+(seaY-8)+'" fill="#7f304e" font-weight="700" font-size="13">Focused local RSL · '+fr.rsl.toFixed(1)+' m</text>';
+ sites.forEach((s,i)=>{const focus=s.id===focused.id,r=calc(sc,s,focus),cy=y(s.z),wh=Math.max(4,s.zsd*405/700);svg+='<line x1="'+xs[i]+'" y1="'+(cy-wh)+'" x2="'+xs[i]+'" y2="'+(cy+wh)+'" stroke="'+color(r.cls)+'" stroke-width="3"/><circle cx="'+xs[i]+'" cy="'+cy+'" r="'+(focus?12:8)+'" fill="'+color(r.cls)+'" stroke="'+(focus?'#10253f':'white')+'" stroke-width="'+(focus?4:2)+'"/><text x="'+xs[i]+'" y="'+(cy-18)+'" text-anchor="middle" fill="#10253f" font-size="12" font-weight="'+(focus?'800':'600')+'">'+s.name+'</text><text x="'+xs[i]+'" y="'+(cy+30)+'" text-anchor="middle" fill="#29475b" font-size="11">'+s.z+' m</text>'});
+ $("chart").innerHTML=svg;
+ $("results").innerHTML=sites.map(s=>{const focus=s.id===focused.id,r=calc(sc,s,focus);return'<tr><td><strong>'+s.name+(focus?' · focused':'')+'</strong></td><td class="num">'+s.z+' m</td><td class="num">'+(r.a>=0?'+':'')+r.a+' ± '+r.asd+' m</td><td class="num">'+r.margin.toFixed(1)+' m</td><td class="num">'+(r.p*100).toFixed(1)+'%</td><td><span class="status '+r.cls+'">'+r.cls.replaceAll("_"," ")+'</span></td></tr>'}).join("");
+ const words=fr.cls==="likely_exposed"?"The focused point is likely above modeled local relative sea level. This does not determine whether it was ice-covered.":fr.cls==="likely_submerged"?"The focused point is likely below modeled local relative sea level under these assumptions.":"The uncertainty overlaps the exposure threshold; the model does not justify a binary shoreline claim.";
+ $("interpretation").innerHTML="<strong>Current interpretation:</strong> "+words+" Changing the anomaly demonstrates which conclusion belongs to global sea level and which depends on regional solid-Earth and gravitational effects.";
+}
+[mis,site,gia,giaSigma].forEach(x=>x.addEventListener("input",render));
+site.addEventListener("change",()=>{const s=sites.find(x=>x.id===site.value);gia.value=s.a;giaSigma.value=s.asd;render()});
+render();
+</script>
+</body>
+</html>
