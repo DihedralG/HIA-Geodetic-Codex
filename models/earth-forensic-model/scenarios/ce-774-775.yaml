@@ -1,0 +1,100 @@
+schema_version: 0.1.0
+scenario_id: ce-774-775
+title: 774-775 CE cosmogenic-event calibration
+status: hypothesis_testing
+
+temporal_window:
+  start_ce: 770
+  end_ce: 780
+  target_resolution_years: 1
+
+purpose:
+  calibration_target: cross_archive_synchronization
+  statement: >
+    Use an independently replicated, annually resolved cosmogenic event to test
+    chronology, archive lag, observation operators, and interhemispheric alignment.
+  prohibited_shortcut: >
+    Do not infer a global flood, impact, atmospheric oxygen step, or climate
+    catastrophe from the cosmogenic signal alone.
+
+baseline:
+  climate_or_flood_inference: none
+  primary_forcing_hypothesis: extreme_solar_energetic_particle_event
+  comparison_hypotheses:
+    - short_gamma_ray_burst
+    - cometary_or_impact_source
+    - archive_or_age_model_artifact
+
+required_observations:
+  - archive: tree_ring
+    proxies: [delta_14C]
+    regions: [Northern_Hemisphere, Southern_Hemisphere]
+    resolution: annual
+    minimum_requirement: replicated_independent_series
+  - archive: ice_core
+    proxies: [beryllium_10, chlorine_36]
+    regions: [Greenland, Antarctica]
+    resolution: annual_to_subdecadal
+    minimum_requirement: independently_dated_series
+
+observation_models:
+  tree_delta_14C:
+    processes:
+      - atmospheric_cosmogenic_production
+      - interhemispheric_exchange
+      - carbon_cycle_uptake
+      - growing_season_assignment
+    confounders:
+      - laboratory_offsets
+      - wood_calendar_assignment
+      - species_and_site_effects
+  ice_cosmogenic_nuclides:
+    processes:
+      - atmospheric_production
+      - aerosol_transport
+      - precipitation_scavenging
+      - firn_and_ice_deposition
+    confounders:
+      - snow_accumulation_variability
+      - layer_counting_error
+      - post_depositional_mobility
+
+tests:
+  - id: hemispheric_timing
+    prediction: replicated_delta_14C_increase_with_carbon_cycle_consistent_lag
+    rejection_condition: timing_incompatible_after_age_and_growth_season_uncertainty
+  - id: nuclide_production_ratio
+    prediction: beryllium_10_and_chlorine_36_ratio_consistent_with_candidate_particle_spectrum
+    rejection_condition: no_candidate_spectrum_matches_jointly
+  - id: archive_lag
+    prediction: ice_core_peak_lag_consistent_with_transport_and_deposition_model
+    rejection_condition: required_lag_exceeds_physical_and_chronological_bounds
+  - id: independent_replication
+    prediction: signal_repeats_in_independent_laboratories_and_archives
+    rejection_condition: signal_is_dataset_or_laboratory_specific
+
+rejected_inferences_without_independent_evidence:
+  - global_flood
+  - extraterrestrial_impact
+  - abrupt_atmospheric_O2_change
+  - globally_synchronous_climate_catastrophe
+  - civilization_collapse
+
+outputs:
+  - synchronized_age_likelihood
+  - archive_lag_distribution
+  - observation_model_residuals
+  - hypothesis_likelihood_comparison
+  - reproducibility_manifest
+
+sources:
+  - citation: Miyake et al. (2012), A signature of cosmic-ray increase in AD 774-775 from tree rings in Japan, Nature
+    doi: 10.1038/nature11123
+  - citation: Mekhaldi et al. (2015), Multiradionuclide evidence for the solar origin of the cosmic-ray events of AD 774/5 and 993/4, Nature Communications
+    doi: 10.1038/ncomms9611
+  - citation: Miyake et al. (2015), Cosmic ray event of AD 774-775 shown in quasi-annual 10Be data from the Antarctic Dome Fuji ice core, Geophysical Research Letters
+    doi: 10.1002/2014GL062218
+  - citation: Büntgen et al. (2018), Tree rings reveal globally coherent signature of cosmogenic radiocarbon events in 774 and 993 CE, Nature Communications
+    doi: 10.1038/s41467-018-06036-0
+  - citation: Uusitalo et al. (2018), Solar superstorm of AD 774 recorded subannually by Arctic tree rings, Nature Communications
+    doi: 10.1038/s41467-018-05883-1
