@@ -122,3 +122,34 @@ must remain outside the public repository.
 
 See [model boundaries](methodology/model-boundaries.md) and the
 [observation schema](schemas/observation.schema.json).
+
+## Runnable baseline
+
+The first executable is a deliberately transparent shoreline kernel. It computes the
+probability that a point was above local relative sea level while keeping three uncertain
+terms separate:
+
+```text
+local RSL = global mean sea level + local RSL anomaly
+exposure margin = present elevation - local RSL
+```
+
+The local anomaly is where a GIA solution, gravitational fingerprint, hydro-isostatic
+term, tectonic correction, and datum transformation enter. A zero anomaly is explicitly
+an **eustatic-only control**, not a reconstructed paleoshoreline.
+
+Run from this directory with Python 3.11 or newer:
+
+```bash
+python -m unittest discover -s tests -v
+
+python -m earth_forensic_model.cli \
+  --scenarios scenarios/mis-lowstands.json \
+  --sites examples/synthetic_sites.csv \
+  --output outputs/synthetic-exposure.csv
+```
+
+The bundled sites are synthetic and test the mathematics; they are not geographic claims.
+The six MIS inputs are representative samples from the Spratt-Lisiecki sea-level stack
+version 2 and retain the reported uncertainty. Regional Arctic and Antarctic runs require
+gridded bathymetry/topography plus an independently sourced local GIA field.
