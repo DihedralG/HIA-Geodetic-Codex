@@ -10,6 +10,7 @@ This ledger records candidate primary sources by model module. Inclusion is not 
 ## Sea level, ice volume, and GIA
 
 - Spratt, R. M., and Lisiecki, L. E. (2016). A Late Pleistocene sea level stack. *Climate of the Past*, 12, 1079-1092. DOI: [10.5194/cp-12-1079-2016](https://doi.org/10.5194/cp-12-1079-2016)
+- Spratt, R. M., and Lisiecki, L. E. (2025). A Late Pleistocene sea level stack, version 2 [dataset]. PANGAEA. DOI: [10.1594/PANGAEA.979830](https://doi.org/10.1594/PANGAEA.979830), CC-BY-3.0
 - Lambeck, K., Rouby, H., Purcell, A., Sun, Y., and Sambridge, M. (2014). Sea level and global ice volumes from the Last Glacial Maximum to the Holocene. *PNAS*, 111, 15296-15303. DOI: [10.1073/pnas.1411762111](https://doi.org/10.1073/pnas.1411762111)
 - Adhikari, S., and Ivins, E. R. (2016). Climate-driven polar motion: 2003-2015. *Science Advances*, 2, e1501693. DOI: [10.1126/sciadv.1501693](https://doi.org/10.1126/sciadv.1501693)
 
