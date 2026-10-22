@@ -4,9 +4,8 @@ This ledger records candidate primary sources by model module. Inclusion is not 
 
 ## Orbital forcing
 
-- Laskar, J., Joutel, F., and Boudin, F. (1993). Orbital, precessional, and insolation quantities for the Earth from -20 Myr to +10 Myr. *Astronomy and Astrophysics*, 270, 522-533. DOI: [10.1038/361615a0](https://doi.org/10.1038/361615a0)
-
-Note: verify the bibliographic DOI/title pairing before machine ingestion; the DOI resolves to the related *Nature* result on orbital stability, while the long ephemeris paper is commonly cited separately.
+- Laskar, J., Joutel, F., and Robutel, P. (1993). Stabilization of the Earth's obliquity by the Moon. *Nature*, 361, 615-617. DOI: [10.1038/361615a0](https://doi.org/10.1038/361615a0)
+- Laskar, J., Joutel, F., and Boudin, F. (1993). Orbital, precessional, and insolation quantities for the Earth from -20 Myr to +10 Myr. *Astronomy and Astrophysics*, 270, 522-533. Persistent identifier to be verified before automated ingestion.
 
 ## Sea level, ice volume, and GIA
 
@@ -17,9 +16,9 @@ Note: verify the bibliographic DOI/title pairing before machine ingestion; the D
 ## Ocean circulation and tracers
 
 - Pöppelmeier et al. (2023). North Atlantic overturning circulation and its climatic influence through the last deglaciation. *Nature Geoscience*. DOI: [10.1038/s41561-023-01140-3](https://doi.org/10.1038/s41561-023-01140-3)
-- Dong et al. (2020). DOI: [10.1029/2020GC009019](https://doi.org/10.1029/2020GC009019)
+- Dong et al. (2020). Isotopic fingerprints of ice-rafted debris offer new constraints on Mid to Late Quaternary Arctic circulation and glacial history. *Geochemistry, Geophysics, Geosystems*, 21, e2020GC009019. DOI: [10.1029/2020GC009019](https://doi.org/10.1029/2020GC009019)
 
-Full bibliographic metadata and dataset identifiers must be resolved before either source is included in an automated pipeline.
+Full author lists and dataset identifiers must be resolved before automated ingestion.
 
 ## Annually resolved cosmogenic calibration
 
@@ -32,7 +31,7 @@ Full bibliographic metadata and dataset identifiers must be resolved before eith
 ## Tree-ring isotope interpretation
 
 - Brienen et al. (2012). Oxygen isotopes in tree rings are a good proxy for Amazon precipitation and El Niño-Southern Oscillation variability. *PNAS*. DOI: [10.1073/pnas.1205977109](https://doi.org/10.1073/pnas.1205977109)
-- Yang et al. (2021). DOI: [10.1073/pnas.2102007118](https://doi.org/10.1073/pnas.2102007118)
+- Yang et al. (2021). Long-term decrease in Asian monsoon rainfall and abrupt climate change events over the past 6,700 years. *PNAS*, 118, e2102007118. DOI: [10.1073/pnas.2102007118](https://doi.org/10.1073/pnas.2102007118)
 
 The model treats tree-ring delta-13C and delta-18O through archive-specific observation operators. Neither is a direct measurement of atmospheric oxygen concentration.
 
