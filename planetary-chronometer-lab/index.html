@@ -4,21 +4,21 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="A transparent, testable workbench for planetary analemmas and deep-time chronometry." />
-  <title>Planetary Chronometer Lab</title>
+  <title>Modern Planetary Chronometer</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23071116'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%2372e7e0' stroke-width='3' transform='rotate(35 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%23e5bd67' stroke-width='3' transform='rotate(-35 32 32)'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%23eef4f6'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <div class="shell">
     <header class="topbar">
-      <a class="brand" href="#top" aria-label="Planetary Chronometer Lab home">
+      <a class="brand" href="#top" aria-label="Modern Planetary Chronometer home">
         <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
         <span><strong>PLANETARY CHRONOMETER</strong><small>ChiR Labs · scientific-hardening release v0.2</small></span>
       </a>
-      <div class="status"><span class="status-dot"></span> Scale Lab v0.2 · P001 isolated</div>
+      <div class="status"><span class="status-dot"></span> MPC v0.2 · P001 isolated</div>
     </header>
 
-    <div class="boundary"><b>Boundary:</b> this is an exploratory analytic-model harness—not an ephemeris, an observational result, or the separate P001 Earth reference protocol. Outputs are model-generated. The lab may eventually consume a validated P001 truth bundle; it cannot alter, fit, or back-propagate into it.</div>
+    <div class="boundary"><b>Boundary:</b> this is an exploratory analytic-model harness—not an ephemeris, an observational result, or the separate P001 Earth reference protocol. Outputs are model-generated. The instrument may eventually consume a validated P001 truth bundle; it cannot alter, fit, or back-propagate into it.</div>
 
     <main id="top">
       <section class="hero">
@@ -152,8 +152,8 @@
       </section>
 
       <section class="role panel">
-        <div class="panel-head"><div><span class="kicker">08 / PARTNER ROLE</span><h2>What a quantum-computing partner conversation would actually ask</h2></div></div>
-        <div class="role-grid"><div><b>Not the ask</b><p>“Can quantum hardware draw more analemmas or make ChiR true?”</p></div><div><b>The credible ask</b><p>“Can an alternate architecture evaluate a frozen K-01 kernel with lower time-to-solution, energy-to-solution, or total resource cost than matched classical baselines under a declared accounting boundary?”</p></div><div><b>Required evidence</b><p>Encoding and oracle construction, logical-qubit count, circuit depth, fault-tolerant operations, error correction, data movement, solution quality, failure rate, wall time, and end-to-end control, cooling, and facility energy.</p></div></div>
+        <div class="panel-head"><div><span class="kicker">08 / PARTNER EVALUATION</span><h2>Framework for comparative compute testing</h2></div></div>
+        <div class="role-grid"><div><b>Research kernel</b><p>Evaluate the frozen, reproducible K-01 workload without changing its inputs, output ledger, uncertainty rules, or failure reporting.</p></div><div><b>Comparative question</b><p>Can an alternate architecture improve time-to-solution, energy-to-solution, or total verified resource cost against matched classical baselines?</p></div><div><b>Evidence standard</b><p>Declare encoding and oracle construction, logical-qubit count, circuit depth, fault-tolerant operations, error correction, data movement, solution quality, failure rate, wall time, and end-to-end control, cooling, and facility energy.</p></div></div>
       </section>
 
       <section class="method panel">
@@ -170,7 +170,7 @@
       <section class="audit panel">
         <div class="panel-head"><div><span class="kicker">10 / MODEL AUDIT</span><h2>Authority, frames, and validation status</h2></div><span class="badge outline">visible uncertainty</span></div>
         <div class="audit-grid">
-          <div class="audit-card pass"><span>ANALYTIC SANITY CHECK</span><b id="earthCheck">Running…</b><p id="earthCheckDetail">Evaluating the Earth reference envelope.</p></div>
+          <div class="audit-card pass"><span>INTERNAL ANALYTIC CHECK</span><b id="earthCheck">Running…</b><p id="earthCheckDetail">Evaluating the expected bounds of the declared Earth equations.</p></div>
           <div class="audit-card pending"><span>EPHEMERIS RESIDUAL</span><b>Not yet run</b><p>Compare dated Earth outputs with JPL Horizons over a declared valid interval and publish angular and time residuals.</p></div>
           <div class="audit-card pending"><span>NON-EARTH BODY FRAMES</span><b>Not yet validated</b><p>Planetary previews require explicit pole orientation, seasonal zero, rotation convention, and—where applicable—cloud-top or differential-rotation definitions.</p></div>
           <div class="audit-card pending"><span>DEEP-TIME AUTHORITY</span><b>Not established</b><p>The cycle proxy is a sensitivity control only. Scientific use requires a validated long-term orbital and precession solution.</p></div>
@@ -179,7 +179,7 @@
     </main>
 
     <footer>
-      <p><strong>Planetary Chronometer Lab v0.2</strong> · A ChiR Labs exploratory research instrument</p>
+      <p><strong>Modern Planetary Chronometer v0.2</strong> · A ChiR Labs exploratory research instrument</p>
       <p>Physical presets draw on <a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/" target="_blank" rel="noreferrer">NASA’s Planetary Fact Sheet</a>; orbital elements draw on <a href="https://ssd.jpl.nasa.gov/planets/approx_pos.html" target="_blank" rel="noreferrer">JPL’s fitted approximate elements</a>. JPL states that those elements are invalid outside their fitted intervals and directs high-precision work to <a href="https://ssd.jpl.nasa.gov/horizons/" target="_blank" rel="noreferrer">Horizons</a>. Non-Earth phase values in this prototype are coordinate or seasonal proxies—not validated body-fixed ephemerides.</p>
     </footer>
   </div>
