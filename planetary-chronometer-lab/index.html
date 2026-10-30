@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A transparent, testable workbench for planetary analemmas and deep-time chronometry." />
+  <title>Planetary Chronometer Lab</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23071116'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%2372e7e0' stroke-width='3' transform='rotate(35 32 32)'/%3E%3Cellipse cx='32' cy='32' rx='24' ry='9' fill='none' stroke='%23e5bd67' stroke-width='3' transform='rotate(-35 32 32)'/%3E%3Ccircle cx='32' cy='32' r='4' fill='%23eef4f6'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Planetary Chronometer Lab home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span><strong>PLANETARY CHRONOMETER</strong><small>ChiR Labs · exploratory instrument v0.1</small></span>
+      </a>
+      <div class="status"><span class="status-dot"></span> Scale Lab v0.2 · P001 untouched</div>
+    </header>
+
+    <div class="boundary"><b>Boundary:</b> this is an exploratory scale harness, not the locked P001 Earth reference implementation. It may consume a validated P001 truth bundle; it cannot alter, fit, or back-propagate into it.</div>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">SIGNAL BEFORE INTERPRETATION</p>
+          <h1>Scale the workload.<br><em>Preserve the truth standard.</em></h1>
+          <p class="lede">A hardware-neutral harness for planetary chronometer workloads. P001 remains an immutable Earth reference; this surface measures whether other compute architectures can reproduce or extend its specified outputs.</p>
+        </div>
+        <div class="hero-orbit" aria-hidden="true">
+          <div class="orbit orbit-a"><span></span></div>
+          <div class="orbit orbit-b"><span></span></div>
+          <div class="orbit orbit-c"><span></span></div>
+          <div class="core"></div>
+        </div>
+      </section>
+
+      <section class="workbench">
+        <aside class="controls panel">
+          <div class="panel-head">
+            <div><span class="kicker">01 / MODEL</span><h2>Instrument controls</h2></div>
+            <button id="resetBtn" class="text-btn">Reset</button>
+          </div>
+
+          <label class="field"><span>Planetary preset</span><select id="planet"></select></label>
+          <div class="segmented" role="group" aria-label="Model tier">
+            <button class="mode active" data-mode="preset">J2000 preset</button>
+            <button class="mode" data-mode="deep">Deep-time study</button>
+            <button class="mode" data-mode="manual">Manual</button>
+          </div>
+
+          <label class="field range-field">
+            <span><b>Epoch</b><output id="epochOut">0 CE</output></span>
+            <input id="epoch" type="range" min="-50000" max="50000" step="50" value="0" />
+            <small>Deep-time mode uses an explicitly approximate cycle model—not a high-precision ephemeris.</small>
+          </label>
+
+          <div class="control-grid">
+            <label class="field"><span>Eccentricity <output id="eccOut"></output></span><input id="ecc" type="range" min="0" max="0.24" step="0.0005" /></label>
+            <label class="field"><span>Obliquity <output id="oblOut"></output></span><input id="obl" type="range" min="0" max="180" step="0.05" /></label>
+            <label class="field"><span>Perihelion phase <output id="periOut"></output></span><input id="peri" type="range" min="0" max="360" step="0.5" /></label>
+            <label class="field"><span>Local latitude <output id="latOut"></output></span><input id="lat" type="range" min="-89" max="89" step="0.1" value="44.4" /></label>
+            <label class="field"><span>Local mean time <output id="timeOut"></output></span><input id="time" type="range" min="0" max="24" step="0.25" value="12" /></label>
+            <label class="field"><span>Samples <output id="samplesOut"></output></span><input id="samples" type="range" min="72" max="720" step="24" value="360" /></label>
+          </div>
+
+          <div class="switch-row"><label><input id="compare" type="checkbox" checked /><span></span> Compare preset</label><label><input id="points" type="checkbox" /><span></span> Sample points</label></div>
+
+          <div class="action-row">
+            <button id="csvBtn" class="primary">Export training CSV</button>
+            <button id="jsonBtn" class="secondary">Save trace JSON</button>
+          </div>
+        </aside>
+
+        <section class="visuals">
+          <article class="panel plot-card">
+            <div class="panel-head">
+              <div><span class="kicker">02 / ORBITAL SIGNATURE</span><h2 id="analemmaTitle">Earth analemma</h2></div>
+              <div id="shapeBadge" class="badge">figure-eight</div>
+            </div>
+            <svg id="analemmaPlot" viewBox="0 0 760 460" role="img" aria-label="Analemma plot"></svg>
+            <div class="metrics" id="metrics"></div>
+          </article>
+
+          <article class="panel plot-card">
+            <div class="panel-head">
+              <div><span class="kicker">03 / LOCAL PROJECTION</span><h2>Sky-plane trace</h2></div>
+              <span class="meta" id="siteMeta">44.4° N · 12:00</span>
+            </div>
+            <svg id="skyPlot" viewBox="0 0 760 390" role="img" aria-label="Local sky projection"></svg>
+            <p class="caption">Altitude and azimuth at the same local mean time through one orbital period. Below-horizon samples are retained as evidence, not silently removed.</p>
+          </article>
+        </section>
+      </section>
+
+      <section class="lower-grid">
+        <article class="panel clocks">
+          <div class="panel-head"><div><span class="kicker">04 / CLOCK STACK</span><h2>Nested timescales</h2></div></div>
+          <div id="clockStack"></div>
+        </article>
+
+        <article class="panel compute">
+          <div class="panel-head"><div><span class="kicker">05 / COMPUTE BRIDGE</span><h2>Workload anatomy</h2></div><span class="badge outline">hardware-neutral</span></div>
+          <p>This v0.1 is deliberately classical. It exposes independent solves, synchronization boundaries, and measurable outputs so a quantum or HPC partner can identify a real acceleration target instead of inheriting a metaphor.</p>
+          <div class="pipeline" aria-label="Computation pipeline">
+            <div><b>01</b><span>parameter grid</span></div><i>→</i><div><b>02</b><span>Kepler solves</span></div><i>→</i><div><b>03</b><span>frame transforms</span></div><i>→</i><div><b>04</b><span>shape + error tests</span></div>
+          </div>
+          <div class="compute-stats" id="computeStats"></div>
+          <div class="fit-note"><strong>Future hardware question</strong><span>Can a partner improve ensemble throughput, uncertainty propagation, or inverse-parameter search against this identical classical baseline?</span></div>
+        </article>
+      </section>
+
+      <section class="protocol panel">
+        <div class="panel-head"><div><span class="kicker">06 / VALIDATION ARCHITECTURE</span><h2>Reference first, scale second</h2></div><span class="badge outline">one-way dependency</span></div>
+        <div class="stage-grid">
+          <div class="stage locked"><span>P001</span><b>Earth reference</b><p>Known-data validation. Corrected Vondrák implementation, NCP/SCP trajectory, stellar propagation, actual minima, then a blind merge with the solar ledger.</p><small>LOCKED · no fitting</small></div>
+          <div class="stage"><span>P002</span><b>Mars generalization</b><p>The same conceptual engine with Mars constants. Held downstream until the Earth pipeline validates.</p><small>GATE: P001 pass</small></div>
+          <div class="stage"><span>P003</span><b>Catalogued exoplanets</b><p>Scale test across measured systems, with uncertainty carried as data rather than silently resolved.</p><small>GATE: input quality</small></div>
+          <div class="stage"><span>P004</span><b>Synthetic systems</b><p>Controlled stress tests with known ground truth, boundary cases, and intentionally adversarial geometries.</p><small>GATE: baseline parity</small></div>
+          <div class="stage"><span>P005</span><b>Renderer audit</b><p>AI output compared with machine-readable coordinates. The renderer cannot invent curve morphology or stellar placement.</p><small>GATE: visual residuals</small></div>
+        </div>
+        <div class="lock-rules"><b>P001 firewall</b><span>No protected dates. No corridor fitting. No preferred stars. No site feedback into astronomy. Solar and polar/stellar extrema merge only after independent computation; negative results remain in the ledger.</span></div>
+      </section>
+
+      <section class="benchmark panel">
+        <div class="panel-head"><div><span class="kicker">07 / BENCHMARK GENERATOR</span><h2>Define a reproducible scale run</h2></div><div id="tierBadge" class="badge">P003 · catalog</div></div>
+        <div class="benchmark-grid">
+          <div class="benchmark-controls">
+            <label class="field"><span>Workload tier</span><select id="benchTier"><option value="p001">P001 — Earth replay</option><option value="p002">P002 — Mars replay</option><option value="p003" selected>P003 — exoplanet catalog</option><option value="p004">P004 — synthetic systems</option><option value="p005">P005 — renderer audit</option></select></label>
+            <label class="field"><span>Planetary systems <output id="objectsOut">1,000</output></span><input id="objects" type="range" min="1" max="10000" step="1" value="1000" /></label>
+            <label class="field"><span>Epochs per system <output id="epochsOut">120</output></span><input id="epochs" type="range" min="1" max="720" step="1" value="120" /></label>
+            <label class="field"><span>Observer geometries <output id="observersOut">24</output></span><input id="observers" type="range" min="1" max="96" step="1" value="24" /></label>
+            <label class="field"><span>Uncertainty draws <output id="drawsOut">64</output></span><input id="draws" type="range" min="1" max="512" step="1" value="64" /></label>
+            <button id="manifestBtn" class="primary wide">Export benchmark manifest</button>
+          </div>
+          <div class="kernel">
+            <div class="kernel-title"><span>K-01</span><div><b>Bounded inverse chronometer search</b><small>first proposed computational kernel</small></div></div>
+            <p>Given a frozen truth bundle and uncertainty bounds, evaluate candidate planetary states against the same observable ledger. Return residuals and uncertainty-preserving rankings—not a preferred picture.</p>
+            <dl><div><dt>Parallel unit</dt><dd>one candidate state × epoch × observer</dd></div><div><dt>Synchronization</dt><dd>after independent residual calculation</dd></div><div><dt>Classical baseline</dt><dd>vectorized CPU, GPU, then distributed ensemble</dd></div><div><dt>Quantum candidate</dt><dd>bounded search or amplitude-estimation subroutine, only if resource accounting supports it</dd></div><div><dt>Failure output</dt><dd>null, negative, and contradictory results retained</dd></div></dl>
+          </div>
+          <div class="run-card">
+            <span>Projected run</span><strong id="candidateCount">184.3 billion</strong><small>candidate evaluations</small>
+            <div class="run-metrics" id="runMetrics"></div>
+            <div class="verdict"><b id="quantumVerdict">Classical baseline required</b><p id="verdictCopy">This size can justify HPC load testing. It does not, by itself, establish a quantum advantage.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="role panel">
+        <div class="panel-head"><div><span class="kicker">08 / PARTNER ROLE</span><h2>What a quantum-computing partner conversation would actually ask</h2></div></div>
+        <div class="role-grid"><div><b>Not the ask</b><p>“Can quantum hardware draw more analemmas or make ChiR true?”</p></div><div><b>The credible ask</b><p>“Can your fault-tolerant architecture evaluate a frozen, reproducible K-01 kernel with lower time, energy, or verified resource cost than matched classical baselines?”</p></div><div><b>Required evidence</b><p>Logical-qubit count, circuit depth, fault-tolerant operations, data-loading cost, solution quality, wall time, energy, and complete failure reporting.</p></div></div>
+      </section>
+
+      <section class="method panel">
+        <div class="panel-head"><div><span class="kicker">09 / VERIFICATION LADDER</span><h2>What this version proves—and what it does not</h2></div></div>
+        <div class="ladder">
+          <div class="done"><span>1</span><b>Reproducible geometry</b><p>Kepler solve, ecliptic-to-equatorial transform, equation-of-time trace, and local horizon projection.</p></div>
+          <div class="done"><span>2</span><b>Inspectable provenance</b><p>Every export carries parameters, model tier, equations, timestamp, and all generated samples.</p></div>
+          <div><span>3</span><b>Ephemeris validation</b><p>Next: compare against JPL Horizons over its valid intervals and quantify angular/time residuals.</p></div>
+          <div><span>4</span><b>Deep-time authority</b><p>Requires a validated long-term orbital/precession solution. The current cycle mode is exploratory only.</p></div>
+          <div><span>5</span><b>Quantum advantage</b><p>Unclaimed. It requires a defined kernel, matched classical baseline, resource accounting, and independent verification.</p></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p><strong>Planetary Chronometer Lab</strong> · A ChiR Labs research instrument</p>
+      <p>Preset values draw on <a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/" target="_blank" rel="noreferrer">NASA’s Planetary Fact Sheet</a> and <a href="https://ssd.jpl.nasa.gov/planets/approx_pos.html" target="_blank" rel="noreferrer">JPL’s approximate orbital elements</a>. JPL explicitly limits its approximate elements by date range; deep-time claims require a separate validated solution.</p>
+    </footer>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>
