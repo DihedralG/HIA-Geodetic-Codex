@@ -1,4 +1,4 @@
-# Planetary Chronometer Lab
+# Modern Planetary Chronometer
 
 An interactive, hardware-neutral analytic-model and scale harness for Planetary Chronometer workloads. Version 0.2 is a scientific-hardening release: it makes model authority, coordinate conventions, rotation context, accounting assumptions, and unresolved validation gates visible in the interface and exports.
 
