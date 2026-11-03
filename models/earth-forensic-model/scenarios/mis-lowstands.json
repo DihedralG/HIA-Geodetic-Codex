@@ -1,0 +1,66 @@
+{
+  "schema_version": "0.1.0",
+  "title": "Representative MIS lowstand points",
+  "status": "derived",
+  "support_status": "provisionally_supported",
+  "datum": "meters relative to modern sea level",
+  "uncertainty_model": "Gaussian approximation using reported bootstrap standard deviation; reported 95% confidence bounds retained for audit",
+  "selection_rule": "Representative one-kyr sample near each named glacial lowstand. These are not local paleoshorelines and are not asserted to be the unique minimum of the entire MIS interval.",
+  "source": {
+    "citation": "Spratt, R. M. and Lisiecki, L. E. (2025), A Late Pleistocene sea level stack, version 2",
+    "dataset_doi": "10.1594/PANGAEA.979830",
+    "paper_doi": "10.5194/cp-12-1079-2016",
+    "license": "CC-BY-3.0",
+    "series": "SeaLev_shortPC1"
+  },
+  "scenarios": [
+    {
+      "id": "MIS_2",
+      "age_ka_bp": 24,
+      "global_mean_sea_level_m": -130.00,
+      "standard_deviation_m": 4.38,
+      "ci95_lower_m": -134.58,
+      "ci95_upper_m": -118.09
+    },
+    {
+      "id": "MIS_4",
+      "age_ka_bp": 61,
+      "global_mean_sea_level_m": -86.56,
+      "standard_deviation_m": 8.68,
+      "ci95_lower_m": -100.68,
+      "ci95_upper_m": -63.69
+    },
+    {
+      "id": "MIS_6",
+      "age_ka_bp": 136,
+      "global_mean_sea_level_m": -123.95,
+      "standard_deviation_m": 7.89,
+      "ci95_lower_m": -140.25,
+      "ci95_upper_m": -109.67
+    },
+    {
+      "id": "MIS_8",
+      "age_ka_bp": 270,
+      "global_mean_sea_level_m": -98.21,
+      "standard_deviation_m": 7.59,
+      "ci95_lower_m": -106.96,
+      "ci95_upper_m": -76.66
+    },
+    {
+      "id": "MIS_10",
+      "age_ka_bp": 345,
+      "global_mean_sea_level_m": -109.04,
+      "standard_deviation_m": 9.73,
+      "ci95_lower_m": -126.09,
+      "ci95_upper_m": -88.15
+    },
+    {
+      "id": "MIS_12",
+      "age_ka_bp": 429,
+      "global_mean_sea_level_m": -120.44,
+      "standard_deviation_m": 13.74,
+      "ci95_lower_m": -150.20,
+      "ci95_upper_m": -96.76
+    }
+  ]
+}

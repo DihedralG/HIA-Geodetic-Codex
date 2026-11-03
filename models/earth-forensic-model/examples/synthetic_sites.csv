@@ -1,0 +1,6 @@
+site_id,present_elevation_m,elevation_standard_deviation_m,local_rsl_anomaly_m,local_rsl_standard_deviation_m
+synthetic_inner_shelf,-50,5,0,0
+synthetic_outer_shelf,-100,5,0,0
+synthetic_deep_ridge,-650,25,0,0
+synthetic_near_field_shelf,-100,5,50,20
+synthetic_present_land,10,2,0,0
