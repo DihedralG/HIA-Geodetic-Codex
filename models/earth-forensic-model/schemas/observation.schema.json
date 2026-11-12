@@ -1,0 +1,322 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dihedralg.github.io/HIA-Geodetic-Codex/models/earth-forensic-model/schemas/observation.schema.json",
+  "title": "Earth Forensic Model Observation",
+  "description": "A versioned record for an observation, derivation, model output, or explicitly labeled hypothesis.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "observation_id",
+    "evidence_class",
+    "support_status",
+    "archive_type",
+    "site",
+    "chronology",
+    "proxy",
+    "process",
+    "source",
+    "quality"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "observation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_class": {
+      "type": "string",
+      "enum": [
+        "observed",
+        "derived",
+        "modeled",
+        "hypothesis"
+      ]
+    },
+    "archive_type": {
+      "type": "string",
+      "enum": [
+        "tree_ring",
+        "ice_core",
+        "marine_sediment",
+        "lake_sediment",
+        "speleothem",
+        "coral",
+        "shoreline",
+        "geomorphic",
+        "fossil_bed",
+        "instrumental",
+        "satellite",
+        "other"
+      ]
+    },
+    "site": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "latitude",
+        "longitude",
+        "coordinate_reference_system"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "latitude": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "longitude": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180
+        },
+        "elevation_m": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "horizontal_uncertainty_m": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "vertical_uncertainty_m": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "coordinate_reference_system": {
+          "type": "string",
+          "minLength": 1
+        },
+        "vertical_datum": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "chronology": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "central_age",
+        "age_units",
+        "dating_method"
+      ],
+      "properties": {
+        "central_age": {
+          "type": "number"
+        },
+        "age_units": {
+          "type": "string",
+          "enum": [
+            "CE",
+            "BCE",
+            "BP",
+            "ka_BP",
+            "Ma"
+          ]
+        },
+        "lower_age": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "upper_age": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "dating_method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "resolution_years": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "exclusiveMinimum": 0
+        },
+        "age_model_reference": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "proxy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "value",
+        "units"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "type": [
+            "number",
+            "string",
+            "array"
+          ]
+        },
+        "units": {
+          "type": "string"
+        },
+        "standard": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "analytical_uncertainty": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "uncertainty_units": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "process": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observation_operator",
+        "confounders"
+      ],
+      "properties": {
+        "source_region": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "transport_pathway": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observation_operator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "confounders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "citation"
+      ],
+      "properties": {
+        "citation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "doi": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "license": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "data_accessed": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "flags"
+      ],
+      "properties": {
+        "replicates": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "support_status": {
+      "type": "string",
+      "enum": [
+        "untested",
+        "provisionally_supported",
+        "mixed",
+        "not_supported",
+        "falsified",
+        "not_applicable"
+      ]
+    }
+  }
+}
